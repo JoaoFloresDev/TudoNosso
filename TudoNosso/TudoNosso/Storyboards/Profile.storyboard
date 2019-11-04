@@ -7,17 +7,17 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Item-->
+        <!--Profile-->
         <scene sceneID="XpE-aN-JXc">
             <objects>
-                <viewController id="nET-7L-Osk" sceneMemberID="viewController">
+                <viewController id="nET-7L-Osk" customClass="ProfileViewController" customModule="TudoNosso" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ELu-Qm-RMF">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="n0i-jl-CD4"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="A6U-EV-Cgd"/>
+                    <tabBarItem key="tabBarItem" title="Profile" id="A6U-EV-Cgd"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uwq-EZ-B5R" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

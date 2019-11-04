@@ -7,17 +7,17 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Item-->
+        <!--Explore-->
         <scene sceneID="BzX-fM-qaV">
             <objects>
-                <viewController id="fOy-X3-EIL" sceneMemberID="viewController">
+                <viewController id="fOy-X3-EIL" customClass="ExploreViewController" customModule="TudoNosso" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="pMv-6W-ECo">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="P5W-Mn-JAs"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="aEv-fT-cUh"/>
+                    <tabBarItem key="tabBarItem" title="Explore" id="aEv-fT-cUh"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4CV-jY-iSw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
