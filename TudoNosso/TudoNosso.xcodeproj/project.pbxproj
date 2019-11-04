@@ -16,6 +16,10 @@
 		C40A2E8723704BA700DB87BB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C40A2E8523704BA700DB87BB /* LaunchScreen.storyboard */; };
 		C40A2E9223704BA700DB87BB /* TudoNossoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40A2E9123704BA700DB87BB /* TudoNossoTests.swift */; };
 		C40A2E9D23704BA700DB87BB /* TudoNossoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40A2E9C23704BA700DB87BB /* TudoNossoUITests.swift */; };
+		C40A2EAF23704E7C00DB87BB /* Explore.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C40A2EAE23704E7C00DB87BB /* Explore.storyboard */; };
+		C40A2EB123704E9700DB87BB /* Notifications.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C40A2EB023704E9700DB87BB /* Notifications.storyboard */; };
+		C40A2EB323704EB200DB87BB /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C40A2EB223704EB200DB87BB /* Profile.storyboard */; };
+		C40A2EB523704EC700DB87BB /* Stories.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C40A2EB423704EC700DB87BB /* Stories.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +55,10 @@
 		C40A2E9823704BA700DB87BB /* TudoNossoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TudoNossoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C40A2E9C23704BA700DB87BB /* TudoNossoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TudoNossoUITests.swift; sourceTree = "<group>"; };
 		C40A2E9E23704BA700DB87BB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C40A2EAE23704E7C00DB87BB /* Explore.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Explore.storyboard; sourceTree = "<group>"; };
+		C40A2EB023704E9700DB87BB /* Notifications.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Notifications.storyboard; sourceTree = "<group>"; };
+		C40A2EB223704EB200DB87BB /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
+		C40A2EB423704EC700DB87BB /* Stories.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Stories.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,11 +112,15 @@
 				C40A2E7723704BA500DB87BB /* AppDelegate.swift */,
 				C40A2E7923704BA500DB87BB /* SceneDelegate.swift */,
 				C40A2E7B23704BA500DB87BB /* ViewController.swift */,
-				C40A2E7D23704BA500DB87BB /* Main.storyboard */,
 				C40A2E8323704BA700DB87BB /* Assets.xcassets */,
-				C40A2E8523704BA700DB87BB /* LaunchScreen.storyboard */,
 				C40A2E8823704BA700DB87BB /* Info.plist */,
 				C40A2E8023704BA500DB87BB /* TudoNosso.xcdatamodeld */,
+				C40A2E8523704BA700DB87BB /* LaunchScreen.storyboard */,
+				C40A2E7D23704BA500DB87BB /* Main.storyboard */,
+				C40A2EAE23704E7C00DB87BB /* Explore.storyboard */,
+				C40A2EB023704E9700DB87BB /* Notifications.storyboard */,
+				C40A2EB223704EB200DB87BB /* Profile.storyboard */,
+				C40A2EB423704EC700DB87BB /* Stories.storyboard */,
 			);
 			path = TudoNosso;
 			sourceTree = "<group>";
@@ -235,7 +247,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C40A2EB323704EB200DB87BB /* Profile.storyboard in Resources */,
+				C40A2EAF23704E7C00DB87BB /* Explore.storyboard in Resources */,
+				C40A2EB123704E9700DB87BB /* Notifications.storyboard in Resources */,
 				C40A2E8723704BA700DB87BB /* LaunchScreen.storyboard in Resources */,
+				C40A2EB523704EC700DB87BB /* Stories.storyboard in Resources */,
 				C40A2E8423704BA700DB87BB /* Assets.xcassets in Resources */,
 				C40A2E7F23704BA500DB87BB /* Main.storyboard in Resources */,
 			);
