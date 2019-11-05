@@ -9,9 +9,8 @@
 /* Begin PBXBuildFile section */
 		3B08C35A717ED3964E4F36AF /* Pods_TudoNosso_TudoNossoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A01E7358CA8C4FF34A59BF3 /* Pods_TudoNosso_TudoNossoUITests.framework */; };
 		567D0C4F2370530A00420704 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 567D0C4E2370530A00420704 /* GoogleService-Info.plist */; };
-		8571DF3A7A0C03D95E22E750 /* Pods_TudoNosso.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7288F1A83E6BC9FED01A6A0 /* Pods_TudoNosso.framework */; };
+		8571DF3A7A0C03D95E22E750 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
 		C40A2E7823704BA500DB87BB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40A2E7723704BA500DB87BB /* AppDelegate.swift */; };
-		C40A2E7A23704BA500DB87BB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40A2E7923704BA500DB87BB /* SceneDelegate.swift */; };
 		C40A2E7C23704BA500DB87BB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40A2E7B23704BA500DB87BB /* ViewController.swift */; };
 		C40A2E7F23704BA500DB87BB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C40A2E7D23704BA500DB87BB /* Main.storyboard */; };
 		C40A2E8223704BA500DB87BB /* TudoNosso.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C40A2E8023704BA500DB87BB /* TudoNosso.xcdatamodeld */; };
@@ -56,7 +55,6 @@
 		9D779667FEF2192A7F627FE1 /* Pods-TudoNosso-TudoNossoUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TudoNosso-TudoNossoUITests.release.xcconfig"; path = "Target Support Files/Pods-TudoNosso-TudoNossoUITests/Pods-TudoNosso-TudoNossoUITests.release.xcconfig"; sourceTree = "<group>"; };
 		C40A2E7423704BA500DB87BB /* TudoNosso.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TudoNosso.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C40A2E7723704BA500DB87BB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		C40A2E7923704BA500DB87BB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		C40A2E7B23704BA500DB87BB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		C40A2E7E23704BA500DB87BB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C40A2E8123704BA500DB87BB /* TudoNosso.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TudoNosso.xcdatamodel; sourceTree = "<group>"; };
@@ -84,7 +82,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8571DF3A7A0C03D95E22E750 /* Pods_TudoNosso.framework in Frameworks */,
+				8571DF3A7A0C03D95E22E750 /* (null) in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -92,7 +90,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E03F1DB2555BF955F8235ED9 /* Pods_TudoNossoTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -111,10 +108,8 @@
 			isa = PBXGroup;
 			children = (
 				16C644B359E32E5DDBC65E7B /* Pods-TudoNosso.debug.xcconfig */,
-				C781736356115DC0926CA688 /* Pods-TudoNosso.release.xcconfig */,
 				7A8AABBB59DCDBB0CAA3CC4E /* Pods-TudoNosso-TudoNossoUITests.debug.xcconfig */,
 				9D779667FEF2192A7F627FE1 /* Pods-TudoNosso-TudoNossoUITests.release.xcconfig */,
-				DDAE838DB231CE082E55923A /* Pods-TudoNossoTests.debug.xcconfig */,
 				224AFBC86B801E3B9A526E09 /* Pods-TudoNossoTests.release.xcconfig */,
 			);
 			path = Pods;
@@ -123,24 +118,10 @@
 		1301FF58698DA1ACD13C9620 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				E7288F1A83E6BC9FED01A6A0 /* Pods_TudoNosso.framework */,
 				3A01E7358CA8C4FF34A59BF3 /* Pods_TudoNosso_TudoNossoUITests.framework */,
 				02D64479AB48D475B64D5A86 /* Pods_TudoNossoTests.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		567D0C502370531500420704 /* Storyboards */ = {
-			isa = PBXGroup;
-			children = (
-				C40A2E8523704BA700DB87BB /* LaunchScreen.storyboard */,
-				C40A2E7D23704BA500DB87BB /* Main.storyboard */,
-				C40A2EAE23704E7C00DB87BB /* Explore.storyboard */,
-				C40A2EB023704E9700DB87BB /* Notifications.storyboard */,
-				C40A2EB223704EB200DB87BB /* Profile.storyboard */,
-				C40A2EB423704EC700DB87BB /* Stories.storyboard */,
-			);
-			path = Storyboards;
 			sourceTree = "<group>";
 		};
 		C40A2E6B23704BA500DB87BB = {
@@ -171,7 +152,6 @@
 				C422672E237055BD000A6DA3 /* ViewControllers */,
 				C422672D237055A1000A6DA3 /* Storyboards */,
 				C40A2E7723704BA500DB87BB /* AppDelegate.swift */,
-				C40A2E7923704BA500DB87BB /* SceneDelegate.swift */,
 				C40A2E8323704BA700DB87BB /* Assets.xcassets */,
 				C40A2E8823704BA700DB87BB /* Info.plist */,
 				567D0C4E2370530A00420704 /* GoogleService-Info.plist */,
@@ -474,7 +454,6 @@
 				C4226736237057B1000A6DA3 /* ProfileViewController.swift in Sources */,
 				C40A2E7823704BA500DB87BB /* AppDelegate.swift in Sources */,
 				C4226738237057C1000A6DA3 /* StoriesViewController.swift in Sources */,
-				C40A2E7A23704BA500DB87BB /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -649,8 +628,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = GJUSD98938;
+				DEVELOPMENT_TEAM = 9HYX7YXGKC;
 				INFOPLIST_FILE = TudoNosso/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -658,18 +638,18 @@
 				PRODUCT_BUNDLE_IDENTIFIER = joaoFlores.TudoNosso;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
 		C40A2EA323704BA700DB87BB /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C781736356115DC0926CA688 /* Pods-TudoNosso.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = GJUSD98938;
+				DEVELOPMENT_TEAM = 9HYX7YXGKC;
 				INFOPLIST_FILE = TudoNosso/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -677,13 +657,12 @@
 				PRODUCT_BUNDLE_IDENTIFIER = joaoFlores.TudoNosso;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
 		C40A2EA523704BA700DB87BB /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = DDAE838DB231CE082E55923A /* Pods-TudoNossoTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
