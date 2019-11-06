@@ -15,7 +15,42 @@
                     <view key="view" contentMode="scaleToFill" id="ELu-Qm-RMF">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4uf-3h-zcr">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="140"/>
+                                <color key="backgroundColor" red="1" green="0.34901960784313724" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="140" id="91V-dX-kKz"/>
+                                </constraints>
+                            </view>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="orange_logo_tudonosso" translatesAutoresizingMaskIntoConstraints="NO" id="75K-5L-OFi" customClass="RoundedImageView" customModule="TudoNosso" customModuleProvider="target">
+                                <rect key="frame" x="133.5" y="67" width="147" height="147"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="147" id="K6E-Mc-Ifh"/>
+                                    <constraint firstAttribute="height" constant="147" id="XNb-lo-8Rb"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="border">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="radius">
+                                        <real key="value" value="0.5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" red="0.97647058823529409" green="0.97647058823529409" blue="0.97647058823529409" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="n0i-jl-CD4" firstAttribute="trailing" secondItem="4uf-3h-zcr" secondAttribute="trailing" id="4uX-4q-rly"/>
+                            <constraint firstItem="4uf-3h-zcr" firstAttribute="top" secondItem="ELu-Qm-RMF" secondAttribute="top" id="YPq-dZ-5HQ"/>
+                            <constraint firstItem="75K-5L-OFi" firstAttribute="centerX" secondItem="ELu-Qm-RMF" secondAttribute="centerX" id="f3Q-tB-3Ox"/>
+                            <constraint firstItem="75K-5L-OFi" firstAttribute="top" secondItem="4uf-3h-zcr" secondAttribute="bottom" constant="-73" id="ih1-ni-Pvh"/>
+                            <constraint firstItem="4uf-3h-zcr" firstAttribute="leading" secondItem="n0i-jl-CD4" secondAttribute="leading" id="rpb-RT-UBg"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="n0i-jl-CD4"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Perfil" image="profile_icon" id="A6U-EV-Cgd"/>
@@ -27,6 +62,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="orange_logo_tudonosso" width="1500" height="1694"/>
         <image name="profile_icon" width="19" height="23"/>
     </resources>
 </document>
