@@ -11,7 +11,7 @@
         <!--Perfil-->
         <scene sceneID="XpE-aN-JXc">
             <objects>
-                <viewController id="nET-7L-Osk" customClass="ProfileViewController" customModule="TudoNosso" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="nET-7L-Osk" customClass="JobViewController" customModule="TudoNosso" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ELu-Qm-RMF">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -59,6 +59,16 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uwq-EZ-B5R" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="106" y="133"/>
+        </scene>
+        <!--Job-->
+        <scene sceneID="P66-my-lsF">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Job" id="BEc-Uq-R0D" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="ry7-vm-897"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mwl-to-U34" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="605" y="-21"/>
         </scene>
     </scenes>
     <resources>
