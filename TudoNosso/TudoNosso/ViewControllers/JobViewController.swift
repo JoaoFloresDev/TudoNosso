@@ -8,7 +8,7 @@
 
 import UIKit
 
-class StoriesViewController: UIViewController {
+class JobViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
