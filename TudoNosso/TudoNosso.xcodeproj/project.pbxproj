@@ -13,7 +13,6 @@
 		567D0C4F2370530A00420704 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 567D0C4E2370530A00420704 /* GoogleService-Info.plist */; };
 		8571DF3A7A0C03D95E22E750 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
 		C40A2E7823704BA500DB87BB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40A2E7723704BA500DB87BB /* AppDelegate.swift */; };
-		C40A2E7A23704BA500DB87BB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40A2E7923704BA500DB87BB /* SceneDelegate.swift */; };
 		C40A2E7C23704BA500DB87BB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40A2E7B23704BA500DB87BB /* ViewController.swift */; };
 		C40A2E7F23704BA500DB87BB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C40A2E7D23704BA500DB87BB /* Main.storyboard */; };
 		C40A2E8223704BA500DB87BB /* TudoNosso.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C40A2E8023704BA500DB87BB /* TudoNosso.xcdatamodeld */; };
@@ -29,6 +28,10 @@
 		C4226734237057A3000A6DA3 /* ExploreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4226733237057A3000A6DA3 /* ExploreViewController.swift */; };
 		C4226736237057B1000A6DA3 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4226735237057B1000A6DA3 /* ProfileViewController.swift */; };
 		C4226738237057C1000A6DA3 /* JobViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4226737237057C1000A6DA3 /* JobViewController.swift */; };
+		C42267422371AE1B000A6DA3 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C42267412371AE1B000A6DA3 /* LoginViewController.swift */; };
+		C42267452371AF28000A6DA3 /* KeyboardAvoiding.swift in Sources */ = {isa = PBXBuildFile; fileRef = C42267432371AF28000A6DA3 /* KeyboardAvoiding.swift */; };
+		C42267462371AF28000A6DA3 /* KeyboardDismissingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C42267442371AF28000A6DA3 /* KeyboardDismissingView.swift */; };
+		C42267482371AFBE000A6DA3 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C42267472371AFBE000A6DA3 /* RegisterViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,7 +63,6 @@
 		9D779667FEF2192A7F627FE1 /* Pods-TudoNosso-TudoNossoUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TudoNosso-TudoNossoUITests.release.xcconfig"; path = "Target Support Files/Pods-TudoNosso-TudoNossoUITests/Pods-TudoNosso-TudoNossoUITests.release.xcconfig"; sourceTree = "<group>"; };
 		C40A2E7423704BA500DB87BB /* TudoNosso.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TudoNosso.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C40A2E7723704BA500DB87BB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		C40A2E7923704BA500DB87BB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		C40A2E7B23704BA500DB87BB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		C40A2E7E23704BA500DB87BB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C40A2E8123704BA500DB87BB /* TudoNosso.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TudoNosso.xcdatamodel; sourceTree = "<group>"; };
@@ -80,7 +82,7 @@
 		C422673123705786000A6DA3 /* NotificationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsViewController.swift; sourceTree = "<group>"; };
 		C4226733237057A3000A6DA3 /* ExploreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreViewController.swift; sourceTree = "<group>"; };
 		C4226735237057B1000A6DA3 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
-		C4226737237057C1000A6DA3 /* JobViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobViewController.swift; sourceTree = "<group>"; };
+		C4226737237057C1000A6DA3 /* StoriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoriesViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,13 +132,17 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		162820102372FE1B00CCFCBE /* Fonts */ = {
+		567D0C502370531500420704 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
-				162820122372FEF700CCFCBE /* Nunito-Bold.ttf */,
-				162820112372FEF700CCFCBE /* Nunito-Regular.ttf */,
+				C40A2E8523704BA700DB87BB /* LaunchScreen.storyboard */,
+				C40A2E7D23704BA500DB87BB /* Main.storyboard */,
+				C40A2EAE23704E7C00DB87BB /* Explore.storyboard */,
+				C40A2EB023704E9700DB87BB /* Notifications.storyboard */,
+				C40A2EB223704EB200DB87BB /* Profile.storyboard */,
+				C40A2EB423704EC700DB87BB /* Stories.storyboard */,
 			);
-			path = Fonts;
+			path = Storyboards;
 			sourceTree = "<group>";
 		};
 		C40A2E6B23704BA500DB87BB = {
@@ -164,10 +170,10 @@
 		C40A2E7623704BA500DB87BB /* TudoNosso */ = {
 			isa = PBXGroup;
 			children = (
+				C42267402371ADF5000A6DA3 /* Utilities Login */,
 				C422672E237055BD000A6DA3 /* ViewControllers */,
 				C422672D237055A1000A6DA3 /* Storyboards */,
 				C40A2E7723704BA500DB87BB /* AppDelegate.swift */,
-				C40A2E7923704BA500DB87BB /* SceneDelegate.swift */,
 				C40A2E8323704BA700DB87BB /* Assets.xcassets */,
 				C40A2E8823704BA700DB87BB /* Info.plist */,
 				567D0C4E2370530A00420704 /* GoogleService-Info.plist */,
@@ -218,6 +224,17 @@
 				C4226737237057C1000A6DA3 /* JobViewController.swift */,
 			);
 			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		C42267402371ADF5000A6DA3 /* Utilities Login */ = {
+			isa = PBXGroup;
+			children = (
+				C42267432371AF28000A6DA3 /* KeyboardAvoiding.swift */,
+				C42267472371AFBE000A6DA3 /* RegisterViewController.swift */,
+				C42267442371AF28000A6DA3 /* KeyboardDismissingView.swift */,
+				C42267412371AE1B000A6DA3 /* LoginViewController.swift */,
+			);
+			path = "Utilities Login";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -467,12 +484,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				C40A2E8223704BA500DB87BB /* TudoNosso.xcdatamodeld in Sources */,
+				C42267482371AFBE000A6DA3 /* RegisterViewController.swift in Sources */,
+				C42267452371AF28000A6DA3 /* KeyboardAvoiding.swift in Sources */,
 				C40A2E7C23704BA500DB87BB /* ViewController.swift in Sources */,
 				C4226734237057A3000A6DA3 /* ExploreViewController.swift in Sources */,
 				C422673223705786000A6DA3 /* NotificationsViewController.swift in Sources */,
+				C42267462371AF28000A6DA3 /* KeyboardDismissingView.swift in Sources */,
+				C42267422371AE1B000A6DA3 /* LoginViewController.swift in Sources */,
 				C4226736237057B1000A6DA3 /* ProfileViewController.swift in Sources */,
 				C40A2E7823704BA500DB87BB /* AppDelegate.swift in Sources */,
-				C4226738237057C1000A6DA3 /* JobViewController.swift in Sources */,
+				C4226738237057C1000A6DA3 /* StoriesViewController.swift in Sources */,
 				C40A2E7A23704BA500DB87BB /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -648,8 +669,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = GJUSD98938;
+				DEVELOPMENT_TEAM = NZC6LC8NWM;
 				INFOPLIST_FILE = TudoNosso/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -657,7 +679,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = joaoFlores.TudoNosso;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -666,8 +688,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = GJUSD98938;
+				DEVELOPMENT_TEAM = NZC6LC8NWM;
 				INFOPLIST_FILE = TudoNosso/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -675,7 +698,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = joaoFlores.TudoNosso;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
