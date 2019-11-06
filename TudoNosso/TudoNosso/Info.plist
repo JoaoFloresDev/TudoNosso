@@ -5,10 +5,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>UIAppFonts</key>
-	<array>
-		<string>Nunito-Regular.ttf</string>
-		<string>Nunito-Bold.ttf</string>
-	</array>
+	<array/>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
