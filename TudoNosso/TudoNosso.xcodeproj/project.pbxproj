@@ -26,6 +26,10 @@
 		C4226734237057A3000A6DA3 /* ExploreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4226733237057A3000A6DA3 /* ExploreViewController.swift */; };
 		C4226736237057B1000A6DA3 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4226735237057B1000A6DA3 /* ProfileViewController.swift */; };
 		C4226738237057C1000A6DA3 /* StoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4226737237057C1000A6DA3 /* StoriesViewController.swift */; };
+		C42267422371AE1B000A6DA3 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C42267412371AE1B000A6DA3 /* LoginViewController.swift */; };
+		C42267452371AF28000A6DA3 /* KeyboardAvoiding.swift in Sources */ = {isa = PBXBuildFile; fileRef = C42267432371AF28000A6DA3 /* KeyboardAvoiding.swift */; };
+		C42267462371AF28000A6DA3 /* KeyboardDismissingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C42267442371AF28000A6DA3 /* KeyboardDismissingView.swift */; };
+		C42267482371AFBE000A6DA3 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C42267472371AFBE000A6DA3 /* RegisterViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +79,10 @@
 		C4226733237057A3000A6DA3 /* ExploreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreViewController.swift; sourceTree = "<group>"; };
 		C4226735237057B1000A6DA3 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		C4226737237057C1000A6DA3 /* StoriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoriesViewController.swift; sourceTree = "<group>"; };
+		C42267412371AE1B000A6DA3 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		C42267432371AF28000A6DA3 /* KeyboardAvoiding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardAvoiding.swift; sourceTree = "<group>"; };
+		C42267442371AF28000A6DA3 /* KeyboardDismissingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardDismissingView.swift; sourceTree = "<group>"; };
+		C42267472371AFBE000A6DA3 /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,6 +157,7 @@
 		C40A2E7623704BA500DB87BB /* TudoNosso */ = {
 			isa = PBXGroup;
 			children = (
+				C42267402371ADF5000A6DA3 /* Utilities Login */,
 				C422672E237055BD000A6DA3 /* ViewControllers */,
 				C422672D237055A1000A6DA3 /* Storyboards */,
 				C40A2E7723704BA500DB87BB /* AppDelegate.swift */,
@@ -201,6 +210,17 @@
 				C4226737237057C1000A6DA3 /* StoriesViewController.swift */,
 			);
 			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		C42267402371ADF5000A6DA3 /* Utilities Login */ = {
+			isa = PBXGroup;
+			children = (
+				C42267432371AF28000A6DA3 /* KeyboardAvoiding.swift */,
+				C42267472371AFBE000A6DA3 /* RegisterViewController.swift */,
+				C42267442371AF28000A6DA3 /* KeyboardDismissingView.swift */,
+				C42267412371AE1B000A6DA3 /* LoginViewController.swift */,
+			);
+			path = "Utilities Login";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -448,9 +468,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				C40A2E8223704BA500DB87BB /* TudoNosso.xcdatamodeld in Sources */,
+				C42267482371AFBE000A6DA3 /* RegisterViewController.swift in Sources */,
+				C42267452371AF28000A6DA3 /* KeyboardAvoiding.swift in Sources */,
 				C40A2E7C23704BA500DB87BB /* ViewController.swift in Sources */,
 				C4226734237057A3000A6DA3 /* ExploreViewController.swift in Sources */,
 				C422673223705786000A6DA3 /* NotificationsViewController.swift in Sources */,
+				C42267462371AF28000A6DA3 /* KeyboardDismissingView.swift in Sources */,
+				C42267422371AE1B000A6DA3 /* LoginViewController.swift in Sources */,
 				C4226736237057B1000A6DA3 /* ProfileViewController.swift in Sources */,
 				C40A2E7823704BA500DB87BB /* AppDelegate.swift in Sources */,
 				C4226738237057C1000A6DA3 /* StoriesViewController.swift in Sources */,
@@ -628,7 +652,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 9HYX7YXGKC;
+				DEVELOPMENT_TEAM = NZC6LC8NWM;
 				INFOPLIST_FILE = TudoNosso/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -647,7 +671,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 9HYX7YXGKC;
+				DEVELOPMENT_TEAM = NZC6LC8NWM;
 				INFOPLIST_FILE = TudoNosso/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
