@@ -16,8 +16,6 @@
 		567380F923730C1D00F1B6C5 /* CategoryEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567380F823730C1D00F1B6C5 /* CategoryEnum.swift */; };
 		567380FB237350F700F1B6C5 /* DatabaseRepresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567380FA237350F700F1B6C5 /* DatabaseRepresentation.swift */; };
 		5673810823742F1B00F1B6C5 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5673810423742F1B00F1B6C5 /* LoginViewController.swift */; };
-		5673810923742F1B00F1B6C5 /* KeyboardAvoiding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5673810523742F1B00F1B6C5 /* KeyboardAvoiding.swift */; };
-		5673810A23742F1B00F1B6C5 /* KeyboardDismissingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5673810623742F1B00F1B6C5 /* KeyboardDismissingView.swift */; };
 		5673810B23742F1B00F1B6C5 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5673810723742F1B00F1B6C5 /* RegisterViewController.swift */; };
 		567D0C4F2370530A00420704 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 567D0C4E2370530A00420704 /* GoogleService-Info.plist */; };
 		56A74711237193AA00A3FA76 /* Date+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A74710237193AA00A3FA76 /* Date+extensions.swift */; };
@@ -40,6 +38,15 @@
 		C4226738237057C1000A6DA3 /* JobViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4226737237057C1000A6DA3 /* JobViewController.swift */; };
 		C42267422371AE1B000A6DA3 /* (null) in Sources */ = {isa = PBXBuildFile; };
 		C42267462371AF28000A6DA3 /* (null) in Sources */ = {isa = PBXBuildFile; };
+		D765D3202373019300F596CD /* CollorPalette.swift in Sources */ = {isa = PBXBuildFile; fileRef = D765D31F2373019300F596CD /* CollorPalette.swift */; };
+		D765D3222373021000F596CD /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D765D3212373021000F596CD /* UIColor+Extension.swift */; };
+		D765D324237303CF00F596CD /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D765D323237303CF00F596CD /* UIView+Extensions.swift */; };
+		D765D3262373041B00F596CD /* RoundedViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = D765D3252373041B00F596CD /* RoundedViews.swift */; };
+		D776C4CE23743C7E002C3F3E /* CustomSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = D776C4CD23743C7E002C3F3E /* CustomSegmentedControl.swift */; };
+		D776C4D5237442C0002C3F3E /* JobsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D776C4D4237442C0002C3F3E /* JobsTableViewCell.xib */; };
+		D776C4D723744C6E002C3F3E /* JobsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D776C4D623744C6E002C3F3E /* JobsTableViewCell.swift */; };
+		D776C4DA237468AD002C3F3E /* KeyboardDismissingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D776C4D8237468AD002C3F3E /* KeyboardDismissingView.swift */; };
+		D776C4DB237468AD002C3F3E /* KeyboardAvoiding.swift in Sources */ = {isa = PBXBuildFile; fileRef = D776C4D9237468AD002C3F3E /* KeyboardAvoiding.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,8 +81,6 @@
 		567380F823730C1D00F1B6C5 /* CategoryEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryEnum.swift; sourceTree = "<group>"; };
 		567380FA237350F700F1B6C5 /* DatabaseRepresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseRepresentation.swift; sourceTree = "<group>"; };
 		5673810423742F1B00F1B6C5 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		5673810523742F1B00F1B6C5 /* KeyboardAvoiding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardAvoiding.swift; sourceTree = "<group>"; };
-		5673810623742F1B00F1B6C5 /* KeyboardDismissingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardDismissingView.swift; sourceTree = "<group>"; };
 		5673810723742F1B00F1B6C5 /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		567D0C4E2370530A00420704 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		56A74710237193AA00A3FA76 /* Date+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+extensions.swift"; sourceTree = "<group>"; };
@@ -103,6 +108,15 @@
 		C4226733237057A3000A6DA3 /* ExploreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreViewController.swift; sourceTree = "<group>"; };
 		C4226735237057B1000A6DA3 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		C4226737237057C1000A6DA3 /* JobViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobViewController.swift; sourceTree = "<group>"; };
+		D765D31F2373019300F596CD /* CollorPalette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollorPalette.swift; sourceTree = "<group>"; };
+		D765D3212373021000F596CD /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
+		D765D323237303CF00F596CD /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
+		D765D3252373041B00F596CD /* RoundedViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedViews.swift; sourceTree = "<group>"; };
+		D776C4CD23743C7E002C3F3E /* CustomSegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSegmentedControl.swift; sourceTree = "<group>"; };
+		D776C4D4237442C0002C3F3E /* JobsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = JobsTableViewCell.xib; sourceTree = "<group>"; };
+		D776C4D623744C6E002C3F3E /* JobsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobsTableViewCell.swift; sourceTree = "<group>"; };
+		D776C4D8237468AD002C3F3E /* KeyboardDismissingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardDismissingView.swift; sourceTree = "<group>"; };
+		D776C4D9237468AD002C3F3E /* KeyboardAvoiding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardAvoiding.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -173,21 +187,15 @@
 		567380F32373016F00F1B6C5 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				D776C4D9237468AD002C3F3E /* KeyboardAvoiding.swift */,
+				D776C4D8237468AD002C3F3E /* KeyboardDismissingView.swift */,
+				D765D31F2373019300F596CD /* CollorPalette.swift */,
 				567380F42373019600F1B6C5 /* Organization.swift */,
 				567380F623730B9B00F1B6C5 /* Oportunity.swift */,
 				567380F823730C1D00F1B6C5 /* CategoryEnum.swift */,
 				567380FA237350F700F1B6C5 /* DatabaseRepresentation.swift */,
 			);
 			path = Models;
-			sourceTree = "<group>";
-		};
-		56A7470F2371938D00A3FA76 /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				567380F12373016000F1B6C5 /* CLLocationCoordinate2D+extensions.swift */,
-				56A74710237193AA00A3FA76 /* Date+extensions.swift */,
-			);
-			path = Extensions;
 			sourceTree = "<group>";
 		};
 		C40A2E6B23704BA500DB87BB = {
@@ -216,10 +224,10 @@
 		C40A2E7623704BA500DB87BB /* TudoNosso */ = {
 			isa = PBXGroup;
 			children = (
+				D776C4CF23743E62002C3F3E /* Custom Views */,
 				1663B33523730D24005E3363 /* Fonts */,
-				C42267402371ADF5000A6DA3 /* Utilities Login */,
+				D765D31E2373015500F596CD /* Extensions */,
 				567380F32373016F00F1B6C5 /* Models */,
-				56A7470F2371938D00A3FA76 /* Extensions */,
 				C422672E237055BD000A6DA3 /* ViewControllers */,
 				C422672D237055A1000A6DA3 /* Storyboards */,
 				C40A2E7723704BA500DB87BB /* AppDelegate.swift */,
@@ -276,13 +284,34 @@
 			path = ViewControllers;
 			sourceTree = "<group>";
 		};
-		C42267402371ADF5000A6DA3 /* Utilities Login */ = {
+		D765D31E2373015500F596CD /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				5673810523742F1B00F1B6C5 /* KeyboardAvoiding.swift */,
-				5673810623742F1B00F1B6C5 /* KeyboardDismissingView.swift */,
+				567380F12373016000F1B6C5 /* CLLocationCoordinate2D+extensions.swift */,
+				56A74710237193AA00A3FA76 /* Date+extensions.swift */,
+				D765D3212373021000F596CD /* UIColor+Extension.swift */,
+				D765D323237303CF00F596CD /* UIView+Extensions.swift */,
 			);
-			path = "Utilities Login";
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		D776C4CF23743E62002C3F3E /* Custom Views */ = {
+			isa = PBXGroup;
+			children = (
+				D776C4D3237442A1002C3F3E /* Cells for JobsTable */,
+				D765D3252373041B00F596CD /* RoundedViews.swift */,
+				D776C4CD23743C7E002C3F3E /* CustomSegmentedControl.swift */,
+			);
+			path = "Custom Views";
+			sourceTree = "<group>";
+		};
+		D776C4D3237442A1002C3F3E /* Cells for JobsTable */ = {
+			isa = PBXGroup;
+			children = (
+				D776C4D4237442C0002C3F3E /* JobsTableViewCell.xib */,
+				D776C4D623744C6E002C3F3E /* JobsTableViewCell.swift */,
+			);
+			path = "Cells for JobsTable";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -394,6 +423,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D776C4D5237442C0002C3F3E /* JobsTableViewCell.xib in Resources */,
 				C40A2EB323704EB200DB87BB /* Profile.storyboard in Resources */,
 				567D0C4F2370530A00420704 /* GoogleService-Info.plist in Resources */,
 				C40A2EAF23704E7C00DB87BB /* Explore.storyboard in Resources */,
@@ -531,26 +561,34 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D776C4D723744C6E002C3F3E /* JobsTableViewCell.swift in Sources */,
+				D765D324237303CF00F596CD /* UIView+Extensions.swift in Sources */,
 				C40A2E8223704BA500DB87BB /* TudoNosso.xcdatamodeld in Sources */,
-				5673810923742F1B00F1B6C5 /* KeyboardAvoiding.swift in Sources */,
 				567380FB237350F700F1B6C5 /* DatabaseRepresentation.swift in Sources */,
 				56A74711237193AA00A3FA76 /* Date+extensions.swift in Sources */,
-				5673810A23742F1B00F1B6C5 /* KeyboardDismissingView.swift in Sources */,
 				C40A2E7C23704BA500DB87BB /* ViewController.swift in Sources */,
+				D776C4CE23743C7E002C3F3E /* CustomSegmentedControl.swift in Sources */,
 				C4226734237057A3000A6DA3 /* ExploreViewController.swift in Sources */,
 				C422673223705786000A6DA3 /* NotificationsViewController.swift in Sources */,
+				D765D3222373021000F596CD /* UIColor+Extension.swift in Sources */,
+				C42267462371AF28000A6DA3 /* (null) in Sources */,
+				C42267422371AE1B000A6DA3 /* (null) in Sources */,
 				C42267462371AF28000A6DA3 /* (null) in Sources */,
 				C42267422371AE1B000A6DA3 /* (null) in Sources */,
 				C4226736237057B1000A6DA3 /* ProfileViewController.swift in Sources */,
+				D765D3202373019300F596CD /* CollorPalette.swift in Sources */,
+				D765D3262373041B00F596CD /* RoundedViews.swift in Sources */,
 				5673810B23742F1B00F1B6C5 /* RegisterViewController.swift in Sources */,
 				567380F22373016000F1B6C5 /* CLLocationCoordinate2D+extensions.swift in Sources */,
 				567380F723730B9B00F1B6C5 /* Oportunity.swift in Sources */,
 				567380F923730C1D00F1B6C5 /* CategoryEnum.swift in Sources */,
 				C40A2E7823704BA500DB87BB /* AppDelegate.swift in Sources */,
 				5673810823742F1B00F1B6C5 /* LoginViewController.swift in Sources */,
+				D776C4DB237468AD002C3F3E /* KeyboardAvoiding.swift in Sources */,
 				567380F52373019600F1B6C5 /* Organization.swift in Sources */,
 				C4226738237057C1000A6DA3 /* JobViewController.swift in Sources */,
 				C4226738237057C1000A6DA3 /* JobViewController.swift in Sources */,
+				D776C4DA237468AD002C3F3E /* KeyboardDismissingView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -725,7 +763,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = NZC6LC8NWM;
+				DEVELOPMENT_TEAM = 9HYX7YXGKC;
 				INFOPLIST_FILE = TudoNosso/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -744,7 +782,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = NZC6LC8NWM;
+				DEVELOPMENT_TEAM = 9HYX7YXGKC;
 				INFOPLIST_FILE = TudoNosso/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
