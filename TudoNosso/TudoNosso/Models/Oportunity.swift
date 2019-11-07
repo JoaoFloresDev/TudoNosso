@@ -12,7 +12,7 @@ import CoreLocation
 
 class Oportunity {
     
-    var id: String
+    var id: String?
     var title: String
     var desc: String?
     var category: CategoryEnum
@@ -21,8 +21,7 @@ class Oportunity {
     var organizationID: String
     var localization: CLLocationCoordinate2D
     
-    init(id: String, title: String, category: CategoryEnum, vacancyType: String, vacancyNumber: Int, organizationID: String, localization: CLLocationCoordinate2D) {
-        self.id = id
+    init( title: String, category: CategoryEnum, vacancyType: String, vacancyNumber: Int, organizationID: String, localization: CLLocationCoordinate2D) {
         self.title = title
         self.category = category
         self.vacancyType = vacancyType
