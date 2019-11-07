@@ -10,7 +10,17 @@
 		1663B33823730D90005E3363 /* Nunito-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1663B33623730D90005E3363 /* Nunito-Bold.ttf */; };
 		1663B33923730D90005E3363 /* Nunito-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1663B33723730D90005E3363 /* Nunito-Regular.ttf */; };
 		3B08C35A717ED3964E4F36AF /* Pods_TudoNosso_TudoNossoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A01E7358CA8C4FF34A59BF3 /* Pods_TudoNosso_TudoNossoUITests.framework */; };
+		567380F22373016000F1B6C5 /* CLLocationCoordinate2D+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567380F12373016000F1B6C5 /* CLLocationCoordinate2D+extensions.swift */; };
+		567380F52373019600F1B6C5 /* Organization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567380F42373019600F1B6C5 /* Organization.swift */; };
+		567380F723730B9B00F1B6C5 /* Oportunity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567380F623730B9B00F1B6C5 /* Oportunity.swift */; };
+		567380F923730C1D00F1B6C5 /* CategoryEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567380F823730C1D00F1B6C5 /* CategoryEnum.swift */; };
+		567380FB237350F700F1B6C5 /* DatabaseRepresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567380FA237350F700F1B6C5 /* DatabaseRepresentation.swift */; };
+		5673810823742F1B00F1B6C5 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5673810423742F1B00F1B6C5 /* LoginViewController.swift */; };
+		5673810923742F1B00F1B6C5 /* KeyboardAvoiding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5673810523742F1B00F1B6C5 /* KeyboardAvoiding.swift */; };
+		5673810A23742F1B00F1B6C5 /* KeyboardDismissingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5673810623742F1B00F1B6C5 /* KeyboardDismissingView.swift */; };
+		5673810B23742F1B00F1B6C5 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5673810723742F1B00F1B6C5 /* RegisterViewController.swift */; };
 		567D0C4F2370530A00420704 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 567D0C4E2370530A00420704 /* GoogleService-Info.plist */; };
+		56A74711237193AA00A3FA76 /* Date+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A74710237193AA00A3FA76 /* Date+extensions.swift */; };
 		8571DF3A7A0C03D95E22E750 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
 		C40A2E7823704BA500DB87BB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40A2E7723704BA500DB87BB /* AppDelegate.swift */; };
 		C40A2E7C23704BA500DB87BB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40A2E7B23704BA500DB87BB /* ViewController.swift */; };
@@ -29,9 +39,7 @@
 		C4226736237057B1000A6DA3 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4226735237057B1000A6DA3 /* ProfileViewController.swift */; };
 		C4226738237057C1000A6DA3 /* JobViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4226737237057C1000A6DA3 /* JobViewController.swift */; };
 		C42267422371AE1B000A6DA3 /* (null) in Sources */ = {isa = PBXBuildFile; };
-		C42267452371AF28000A6DA3 /* (null) in Sources */ = {isa = PBXBuildFile; };
 		C42267462371AF28000A6DA3 /* (null) in Sources */ = {isa = PBXBuildFile; };
-		C42267482371AFBE000A6DA3 /* (null) in Sources */ = {isa = PBXBuildFile; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,7 +68,17 @@
 		16C644B359E32E5DDBC65E7B /* Pods-TudoNosso.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TudoNosso.debug.xcconfig"; path = "Target Support Files/Pods-TudoNosso/Pods-TudoNosso.debug.xcconfig"; sourceTree = "<group>"; };
 		224AFBC86B801E3B9A526E09 /* Pods-TudoNossoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TudoNossoTests.release.xcconfig"; path = "Target Support Files/Pods-TudoNossoTests/Pods-TudoNossoTests.release.xcconfig"; sourceTree = "<group>"; };
 		3A01E7358CA8C4FF34A59BF3 /* Pods_TudoNosso_TudoNossoUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TudoNosso_TudoNossoUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		567380F12373016000F1B6C5 /* CLLocationCoordinate2D+extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CLLocationCoordinate2D+extensions.swift"; sourceTree = "<group>"; };
+		567380F42373019600F1B6C5 /* Organization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Organization.swift; sourceTree = "<group>"; };
+		567380F623730B9B00F1B6C5 /* Oportunity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Oportunity.swift; sourceTree = "<group>"; };
+		567380F823730C1D00F1B6C5 /* CategoryEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryEnum.swift; sourceTree = "<group>"; };
+		567380FA237350F700F1B6C5 /* DatabaseRepresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseRepresentation.swift; sourceTree = "<group>"; };
+		5673810423742F1B00F1B6C5 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		5673810523742F1B00F1B6C5 /* KeyboardAvoiding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardAvoiding.swift; sourceTree = "<group>"; };
+		5673810623742F1B00F1B6C5 /* KeyboardDismissingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardDismissingView.swift; sourceTree = "<group>"; };
+		5673810723742F1B00F1B6C5 /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		567D0C4E2370530A00420704 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		56A74710237193AA00A3FA76 /* Date+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+extensions.swift"; sourceTree = "<group>"; };
 		7A8AABBB59DCDBB0CAA3CC4E /* Pods-TudoNosso-TudoNossoUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TudoNosso-TudoNossoUITests.debug.xcconfig"; path = "Target Support Files/Pods-TudoNosso-TudoNossoUITests/Pods-TudoNosso-TudoNossoUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		9D779667FEF2192A7F627FE1 /* Pods-TudoNosso-TudoNossoUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TudoNosso-TudoNossoUITests.release.xcconfig"; path = "Target Support Files/Pods-TudoNosso-TudoNossoUITests/Pods-TudoNosso-TudoNossoUITests.release.xcconfig"; sourceTree = "<group>"; };
 		C40A2E7423704BA500DB87BB /* TudoNosso.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TudoNosso.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -152,6 +170,26 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
+		567380F32373016F00F1B6C5 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				567380F42373019600F1B6C5 /* Organization.swift */,
+				567380F623730B9B00F1B6C5 /* Oportunity.swift */,
+				567380F823730C1D00F1B6C5 /* CategoryEnum.swift */,
+				567380FA237350F700F1B6C5 /* DatabaseRepresentation.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		56A7470F2371938D00A3FA76 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				567380F12373016000F1B6C5 /* CLLocationCoordinate2D+extensions.swift */,
+				56A74710237193AA00A3FA76 /* Date+extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		C40A2E6B23704BA500DB87BB = {
 			isa = PBXGroup;
 			children = (
@@ -180,6 +218,8 @@
 			children = (
 				1663B33523730D24005E3363 /* Fonts */,
 				C42267402371ADF5000A6DA3 /* Utilities Login */,
+				567380F32373016F00F1B6C5 /* Models */,
+				56A7470F2371938D00A3FA76 /* Extensions */,
 				C422672E237055BD000A6DA3 /* ViewControllers */,
 				C422672D237055A1000A6DA3 /* Storyboards */,
 				C40A2E7723704BA500DB87BB /* AppDelegate.swift */,
@@ -225,6 +265,8 @@
 		C422672E237055BD000A6DA3 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				5673810423742F1B00F1B6C5 /* LoginViewController.swift */,
+				5673810723742F1B00F1B6C5 /* RegisterViewController.swift */,
 				C40A2E7B23704BA500DB87BB /* ViewController.swift */,
 				C4226733237057A3000A6DA3 /* ExploreViewController.swift */,
 				C422673123705786000A6DA3 /* NotificationsViewController.swift */,
@@ -237,6 +279,8 @@
 		C42267402371ADF5000A6DA3 /* Utilities Login */ = {
 			isa = PBXGroup;
 			children = (
+				5673810523742F1B00F1B6C5 /* KeyboardAvoiding.swift */,
+				5673810623742F1B00F1B6C5 /* KeyboardDismissingView.swift */,
 			);
 			path = "Utilities Login";
 			sourceTree = "<group>";
@@ -488,15 +532,24 @@
 			buildActionMask = 2147483647;
 			files = (
 				C40A2E8223704BA500DB87BB /* TudoNosso.xcdatamodeld in Sources */,
-				C42267482371AFBE000A6DA3 /* (null) in Sources */,
-				C42267452371AF28000A6DA3 /* (null) in Sources */,
+				5673810923742F1B00F1B6C5 /* KeyboardAvoiding.swift in Sources */,
+				567380FB237350F700F1B6C5 /* DatabaseRepresentation.swift in Sources */,
+				56A74711237193AA00A3FA76 /* Date+extensions.swift in Sources */,
+				5673810A23742F1B00F1B6C5 /* KeyboardDismissingView.swift in Sources */,
 				C40A2E7C23704BA500DB87BB /* ViewController.swift in Sources */,
 				C4226734237057A3000A6DA3 /* ExploreViewController.swift in Sources */,
 				C422673223705786000A6DA3 /* NotificationsViewController.swift in Sources */,
 				C42267462371AF28000A6DA3 /* (null) in Sources */,
 				C42267422371AE1B000A6DA3 /* (null) in Sources */,
 				C4226736237057B1000A6DA3 /* ProfileViewController.swift in Sources */,
+				5673810B23742F1B00F1B6C5 /* RegisterViewController.swift in Sources */,
+				567380F22373016000F1B6C5 /* CLLocationCoordinate2D+extensions.swift in Sources */,
+				567380F723730B9B00F1B6C5 /* Oportunity.swift in Sources */,
+				567380F923730C1D00F1B6C5 /* CategoryEnum.swift in Sources */,
 				C40A2E7823704BA500DB87BB /* AppDelegate.swift in Sources */,
+				5673810823742F1B00F1B6C5 /* LoginViewController.swift in Sources */,
+				567380F52373019600F1B6C5 /* Organization.swift in Sources */,
+				C4226738237057C1000A6DA3 /* JobViewController.swift in Sources */,
 				C4226738237057C1000A6DA3 /* JobViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -602,7 +655,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -656,7 +709,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
