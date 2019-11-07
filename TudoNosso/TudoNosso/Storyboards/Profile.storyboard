@@ -59,8 +59,8 @@
                                     <constraint firstAttribute="height" constant="29" id="bqe-HY-bb1"/>
                                 </constraints>
                                 <segments>
-                                    <segment title="First"/>
-                                    <segment title="Second"/>
+                                    <segment title="Oportunidades"/>
+                                    <segment title="Perfil"/>
                                 </segments>
                                 <color key="selectedSegmentTintColor" red="0.12941176470588234" green="0.12941176470588234" blue="0.12941176470588234" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </segmentedControl>
