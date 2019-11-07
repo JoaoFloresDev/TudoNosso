@@ -27,19 +27,18 @@
 		C422673223705786000A6DA3 /* NotificationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C422673123705786000A6DA3 /* NotificationsViewController.swift */; };
 		C4226734237057A3000A6DA3 /* ExploreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4226733237057A3000A6DA3 /* ExploreViewController.swift */; };
 		C4226736237057B1000A6DA3 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4226735237057B1000A6DA3 /* ProfileViewController.swift */; };
-		C42267422371AE1B000A6DA3 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C42267412371AE1B000A6DA3 /* LoginViewController.swift */; };
-		C42267452371AF28000A6DA3 /* KeyboardAvoiding.swift in Sources */ = {isa = PBXBuildFile; fileRef = C42267432371AF28000A6DA3 /* KeyboardAvoiding.swift */; };
-		C42267462371AF28000A6DA3 /* KeyboardDismissingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C42267442371AF28000A6DA3 /* KeyboardDismissingView.swift */; };
-		C42267482371AFBE000A6DA3 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C42267472371AFBE000A6DA3 /* RegisterViewController.swift */; };
-		D765D3202373019300F596CD /* CollorPalette.swift in Sources */ = {isa = PBXBuildFile; fileRef = D765D31F2373019300F596CD /* CollorPalette.swift */; };
-		D765D3222373021000F596CD /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D765D3212373021000F596CD /* UIColor+Extension.swift */; };
-		D765D324237303CF00F596CD /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D765D323237303CF00F596CD /* UIView+Extensions.swift */; };
-		D765D3262373041B00F596CD /* RoundedViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = D765D3252373041B00F596CD /* RoundedViews.swift */; };
 		C4226738237057C1000A6DA3 /* JobViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4226737237057C1000A6DA3 /* JobViewController.swift */; };
 		C42267422371AE1B000A6DA3 /* (null) in Sources */ = {isa = PBXBuildFile; };
 		C42267452371AF28000A6DA3 /* (null) in Sources */ = {isa = PBXBuildFile; };
 		C42267462371AF28000A6DA3 /* (null) in Sources */ = {isa = PBXBuildFile; };
 		C42267482371AFBE000A6DA3 /* (null) in Sources */ = {isa = PBXBuildFile; };
+		D765D3202373019300F596CD /* CollorPalette.swift in Sources */ = {isa = PBXBuildFile; fileRef = D765D31F2373019300F596CD /* CollorPalette.swift */; };
+		D765D3222373021000F596CD /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D765D3212373021000F596CD /* UIColor+Extension.swift */; };
+		D765D324237303CF00F596CD /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D765D323237303CF00F596CD /* UIView+Extensions.swift */; };
+		D765D3262373041B00F596CD /* RoundedViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = D765D3252373041B00F596CD /* RoundedViews.swift */; };
+		D776C4CE23743C7E002C3F3E /* CustomSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = D776C4CD23743C7E002C3F3E /* CustomSegmentedControl.swift */; };
+		D776C4D5237442C0002C3F3E /* JobsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D776C4D4237442C0002C3F3E /* JobsTableViewCell.xib */; };
+		D776C4D723744C6E002C3F3E /* JobsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D776C4D623744C6E002C3F3E /* JobsTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -93,14 +92,13 @@
 		C4226733237057A3000A6DA3 /* ExploreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreViewController.swift; sourceTree = "<group>"; };
 		C4226735237057B1000A6DA3 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		C4226737237057C1000A6DA3 /* JobViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobViewController.swift; sourceTree = "<group>"; };
-		C42267412371AE1B000A6DA3 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		C42267432371AF28000A6DA3 /* KeyboardAvoiding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardAvoiding.swift; sourceTree = "<group>"; };
-		C42267442371AF28000A6DA3 /* KeyboardDismissingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardDismissingView.swift; sourceTree = "<group>"; };
-		C42267472371AFBE000A6DA3 /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		D765D31F2373019300F596CD /* CollorPalette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollorPalette.swift; sourceTree = "<group>"; };
 		D765D3212373021000F596CD /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		D765D323237303CF00F596CD /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
 		D765D3252373041B00F596CD /* RoundedViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedViews.swift; sourceTree = "<group>"; };
+		D776C4CD23743C7E002C3F3E /* CustomSegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSegmentedControl.swift; sourceTree = "<group>"; };
+		D776C4D4237442C0002C3F3E /* JobsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = JobsTableViewCell.xib; sourceTree = "<group>"; };
+		D776C4D623744C6E002C3F3E /* JobsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobsTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -194,6 +192,7 @@
 		C40A2E7623704BA500DB87BB /* TudoNosso */ = {
 			isa = PBXGroup;
 			children = (
+				D776C4CF23743E62002C3F3E /* Custom Views */,
 				1663B33523730D24005E3363 /* Fonts */,
 				D765D31E2373015500F596CD /* Extensions */,
 				D765D31B237300CD00F596CD /* Models */,
@@ -263,7 +262,6 @@
 			isa = PBXGroup;
 			children = (
 				D765D31F2373019300F596CD /* CollorPalette.swift */,
-				D765D3252373041B00F596CD /* RoundedViews.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -275,6 +273,25 @@
 				D765D323237303CF00F596CD /* UIView+Extensions.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		D776C4CF23743E62002C3F3E /* Custom Views */ = {
+			isa = PBXGroup;
+			children = (
+				D776C4D3237442A1002C3F3E /* Cells for JobsTable */,
+				D765D3252373041B00F596CD /* RoundedViews.swift */,
+				D776C4CD23743C7E002C3F3E /* CustomSegmentedControl.swift */,
+			);
+			path = "Custom Views";
+			sourceTree = "<group>";
+		};
+		D776C4D3237442A1002C3F3E /* Cells for JobsTable */ = {
+			isa = PBXGroup;
+			children = (
+				D776C4D4237442C0002C3F3E /* JobsTableViewCell.xib */,
+				D776C4D623744C6E002C3F3E /* JobsTableViewCell.swift */,
+			);
+			path = "Cells for JobsTable";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -386,6 +403,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D776C4D5237442C0002C3F3E /* JobsTableViewCell.xib in Resources */,
 				C40A2EB323704EB200DB87BB /* Profile.storyboard in Resources */,
 				567D0C4F2370530A00420704 /* GoogleService-Info.plist in Resources */,
 				C40A2EAF23704E7C00DB87BB /* Explore.storyboard in Resources */,
@@ -523,16 +541,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D776C4D723744C6E002C3F3E /* JobsTableViewCell.swift in Sources */,
 				D765D324237303CF00F596CD /* UIView+Extensions.swift in Sources */,
 				C40A2E8223704BA500DB87BB /* TudoNosso.xcdatamodeld in Sources */,
 				C42267482371AFBE000A6DA3 /* (null) in Sources */,
 				C42267452371AF28000A6DA3 /* (null) in Sources */,
 				C40A2E7C23704BA500DB87BB /* ViewController.swift in Sources */,
+				D776C4CE23743C7E002C3F3E /* CustomSegmentedControl.swift in Sources */,
 				C4226734237057A3000A6DA3 /* ExploreViewController.swift in Sources */,
 				C422673223705786000A6DA3 /* NotificationsViewController.swift in Sources */,
 				D765D3222373021000F596CD /* UIColor+Extension.swift in Sources */,
-				C42267462371AF28000A6DA3 /* KeyboardDismissingView.swift in Sources */,
-				C42267422371AE1B000A6DA3 /* LoginViewController.swift in Sources */,
+				C42267462371AF28000A6DA3 /* (null) in Sources */,
+				C42267422371AE1B000A6DA3 /* (null) in Sources */,
 				C42267462371AF28000A6DA3 /* (null) in Sources */,
 				C42267422371AE1B000A6DA3 /* (null) in Sources */,
 				C4226736237057B1000A6DA3 /* ProfileViewController.swift in Sources */,

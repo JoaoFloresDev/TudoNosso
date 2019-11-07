@@ -9,22 +9,41 @@
 import UIKit
 
 class ProfileViewController: UIViewController {
-
+    
+    @IBOutlet weak var profileNameLabel: UILabel!
+    @IBOutlet weak var profileImage: RoundedImageView!
+    @IBOutlet weak var segmentedControl: CustomSegmentedControl!
+    @IBOutlet weak var jobsTableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        setupTableView()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func setupTableView(){
+        jobsTableView.delegate = self
+        jobsTableView.dataSource = self
+        
+        jobsTableView.register(JobsTableViewCell.nib, forCellReuseIdentifier: JobsTableViewCell.reuseIdentifer)
     }
-    */
+}
 
+extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 2 //TODO
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: JobsTableViewCell.reuseIdentifer, for: indexPath) as? JobsTableViewCell else {
+            fatalError("The dequeued cell is not an instance of JobsTableViewCell.")
+        }
+        //todo config cell
+        return cell
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 2
+    }
 }

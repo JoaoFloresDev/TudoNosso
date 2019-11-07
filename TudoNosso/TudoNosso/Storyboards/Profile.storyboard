@@ -7,11 +7,16 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Nunito-Bold.ttf">
+            <string>Nunito-Bold</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Perfil-->
         <scene sceneID="XpE-aN-JXc">
             <objects>
-                <viewController id="nET-7L-Osk" customClass="JobViewController" customModule="TudoNosso" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="nET-7L-Osk" customClass="ProfileViewController" customModule="TudoNosso" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ELu-Qm-RMF">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -42,23 +47,60 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ONG Há Esperança" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e6H-tT-8R2">
+                                <rect key="frame" x="16" y="230" width="382" height="22"/>
+                                <fontDescription key="fontDescription" name="Nunito-Bold" family="Nunito" pointSize="16"/>
+                                <color key="textColor" red="0.12941176470588234" green="0.12941176470588234" blue="0.12941176470588234" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Fbt-ez-Tyx" customClass="CustomSegmentedControl" customModule="TudoNosso" customModuleProvider="target">
+                                <rect key="frame" x="16" y="268" width="382" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="29" id="bqe-HY-bb1"/>
+                                </constraints>
+                                <segments>
+                                    <segment title="First"/>
+                                    <segment title="Second"/>
+                                </segments>
+                                <color key="selectedSegmentTintColor" red="0.12941176470588234" green="0.12941176470588234" blue="0.12941176470588234" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </segmentedControl>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="186" estimatedRowHeight="-1" sectionHeaderHeight="33" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="pRl-cU-PdV">
+                                <rect key="frame" x="16" y="321" width="382" height="492"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" red="0.97647058823529409" green="0.97647058823529409" blue="0.97647058823529409" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="pRl-cU-PdV" firstAttribute="top" secondItem="Fbt-ez-Tyx" secondAttribute="bottom" constant="24" id="0wi-Sc-ZK9"/>
                             <constraint firstItem="n0i-jl-CD4" firstAttribute="trailing" secondItem="4uf-3h-zcr" secondAttribute="trailing" id="4uX-4q-rly"/>
+                            <constraint firstItem="n0i-jl-CD4" firstAttribute="bottom" secondItem="pRl-cU-PdV" secondAttribute="bottom" id="MZm-qe-rcR"/>
+                            <constraint firstItem="pRl-cU-PdV" firstAttribute="leading" secondItem="n0i-jl-CD4" secondAttribute="leading" constant="16" id="Mqs-1d-EZo"/>
+                            <constraint firstItem="n0i-jl-CD4" firstAttribute="trailing" secondItem="Fbt-ez-Tyx" secondAttribute="trailing" constant="16" id="RTI-AM-WWG"/>
                             <constraint firstItem="4uf-3h-zcr" firstAttribute="top" secondItem="ELu-Qm-RMF" secondAttribute="top" id="YPq-dZ-5HQ"/>
                             <constraint firstItem="75K-5L-OFi" firstAttribute="centerX" secondItem="ELu-Qm-RMF" secondAttribute="centerX" id="f3Q-tB-3Ox"/>
                             <constraint firstItem="75K-5L-OFi" firstAttribute="top" secondItem="4uf-3h-zcr" secondAttribute="bottom" constant="-73" id="ih1-ni-Pvh"/>
+                            <constraint firstItem="e6H-tT-8R2" firstAttribute="leading" secondItem="n0i-jl-CD4" secondAttribute="leading" constant="16" id="nOr-Ko-PCO"/>
                             <constraint firstItem="4uf-3h-zcr" firstAttribute="leading" secondItem="n0i-jl-CD4" secondAttribute="leading" id="rpb-RT-UBg"/>
+                            <constraint firstItem="n0i-jl-CD4" firstAttribute="trailing" secondItem="pRl-cU-PdV" secondAttribute="trailing" constant="16" id="sQ3-08-zck"/>
+                            <constraint firstItem="e6H-tT-8R2" firstAttribute="top" secondItem="75K-5L-OFi" secondAttribute="bottom" constant="16" id="vXI-Ef-nsc"/>
+                            <constraint firstItem="Fbt-ez-Tyx" firstAttribute="top" secondItem="e6H-tT-8R2" secondAttribute="bottom" constant="16" id="vuA-Ue-XhR"/>
+                            <constraint firstItem="Fbt-ez-Tyx" firstAttribute="leading" secondItem="n0i-jl-CD4" secondAttribute="leading" constant="16" id="yUG-v2-X2X"/>
+                            <constraint firstItem="n0i-jl-CD4" firstAttribute="trailing" secondItem="e6H-tT-8R2" secondAttribute="trailing" constant="16" id="yjh-In-Hff"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="n0i-jl-CD4"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Perfil" image="profile_icon" id="A6U-EV-Cgd"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="jobsTableView" destination="pRl-cU-PdV" id="pNY-yP-fz5"/>
+                        <outlet property="profileImage" destination="75K-5L-OFi" id="QAG-nf-WYj"/>
+                        <outlet property="profileNameLabel" destination="e6H-tT-8R2" id="EI1-X7-oDn"/>
+                        <outlet property="segmentedControl" destination="Fbt-ez-Tyx" id="24D-TX-U3j"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uwq-EZ-B5R" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="106" y="133"/>
+            <point key="canvasLocation" x="105.79710144927537" y="132.58928571428572"/>
         </scene>
         <!--Job-->
         <scene sceneID="P66-my-lsF">
