@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		161C09A1237445A6002DEEDC /* ViewUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 161C09A0237445A6002DEEDC /* ViewUtilities.swift */; };
 		1663B33823730D90005E3363 /* Nunito-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1663B33623730D90005E3363 /* Nunito-Bold.ttf */; };
 		1663B33923730D90005E3363 /* Nunito-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1663B33723730D90005E3363 /* Nunito-Regular.ttf */; };
 		3B08C35A717ED3964E4F36AF /* Pods_TudoNosso_TudoNossoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A01E7358CA8C4FF34A59BF3 /* Pods_TudoNosso_TudoNossoUITests.framework */; };
@@ -53,6 +54,7 @@
 
 /* Begin PBXFileReference section */
 		02D64479AB48D475B64D5A86 /* Pods_TudoNossoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TudoNossoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		161C09A0237445A6002DEEDC /* ViewUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewUtilities.swift; sourceTree = "<group>"; };
 		162820112372FEF700CCFCBE /* Nunito-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-Regular.ttf"; sourceTree = "<group>"; };
 		162820122372FEF700CCFCBE /* Nunito-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-Bold.ttf"; sourceTree = "<group>"; };
 		1663B33623730D90005E3363 /* Nunito-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-Bold.ttf"; sourceTree = "<group>"; };
@@ -134,6 +136,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		161C099F2374456C002DEEDC /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				161C09A0237445A6002DEEDC /* ViewUtilities.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
 		1663B331237309FE005E3363 /* Recovered References */ = {
 			isa = PBXGroup;
 			children = (
@@ -178,6 +188,7 @@
 		C40A2E7623704BA500DB87BB /* TudoNosso */ = {
 			isa = PBXGroup;
 			children = (
+				161C099F2374456C002DEEDC /* Utilities */,
 				1663B33523730D24005E3363 /* Fonts */,
 				C42267402371ADF5000A6DA3 /* Utilities Login */,
 				C422672E237055BD000A6DA3 /* ViewControllers */,
@@ -492,6 +503,7 @@
 				C42267452371AF28000A6DA3 /* (null) in Sources */,
 				C40A2E7C23704BA500DB87BB /* ViewController.swift in Sources */,
 				C4226734237057A3000A6DA3 /* ExploreViewController.swift in Sources */,
+				161C09A1237445A6002DEEDC /* ViewUtilities.swift in Sources */,
 				C422673223705786000A6DA3 /* NotificationsViewController.swift in Sources */,
 				C42267462371AF28000A6DA3 /* (null) in Sources */,
 				C42267422371AE1B000A6DA3 /* (null) in Sources */,

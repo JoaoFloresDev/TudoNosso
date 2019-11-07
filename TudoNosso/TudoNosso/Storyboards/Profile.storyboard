@@ -11,10 +11,20 @@
         <!--Perfil-->
         <scene sceneID="XpE-aN-JXc">
             <objects>
-                <viewController id="nET-7L-Osk" customClass="JobViewController" customModule="TudoNosso" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="nET-7L-Osk" customClass="ProfileViewController" customModule="TudoNosso" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ELu-Qm-RMF">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3PM-DI-n7j">
+                                <rect key="frame" x="184" y="305" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <segue destination="BEc-Uq-R0D" kind="show" id="Ce9-NE-SaS"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" red="0.97647058823529409" green="0.97647058823529409" blue="0.97647058823529409" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="n0i-jl-CD4"/>
                     </view>
@@ -33,7 +43,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mwl-to-U34" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="605" y="-21"/>
+            <point key="canvasLocation" x="608" y="41"/>
         </scene>
     </scenes>
     <resources>
