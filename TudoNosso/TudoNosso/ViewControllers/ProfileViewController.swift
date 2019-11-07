@@ -40,6 +40,8 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
             fatalError("The dequeued cell is not an instance of JobsTableViewCell.")
         }
         //todo config cell
+        cell.configureCell()
+        cell.backgroundColor = .clear
         return cell
     }
     
