@@ -47,6 +47,8 @@
 		D776C4D723744C6E002C3F3E /* JobsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D776C4D623744C6E002C3F3E /* JobsTableViewCell.swift */; };
 		D776C4DA237468AD002C3F3E /* KeyboardDismissingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D776C4D8237468AD002C3F3E /* KeyboardDismissingView.swift */; };
 		D776C4DB237468AD002C3F3E /* KeyboardAvoiding.swift in Sources */ = {isa = PBXBuildFile; fileRef = D776C4D9237468AD002C3F3E /* KeyboardAvoiding.swift */; };
+		D78A53CB23758D58004B4689 /* JobsTableViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = D78A53CA23758D58004B4689 /* JobsTableViewHeader.swift */; };
+		D78A53CD23758D6B004B4689 /* JobsTableViewHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = D78A53CC23758D6B004B4689 /* JobsTableViewHeader.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -117,6 +119,8 @@
 		D776C4D623744C6E002C3F3E /* JobsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobsTableViewCell.swift; sourceTree = "<group>"; };
 		D776C4D8237468AD002C3F3E /* KeyboardDismissingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardDismissingView.swift; sourceTree = "<group>"; };
 		D776C4D9237468AD002C3F3E /* KeyboardAvoiding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardAvoiding.swift; sourceTree = "<group>"; };
+		D78A53CA23758D58004B4689 /* JobsTableViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobsTableViewHeader.swift; sourceTree = "<group>"; };
+		D78A53CC23758D6B004B4689 /* JobsTableViewHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = JobsTableViewHeader.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -298,20 +302,30 @@
 		D776C4CF23743E62002C3F3E /* Custom Views */ = {
 			isa = PBXGroup;
 			children = (
-				D776C4D3237442A1002C3F3E /* Cells for JobsTable */,
+				D78A53C923758D1D004B4689 /* Header for Jobs Table */,
+				D776C4D3237442A1002C3F3E /* Cells for Jobs Table */,
 				D765D3252373041B00F596CD /* RoundedViews.swift */,
 				D776C4CD23743C7E002C3F3E /* CustomSegmentedControl.swift */,
 			);
 			path = "Custom Views";
 			sourceTree = "<group>";
 		};
-		D776C4D3237442A1002C3F3E /* Cells for JobsTable */ = {
+		D776C4D3237442A1002C3F3E /* Cells for Jobs Table */ = {
 			isa = PBXGroup;
 			children = (
-				D776C4D4237442C0002C3F3E /* JobsTableViewCell.xib */,
 				D776C4D623744C6E002C3F3E /* JobsTableViewCell.swift */,
+				D776C4D4237442C0002C3F3E /* JobsTableViewCell.xib */,
 			);
-			path = "Cells for JobsTable";
+			path = "Cells for Jobs Table";
+			sourceTree = "<group>";
+		};
+		D78A53C923758D1D004B4689 /* Header for Jobs Table */ = {
+			isa = PBXGroup;
+			children = (
+				D78A53CA23758D58004B4689 /* JobsTableViewHeader.swift */,
+				D78A53CC23758D6B004B4689 /* JobsTableViewHeader.xib */,
+			);
+			path = "Header for Jobs Table";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -429,6 +443,7 @@
 				C40A2EAF23704E7C00DB87BB /* Explore.storyboard in Resources */,
 				C40A2EB123704E9700DB87BB /* Notifications.storyboard in Resources */,
 				C40A2E8723704BA700DB87BB /* LaunchScreen.storyboard in Resources */,
+				D78A53CD23758D6B004B4689 /* JobsTableViewHeader.xib in Resources */,
 				C40A2EB523704EC700DB87BB /* Job.storyboard in Resources */,
 				1663B33923730D90005E3363 /* Nunito-Regular.ttf in Resources */,
 				1663B33823730D90005E3363 /* Nunito-Bold.ttf in Resources */,
@@ -571,6 +586,7 @@
 				C4226734237057A3000A6DA3 /* ExploreViewController.swift in Sources */,
 				C422673223705786000A6DA3 /* NotificationsViewController.swift in Sources */,
 				D765D3222373021000F596CD /* UIColor+Extension.swift in Sources */,
+				D78A53CB23758D58004B4689 /* JobsTableViewHeader.swift in Sources */,
 				C42267462371AF28000A6DA3 /* (null) in Sources */,
 				C42267422371AE1B000A6DA3 /* (null) in Sources */,
 				C42267462371AF28000A6DA3 /* (null) in Sources */,
