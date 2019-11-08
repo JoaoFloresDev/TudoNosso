@@ -8,6 +8,7 @@
 
 import Foundation
 import CoreLocation
+import FirebaseFirestore.FIRGeoPoint
 
 class Organization {
 
@@ -41,13 +42,13 @@ class Organization {
            guard
             let name = snapshot["name"] as? String,
             let email = snapshot["email"] as? String,
-            let dictAddress = snapshot["address"] as? Dictionary<String, Any>
+            let location = snapshot["address"] as? GeoPoint
             else {
                    return nil
            }
             
         self.name = name
-        self.address = CLLocationCoordinate2D.fromDictionary(dictionary: dictAddress)
+        self.address = CLLocationCoordinate2D.fromGeoPoint(geoPoint: location)
         self.email = email
         self.desc = snapshot["desc"] as? String
         self.phone = snapshot["phone"] as? String
@@ -61,7 +62,7 @@ extension Organization: DatabaseRepresentation {
   var representation: [String : Any] {
     var rep: [String : Any] = [
       "name": name,
-      "address": address.toDictionary(),
+      "address": address.toGeoPoint(),
       "email": email
     ]
     if let desc = self.desc {
