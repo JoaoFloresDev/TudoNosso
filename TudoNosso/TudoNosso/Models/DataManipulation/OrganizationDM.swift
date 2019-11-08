@@ -7,48 +7,51 @@
 //
 
 import Foundation
-import FirebaseDatabase
+import FirebaseFirestore
 
 class OrganizationDM {
-    var databaseRef: DatabaseReference!
+    var db = Firestore.firestore()
     let TABLENAME = "ongs"
-    
-    init() {
-        databaseRef = Database.database().reference().child(TABLENAME)
-    }
     
     func save(ong: Organization) {
         let ongId = Base64Converter.encodeStringAsBase64(ong.email)
-        databaseRef.child(ongId).setValue(ong.representation)
+        db.collection(TABLENAME).document(ongId).setData(ong.representation)
     }
     
     func listAll(completion: @escaping ([Organization]) ->()) {
         
-        databaseRef.queryOrdered(byChild: "name").observe(.value) { snapshot in
-            let result = snapshot.children.compactMap { (child) -> Organization? in
-                if let snap = child as? DataSnapshot,
-                    let data = snap.value as? NSDictionary,
-                    let element = Organization(snapshot: data) {
-                    return element
-                } else {
-                    return nil
+        db.collection(TABLENAME).getDocuments { (snapshot, err) in
+            if let err = err{
+                print("\(err.localizedDescription)")
+            }else {
+                if let snapshot = snapshot{
+                    let result = snapshot.documents.compactMap { (child) -> Organization? in
+                        if let element = Organization(snapshot: child.data() as NSDictionary){
+                            return element
+                        }
+                        return nil
+                        
+                    }
+                    completion(result)
                 }
             }
-            completion(result)
         }
     }
+
     
     func find(ByEmail email:String, completion: @escaping (Organization?) -> Void) {
         let ongId = Base64Converter.encodeStringAsBase64(email)
         
-        let ongData = databaseRef.child(ongId)
-        var ong: Organization?
-        ongData.observeSingleEvent(of: .value) { (snapshot) in
-            if let data = snapshot.value as? NSDictionary {
-                ong = Organization(snapshot: data)
-                completion(ong)
-            } else {
-                completion(nil)
+        db.collection(TABLENAME).document(ongId).getDocument { (snapshot, err) in
+            if let err = err {
+                print(err.localizedDescription)
+            }else {
+                if let snapshot = snapshot {
+                    let job = Organization(snapshot: snapshot.data()! as NSDictionary)
+                    completion(job)
+                }else {
+                    completion(nil)
+                }
             }
         }
     }
