@@ -20,9 +20,11 @@ class ProfileViewController: UIViewController {
         super.viewDidLoad()
 
         setupJobsTableView()
+        setupProfileTableView()
     }
     
     func setupJobsTableView(){
+        jobsTableView.isHidden = false
         jobsTableView.backgroundColor = .clear
         
         jobsTableView.delegate = self
@@ -30,6 +32,16 @@ class ProfileViewController: UIViewController {
         
         jobsTableView.register(JobsTableViewCell.nib, forCellReuseIdentifier: JobsTableViewCell.reuseIdentifer)
         jobsTableView.register(JobsTableViewHeader.nib, forHeaderFooterViewReuseIdentifier: JobsTableViewHeader.reuseIdentifer)
+    }
+    
+    func setupProfileTableView() {
+        profileTableView.isHidden = true
+        profileTableView.backgroundColor = .clear
+        
+        profileTableView.delegate = self
+        profileTableView.dataSource = self
+        
+        profileTableView.register(InfoCell.nib, forCellReuseIdentifier: InfoCell.reuseIdentifer)
     }
 
     @IBAction func segmentChanged(_ sender: Any) {
@@ -86,7 +98,13 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2 //TODO
+        switch tableView {
+        case jobsTableView:
+            return 2 //TODO
+        case profileTableView:
+            return 3
+        default:    return 0
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -98,6 +116,11 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
             }
             //todo config cell
             cell.configureCell()
+            cell.backgroundColor = .clear
+            return cell
+        case profileTableView:
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: InfoCell.reuseIdentifer, for: indexPath) as? InfoCell else {
+                fatalError("The dequeued cell is not an instance of InfoCell.") }
             cell.backgroundColor = .clear
             return cell
         default: return UITableViewCell()

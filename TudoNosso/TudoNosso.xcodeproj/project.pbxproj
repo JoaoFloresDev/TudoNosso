@@ -59,6 +59,8 @@
 		D776C4DB237468AD002C3F3E /* KeyboardAvoiding.swift in Sources */ = {isa = PBXBuildFile; fileRef = D776C4D9237468AD002C3F3E /* KeyboardAvoiding.swift */; };
 		D78A53CB23758D58004B4689 /* JobsTableViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = D78A53CA23758D58004B4689 /* JobsTableViewHeader.swift */; };
 		D78A53CD23758D6B004B4689 /* JobsTableViewHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = D78A53CC23758D6B004B4689 /* JobsTableViewHeader.xib */; };
+		D78A53D02375B280004B4689 /* InfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D78A53CF2375B280004B4689 /* InfoCell.xib */; };
+		D78A53D22375B292004B4689 /* InfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D78A53D12375B292004B4689 /* InfoCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -141,6 +143,8 @@
 		D776C4D9237468AD002C3F3E /* KeyboardAvoiding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardAvoiding.swift; sourceTree = "<group>"; };
 		D78A53CA23758D58004B4689 /* JobsTableViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobsTableViewHeader.swift; sourceTree = "<group>"; };
 		D78A53CC23758D6B004B4689 /* JobsTableViewHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = JobsTableViewHeader.xib; sourceTree = "<group>"; };
+		D78A53CF2375B280004B4689 /* InfoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InfoCell.xib; sourceTree = "<group>"; };
+		D78A53D12375B292004B4689 /* InfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -350,6 +354,7 @@
 		D776C4CF23743E62002C3F3E /* Custom Views */ = {
 			isa = PBXGroup;
 			children = (
+				D78A53CE2375B25E004B4689 /* Profile cells */,
 				D78A53C923758D1D004B4689 /* Header for Jobs Table */,
 				D776C4D3237442A1002C3F3E /* Cells for Jobs Table */,
 				D765D3252373041B00F596CD /* RoundedViews.swift */,
@@ -374,6 +379,15 @@
 				D78A53CC23758D6B004B4689 /* JobsTableViewHeader.xib */,
 			);
 			path = "Header for Jobs Table";
+			sourceTree = "<group>";
+		};
+		D78A53CE2375B25E004B4689 /* Profile cells */ = {
+			isa = PBXGroup;
+			children = (
+				D78A53D12375B292004B4689 /* InfoCell.swift */,
+				D78A53CF2375B280004B4689 /* InfoCell.xib */,
+			);
+			path = "Profile cells";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -495,6 +509,7 @@
 				C40A2EB523704EC700DB87BB /* Job.storyboard in Resources */,
 				1663B33923730D90005E3363 /* Nunito-Regular.ttf in Resources */,
 				1663B33823730D90005E3363 /* Nunito-Bold.ttf in Resources */,
+				D78A53D02375B280004B4689 /* InfoCell.xib in Resources */,
 				C40A2E8423704BA700DB87BB /* Assets.xcassets in Resources */,
 				C40A2E7F23704BA500DB87BB /* Main.storyboard in Resources */,
 			);
@@ -629,6 +644,7 @@
 				C40A2E8223704BA500DB87BB /* TudoNosso.xcdatamodeld in Sources */,
 				5673812A2374551700F1B6C5 /* Base64Converter.swift in Sources */,
 				567380FB237350F700F1B6C5 /* DatabaseRepresentation.swift in Sources */,
+				D78A53D22375B292004B4689 /* InfoCell.swift in Sources */,
 				56A74711237193AA00A3FA76 /* Date+extensions.swift in Sources */,
 				C46E728623745C1300D57BB9 /* VideoCell.swift in Sources */,
 				C42267482371AFBE000A6DA3 /* (null) in Sources */,
