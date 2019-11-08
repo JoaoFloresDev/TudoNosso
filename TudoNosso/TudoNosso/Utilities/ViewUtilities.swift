@@ -13,7 +13,7 @@ class ViewUtilities {
     
     static func setupCard(_ cardView: UIView!) {
         cardView.layer.shadowColor = UIColor.black.cgColor
-        cardView.layer.shadowOpacity = 0.05
+        cardView.layer.shadowOpacity = 0.02
         cardView.layer.shadowOffset = .zero
         cardView.layer.shadowRadius = 20
 
