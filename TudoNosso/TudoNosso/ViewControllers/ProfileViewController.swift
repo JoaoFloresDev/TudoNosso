@@ -22,14 +22,39 @@ class ProfileViewController: UIViewController {
     }
     
     func setupTableView(){
+        jobsTableView.backgroundColor = .clear
+        
         jobsTableView.delegate = self
         jobsTableView.dataSource = self
         
         jobsTableView.register(JobsTableViewCell.nib, forCellReuseIdentifier: JobsTableViewCell.reuseIdentifer)
+        jobsTableView.register(JobsTableViewHeader.nib, forHeaderFooterViewReuseIdentifier: JobsTableViewHeader.reuseIdentifer)
     }
 }
 
 extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 2
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        guard let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: JobsTableViewHeader.reuseIdentifer) as? JobsTableViewHeader else {
+            fatalError("The dequeued header is not an instance of JobsTableViewHeader.")
+        }
+        
+        switch section {
+        case 0:  header.configure(type: .ongoing)
+        case 1:  header.configure(type: .finished)
+        default: break
+        }
+        
+        return header
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return JobsTableViewHeader.height
+    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 2 //TODO
@@ -43,9 +68,5 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
         cell.configureCell()
         cell.backgroundColor = .clear
         return cell
-    }
-    
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
     }
 }
