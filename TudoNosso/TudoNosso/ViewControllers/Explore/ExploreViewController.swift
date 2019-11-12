@@ -20,10 +20,10 @@ class ExploreViewController: UIViewController {
          setupTableView()
         
         let searchBar = UISearchBar.appearance()
-        searchBar.tintColor = UIColor.white
-        searchBar.barTintColor = UIColor.orange
+        searchBar.tintColor = UIColor.black
+        searchBar.barTintColor = UIColor.white
         searchBar.alpha = 1
-        searchBar.backgroundColor = UIColor.black
+        searchBar.backgroundColor = UIColor.white
         
         
         jobsTableView.dataSource = self

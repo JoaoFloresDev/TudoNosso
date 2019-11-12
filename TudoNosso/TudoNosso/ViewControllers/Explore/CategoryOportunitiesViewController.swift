@@ -24,8 +24,8 @@ class CategoryOportunitiesViewController: UIViewController {
         searchController.dimsBackgroundDuringPresentation = false
         definesPresentationContext = true
         jobsTableView.tableHeaderView = searchController.searchBar
-        searchController.searchBar.tintColor = UIColor.orange
-        searchController.searchBar.barTintColor = UIColor.orange
+        searchController.searchBar.tintColor = UIColor.black
+        searchController.searchBar.barTintColor = UIColor.white
     }
         
     func setupTableView(){
@@ -69,7 +69,8 @@ extension CategoryOportunitiesViewController : UITableViewDataSource, UISearchRe
             }
             
             //todo config cell
-            cell.configureCell()
+//            cell.configureCell()tudo
+        
             cell.backgroundColor = .clear
             return cell
     }
