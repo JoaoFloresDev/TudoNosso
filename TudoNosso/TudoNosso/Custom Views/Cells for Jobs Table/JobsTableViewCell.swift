@@ -26,7 +26,7 @@ class JobsTableViewCell: UITableViewCell {
         return UINib(nibName: nibName, bundle: nil)
     }
     
-    func configureCell(){
+    func configure(){
         //TODO
     }
 }

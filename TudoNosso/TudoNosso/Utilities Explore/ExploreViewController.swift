@@ -78,7 +78,7 @@ extension ExploreViewController : UITableViewDataSource {
                 fatalError("The dequeued cell is not an instance of JobsTableViewCell.")
             }
             //todo config cell
-            cell.configureCell()
+            cell.configure()
             cell.backgroundColor = .clear
             return cell
             

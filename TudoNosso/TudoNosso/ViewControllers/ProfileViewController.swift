@@ -115,13 +115,14 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
                 fatalError("The dequeued cell is not an instance of JobsTableViewCell.")
             }
             //todo config cell
-            cell.configureCell()
+            cell.configure()
             cell.backgroundColor = .clear
             return cell
         case profileTableView:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: InfoCell.reuseIdentifer, for: indexPath) as? InfoCell else {
                 fatalError("The dequeued cell is not an instance of InfoCell.") }
             cell.backgroundColor = .clear
+            cell.configure() //TODO
             return cell
         default: return UITableViewCell()
         }
