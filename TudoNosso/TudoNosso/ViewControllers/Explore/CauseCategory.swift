@@ -21,10 +21,9 @@ extension CauseCategory : UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
         var numElem = 10
-        print("aqui!!!!")
         print(collectionView.tag)
         if(collectionView.tag == 1) {
-            numElem = 2
+            numElem = 20
         }
         return numElem
     }
@@ -39,13 +38,15 @@ extension CauseCategory : UICollectionViewDataSource, UICollectionViewDelegate {
         cell.imageView.clipsToBounds = true
         cell.imageView.tag = indexPath.row
         
-        if(indexPath.row <= 9) {
-            let image = cropToBounds(image: UIImage(named: "category\(indexPath.row)")!, portraitOrientation: true)
-            cell.imageView.image = image
-        }
-        else {
-            cell.imageView.image = (UIImage(named: "category1")!)
-        }
+//        if(indexPath.row <= 9) {
+//            let image = cropToBounds(image: UIImage(named: "category\(indexPath.row)")!, portraitOrientation: true)
+//            cell.imageView.image = image
+//        }
+//        else {
+//            cell.imageView.image = (UIImage(named: "category1")!)
+//        }
+        let image = cropToBounds(image: UIImage(named: "ong-img_job")!, portraitOrientation: true)
+        cell.imageView.image = image
         
         return cell
     }
@@ -64,7 +65,7 @@ extension CauseCategory : UICollectionViewDataSource, UICollectionViewDelegate {
             posX = ((contextSize.width - contextSize.height) / 2)
             posY = 0
             // hard coded
-            cgwidth = 2350
+            cgwidth = 3000
             cgheight = 3000
         } else { // if landscape
             posX = 0

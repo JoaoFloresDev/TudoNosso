@@ -218,21 +218,15 @@
             </objects>
             <point key="canvasLocation" x="3203" y="836"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="1Vh-GT-JTc">
+        <!--Job-->
+        <scene sceneID="MPH-R6-7DV">
             <objects>
-                <viewController id="DZO-tA-5F3" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="3DS-9t-F4A">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="UH4-t8-Jsl"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="7kE-Gy-NDZ"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="zBh-7z-r90" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <viewControllerPlaceholder storyboardName="Job" id="Rkt-ep-pso" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="JsO-Xr-sA6"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Rhw-D7-MiY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3203" y="192"/>
+            <point key="canvasLocation" x="3066" y="149"/>
         </scene>
         <!--Explorar-->
         <scene sceneID="psT-e2-Nmf">
@@ -430,7 +424,7 @@
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="jobsTableView" destination="D89-VI-4vT" id="Zcb-fR-j1G"/>
-                        <segue destination="DZO-tA-5F3" kind="show" identifier="showDetailSegue" id="GKu-YS-Iln"/>
+                        <segue destination="Rkt-ep-pso" kind="show" identifier="showDetailSegue" id="hNG-PQ-MgU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zp5-lL-Zpc" sceneMemberID="firstResponder"/>
