@@ -9,11 +9,25 @@
 import UIKit
 
 class JobViewController: UIViewController {
+    
+    @IBOutlet weak var buttonsView: UIView!
+    @IBOutlet weak var descriptionView: UIView!
+    @IBOutlet weak var locationView: UIView!
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
 
-        // Do any additional setup after loading the view.
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        ViewUtilities.setupCard(descriptionView)
+        ViewUtilities.setupCard(locationView)
+        ViewUtilities.setupCard(buttonsView)
+        
     }
     
 
