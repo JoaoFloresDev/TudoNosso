@@ -20,7 +20,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0VX-ik-ZnY" customClass="RoundedView" customModule="TudoNosso" customModuleProvider="target">
-                    <rect key="frame" x="16" y="13" width="16" height="16"/>
+                    <rect key="frame" x="32" y="13" width="16" height="16"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="16" id="2oV-A7-4op"/>
@@ -33,7 +33,7 @@
                     </userDefinedRuntimeAttributes>
                 </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Encerradas" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Iod-GQ-ZdJ">
-                    <rect key="frame" x="40" y="8.5" width="92.5" height="25"/>
+                    <rect key="frame" x="56" y="8.5" width="92.5" height="25"/>
                     <fontDescription key="fontDescription" name="Nunito-Bold" family="Nunito" pointSize="18"/>
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
@@ -42,7 +42,7 @@
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="0VX-ik-ZnY" secondAttribute="bottom" constant="13" id="30W-Vi-hU5"/>
-                <constraint firstItem="0VX-ik-ZnY" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="AjY-mN-PJV"/>
+                <constraint firstItem="0VX-ik-ZnY" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="32" id="AjY-mN-PJV"/>
                 <constraint firstItem="Iod-GQ-ZdJ" firstAttribute="leading" secondItem="0VX-ik-ZnY" secondAttribute="trailing" constant="8" id="MAk-qp-vUe"/>
                 <constraint firstItem="Iod-GQ-ZdJ" firstAttribute="centerY" secondItem="0VX-ik-ZnY" secondAttribute="centerY" id="t0a-MS-n4n"/>
             </constraints>

@@ -19,13 +19,13 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fQJ-zg-sV8" customClass="RoundedView" customModule="TudoNosso" customModuleProvider="target">
-                    <rect key="frame" x="0.0" y="0.0" width="414" height="178"/>
+                    <rect key="frame" x="16" y="0.0" width="382" height="178"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="gTt-se-JQl">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="178"/>
+                            <rect key="frame" x="0.0" y="0.0" width="382" height="178"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zSB-4V-Kps">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="121"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="382" height="121"/>
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="orange_logo_tudonosso" translatesAutoresizingMaskIntoConstraints="NO" id="INI-D7-tXl">
                                             <rect key="frame" x="0.0" y="0.0" width="117" height="120"/>
@@ -35,29 +35,29 @@
                                             </constraints>
                                         </imageView>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yta-ck-3Z8" userLabel="Divisor line">
-                                            <rect key="frame" x="0.0" y="120" width="414" height="1"/>
+                                            <rect key="frame" x="0.0" y="120" width="382" height="1"/>
                                             <color key="backgroundColor" red="0.83137254901960778" green="0.83137254901960778" blue="0.83137254901960778" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="1" id="P2T-YS-ieR"/>
                                             </constraints>
                                         </view>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="5by-PK-KmT">
-                                            <rect key="frame" x="133" y="16" width="265" height="51"/>
+                                            <rect key="frame" x="133" y="16" width="233" height="51"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Professor(a)" textAlignment="natural" lineBreakMode="characterWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uuM-fF-T6D">
-                                                    <rect key="frame" x="0.0" y="0.0" width="265" height="19"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="233" height="19"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                                     <color key="textColor" red="0.12941176470588234" green="0.12941176470588234" blue="0.12941176470588234" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pontual" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NME-d4-7oj">
-                                                    <rect key="frame" x="0.0" y="19" width="265" height="16"/>
+                                                    <rect key="frame" x="0.0" y="19" width="233" height="16"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <color key="textColor" red="0.31764705882352939" green="0.31764705882352939" blue="0.31764705882352939" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pq. Oziel, Campinas (SP)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cBY-lx-UxT">
-                                                    <rect key="frame" x="0.0" y="35" width="265" height="16"/>
+                                                    <rect key="frame" x="0.0" y="35" width="233" height="16"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <color key="textColor" red="0.31764705882352939" green="0.31764705882352939" blue="0.31764705882352939" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -69,7 +69,7 @@
                                             </constraints>
                                         </stackView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Educação" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tn0-TD-LIf">
-                                            <rect key="frame" x="133" y="86" width="265" height="18"/>
+                                            <rect key="frame" x="133" y="86" width="233" height="18"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="18" id="VIY-7R-kGM"/>
                                             </constraints>
@@ -96,10 +96,10 @@
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TxF-Oh-s0P">
-                                    <rect key="frame" x="0.0" y="121" width="414" height="57"/>
+                                    <rect key="frame" x="0.0" y="121" width="382" height="57"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="05 engajados / 05 vagas" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qnE-1O-bGO">
-                                            <rect key="frame" x="58" y="21.5" width="340" height="14.5"/>
+                                            <rect key="frame" x="58" y="21.5" width="308" height="14.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                             <color key="textColor" red="0.31764705882352939" green="0.31764705882352939" blue="0.31764705882352939" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
@@ -177,10 +177,10 @@
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="fQJ-zg-sV8" secondAttribute="trailing" id="8R3-Rv-mRR"/>
+                <constraint firstAttribute="trailing" secondItem="fQJ-zg-sV8" secondAttribute="trailing" constant="16" id="8R3-Rv-mRR"/>
                 <constraint firstAttribute="bottom" secondItem="fQJ-zg-sV8" secondAttribute="bottom" constant="8" id="bXp-rG-95p"/>
                 <constraint firstItem="fQJ-zg-sV8" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="u4E-4R-be5"/>
-                <constraint firstItem="fQJ-zg-sV8" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="zYW-zw-cXW"/>
+                <constraint firstItem="fQJ-zg-sV8" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="16" id="zYW-zw-cXW"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>

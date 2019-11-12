@@ -23,13 +23,13 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kZn-ff-mLr" customClass="RoundedView" customModule="TudoNosso" customModuleProvider="target">
-                    <rect key="frame" x="0.0" y="8" width="414" height="84"/>
+                    <rect key="frame" x="16" y="8" width="382" height="84"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="n3J-Uh-JIC">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="84"/>
+                            <rect key="frame" x="0.0" y="0.0" width="382" height="84"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9GV-U5-l1e" userLabel="Header">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="40"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="382" height="40"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sobre a ONG" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hcf-VN-9Ve">
                                             <rect key="frame" x="16" y="16" width="85" height="19.5"/>
@@ -39,7 +39,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="edit_icon" translatesAutoresizingMaskIntoConstraints="NO" id="Jsc-kB-poZ">
-                                            <rect key="frame" x="382" y="14" width="18" height="15"/>
+                                            <rect key="frame" x="350" y="14" width="18" height="15"/>
                                         </imageView>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -52,10 +52,10 @@
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0dh-bw-2gd" userLabel="About View">
-                                    <rect key="frame" x="0.0" y="40" width="414" height="44"/>
+                                    <rect key="frame" x="0.0" y="40" width="382" height="44"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YMj-6O-eSQ">
-                                            <rect key="frame" x="16" y="8" width="382" height="28"/>
+                                            <rect key="frame" x="16" y="8" width="350" height="28"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <fontDescription key="fontDescription" name="Nunito-Regular" family="Nunito" pointSize="14"/>
                                             <color key="textColor" red="0.31764705882352939" green="0.31764705882352939" blue="0.31764705882352939" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -99,8 +99,8 @@
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstItem="kZn-ff-mLr" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="PZ8-Wh-BEU"/>
-                <constraint firstItem="kZn-ff-mLr" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="RJj-7B-2uv"/>
+                <constraint firstItem="kZn-ff-mLr" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" constant="-16" id="PZ8-Wh-BEU"/>
+                <constraint firstItem="kZn-ff-mLr" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="RJj-7B-2uv"/>
                 <constraint firstItem="kZn-ff-mLr" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="8" id="SvV-Dh-h6U"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="kZn-ff-mLr" secondAttribute="bottom" constant="8" id="yC1-gD-6fq"/>
             </constraints>

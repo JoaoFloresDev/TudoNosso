@@ -68,30 +68,30 @@
                                 </connections>
                             </segmentedControl>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="iNx-bc-g2h" userLabel="Profile Table View">
-                                <rect key="frame" x="16" y="321" width="382" height="492"/>
+                                <rect key="frame" x="0.0" y="321" width="414" height="492"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="nDP-5q-DrJ">
-                                        <rect key="frame" x="0.0" y="28" width="382" height="44"/>
+                                        <rect key="frame" x="0.0" y="28" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="nDP-5q-DrJ" id="uhr-Sz-yKO">
-                                            <rect key="frame" x="0.0" y="0.0" width="382" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="ydy-bh-1jH">
-                                        <rect key="frame" x="0.0" y="72" width="382" height="44"/>
+                                        <rect key="frame" x="0.0" y="72" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ydy-bh-1jH" id="uFt-fv-qzC">
-                                            <rect key="frame" x="0.0" y="0.0" width="382" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="Jfc-cn-JNK">
-                                        <rect key="frame" x="0.0" y="116" width="382" height="44"/>
+                                        <rect key="frame" x="0.0" y="116" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Jfc-cn-JNK" id="P91-vH-k9e">
-                                            <rect key="frame" x="0.0" y="0.0" width="382" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -99,7 +99,7 @@
                                 <sections/>
                             </tableView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="none" allowsSelection="NO" rowHeight="186" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="pRl-cU-PdV">
-                                <rect key="frame" x="16" y="321" width="382" height="492"/>
+                                <rect key="frame" x="0.0" y="321" width="414" height="492"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <color key="separatorColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <sections/>
@@ -109,9 +109,9 @@
                         <constraints>
                             <constraint firstItem="pRl-cU-PdV" firstAttribute="top" secondItem="Fbt-ez-Tyx" secondAttribute="bottom" constant="24" id="0wi-Sc-ZK9"/>
                             <constraint firstItem="n0i-jl-CD4" firstAttribute="trailing" secondItem="4uf-3h-zcr" secondAttribute="trailing" id="4uX-4q-rly"/>
-                            <constraint firstItem="n0i-jl-CD4" firstAttribute="trailing" secondItem="iNx-bc-g2h" secondAttribute="trailing" constant="16" id="ARC-cB-ZTT"/>
+                            <constraint firstItem="n0i-jl-CD4" firstAttribute="trailing" secondItem="iNx-bc-g2h" secondAttribute="trailing" id="ARC-cB-ZTT"/>
                             <constraint firstItem="n0i-jl-CD4" firstAttribute="bottom" secondItem="pRl-cU-PdV" secondAttribute="bottom" id="MZm-qe-rcR"/>
-                            <constraint firstItem="pRl-cU-PdV" firstAttribute="leading" secondItem="n0i-jl-CD4" secondAttribute="leading" constant="16" id="Mqs-1d-EZo"/>
+                            <constraint firstItem="pRl-cU-PdV" firstAttribute="leading" secondItem="n0i-jl-CD4" secondAttribute="leading" id="Mqs-1d-EZo"/>
                             <constraint firstItem="n0i-jl-CD4" firstAttribute="trailing" secondItem="Fbt-ez-Tyx" secondAttribute="trailing" constant="16" id="RTI-AM-WWG"/>
                             <constraint firstItem="4uf-3h-zcr" firstAttribute="top" secondItem="ELu-Qm-RMF" secondAttribute="top" id="YPq-dZ-5HQ"/>
                             <constraint firstItem="iNx-bc-g2h" firstAttribute="top" secondItem="Fbt-ez-Tyx" secondAttribute="bottom" constant="24" id="age-xe-ywA"/>
@@ -120,8 +120,8 @@
                             <constraint firstItem="75K-5L-OFi" firstAttribute="top" secondItem="4uf-3h-zcr" secondAttribute="bottom" constant="-73" id="ih1-ni-Pvh"/>
                             <constraint firstItem="e6H-tT-8R2" firstAttribute="leading" secondItem="n0i-jl-CD4" secondAttribute="leading" constant="16" id="nOr-Ko-PCO"/>
                             <constraint firstItem="4uf-3h-zcr" firstAttribute="leading" secondItem="n0i-jl-CD4" secondAttribute="leading" id="rpb-RT-UBg"/>
-                            <constraint firstItem="n0i-jl-CD4" firstAttribute="trailing" secondItem="pRl-cU-PdV" secondAttribute="trailing" constant="16" id="sQ3-08-zck"/>
-                            <constraint firstItem="iNx-bc-g2h" firstAttribute="leading" secondItem="n0i-jl-CD4" secondAttribute="leading" constant="16" id="uME-Ze-F5R"/>
+                            <constraint firstItem="n0i-jl-CD4" firstAttribute="trailing" secondItem="pRl-cU-PdV" secondAttribute="trailing" id="sQ3-08-zck"/>
+                            <constraint firstItem="iNx-bc-g2h" firstAttribute="leading" secondItem="n0i-jl-CD4" secondAttribute="leading" id="uME-Ze-F5R"/>
                             <constraint firstItem="e6H-tT-8R2" firstAttribute="top" secondItem="75K-5L-OFi" secondAttribute="bottom" constant="16" id="vXI-Ef-nsc"/>
                             <constraint firstItem="Fbt-ez-Tyx" firstAttribute="top" secondItem="e6H-tT-8R2" secondAttribute="bottom" constant="16" id="vuA-Ue-XhR"/>
                             <constraint firstItem="Fbt-ez-Tyx" firstAttribute="leading" secondItem="n0i-jl-CD4" secondAttribute="leading" constant="16" id="yUG-v2-X2X"/>
