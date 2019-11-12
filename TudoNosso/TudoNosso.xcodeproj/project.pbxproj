@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		138431D6FD1A8BA4B276D25F /* Pods_TudoNossoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02D64479AB48D475B64D5A86 /* Pods_TudoNossoTests.framework */; };
+		161C09A1237445A6002DEEDC /* ViewUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 161C09A0237445A6002DEEDC /* ViewUtilities.swift */; };
 		1663B33823730D90005E3363 /* Nunito-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1663B33623730D90005E3363 /* Nunito-Bold.ttf */; };
 		1663B33923730D90005E3363 /* Nunito-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1663B33723730D90005E3363 /* Nunito-Regular.ttf */; };
 		3B08C35A717ED3964E4F36AF /* Pods_TudoNosso_TudoNossoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A01E7358CA8C4FF34A59BF3 /* Pods_TudoNosso_TudoNossoUITests.framework */; };
@@ -80,6 +81,7 @@
 
 /* Begin PBXFileReference section */
 		02D64479AB48D475B64D5A86 /* Pods_TudoNossoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TudoNossoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		161C09A0237445A6002DEEDC /* ViewUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewUtilities.swift; sourceTree = "<group>"; };
 		162820112372FEF700CCFCBE /* Nunito-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-Regular.ttf"; sourceTree = "<group>"; };
 		162820122372FEF700CCFCBE /* Nunito-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-Bold.ttf"; sourceTree = "<group>"; };
 		1663B33623730D90005E3363 /* Nunito-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-Bold.ttf"; sourceTree = "<group>"; };
@@ -195,6 +197,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		161C099F2374456C002DEEDC /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				161C09A0237445A6002DEEDC /* ViewUtilities.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
 		1663B331237309FE005E3363 /* Recovered References */ = {
 			isa = PBXGroup;
 			children = (
@@ -264,6 +274,7 @@
 		C40A2E7623704BA500DB87BB /* TudoNosso */ = {
 			isa = PBXGroup;
 			children = (
+				161C099F2374456C002DEEDC /* Utilities */,
 				C4C5C2CC23745A6E00AB728F /* Utilities Explore */,
 				D776C4CF23743E62002C3F3E /* Custom Views */,
 				1663B33523730D24005E3363 /* Fonts */,
@@ -635,6 +646,7 @@
 				C40A2E7C23704BA500DB87BB /* ViewController.swift in Sources */,
 				D776C4CE23743C7E002C3F3E /* CustomSegmentedControl.swift in Sources */,
 				C4226734237057A3000A6DA3 /* ExploreViewController.swift in Sources */,
+				161C09A1237445A6002DEEDC /* ViewUtilities.swift in Sources */,
 				C422673223705786000A6DA3 /* NotificationsViewController.swift in Sources */,
 				D765D3222373021000F596CD /* UIColor+Extension.swift in Sources */,
 				D78A53CB23758D58004B4689 /* JobsTableViewHeader.swift in Sources */,
@@ -833,7 +845,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = NZC6LC8NWM;
+				DEVELOPMENT_TEAM = B9RR43VJXH;
 				INFOPLIST_FILE = TudoNosso/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -853,7 +865,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = NZC6LC8NWM;
+				DEVELOPMENT_TEAM = B9RR43VJXH;
 				INFOPLIST_FILE = TudoNosso/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
