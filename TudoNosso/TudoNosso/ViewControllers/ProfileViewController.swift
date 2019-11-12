@@ -42,6 +42,28 @@ class ProfileViewController: UIViewController {
         profileTableView.dataSource = self
         
         profileTableView.register(InfoCell.nib, forCellReuseIdentifier: InfoCell.reuseIdentifer)
+        profileTableView.register(AboutCell.nib, forCellReuseIdentifier: AboutCell.reuseIdentifer)
+        profileTableView.register(AreasCell.nib, forCellReuseIdentifier: AreasCell.reuseIdentifer)
+    }
+    
+    func createCell(indexPath: IndexPath, tableView: UITableView) -> UITableViewCell {
+        switch indexPath.row {
+        case 0:
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: InfoCell.reuseIdentifer, for: indexPath) as? InfoCell else {
+            fatalError("The dequeued cell is not an instance of InfoCell.") }
+            cell.configure() //TODO
+            return cell
+        case 1:
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: AboutCell.reuseIdentifer, for: indexPath) as? AboutCell else {
+            fatalError("The dequeued cell is not an instance of AboutCell.") }
+            cell.configure() //TODO
+            return cell
+        default:
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: AreasCell.reuseIdentifer, for: indexPath) as? AreasCell else {
+            fatalError("The dequeued cell is not an instance of AreasCell.") }
+            cell.configure() //TODO
+            return cell
+        }
     }
 
     @IBAction func segmentChanged(_ sender: Any) {
@@ -115,12 +137,12 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
                 fatalError("The dequeued cell is not an instance of JobsTableViewCell.")
             }
             //todo config cell
-            cell.configureCell()
+            cell.configure()
             cell.backgroundColor = .clear
             return cell
         case profileTableView:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: InfoCell.reuseIdentifer, for: indexPath) as? InfoCell else {
-                fatalError("The dequeued cell is not an instance of InfoCell.") }
+            let cell = self.createCell(indexPath: indexPath, tableView: tableView)
+            
             cell.backgroundColor = .clear
             return cell
         default: return UITableViewCell()

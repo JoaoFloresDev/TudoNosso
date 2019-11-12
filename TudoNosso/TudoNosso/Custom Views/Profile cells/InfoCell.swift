@@ -9,6 +9,13 @@
 import UIKit
 
 class InfoCell: UITableViewCell {
+    @IBOutlet weak var locationLabel: UILabel! {
+        didSet {
+            self.locationLabel.lineBreakMode = .byWordWrapping
+            self.locationLabel.numberOfLines = 0
+        }
+    }
+    
     static let reuseIdentifer = String(describing: InfoCell.self)
     
     static var nib: UINib {
@@ -17,6 +24,8 @@ class InfoCell: UITableViewCell {
        }
     
     func configure(){
-        //TODO
+        self.locationLabel.text = "Rua Cabo Rubens Zimmermann, 186, Pq. Oziel – Campinas, SP, Brasil" //TODO esse foi só um teste de redimensionamento da view.
+        self.locationLabel.sizeToFit()
+        self.locationLabel.superview?.sizeToFit()
     }
 }
