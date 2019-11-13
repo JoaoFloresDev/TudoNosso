@@ -24,8 +24,8 @@ class AboutCell: UITableViewCell {
            return UINib(nibName: nibName, bundle: nil)
        }
     
-    func configure(){
-        self.aboutLabel.text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat." //TODO esse é somente um teste de redimensionamento da cell.
+    func configure(ong: Organization){
+        self.aboutLabel.text = ong.desc
         self.aboutLabel.sizeToFit()
         self.aboutLabel.superview?.sizeToFit()
     }

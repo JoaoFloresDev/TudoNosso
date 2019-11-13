@@ -27,5 +27,7 @@ class InfoCell: UITableViewCell {
         self.locationLabel.text = "Rua Cabo Rubens Zimmermann, 186, Pq. Oziel – Campinas, SP, Brasil" //TODO esse foi só um teste de redimensionamento da view.
         self.locationLabel.sizeToFit()
         self.locationLabel.superview?.sizeToFit()
+        
+        
     }
 }
