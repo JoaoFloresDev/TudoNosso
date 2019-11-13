@@ -8,12 +8,15 @@
 
 import UIKit
 
+
 class ExploreViewController: UIViewController {
     
     var categories = ["Causas", "Organizações", "Todas as Vagas"]
     var searchController = UISearchController(searchResultsController: nil)
     
     @IBOutlet weak var jobsTableView: UITableView!
+    
+    var selectedTitleHeader: String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,6 +42,15 @@ class ExploreViewController: UIViewController {
         jobsTableView.dataSource = self
         
         jobsTableView.register(JobsTableViewCell.nib, forCellReuseIdentifier: JobsTableViewCell.reuseIdentifer)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
+    {
+        if segue.destination is CategoryOportunitiesViewController
+        {
+            let vc = segue.destination as? CategoryOportunitiesViewController
+            vc?.titleHeader = selectedTitleHeader
+        }
     }
 }
 
@@ -74,12 +86,15 @@ extension ExploreViewController : UITableViewDataSource, UISearchResultsUpdating
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch indexPath.section {
         case 0:
-            let cell = tableView.dequeueReusableCell(withIdentifier:  "cell") as! CauseCategory
-            print(cell)
+            let cell = tableView.dequeueReusableCell(withIdentifier:  "cell") as! CategoryCollectionView
+            cell.delegate = self
+            cell.tag = 0
             return cell
         case 1:
-            let cell = tableView.dequeueReusableCell(withIdentifier:  "cell2") as! CauseCategory
-            print(cell)
+            let cell = tableView.dequeueReusableCell(withIdentifier:  "cell2") as! CategoryCollectionView
+            cell.tag = 1
+            cell.delegate = self
+            
             return cell
         case 2:
 //            let cell = tableView.dequeueReusableCell(withIdentifier:  "cell3") as! oportunityCell
@@ -91,6 +106,7 @@ extension ExploreViewController : UITableViewDataSource, UISearchResultsUpdating
             cell.configure()
             cell.selectionStyle = UITableViewCell.SelectionStyle(rawValue: 0)!
             cell.backgroundColor = .clear
+            
             return cell
             
         default:
@@ -98,3 +114,23 @@ extension ExploreViewController : UITableViewDataSource, UISearchResultsUpdating
         }
     }
 }
+
+extension ExploreViewController: CategoryCollectionViewDelegate {
+    func causeSelected(_ view: CategoryCollectionView, causeTitle: String?, tagCollection: Int) {
+    
+        print("tag: \(tagCollection)")
+        if(tagCollection == 0) {
+            if let title = causeTitle {
+                self.selectedTitleHeader = title
+            }
+            
+            self.performSegue(withIdentifier: "showCauses", sender: self)
+        }
+        else {
+            self.performSegue(withIdentifier: "showProfile", sender: self)
+        }
+    }
+}
+
+
+
