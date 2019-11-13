@@ -47,7 +47,7 @@ class JobDM{
                 }else {
                      let emptyList: [Job] = []
                      completion(emptyList)
-                }
+                }   
             }
         }
     }
