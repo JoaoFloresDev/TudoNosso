@@ -16,11 +16,15 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var jobsTableView: UITableView!
     @IBOutlet weak var profileTableView: UITableView!
     
+    var jobs = [Job]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         setupJobsTableView()
         setupProfileTableView()
+        
+        loadData()
     }
     
     func setupJobsTableView(){
@@ -44,6 +48,10 @@ class ProfileViewController: UIViewController {
         profileTableView.register(InfoCell.nib, forCellReuseIdentifier: InfoCell.reuseIdentifer)
         profileTableView.register(AboutCell.nib, forCellReuseIdentifier: AboutCell.reuseIdentifer)
         profileTableView.register(AreasCell.nib, forCellReuseIdentifier: AreasCell.reuseIdentifer)
+    }
+    
+    func loadData() {
+        
     }
     
     func createCell(indexPath: IndexPath, tableView: UITableView) -> UITableViewCell {
