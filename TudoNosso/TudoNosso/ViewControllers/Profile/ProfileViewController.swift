@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreLocation
 
 class ProfileViewController: UIViewController {
     
@@ -16,7 +17,16 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var jobsTableView: UITableView!
     @IBOutlet weak var profileTableView: UITableView!
     
-    var jobs = [Job]()
+    var ong : Organization = Organization(name: "", address: CLLocationCoordinate2D(), email: "")
+    
+    var jobs : [Job] = [] {
+        didSet {
+            self.sortJobs()
+        }
+    }
+    
+    var ongoingJobs : [Job] = []
+    var finishedJobs : [Job] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,14 +62,31 @@ class ProfileViewController: UIViewController {
     
     func loadData() {
         let jobDM = JobDM()
-        //TODO
+        let orgDM = OrganizationDM()
+        //TODO usando um email fixo por enquanto
         let email = "bruno@gmail.com"
         let id = Base64Converter.encodeStringAsBase64(email)
         
+        orgDM.find(ByEmail: email) { (result) in
+            guard let ong = result else {return}
+            self.ong = ong
+            self.profileNameLabel.text = ong.name
+            self.profileTableView.reloadData()
+        }
+        
         jobDM.find(inField: .organizationID, withValueEqual: id) { (result) in
             self.jobs = result
-            
             self.jobsTableView.reloadData()
+        }
+    }
+    
+    func sortJobs(){
+        for job in jobs {
+            if job.status {
+                ongoingJobs.append(job)
+            } else {
+                finishedJobs.append(job)
+            }
         }
     }
     
@@ -68,12 +95,12 @@ class ProfileViewController: UIViewController {
         case 0:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: InfoCell.reuseIdentifer, for: indexPath) as? InfoCell else {
             fatalError("The dequeued cell is not an instance of InfoCell.") }
-            cell.configure() //TODO
+            cell.configure(ong: self.ong)
             return cell
         case 1:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: AboutCell.reuseIdentifer, for: indexPath) as? AboutCell else {
             fatalError("The dequeued cell is not an instance of AboutCell.") }
-            cell.configure() //TODO
+            cell.configure(ong: self.ong)
             return cell
         default:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: AreasCell.reuseIdentifer, for: indexPath) as? AreasCell else {
@@ -102,7 +129,15 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
         switch tableView {
-        case jobsTableView:     return 2
+        case jobsTableView:
+            var count = 0
+            if ongoingJobs.count > 0 {
+                count += 1
+            }
+            if finishedJobs.count > 0 {
+                count += 1
+            }
+            return count
         case profileTableView:  return 1
         default:                return 0
         }
@@ -117,8 +152,18 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
             }
             
             switch section {
-            case 0:  header.configure(type: .ongoing)
-            case 1:  header.configure(type: .finished)
+            case 0:
+                if ongoingJobs.count > 0 {
+                    header.configure(type: .ongoing)
+                } else {
+                    return nil
+                }
+            case 1:
+                if finishedJobs.count > 0 {
+                    header.configure(type: .finished)
+                } else {
+                    return nil
+                }
             default: break
             }
             
@@ -130,7 +175,17 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         switch tableView{
-        case jobsTableView:     return JobsTableViewHeader.height
+        case jobsTableView:
+            switch section {
+            case 0:
+                if ongoingJobs.count > 0 {
+                    return JobsTableViewHeader.height
+                } else { return 0 }
+            default:
+                 if finishedJobs.count > 0 {
+                                   return JobsTableViewHeader.height
+                               } else { return 0 }
+            }
         case profileTableView:  return 0
         default:                return 0
         }
@@ -139,7 +194,12 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch tableView {
         case jobsTableView:
-            return jobs.count
+            switch section {
+            case 0:
+                return ongoingJobs.count
+            default:
+                return finishedJobs.count
+            }
         case profileTableView:
             return 3
         default:    return 0
@@ -153,9 +213,14 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: JobsTableViewCell.reuseIdentifer, for: indexPath) as? JobsTableViewCell else {
                 fatalError("The dequeued cell is not an instance of JobsTableViewCell.")
             }
-            //todo config cell
-            cell.configure(job: jobs[indexPath.row])
+            switch indexPath.section {
+            case 0:
+                cell.configure(job: ongoingJobs[indexPath.row])
+            default:
+                cell.configure(job: finishedJobs[indexPath.row])
+            }
             cell.backgroundColor = .clear
+            cell.selectionStyle = .none
             return cell
         case profileTableView:
             let cell = self.createCell(indexPath: indexPath, tableView: tableView)

@@ -23,13 +23,13 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gCL-q3-x0p" customClass="RoundedView" customModule="TudoNosso">
-                    <rect key="frame" x="0.0" y="8" width="414" height="92"/>
+                    <rect key="frame" x="16" y="8" width="382" height="92"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="HPh-KC-xhh">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="92"/>
+                            <rect key="frame" x="0.0" y="0.0" width="382" height="92"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sfZ-sV-GYQ">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="40"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="382" height="40"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Áreas de Atuação" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tph-wg-2gM">
                                             <rect key="frame" x="16" y="16" width="114.5" height="19.5"/>
@@ -38,7 +38,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="edit_icon" translatesAutoresizingMaskIntoConstraints="NO" id="bv1-Ve-MnX">
-                                            <rect key="frame" x="382" y="14" width="18" height="21"/>
+                                            <rect key="frame" x="350" y="14" width="18" height="21"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="18" id="TPI-gl-RGJ"/>
@@ -56,7 +56,7 @@
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zgi-AC-Qss">
-                                    <rect key="frame" x="0.0" y="40" width="414" height="52"/>
+                                    <rect key="frame" x="0.0" y="40" width="382" height="52"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="trK-9l-RlN" userLabel="Area View" customClass="RoundedView" customModule="TudoNosso">
                                             <rect key="frame" x="16" y="12" width="68" height="24"/>
@@ -126,8 +126,8 @@
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstItem="eCY-nz-5mF" firstAttribute="trailing" secondItem="gCL-q3-x0p" secondAttribute="trailing" id="7IQ-fm-nWv"/>
-                <constraint firstItem="gCL-q3-x0p" firstAttribute="leading" secondItem="eCY-nz-5mF" secondAttribute="leading" id="eaW-WN-KYh"/>
+                <constraint firstItem="eCY-nz-5mF" firstAttribute="trailing" secondItem="gCL-q3-x0p" secondAttribute="trailing" constant="16" id="7IQ-fm-nWv"/>
+                <constraint firstItem="gCL-q3-x0p" firstAttribute="leading" secondItem="eCY-nz-5mF" secondAttribute="leading" constant="16" id="eaW-WN-KYh"/>
                 <constraint firstItem="gCL-q3-x0p" firstAttribute="top" secondItem="TbU-MZ-tTO" secondAttribute="top" constant="8" id="kVG-W4-oHq"/>
                 <constraint firstAttribute="bottom" secondItem="gCL-q3-x0p" secondAttribute="bottom" constant="16" id="p2Q-Nv-est"/>
             </constraints>
