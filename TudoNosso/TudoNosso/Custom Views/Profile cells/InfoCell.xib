@@ -20,13 +20,13 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="y2i-7Z-vb0" customClass="RoundedView" customModule="TudoNosso" customModuleProvider="target">
-                    <rect key="frame" x="0.0" y="16" width="414" height="107"/>
+                    <rect key="frame" x="16" y="16" width="382" height="107"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="90r-xh-FNB">
-                            <rect key="frame" x="16" y="16" width="382" height="75"/>
+                            <rect key="frame" x="16" y="16" width="350" height="75"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iFo-pi-Ut1" userLabel="Phone Area">
-                                    <rect key="frame" x="0.0" y="0.0" width="382" height="25"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="350" height="25"/>
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="phone_icon" translatesAutoresizingMaskIntoConstraints="NO" id="nS1-n3-T7R">
                                             <rect key="frame" x="0.0" y="0.0" width="15" height="25"/>
@@ -36,14 +36,14 @@
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(18) 99999-0000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vyc-u0-99n">
-                                            <rect key="frame" x="45" y="2" width="311" height="19.5"/>
+                                            <rect key="frame" x="45" y="2" width="279" height="19.5"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <fontDescription key="fontDescription" name="Nunito-Regular" family="Nunito" pointSize="14"/>
                                             <color key="textColor" red="0.31764705882352939" green="0.31764705882352939" blue="0.31764705882352939" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="edit_icon" translatesAutoresizingMaskIntoConstraints="NO" id="81H-fd-JgH">
-                                            <rect key="frame" x="364" y="2" width="18" height="21"/>
+                                            <rect key="frame" x="332" y="2" width="18" height="21"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="18" id="9xj-Ms-Ic1"/>
                                                 <constraint firstAttribute="height" constant="21" id="o7n-Iy-1nd"/>
@@ -63,10 +63,10 @@
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="69F-Ui-qNG" userLabel="Location Area">
-                                    <rect key="frame" x="0.0" y="25" width="382" height="25"/>
+                                    <rect key="frame" x="0.0" y="25" width="350" height="25"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fFg-x1-JUM">
-                                            <rect key="frame" x="45" y="2" width="305" height="21"/>
+                                            <rect key="frame" x="45" y="2" width="273" height="21"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <fontDescription key="fontDescription" name="Nunito-Regular" family="Nunito" pointSize="14"/>
                                             <color key="textColor" red="0.31764705882352939" green="0.31764705882352939" blue="0.31764705882352939" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -91,10 +91,10 @@
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XHx-ve-Qrj" userLabel="Mail Area">
-                                    <rect key="frame" x="0.0" y="50" width="382" height="25"/>
+                                    <rect key="frame" x="0.0" y="50" width="350" height="25"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="alo@phe.org.br" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uVA-FE-4gM">
-                                            <rect key="frame" x="45" y="2" width="305" height="21"/>
+                                            <rect key="frame" x="45" y="2" width="273" height="21"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <fontDescription key="fontDescription" name="Nunito-Regular" family="Nunito" pointSize="14"/>
                                             <color key="textColor" red="0.31764705882352939" green="0.31764705882352939" blue="0.31764705882352939" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -141,13 +141,15 @@
             <constraints>
                 <constraint firstItem="y2i-7Z-vb0" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="16" id="Kk2-aq-o4d"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="y2i-7Z-vb0" secondAttribute="bottom" constant="8" id="dRg-SJ-wfM"/>
-                <constraint firstItem="y2i-7Z-vb0" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="hfe-3K-CAB"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="y2i-7Z-vb0" secondAttribute="trailing" id="ug8-Vq-pFM"/>
+                <constraint firstItem="y2i-7Z-vb0" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="hfe-3K-CAB"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="y2i-7Z-vb0" secondAttribute="trailing" constant="16" id="ug8-Vq-pFM"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <connections>
+                <outlet property="emailLabel" destination="uVA-FE-4gM" id="dG1-F0-BMX"/>
                 <outlet property="locationLabel" destination="fFg-x1-JUM" id="KpZ-Qn-Psr"/>
+                <outlet property="phoneLabel" destination="vyc-u0-99n" id="fDv-T6-Vxk"/>
             </connections>
             <point key="canvasLocation" x="141" y="154"/>
         </view>

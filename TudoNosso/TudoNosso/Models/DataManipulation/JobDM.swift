@@ -44,7 +44,10 @@ class JobDM{
                         return nil
                     }
                     completion(result)
-                }
+                }else {
+                     let emptyList: [Job] = []
+                     completion(emptyList)
+                }   
             }
         }
     }
@@ -69,7 +72,7 @@ class JobDM{
                if let err = err {
                    print(err.localizedDescription)
                }else {
-                   if let snapshot = snapshot {
+                if let snapshot = snapshot {
                    let result = snapshot.documents.compactMap { (child) -> Job? in
                         if let element = Job(snapshot: child.data() as NSDictionary){
                             return element
@@ -77,6 +80,9 @@ class JobDM{
                         return nil
                     }
                     completion(result)
+               }else {
+                    let emptyList: [Job] = []
+                    completion(emptyList)
                }
            }
        }
