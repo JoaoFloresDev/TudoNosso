@@ -147,7 +147,9 @@
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <connections>
+                <outlet property="emailLabel" destination="uVA-FE-4gM" id="dG1-F0-BMX"/>
                 <outlet property="locationLabel" destination="fFg-x1-JUM" id="KpZ-Qn-Psr"/>
+                <outlet property="phoneLabel" destination="vyc-u0-99n" id="fDv-T6-Vxk"/>
             </connections>
             <point key="canvasLocation" x="141" y="154"/>
         </view>

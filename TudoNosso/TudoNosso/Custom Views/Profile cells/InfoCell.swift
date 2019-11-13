@@ -9,6 +9,8 @@
 import UIKit
 
 class InfoCell: UITableViewCell {
+    @IBOutlet weak var phoneLabel: UILabel!
+    @IBOutlet weak var emailLabel: UILabel!
     @IBOutlet weak var locationLabel: UILabel! {
         didSet {
             self.locationLabel.lineBreakMode = .byWordWrapping
@@ -23,11 +25,12 @@ class InfoCell: UITableViewCell {
            return UINib(nibName: nibName, bundle: nil)
        }
     
-    func configure(){
+    func configure(ong: Organization){
         self.locationLabel.text = "Rua Cabo Rubens Zimmermann, 186, Pq. Oziel – Campinas, SP, Brasil" //TODO esse foi só um teste de redimensionamento da view.
         self.locationLabel.sizeToFit()
         self.locationLabel.superview?.sizeToFit()
         
-        
+        self.phoneLabel.text = ong.phone
+        self.emailLabel.text = ong.email
     }
 }

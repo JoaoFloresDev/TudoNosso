@@ -70,6 +70,7 @@ class ProfileViewController: UIViewController {
         orgDM.find(ByEmail: email) { (result) in
             guard let ong = result else {return}
             self.ong = ong
+            self.profileNameLabel.text = ong.name
             self.profileTableView.reloadData()
         }
         
@@ -94,7 +95,7 @@ class ProfileViewController: UIViewController {
         case 0:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: InfoCell.reuseIdentifer, for: indexPath) as? InfoCell else {
             fatalError("The dequeued cell is not an instance of InfoCell.") }
-            cell.configure() //TODO
+            cell.configure(ong: self.ong)
             return cell
         case 1:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: AboutCell.reuseIdentifer, for: indexPath) as? AboutCell else {
@@ -219,6 +220,7 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
                 cell.configure(job: finishedJobs[indexPath.row])
             }
             cell.backgroundColor = .clear
+            cell.selectionStyle = .none
             return cell
         case profileTableView:
             let cell = self.createCell(indexPath: indexPath, tableView: tableView)
