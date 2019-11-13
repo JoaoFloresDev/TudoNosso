@@ -1,9 +1,9 @@
 //
-//  RegisterViewController.swift
-//  CampusSelvagem
+//  ExploreViewController.swift
+//  TudoNosso
 //
-//  Created by Felipe Semissatto on 19/08/19.
-//  Copyright © 2019 Felipe Semissatto. All rights reserved.
+//  Created by Joao Flores on 04/11/19.
+//  Copyright © 2019 Joao Flores. All rights reserved.
 //
 
 import UIKit
@@ -14,12 +14,13 @@ import Photos
 import FirebaseAuth
 //import FIRStorage
 
-class RegisterViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate, UITextFieldDelegate {
+class LoginViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate, UITextFieldDelegate {
 
+    
     @IBOutlet weak var constrainTextBox: UIView!
     @IBOutlet weak var nameTextBox: UITextField!
     @IBOutlet weak var locationTextBox: UITextField!
-
+    
 
     
     override func viewDidLoad() {
@@ -38,6 +39,7 @@ class RegisterViewController: UIViewController, UINavigationControllerDelegate, 
         else if textField == self.locationTextBox {
             KeyboardAvoiding.avoidingView = self.constrainTextBox
         }
+        
         return true
     }
     
