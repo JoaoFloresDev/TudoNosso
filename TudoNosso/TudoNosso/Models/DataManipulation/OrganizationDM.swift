@@ -33,6 +33,9 @@ class OrganizationDM {
                         
                     }
                     completion(result)
+                }else {
+                     let emptyList: [Organization] = []
+                     completion(emptyList)
                 }
             }
         }
