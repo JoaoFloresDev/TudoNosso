@@ -16,11 +16,15 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var jobsTableView: UITableView!
     @IBOutlet weak var profileTableView: UITableView!
     
+    var jobs = [Job]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         setupJobsTableView()
         setupProfileTableView()
+        
+        loadData()
     }
     
     func setupJobsTableView(){
@@ -44,6 +48,19 @@ class ProfileViewController: UIViewController {
         profileTableView.register(InfoCell.nib, forCellReuseIdentifier: InfoCell.reuseIdentifer)
         profileTableView.register(AboutCell.nib, forCellReuseIdentifier: AboutCell.reuseIdentifer)
         profileTableView.register(AreasCell.nib, forCellReuseIdentifier: AreasCell.reuseIdentifer)
+    }
+    
+    func loadData() {
+        let jobDM = JobDM()
+        //TODO
+        let email = "bruno@gmail.com"
+        let id = Base64Converter.encodeStringAsBase64(email)
+        
+        jobDM.find(inField: .organizationID, withValueEqual: id) { (result) in
+            self.jobs = result
+            
+            self.jobsTableView.reloadData()
+        }
     }
     
     func createCell(indexPath: IndexPath, tableView: UITableView) -> UITableViewCell {
@@ -122,7 +139,7 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch tableView {
         case jobsTableView:
-            return 2 //TODO
+            return jobs.count
         case profileTableView:
             return 3
         default:    return 0
@@ -137,7 +154,7 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
                 fatalError("The dequeued cell is not an instance of JobsTableViewCell.")
             }
             //todo config cell
-            cell.configure()
+            cell.configure(job: jobs[indexPath.row])
             cell.backgroundColor = .clear
             return cell
         case profileTableView:

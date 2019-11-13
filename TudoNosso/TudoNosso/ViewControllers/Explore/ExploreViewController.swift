@@ -88,7 +88,7 @@ extension ExploreViewController : UITableViewDataSource, UISearchResultsUpdating
             }
             
             //todo config cell
-            cell.configure()
+//            cell.configure(job: Job)
             cell.backgroundColor = .clear
             return cell
             
