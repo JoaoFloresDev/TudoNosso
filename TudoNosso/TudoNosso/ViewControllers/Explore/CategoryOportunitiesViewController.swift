@@ -14,6 +14,7 @@ class CategoryOportunitiesViewController: UIViewController {
     var searchController = UISearchController(searchResultsController: nil)
     
     @IBOutlet weak var jobsTableView: UITableView!
+    @IBOutlet weak var headerItem: UINavigationItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,6 +27,8 @@ class CategoryOportunitiesViewController: UIViewController {
         jobsTableView.tableHeaderView = searchController.searchBar
         searchController.searchBar.tintColor = UIColor.black
         searchController.searchBar.barTintColor = UIColor.white
+        
+        headerItem.title = "João"
     }
         
     func setupTableView(){
@@ -47,13 +50,9 @@ extension CategoryOportunitiesViewController : UITableViewDataSource, UISearchRe
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        self.performSegue(withIdentifier: "showDetailSegue", sender: indexPath.count)
+        self.performSegue(withIdentifier: "showDetailJobSegue", sender: indexPath.count)
     }
     
-//    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-//        return categories[section]
-//    }
-//
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -68,9 +67,6 @@ extension CategoryOportunitiesViewController : UITableViewDataSource, UISearchRe
                 fatalError("The dequeued cell is not an instance of JobsTableViewCell.")
             }
             
-            //todo config cell
-//            cell.configureCell()tudo
-        
             cell.backgroundColor = .clear
             return cell
     }
