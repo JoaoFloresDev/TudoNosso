@@ -44,7 +44,10 @@ class JobDM{
                         return nil
                     }
                     completion(result)
-                }
+                }else {
+                     let emptyList: [Job] = []
+                     completion(emptyList)
+                }   
             }
         }
     }
@@ -63,5 +66,27 @@ class JobDM{
             }
         }
     }
+    
+    func find(inField field: JobFields, withValueEqual value:String, completion: @escaping ([Job]) ->()) {
+        db.collection(TABLENAME).whereField(field.rawValue, isEqualTo: value).getDocuments() { (snapshot, err) in
+               if let err = err {
+                   print(err.localizedDescription)
+               }else {
+                if let snapshot = snapshot {
+                   let result = snapshot.documents.compactMap { (child) -> Job? in
+                        if let element = Job(snapshot: child.data() as NSDictionary){
+                            return element
+                        }
+                        return nil
+                    }
+                    completion(result)
+               }else {
+                    let emptyList: [Job] = []
+                    completion(emptyList)
+               }
+           }
+       }
+    }
 }
+
 

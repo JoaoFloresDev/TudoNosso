@@ -103,7 +103,7 @@ extension ExploreViewController : UITableViewDataSource, UISearchResultsUpdating
             }
             
             //todo config cell
-            cell.configure()
+//            cell.configure()
             cell.selectionStyle = UITableViewCell.SelectionStyle(rawValue: 0)!
             cell.backgroundColor = .clear
             

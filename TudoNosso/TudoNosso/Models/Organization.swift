@@ -82,3 +82,14 @@ extension Organization: DatabaseRepresentation {
   
 }
 
+enum OrganizationFields: String {
+    case name = "name"
+    case address = "address"
+    case email = "email"
+    case desc = "desc"
+    case phone = "phone"
+    case site = "site"
+    case facebook = "facebook"
+    
+}
+

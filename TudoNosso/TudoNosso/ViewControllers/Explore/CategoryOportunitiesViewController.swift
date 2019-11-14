@@ -70,7 +70,7 @@ extension CategoryOportunitiesViewController : UITableViewDataSource, UISearchRe
             }
             
             //todo config cell
-            cell.configure()
+//            cell.configure()
             cell.selectionStyle = UITableViewCell.SelectionStyle(rawValue: 0)!
             cell.backgroundColor = .clear
             return cell

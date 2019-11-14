@@ -26,7 +26,11 @@ class JobsTableViewCell: UITableViewCell {
         return UINib(nibName: nibName, bundle: nil)
     }
     
-    func configure(){
+    func configure(job: Job){
         //TODO
+        jobTitleLabel.text = job.title
+        typeOfJobLabel.text = job.vacancyType
+        categoriesLabel.text = job.category.rawValue
+        engagedLabel.text = "00 engajados / " + String(format: "%02d", job.vacancyNumber) + " vagas"
     }
 }

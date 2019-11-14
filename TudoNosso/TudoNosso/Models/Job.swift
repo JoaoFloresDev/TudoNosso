@@ -97,3 +97,16 @@ extension Job: DatabaseRepresentation {
   }
   
 }
+
+enum JobFields: String {
+    case id = "id"
+    case title = "title"
+    case description = "desc"
+    case category = "category"
+    case vacancyType = "vacancyType"
+    case vacancyNumber = "vacancyNumber"
+    case organizationID = "organizationID"
+    case localization = "localization"
+    case status = "status"
+    
+}
