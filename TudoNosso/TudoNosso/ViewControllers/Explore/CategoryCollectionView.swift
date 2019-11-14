@@ -47,30 +47,16 @@ extension CategoryCollectionView : UICollectionViewDataSource, UICollectionViewD
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CellCasesOrganizations", for: indexPath) as! CellCasesOrganizations
         
-        if(collectionView.tag == 1) {
-            cell.imageView.layer.borderWidth = 1.0
-            cell.imageView.layer.masksToBounds = false
-            cell.imageView.layer.borderColor = UIColor.white.cgColor
-            cell.imageView.layer.cornerRadius = cell.imageView.frame.size.height/8
-            cell.imageView.clipsToBounds = true
-            cell.imageView.tag = indexPath.row
-            cell.titleLabel.text = String(indexPath.row)
-            
-            let image = cropToBounds(image: UIImage(named: "ong-img_job")!, portraitOrientation: true)
-            cell.imageView.image = image
-        }
-        else {
-            cell.imageView.layer.borderWidth = 1.0
-            cell.imageView.layer.masksToBounds = false
-            cell.imageView.layer.borderColor = UIColor.white.cgColor
-            cell.imageView.layer.cornerRadius = cell.imageView.frame.size.height/8
-            cell.imageView.clipsToBounds = true
-            cell.imageView.tag = indexPath.row
-            cell.titleLabel.text = String(indexPath.row)
+        cell.imageView.layer.borderWidth = 1.0
+        cell.imageView.layer.masksToBounds = false
+        cell.imageView.layer.borderColor = UIColor.white.cgColor
+        cell.imageView.layer.cornerRadius = cell.imageView.frame.size.height/8
+        cell.imageView.clipsToBounds = true
+        cell.imageView.tag = indexPath.row
+        cell.titleLabel.text = String(indexPath.row)
+        
+        if(collectionView.tag == 0) {
             cell.titleLabel.text = categorysList[indexPath.row]
-            
-            let image = cropToBounds(image: UIImage(named: "ong-img_job")!, portraitOrientation: true)
-            cell.imageView.image = image
         }
         
         let image = cropToBounds(image: UIImage(named: "ong-img_job")!, portraitOrientation: true)
@@ -93,16 +79,13 @@ extension CategoryCollectionView : UICollectionViewDataSource, UICollectionViewD
         if (portraitOrientation) { // if portrate
             posX = ((contextSize.width - contextSize.height) / 2)
             posY = 0
-            // hard coded
-            cgwidth = 3000
-            cgheight = 3000
         } else { // if landscape
             posX = 0
             posY = ((contextSize.height - contextSize.width) / 2)
-            // hard coded
-            cgwidth = 3000
-            cgheight = 3000
         }
+        
+        cgwidth = 3000
+        cgheight = 3000
         
         let rect: CGRect = CGRect(x: posX, y: posY, width: cgwidth, height: cgheight)
         

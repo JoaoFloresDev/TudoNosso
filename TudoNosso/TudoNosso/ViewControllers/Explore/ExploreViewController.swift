@@ -7,16 +7,26 @@
 //
 
 import UIKit
+import CoreLocation
 
 
 class ExploreViewController: UIViewController {
     
-    var categories = ["Causas", "Organizações", "Todas as Vagas"]
-    var searchController = UISearchController(searchResultsController: nil)
-    
     @IBOutlet weak var jobsTableView: UITableView!
     
+    var categories = ["Causas", "Organizações", "Todas as Vagas"]
+    var searchController = UISearchController(searchResultsController: nil)
     var selectedTitleHeader: String = ""
+    var ong : Organization = Organization(name: "", address: CLLocationCoordinate2D(), email: "")
+    
+    var jobs : [Job] = [] {
+        didSet {
+            self.sortJobs()
+        }
+    }
+    
+    var ongoingJobs : [Job] = []
+    var finishedJobs : [Job] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,8 +44,51 @@ class ExploreViewController: UIViewController {
         searchController.dimsBackgroundDuringPresentation = false
         definesPresentationContext = true
         jobsTableView.tableHeaderView = searchController.searchBar
+        
+        setupJobsTableView()
+        
+        loadData()
     }
         
+    func setupJobsTableView(){
+        jobsTableView.isHidden = false
+        jobsTableView.backgroundColor = .clear
+        
+        jobsTableView.delegate = self
+        jobsTableView.dataSource = self
+        
+        jobsTableView.register(JobsTableViewCell.nib, forCellReuseIdentifier: JobsTableViewCell.reuseIdentifer)
+        jobsTableView.register(JobsTableViewHeader.nib, forHeaderFooterViewReuseIdentifier: JobsTableViewHeader.reuseIdentifer)
+    }
+    
+    func loadData() {
+        let jobDM = JobDM()
+        let orgDM = OrganizationDM()
+        //TODO usando um email fixo por enquanto
+        let email = "bruno@gmail.com"
+        let id = Base64Converter.encodeStringAsBase64(email)
+        
+        orgDM.find(ByEmail: email) { (result) in
+            guard let ong = result else {return}
+            self.ong = ong
+        }
+        
+        jobDM.find(inField: .organizationID, withValueEqual: id) { (result) in
+            self.jobs = result
+            self.jobsTableView.reloadData()
+        }
+    }
+    
+    func sortJobs(){
+        for job in jobs {
+            if job.status {
+                ongoingJobs.append(job)
+            } else {
+                finishedJobs.append(job)
+            }
+        }
+    }
+    
     func setupTableView(){
         jobsTableView.backgroundColor = .clear
         jobsTableView.delegate = self
@@ -72,7 +125,16 @@ extension ExploreViewController : UITableViewDataSource, UISearchResultsUpdating
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return categories.count
+//        return categories.count
+        
+        var count = 0
+        if ongoingJobs.count > 0 {
+            count += 1
+        }
+        if finishedJobs.count > 0 {
+            count += 1
+        }
+        return count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
