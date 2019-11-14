@@ -18,11 +18,12 @@ class OrganizationDM {
         db.collection(TABLENAME).document(ongId).setData(ong.representation)
     }
     
-    func listAll(completion: @escaping ([Organization]) ->()) {
+    func listAll(completion: @escaping ([Organization]?, Error?) ->()) {
         
         db.collection(TABLENAME).getDocuments { (snapshot, err) in
             if let err = err{
                 print("\(err.localizedDescription)")
+                completion(nil,err)
             }else {
                 if let snapshot = snapshot{
                     let result = snapshot.documents.compactMap { (child) -> Organization? in
@@ -32,28 +33,28 @@ class OrganizationDM {
                         return nil
                         
                     }
-                    completion(result)
+                    completion(result,nil)
                 }else {
-                     let emptyList: [Organization] = []
-                     completion(emptyList)
+                    completion(nil,nil)
                 }
             }
         }
     }
 
     
-    func find(ByEmail email:String, completion: @escaping (Organization?) -> Void) {
+    func find(ByEmail email:String, completion: @escaping (Organization?,Error?) -> Void) {
         let ongId = Base64Converter.encodeStringAsBase64(email)
         
         db.collection(TABLENAME).document(ongId).getDocument { (snapshot, err) in
             if let err = err {
                 print(err.localizedDescription)
+                completion(nil,err)
             }else {
                 if let snapshot = snapshot {
                     let job = Organization(snapshot: snapshot.data()! as NSDictionary)
-                    completion(job)
+                    completion(job,nil)
                 }else {
-                    completion(nil)
+                    completion(nil,nil)
                 }
             }
         }
