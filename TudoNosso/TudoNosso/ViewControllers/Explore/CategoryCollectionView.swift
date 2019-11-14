@@ -9,13 +9,27 @@
 import UIKit
 
 protocol CategoryCollectionViewDelegate: NSObjectProtocol {
-    func causeSelected(_ view: CategoryCollectionView, causeTitle: String?, tagCollection: Int )
+    func causeSelected(_ view: CategoryCollectionView, causeTitle: String?, OrganizationEmail: String?, tagCollection: Int )
 }
 
 
 class CategoryCollectionView : UITableViewCell {
     @IBOutlet weak var collectionView: UICollectionView!
     var categorysList = ["Cultura e Arte","Educação","Idosos","Crianças","Meio Ambiente","Proteção Animal","Saúde","Esportes","Refugiados","LGBTQ+","Combate à pobreza","Treinamento profissional"]
+    
+    var organizationsList : [Organization] = []
+    
+    var ongs : [Organization] = [] {
+        didSet {
+            self.sortOrganizations()
+        }
+    }
+    
+    func sortOrganizations(){
+        for ong in ongs {
+            organizationsList.append(ong)
+        }
+    }
     
     weak var delegate: CategoryCollectionViewDelegate!
 }
@@ -38,7 +52,7 @@ extension CategoryCollectionView : UICollectionViewDataSource, UICollectionViewD
         // tag 0 is Cause collection
         // tag 1 is Organization collection
         if(collectionView.tag == 1) {
-            numElem = 20
+            numElem = organizationsList.count
         }
         
         return numElem
@@ -47,31 +61,22 @@ extension CategoryCollectionView : UICollectionViewDataSource, UICollectionViewD
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CellCasesOrganizations", for: indexPath) as! CellCasesOrganizations
         
-        if(collectionView.tag == 1) {
-            cell.imageView.layer.borderWidth = 1.0
-            cell.imageView.layer.masksToBounds = false
-            cell.imageView.layer.borderColor = UIColor.white.cgColor
-            cell.imageView.layer.cornerRadius = cell.imageView.frame.size.height/8
-            cell.imageView.clipsToBounds = true
-            cell.imageView.tag = indexPath.row
-            cell.titleLabel.text = String(indexPath.row)
-            
-            let image = cropToBounds(image: UIImage(named: "ong-img_job")!, portraitOrientation: true)
-            cell.imageView.image = image
-        }
-        else {
-            cell.imageView.layer.borderWidth = 1.0
-            cell.imageView.layer.masksToBounds = false
-            cell.imageView.layer.borderColor = UIColor.white.cgColor
-            cell.imageView.layer.cornerRadius = cell.imageView.frame.size.height/8
-            cell.imageView.clipsToBounds = true
-            cell.imageView.tag = indexPath.row
-            cell.titleLabel.text = String(indexPath.row)
+        cell.imageView.layer.borderWidth = 1.0
+        cell.imageView.layer.masksToBounds = false
+        cell.imageView.layer.borderColor = UIColor.white.cgColor
+        cell.imageView.layer.cornerRadius = cell.imageView.frame.size.height/8
+        cell.imageView.clipsToBounds = true
+        cell.imageView.tag = indexPath.row
+        
+        if(collectionView.tag == 0) {
             cell.titleLabel.text = categorysList[indexPath.row]
-            
-            let image = cropToBounds(image: UIImage(named: "ong-img_job")!, portraitOrientation: true)
-            cell.imageView.image = image
         }
+            
+        else {
+            cell.titleLabel.text = organizationsList[indexPath.row].name
+            cell.email = organizationsList[indexPath.row].email
+        }
+        
         
         let image = cropToBounds(image: UIImage(named: "ong-img_job")!, portraitOrientation: true)
         cell.imageView.image = image
@@ -120,6 +125,17 @@ extension CategoryCollectionView : UICollectionViewDataSource, UICollectionViewD
         
         return CGSize(width: itemHeight, height: itemHeight)
     }
+    
+    func loadDataOrganizations() {
+        let orgDM = OrganizationDM()
+        
+        orgDM.listAll {
+            (result) in
+            self.ongs = result
+            self.reloadInputViews()
+            self.collectionView.reloadData()
+        }
+    }
 }
 
 
@@ -127,8 +143,9 @@ extension CategoryCollectionView : CellCasesOrganizationsDelegate {
     func causeSelected(_ cell: CellCasesOrganizations) {
         
         if let delegate = self.delegate {
-            delegate.causeSelected(self, causeTitle: cell.titleLabel.text, tagCollection: self.tag)
-            
+            delegate.causeSelected(self, causeTitle: cell.titleLabel.text, OrganizationEmail: cell.email, tagCollection: self.tag)
         }
     }
+    
+    
 }

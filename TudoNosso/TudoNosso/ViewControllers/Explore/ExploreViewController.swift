@@ -13,12 +13,12 @@ import CoreLocation
 class ExploreViewController: UIViewController {
     
     @IBOutlet weak var jobsTableView: UITableView!
-    
     var selectedTitleHeader: String = ""
+    var selectedOrganizationHeader: String = ""
     var categories = ["Causas", "Organizações", "Todas as Vagas"]
     var searchController = UISearchController(searchResultsController: nil)
     
-    var ong : Organization = Organization(name: "", address: CLLocationCoordinate2D(), email: "")
+    var organization : Organization = Organization(name: "", address: CLLocationCoordinate2D(), email: "")
     
     var jobs : [Job] = [] {
         didSet {
@@ -26,13 +26,7 @@ class ExploreViewController: UIViewController {
         }
     }
     
-    var ongs : [Organization] = [] {
-        didSet {
-            self.sortOrganizations()
-        }
-    }
-    
-    var ongsList : [Organization] = []
+    var organizationsList : [Organization] = []
     var ongoingJobs : [Job] = []
     
     override func viewDidLoad() {
@@ -79,13 +73,6 @@ class ExploreViewController: UIViewController {
 //            guard let ong = result else {return}
 //            self.ong = ong
 //        }
-        
-        orgDM.listAll {
-            (result) in
-            self.ongs = result
-            self.jobsTableView.reloadData()
-        }
-        
         jobDM.listAll {
             (result) in
             self.jobs = result
@@ -101,26 +88,19 @@ class ExploreViewController: UIViewController {
         }
     }
     
-    func sortOrganizations(){
-        for ong in ongs {
-            ongsList.append(ong)
-            print(ong.name)
-        }
-    }
-    
     func createCell(indexPath: IndexPath, tableView: UITableView) -> UITableViewCell {
         switch indexPath.row {
             
         case 0:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: InfoCell.reuseIdentifer, for: indexPath) as? InfoCell else {
             fatalError("The dequeued cell is not an instance of InfoCell.") }
-            cell.configure(ong: self.ong)
+            cell.configure(ong: self.organization)
             return cell
             
         case 1:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: AboutCell.reuseIdentifer, for: indexPath) as? AboutCell else {
             fatalError("The dequeued cell is not an instance of AboutCell.") }
-            cell.configure(ong: self.ong)
+            cell.configure(ong: self.organization)
             return cell
             
         default:
@@ -142,10 +122,14 @@ class ExploreViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)
     {
-        if segue.destination is CategoryOportunitiesViewController
-        {
+        if segue.destination is CategoryOportunitiesViewController {
             let vc = segue.destination as? CategoryOportunitiesViewController
             vc?.titleHeader = selectedTitleHeader
+        }
+        
+        else if segue.destination is ProfileViewController {
+            let vc = segue.destination as? ProfileViewController
+            vc?.email = selectedOrganizationHeader
         }
     }
 }
@@ -183,24 +167,25 @@ extension ExploreViewController : UITableViewDataSource, UISearchResultsUpdating
         switch indexPath.section {
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier:  "cell") as! CategoryCollectionView
-            cell.delegate = self
             cell.tag = 0
+            cell.delegate = self
+            cell.organizationsList = organizationsList
             return cell
+            
         case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier:  "cell2") as! CategoryCollectionView
             cell.tag = 1
             cell.delegate = self
-            
+            cell.loadDataOrganizations()
             return cell
-        case 2:
             
+        case 2:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: JobsTableViewCell.reuseIdentifer, for: indexPath) as? JobsTableViewCell else {
                 fatalError("The dequeued cell is not an instance of JobsTableViewCell.")
             }
             cell.configure(job: ongoingJobs[indexPath.row])
             cell.backgroundColor = .clear
             cell.selectionStyle = .none
-            
             return cell
             
         default:
@@ -210,9 +195,8 @@ extension ExploreViewController : UITableViewDataSource, UISearchResultsUpdating
 }
 
 extension ExploreViewController: CategoryCollectionViewDelegate {
-    func causeSelected(_ view: CategoryCollectionView, causeTitle: String?, tagCollection: Int) {
+    func causeSelected(_ view: CategoryCollectionView, causeTitle: String?, OrganizationEmail: String?,tagCollection: Int) {
     
-        print("tag: \(tagCollection)")
         if(tagCollection == 0) {
             if let title = causeTitle {
                 self.selectedTitleHeader = title
@@ -220,7 +204,12 @@ extension ExploreViewController: CategoryCollectionViewDelegate {
             
             self.performSegue(withIdentifier: "showCauses", sender: self)
         }
+            
         else {
+            if let title = OrganizationEmail {
+                self.selectedOrganizationHeader = title
+            }
+            
             self.performSegue(withIdentifier: "showProfile", sender: self)
         }
     }

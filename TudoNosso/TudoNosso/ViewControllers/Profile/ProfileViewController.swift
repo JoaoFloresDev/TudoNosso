@@ -18,6 +18,7 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var profileTableView: UITableView!
     
     var ong : Organization = Organization(name: "", address: CLLocationCoordinate2D(), email: "")
+    var email = "bruno@gmail.com"
     
     var jobs : [Job] = [] {
         didSet {
@@ -64,7 +65,6 @@ class ProfileViewController: UIViewController {
         let jobDM = JobDM()
         let orgDM = OrganizationDM()
         //TODO usando um email fixo por enquanto
-        let email = "bruno@gmail.com"
         let id = Base64Converter.encodeStringAsBase64(email)
         
         orgDM.find(ByEmail: email) { (result) in

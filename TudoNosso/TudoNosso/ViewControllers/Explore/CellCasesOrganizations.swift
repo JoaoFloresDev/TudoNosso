@@ -15,10 +15,11 @@ protocol CellCasesOrganizationsDelegate: NSObjectProtocol {
 
 class CellCasesOrganizations : UICollectionViewCell {
     
+    weak var delegate: CellCasesOrganizationsDelegate!
+    var email = ""
+    
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
-    
-    weak var delegate: CellCasesOrganizationsDelegate!
     
     @IBAction func causeSelected(_ sender: Any) {
         
