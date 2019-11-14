@@ -8,10 +8,12 @@
 
 import UIKit
 
+
 class CategoryOportunitiesViewController: UIViewController {
 
     var categories = ["Causas", "Organizações", "Todas as Vagas"]
     var searchController = UISearchController(searchResultsController: nil)
+    var titleHeader: String = ""
     
     @IBOutlet weak var jobsTableView: UITableView!
     @IBOutlet weak var headerItem: UINavigationItem!
@@ -28,7 +30,7 @@ class CategoryOportunitiesViewController: UIViewController {
         searchController.searchBar.tintColor = UIColor.black
         searchController.searchBar.barTintColor = UIColor.white
         
-        headerItem.title = "João"
+        headerItem.title = titleHeader
     }
         
     func setupTableView(){
@@ -67,6 +69,9 @@ extension CategoryOportunitiesViewController : UITableViewDataSource, UISearchRe
                 fatalError("The dequeued cell is not an instance of JobsTableViewCell.")
             }
             
+            //todo config cell
+//            cell.configure()
+            cell.selectionStyle = UITableViewCell.SelectionStyle(rawValue: 0)!
             cell.backgroundColor = .clear
             return cell
     }
