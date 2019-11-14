@@ -7,16 +7,33 @@
 //
 
 import UIKit
+import CoreLocation
 
 
 class ExploreViewController: UIViewController {
     
-    var categories = ["Causas", "Organizações", "Todas as Vagas"]
-    var searchController = UISearchController(searchResultsController: nil)
-    
     @IBOutlet weak var jobsTableView: UITableView!
     
     var selectedTitleHeader: String = ""
+    var categories = ["Causas", "Organizações", "Todas as Vagas"]
+    var searchController = UISearchController(searchResultsController: nil)
+    
+    var ong : Organization = Organization(name: "", address: CLLocationCoordinate2D(), email: "")
+    
+    var jobs : [Job] = [] {
+        didSet {
+            self.sortJobs()
+        }
+    }
+    
+    var ongs : [Organization] = [] {
+        didSet {
+            self.sortOrganizations()
+        }
+    }
+    
+    var ongsList : [Organization] = []
+    var ongoingJobs : [Job] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,8 +51,87 @@ class ExploreViewController: UIViewController {
         searchController.dimsBackgroundDuringPresentation = false
         definesPresentationContext = true
         jobsTableView.tableHeaderView = searchController.searchBar
-    }
         
+        setupJobsTableView()
+        
+        loadData()
+    }
+    
+    func setupJobsTableView(){
+        jobsTableView.isHidden = false
+        jobsTableView.backgroundColor = .clear
+        
+        jobsTableView.delegate = self
+        jobsTableView.dataSource = self
+        
+        jobsTableView.register(JobsTableViewCell.nib, forCellReuseIdentifier: JobsTableViewCell.reuseIdentifer)
+        jobsTableView.register(JobsTableViewHeader.nib, forHeaderFooterViewReuseIdentifier: JobsTableViewHeader.reuseIdentifer)
+    }
+    
+    func loadData() {
+        let jobDM = JobDM()
+        let orgDM = OrganizationDM()
+        //TODO usando um email fixo por enquanto
+        let email = "bruno@gmail.com"
+        let id = Base64Converter.encodeStringAsBase64(email)
+        
+//        orgDM.find(ByEmail: email) { (result) in
+//            guard let ong = result else {return}
+//            self.ong = ong
+//        }
+        
+        orgDM.listAll {
+            (result) in
+            self.ongs = result
+            self.jobsTableView.reloadData()
+        }
+        
+        jobDM.listAll {
+            (result) in
+            self.jobs = result
+            self.jobsTableView.reloadData()
+        }
+    }
+    
+    func sortJobs(){
+        for job in jobs {
+            if job.status {
+                ongoingJobs.append(job)
+            }
+        }
+    }
+    
+    func sortOrganizations(){
+        for ong in ongs {
+            ongsList.append(ong)
+            print(ong.name)
+        }
+    }
+    
+    func createCell(indexPath: IndexPath, tableView: UITableView) -> UITableViewCell {
+        switch indexPath.row {
+            
+        case 0:
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: InfoCell.reuseIdentifer, for: indexPath) as? InfoCell else {
+            fatalError("The dequeued cell is not an instance of InfoCell.") }
+            cell.configure(ong: self.ong)
+            return cell
+            
+        case 1:
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: AboutCell.reuseIdentifer, for: indexPath) as? AboutCell else {
+            fatalError("The dequeued cell is not an instance of AboutCell.") }
+            cell.configure(ong: self.ong)
+            return cell
+            
+        default:
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: AreasCell.reuseIdentifer, for: indexPath) as? AreasCell else {
+            fatalError("The dequeued cell is not an instance of AreasCell.") }
+            
+            cell.configure() //TODO
+            return cell
+        }
+    }
+    
     func setupTableView(){
         jobsTableView.backgroundColor = .clear
         jobsTableView.delegate = self
@@ -79,7 +175,7 @@ extension ExploreViewController : UITableViewDataSource, UISearchResultsUpdating
         if section < 2 {
             return 1
         } else {
-            return 10
+            return ongoingJobs.count
         }
     }
     
@@ -97,15 +193,13 @@ extension ExploreViewController : UITableViewDataSource, UISearchResultsUpdating
             
             return cell
         case 2:
-//            let cell = tableView.dequeueReusableCell(withIdentifier:  "cell3") as! oportunityCell
+            
             guard let cell = tableView.dequeueReusableCell(withIdentifier: JobsTableViewCell.reuseIdentifer, for: indexPath) as? JobsTableViewCell else {
                 fatalError("The dequeued cell is not an instance of JobsTableViewCell.")
             }
-            
-            //todo config cell
-//            cell.configure()
-            cell.selectionStyle = UITableViewCell.SelectionStyle(rawValue: 0)!
+            cell.configure(job: ongoingJobs[indexPath.row])
             cell.backgroundColor = .clear
+            cell.selectionStyle = .none
             
             return cell
             
