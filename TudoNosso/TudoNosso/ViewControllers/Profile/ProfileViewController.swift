@@ -17,6 +17,9 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var jobsTableView: UITableView!
     @IBOutlet weak var profileTableView: UITableView!
     
+    let placeholderAreas = ["Educação", "Saúde", "Educação", "Saúde", "Educação", "Saúde", "Educação", "Saúde", "Educação", "Saúde"]
+    var widths : [CGFloat] = []
+    
     var ong : Organization = Organization(name: "", address: CLLocationCoordinate2D(), email: "")
     
     var jobs : [Job] = [] {
@@ -30,6 +33,8 @@ class ProfileViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        widths.append(contentsOf: repeatElement(0, count: placeholderAreas.count))
 
         setupJobsTableView()
         setupProfileTableView()
@@ -112,9 +117,17 @@ class ProfileViewController: UIViewController {
             cell.configure(ong: self.ong)
             return cell
         default:
+            
             guard let cell = tableView.dequeueReusableCell(withIdentifier: AreasCell.reuseIdentifer, for: indexPath) as? AreasCell else {
             fatalError("The dequeued cell is not an instance of AreasCell.") }
-            cell.configure() //TODO
+            
+            cell.collection.delegate = self
+            cell.collection.dataSource = self
+            
+            cell.collection.register(AreaCollectionCell.nib, forCellWithReuseIdentifier: AreaCollectionCell.reuseIdentifer)
+            
+            cell.collection.reloadData()
+            
             return cell
         }
     }
@@ -238,5 +251,26 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
             return cell
         default: return UITableViewCell()
         }
+    }
+}
+
+extension ProfileViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return placeholderAreas.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AreaCollectionCell.reuseIdentifer, for: indexPath) as? AreaCollectionCell else {
+            fatalError("The dequeued cell is not an instance of AreaCollectionCell.")
+        }
+        
+        cell.label.text = placeholderAreas[indexPath.row]
+        widths[indexPath.row] = cell.label.intrinsicContentSize.width + 16
+
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: widths[indexPath.row], height: CGFloat(24))
     }
 }

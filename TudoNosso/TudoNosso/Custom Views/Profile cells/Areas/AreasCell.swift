@@ -9,13 +9,12 @@
 import UIKit
 
 class AreasCell: UITableViewCell {
+    @IBOutlet weak var collection: UICollectionView!
+    
     static let reuseIdentifer = String(describing: AreasCell.self)
     
     static var nib: UINib {
            let nibName = String(describing: AreasCell.self)
            return UINib(nibName: nibName, bundle: nil)
        }
-    
-    func configure(){
-    }
 }

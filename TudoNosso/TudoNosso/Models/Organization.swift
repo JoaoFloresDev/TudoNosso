@@ -19,6 +19,7 @@ class Organization {
     var phone: String?
     var site: String?
     var facebook: String?
+    var areas: [String]?
     
     init (name: String, address: CLLocationCoordinate2D, email: String){
            
@@ -27,7 +28,7 @@ class Organization {
            self.email = email
     }
     
-    init (name: String, address: CLLocationCoordinate2D, desc: String, email: String, phone: String, site: String, facebook: String){
+    init (name: String, address: CLLocationCoordinate2D, desc: String, email: String, phone: String, site: String, facebook: String, areas: [String]?){
         
         self.name = name
         self.address = address
@@ -36,6 +37,7 @@ class Organization {
         self.phone = phone
         self.site = site
         self.facebook = facebook
+        self.areas = areas
     }
     
     init?(snapshot: NSDictionary) {
@@ -54,6 +56,7 @@ class Organization {
         self.phone = snapshot["phone"] as? String
         self.site = snapshot["site"] as? String
         self.facebook = snapshot["facebook"] as? String
+        self.areas = snapshot["areas"] as? [String]
     }
 }
 
@@ -77,6 +80,9 @@ extension Organization: DatabaseRepresentation {
     if let facebook = self.facebook {
       rep["facebook"] = facebook
     }
+    if let areas = self.areas {
+      rep["areas"] = areas
+    }
     return rep
   }
   
@@ -90,6 +96,6 @@ enum OrganizationFields: String {
     case phone = "phone"
     case site = "site"
     case facebook = "facebook"
-    
+    case areas = "areas"
 }
 
