@@ -34,21 +34,11 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="edit_icon" translatesAutoresizingMaskIntoConstraints="NO" id="bv1-Ve-MnX">
-                                            <rect key="frame" x="350" y="14" width="18" height="21"/>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="18" id="TPI-gl-RGJ"/>
-                                                <constraint firstAttribute="height" constant="21" id="Tzc-W7-jcs"/>
-                                            </constraints>
-                                        </imageView>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
-                                        <constraint firstItem="bv1-Ve-MnX" firstAttribute="top" secondItem="sfZ-sV-GYQ" secondAttribute="top" constant="14" id="c2K-DM-gaU"/>
                                         <constraint firstAttribute="height" constant="40" id="kSr-aH-KYD"/>
                                         <constraint firstItem="tph-wg-2gM" firstAttribute="top" secondItem="sfZ-sV-GYQ" secondAttribute="top" constant="16" id="rN9-AM-LX7"/>
-                                        <constraint firstAttribute="trailing" secondItem="bv1-Ve-MnX" secondAttribute="trailing" constant="14" id="snJ-OA-dUP"/>
                                         <constraint firstItem="tph-wg-2gM" firstAttribute="leading" secondItem="sfZ-sV-GYQ" secondAttribute="leading" constant="16" id="zaS-fS-s8X"/>
                                     </constraints>
                                 </view>
@@ -112,12 +102,9 @@
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="eCY-nz-5mF"/>
             <connections>
-                <outlet property="collection" destination="q1s-v8-j82" id="om2-ZH-1qn"/>
+                <outlet property="collection" destination="q1s-v8-j82" id="ILY-s0-Oav"/>
             </connections>
             <point key="canvasLocation" x="141" y="154"/>
         </view>
     </objects>
-    <resources>
-        <image name="edit_icon" width="18" height="15"/>
-    </resources>
 </document>

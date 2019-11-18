@@ -3,7 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -36,27 +36,17 @@
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(18) 99999-0000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vyc-u0-99n">
-                                            <rect key="frame" x="45" y="2" width="279" height="19.5"/>
+                                            <rect key="frame" x="45" y="2" width="111" height="19.5"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <fontDescription key="fontDescription" name="Nunito-Regular" family="Nunito" pointSize="14"/>
                                             <color key="textColor" red="0.31764705882352939" green="0.31764705882352939" blue="0.31764705882352939" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="edit_icon" translatesAutoresizingMaskIntoConstraints="NO" id="81H-fd-JgH">
-                                            <rect key="frame" x="332" y="2" width="18" height="21"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="18" id="9xj-Ms-Ic1"/>
-                                                <constraint firstAttribute="height" constant="21" id="o7n-Iy-1nd"/>
-                                            </constraints>
-                                        </imageView>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
-                                        <constraint firstItem="81H-fd-JgH" firstAttribute="leading" secondItem="vyc-u0-99n" secondAttribute="trailing" constant="8" id="1vE-sh-c1W"/>
-                                        <constraint firstItem="81H-fd-JgH" firstAttribute="top" secondItem="iFo-pi-Ut1" secondAttribute="top" constant="2" id="9m7-5P-kxJ"/>
                                         <constraint firstAttribute="height" constant="25" id="Dk0-SE-zig"/>
                                         <constraint firstItem="nS1-n3-T7R" firstAttribute="top" secondItem="iFo-pi-Ut1" secondAttribute="top" id="NkE-cT-01w"/>
-                                        <constraint firstAttribute="trailing" secondItem="81H-fd-JgH" secondAttribute="trailing" id="QeU-vt-4eA"/>
                                         <constraint firstItem="vyc-u0-99n" firstAttribute="leading" secondItem="iFo-pi-Ut1" secondAttribute="leading" constant="45" id="cGV-kg-1Em"/>
                                         <constraint firstItem="vyc-u0-99n" firstAttribute="top" secondItem="iFo-pi-Ut1" secondAttribute="top" constant="2" id="etC-Lh-gRG"/>
                                         <constraint firstItem="nS1-n3-T7R" firstAttribute="leading" secondItem="iFo-pi-Ut1" secondAttribute="leading" id="p9x-dg-dyE"/>
@@ -155,7 +145,6 @@
         </view>
     </objects>
     <resources>
-        <image name="edit_icon" width="18" height="15"/>
         <image name="location_icon" width="11" height="18"/>
         <image name="mail_icon" width="18" height="15"/>
         <image name="phone_icon" width="15" height="15"/>
