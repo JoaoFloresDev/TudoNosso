@@ -11,6 +11,8 @@
 		1663B33823730D90005E3363 /* Nunito-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1663B33623730D90005E3363 /* Nunito-Bold.ttf */; };
 		1663B33923730D90005E3363 /* Nunito-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1663B33723730D90005E3363 /* Nunito-Regular.ttf */; };
 		3B08C35A717ED3964E4F36AF /* Pods_TudoNosso_TudoNossoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A01E7358CA8C4FF34A59BF3 /* Pods_TudoNosso_TudoNossoUITests.framework */; };
+		5633E5B8237D851300E46EE3 /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5633E5B7237D851300E46EE3 /* Login.swift */; };
+		5633E5BA237D8D6800E46EE3 /* LoginDM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5633E5B9237D8D6800E46EE3 /* LoginDM.swift */; };
 		567380F22373016000F1B6C5 /* CLLocationCoordinate2D+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567380F12373016000F1B6C5 /* CLLocationCoordinate2D+extensions.swift */; };
 		567380F52373019600F1B6C5 /* Organization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567380F42373019600F1B6C5 /* Organization.swift */; };
 		567380F723730B9B00F1B6C5 /* Job.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567380F623730B9B00F1B6C5 /* Job.swift */; };
@@ -92,6 +94,8 @@
 		16C644B359E32E5DDBC65E7B /* Pods-TudoNosso.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TudoNosso.debug.xcconfig"; path = "Target Support Files/Pods-TudoNosso/Pods-TudoNosso.debug.xcconfig"; sourceTree = "<group>"; };
 		224AFBC86B801E3B9A526E09 /* Pods-TudoNossoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TudoNossoTests.release.xcconfig"; path = "Target Support Files/Pods-TudoNossoTests/Pods-TudoNossoTests.release.xcconfig"; sourceTree = "<group>"; };
 		3A01E7358CA8C4FF34A59BF3 /* Pods_TudoNosso_TudoNossoUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TudoNosso_TudoNossoUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5633E5B7237D851300E46EE3 /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
+		5633E5B9237D8D6800E46EE3 /* LoginDM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginDM.swift; sourceTree = "<group>"; };
 		567380F12373016000F1B6C5 /* CLLocationCoordinate2D+extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CLLocationCoordinate2D+extensions.swift"; sourceTree = "<group>"; };
 		567380F42373019600F1B6C5 /* Organization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Organization.swift; sourceTree = "<group>"; };
 		567380F623730B9B00F1B6C5 /* Job.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Job.swift; sourceTree = "<group>"; };
@@ -228,6 +232,7 @@
 			children = (
 				567381262374533700F1B6C5 /* DataManipulation */,
 				567380F42373019600F1B6C5 /* Organization.swift */,
+				5633E5B7237D851300E46EE3 /* Login.swift */,
 				567380F623730B9B00F1B6C5 /* Job.swift */,
 				567380F823730C1D00F1B6C5 /* CategoryEnum.swift */,
 				567380FA237350F700F1B6C5 /* DatabaseRepresentation.swift */,
@@ -240,6 +245,7 @@
 			children = (
 				567381272374535A00F1B6C5 /* OrganizationDM.swift */,
 				5673812B2374A95900F1B6C5 /* JobDM.swift */,
+				5633E5B9237D8D6800E46EE3 /* LoginDM.swift */,
 			);
 			path = DataManipulation;
 			sourceTree = "<group>";
@@ -708,6 +714,7 @@
 				D7C013A2237C4E87001CDD36 /* KeyboardAvoiding.swift in Sources */,
 				C422673223705786000A6DA3 /* NotificationsViewController.swift in Sources */,
 				D7C0139E237C4E68001CDD36 /* Base64Converter.swift in Sources */,
+				5633E5B8237D851300E46EE3 /* Login.swift in Sources */,
 				D7C013A1237C4E87001CDD36 /* KeyboardDismissingView.swift in Sources */,
 				D765D3222373021000F596CD /* UIColor+Extension.swift in Sources */,
 				D78A53CB23758D58004B4689 /* JobsTableViewHeader.swift in Sources */,
@@ -718,6 +725,7 @@
 				5673812C2374A95900F1B6C5 /* JobDM.swift in Sources */,
 				C4226736237057B1000A6DA3 /* ProfileViewController.swift in Sources */,
 				D765D3262373041B00F596CD /* RoundedViews.swift in Sources */,
+				5633E5BA237D8D6800E46EE3 /* LoginDM.swift in Sources */,
 				5673810B23742F1B00F1B6C5 /* LoginViewController.swift in Sources */,
 				567380F22373016000F1B6C5 /* CLLocationCoordinate2D+extensions.swift in Sources */,
 				567380F723730B9B00F1B6C5 /* Job.swift in Sources */,
@@ -901,7 +909,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = NZC6LC8NWM;
+				DEVELOPMENT_TEAM = GJUSD98938;
 				INFOPLIST_FILE = TudoNosso/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -921,7 +929,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = NZC6LC8NWM;
+				DEVELOPMENT_TEAM = GJUSD98938;
 				INFOPLIST_FILE = TudoNosso/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
