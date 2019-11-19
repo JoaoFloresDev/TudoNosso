@@ -69,7 +69,8 @@ class ExploreViewController: UIViewController {
         let jobDM = JobDM()
         
         jobDM.listAll {
-            (result) in
+            (result, error) in
+            guard let result = result else { return }
             self.jobs = result
             self.jobsTableView.reloadData()
         }

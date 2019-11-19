@@ -130,7 +130,8 @@ extension CategoryCollectionView : UICollectionViewDataSource, UICollectionViewD
         let orgDM = OrganizationDM()
         
         orgDM.listAll {
-            (result) in
+            (result, error) in
+            guard let result = result else { return }
             self.ongs = result
             self.reloadInputViews()
             self.collectionView.reloadData()
