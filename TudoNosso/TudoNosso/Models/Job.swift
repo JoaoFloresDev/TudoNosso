@@ -47,14 +47,14 @@ class Job {
     
     init?(snapshot: NSDictionary) {
         guard
-            let id = snapshot["id"] as? String,
-            let title = snapshot["title"] as? String,
-            let category = snapshot["category"] as? String,
-            let vacancyType = snapshot["vacancyType"] as? String,
-            let vacancyNumber = snapshot["vacancyNumber"] as? Int,
-            let organizationID = snapshot["organizationID"] as? String,
-            let location = snapshot["localization"] as? GeoPoint,
-            let status = snapshot["status"] as? Bool
+            let id: String = Self.snapshotField(snapshot,.id),
+            let title: String = Self.snapshotField(snapshot,.title),
+            let category: String = Self.snapshotField(snapshot,.category),
+            let vacancyType: String = Self.snapshotField(snapshot,.vacancyType),
+            let vacancyNumber: Int = Self.snapshotField(snapshot,.vacancyNumber),
+            let organizationID: String = Self.snapshotField(snapshot,.organizationID),
+            let location: GeoPoint = Self.snapshotField(snapshot,.localization),
+            let status: Bool = Self.snapshotField(snapshot,.status)
             else {
                 return nil
         }
@@ -64,7 +64,7 @@ class Job {
         self.category = categoryEnum
         self.id = id
         self.title = title
-        self.desc = snapshot["desc"] as? String
+        self.desc = Self.snapshotField(snapshot,.description)
         self.vacancyType = vacancyType
         self.vacancyNumber = vacancyNumber
         self.organizationID = organizationID
@@ -72,41 +72,55 @@ class Job {
         self.status = status
         
     }
-    
-    
 }
 
 extension Job: DatabaseRepresentation {
-  
-  var representation: [String : Any] {
-    var rep: [String : Any] = [
-        "id": id,
-        "title": title,
-        "category": category.description(),
-        "vacancyType": vacancyType,
-        "vacancyNumber": vacancyNumber,
-        "organizationID": organizationID,
-        "localization": localization.toGeoPoint(),
-        "status": status
-    ]
     
-    if let desc = self.desc{
-        rep["desc"] = desc
+    var representation: [String : Any] {
+        var rep: [JobFields : Any] = [
+            .id: id!,
+            .title: title,
+            .category: category.rawValue,
+            .vacancyType: vacancyType,
+            .vacancyNumber: vacancyNumber,
+            .organizationID: organizationID,
+            .localization: localization.toGeoPoint(),
+            .status: status
+        ]
+        
+        if let desc = self.desc{
+            rep[.description] = desc
+        }
+        
+        return Dictionary(uniqueKeysWithValues: rep.map({ (key, value) in
+            (key.rawValue, value)
+        }))
     }
-    return rep
-  }
-  
+    
+    
+    
+    fileprivate static func snapshotField<T>(_ snapshot: NSDictionary, _ field:JobFields) -> T? {
+        return snapshot[field.rawValue] as? T
+    }
 }
 
-enum JobFields: String {
-    case id = "id"
-    case title = "title"
+extension Job: DictionaryInterpreter {
+    static func interpret(data: NSDictionary) -> Self? {
+        return Job(snapshot: data) as? Self
+    }
+    
+    
+}
+
+enum JobFields: String, Hashable  {
+    case id
+    case title
     case description = "desc"
-    case category = "category"
-    case vacancyType = "vacancyType"
-    case vacancyNumber = "vacancyNumber"
-    case organizationID = "organizationID"
-    case localization = "localization"
-    case status = "status"
+    case category
+    case vacancyType
+    case vacancyNumber
+    case organizationID
+    case localization
+    case status
     
 }
