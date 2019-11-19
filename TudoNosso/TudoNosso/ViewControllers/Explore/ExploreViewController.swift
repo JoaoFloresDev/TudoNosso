@@ -14,19 +14,13 @@ class ExploreViewController: UIViewController {
     
     @IBOutlet weak var jobsTableView: UITableView!
     
-<<<<<<< HEAD
     var selectedCause: String = ""
     var selectedOrganization: String = ""
     var organizationsList : [Organization] = []
     var ongoingJobs : [Job] = []
-=======
->>>>>>> dev
     var categories = ["Causas", "Organizações", "Todas as Vagas"]
     var searchController = UISearchController(searchResultsController: nil)
-    var selectedTitleHeader: String = ""
-    var ong : Organization = Organization(name: "", address: CLLocationCoordinate2D(), email: "")
     
-<<<<<<< HEAD
     var organization : Organization = Organization(name: "", address: CLLocationCoordinate2D(), email: "")
     
     var jobs : [Job] = [] {
@@ -34,16 +28,6 @@ class ExploreViewController: UIViewController {
             self.sortJobs()
         }
     }
-=======
-    var jobs : [Job] = [] {
-        didSet {
-            self.sortJobs()
-        }
-    }
-    
-    var ongoingJobs : [Job] = []
-    var finishedJobs : [Job] = []
->>>>>>> dev
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -77,24 +61,13 @@ class ExploreViewController: UIViewController {
         jobsTableView.delegate = self
         jobsTableView.dataSource = self
         
-<<<<<<< HEAD
         jobsTableView.register(JobsTableViewCell.nib, forCellReuseIdentifier: JobsTableViewCell.reuseIdentifer)
         jobsTableView.register(JobsTableViewHeader.nib, forHeaderFooterViewReuseIdentifier: JobsTableViewHeader.reuseIdentifer)
-=======
-        searchController.dimsBackgroundDuringPresentation = false
-        definesPresentationContext = true
-        jobsTableView.tableHeaderView = searchController.searchBar
-        
-        setupJobsTableView()
-        
-        loadData()
->>>>>>> dev
     }
     
     func loadData() {
         let jobDM = JobDM()
         
-<<<<<<< HEAD
         jobDM.listAll {
             (result, error) in
             guard let result = result else { return }
@@ -103,47 +76,10 @@ class ExploreViewController: UIViewController {
         }
     }
     
-=======
-    func setupJobsTableView(){
-        jobsTableView.isHidden = false
-        jobsTableView.backgroundColor = .clear
-        
-        jobsTableView.delegate = self
-        jobsTableView.dataSource = self
-        
-        jobsTableView.register(JobsTableViewCell.nib, forCellReuseIdentifier: JobsTableViewCell.reuseIdentifer)
-        jobsTableView.register(JobsTableViewHeader.nib, forHeaderFooterViewReuseIdentifier: JobsTableViewHeader.reuseIdentifer)
-    }
-    
-    func loadData() {
-        let jobDM = JobDM()
-        let orgDM = OrganizationDM()
-        //TODO usando um email fixo por enquanto
-        let email = "bruno@gmail.com"
-        let id = Base64Converter.encodeStringAsBase64(email)
-        
-        orgDM.find(ByEmail: email) { (result, error) in
-            guard let ong = result else {return}
-            self.ong = ong
-        }
-        
-        jobDM.find(inField: .organizationID, withValueEqual: id) { (result,error) in
-            guard let result = result else { return }
-            self.jobs = result
-            self.jobsTableView.reloadData()
-        }
-    }
-    
->>>>>>> dev
     func sortJobs(){
         for job in jobs {
             if job.status {
                 ongoingJobs.append(job)
-<<<<<<< HEAD
-=======
-            } else {
-                finishedJobs.append(job)
->>>>>>> dev
             }
         }
     }
@@ -188,16 +124,7 @@ extension ExploreViewController : UITableViewDataSource, UISearchResultsUpdating
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-//        return categories.count
-        
-        var count = 0
-        if ongoingJobs.count > 0 {
-            count += 1
-        }
-        if finishedJobs.count > 0 {
-            count += 1
-        }
-        return count
+        return categories.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
