@@ -22,11 +22,6 @@ class ProfileViewController: UIViewController {
     private let jobsSegueIdentifier = "toJobsTable"
     private let profileSegueIdentifier = "toProfileTable"
     
-    
-    let placeholderAreas = ["Educação", "Saúde", "Educação", "Saúde", "Educação", "Saúde", "Educação", "Saúde", "Educação", "Saúde"]
-    var widths : [CGFloat] = []
-    var collection: UICollectionView?
-    
     var ong : Organization? {
         didSet{
             if self.shouldPerformSegue(withIdentifier: self.profileSegueIdentifier, sender: self) {

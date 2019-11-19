@@ -11,7 +11,7 @@ import CoreLocation
 import FirebaseFirestore.FIRGeoPoint
 
 class Organization {
-
+    
     var name: String
     var address: CLLocationCoordinate2D
     var email: String
@@ -22,13 +22,13 @@ class Organization {
     var areas: [String]?
     
     init (name: String, address: CLLocationCoordinate2D, email: String){
-           
-           self.name = name
-           self.address = address
-           self.email = email
+        
+        self.name = name
+        self.address = address
+        self.email = email
     }
     
-    init (name: String, address: CLLocationCoordinate2D, desc: String, email: String, phone: String, site: String, facebook: String, areas: [String]?){
+    init (name: String, address: CLLocationCoordinate2D, desc: String, email: String, phone: String, site: String, facebook: String, areas:[String]?){
         
         self.name = name
         self.address = address
@@ -41,61 +41,78 @@ class Organization {
     }
     
     init?(snapshot: NSDictionary) {
-           guard
-            let name = snapshot["name"] as? String,
-            let email = snapshot["email"] as? String,
-            let location = snapshot["address"] as? GeoPoint
+        guard
+            let name: String = Self.snapshotField(snapshot,.name),
+            let email: String = Self.snapshotField(snapshot,.email),
+            let location: GeoPoint = Self.snapshotField(snapshot,.address)
             else {
-                   return nil
-           }
-            
+                return nil
+        }
         self.name = name
         self.address = CLLocationCoordinate2D.fromGeoPoint(geoPoint: location)
         self.email = email
-        self.desc = snapshot["desc"] as? String
-        self.phone = snapshot["phone"] as? String
-        self.site = snapshot["site"] as? String
-        self.facebook = snapshot["facebook"] as? String
-        self.areas = snapshot["areas"] as? [String]
+        self.desc = Self.snapshotField(snapshot,.description)
+        self.phone = Self.snapshotField(snapshot,.phone)
+        self.site = Self.snapshotField(snapshot,.site)
+        self.facebook = Self.snapshotField(snapshot,.facebook)
+        self.areas = Self.snapshotField(snapshot,.areas)
     }
+    
+    
+    
+    
 }
 
 extension Organization: DatabaseRepresentation {
-  
-  var representation: [String : Any] {
-    var rep: [String : Any] = [
-      "name": name,
-      "address": address.toGeoPoint(),
-      "email": email
-    ]
-    if let desc = self.desc {
-      rep["desc"] = desc
+    
+    var representation: [String: Any] {
+        var rep: [OrganizationFields : Any] = [
+            .name: name,
+            .address: address.toGeoPoint(),
+            .email: email
+        ]
+        
+        if let desc = self.desc {
+            rep[.description] = desc
+        }
+        if let phone = self.phone {
+            rep[.phone] = phone
+        }
+        if let site = self.site {
+            rep[.site] = site
+        }
+        if let facebook = self.facebook {
+            rep[.facebook] = facebook
+        }
+        if let areas = self.areas {
+            rep[.areas] = areas
+        }
+        
+        return Dictionary(uniqueKeysWithValues: rep.map { key, value in
+            (key.rawValue, value) })
     }
-    if let phone = self.phone {
-      rep["phone"] = phone
+    
+    fileprivate static func snapshotField<T>(_ snapshot: NSDictionary, _ field: OrganizationFields) -> T? {
+        return snapshot[field.rawValue] as? T
     }
-    if let site = self.site {
-      rep["site"] = site
-    }
-    if let facebook = self.facebook {
-      rep["facebook"] = facebook
-    }
-    if let areas = self.areas {
-      rep["areas"] = areas
-    }
-    return rep
-  }
-  
 }
 
-enum OrganizationFields: String {
-    case name = "name"
-    case address = "address"
-    case email = "email"
-    case desc = "desc"
-    case phone = "phone"
-    case site = "site"
-    case facebook = "facebook"
-    case areas = "areas"
+extension Organization: DictionaryInterpreter {
+    static func interpret(data: NSDictionary) -> Self? {
+        return Organization(snapshot: data) as? Self
+    }
+    
+    
 }
 
+enum OrganizationFields: String, Hashable {
+    case name = "ongName"
+    case address
+    case email
+    case description = "desc"
+    case phone
+    case site
+    case facebook
+    case areas
+    
+}
