@@ -13,8 +13,11 @@ import CoreLocation
 class ExploreViewController: UIViewController {
     
     @IBOutlet weak var jobsTableView: UITableView!
-    var selectedTitleHeader: String = ""
-    var selectedOrganizationHeader: String = ""
+    
+    var selectedCause: String = ""
+    var selectedOrganization: String = ""
+    var organizationsList : [Organization] = []
+    var ongoingJobs : [Job] = []
     var categories = ["Causas", "Organizações", "Todas as Vagas"]
     var searchController = UISearchController(searchResultsController: nil)
     
@@ -26,18 +29,10 @@ class ExploreViewController: UIViewController {
         }
     }
     
-    var organizationsList : [Organization] = []
-    var ongoingJobs : [Job] = []
-    
     override func viewDidLoad() {
         super.viewDidLoad()
          setupTableView()
-        
-        let searchBar = UISearchBar.appearance()
-        searchBar.tintColor = UIColor.black
-        searchBar.barTintColor = UIColor.white
-        searchBar.alpha = 1
-        searchBar.backgroundColor = UIColor.white
+        setupSearchBar()
         
         
         jobsTableView.dataSource = self
@@ -49,6 +44,14 @@ class ExploreViewController: UIViewController {
         setupJobsTableView()
         
         loadData()
+    }
+    
+    func setupSearchBar() {
+        let searchBar = UISearchBar.appearance()
+        searchBar.tintColor = UIColor.black
+        searchBar.barTintColor = UIColor.white
+        searchBar.alpha = 1
+        searchBar.backgroundColor = UIColor.white
     }
     
     func setupJobsTableView(){
@@ -64,15 +67,7 @@ class ExploreViewController: UIViewController {
     
     func loadData() {
         let jobDM = JobDM()
-        let orgDM = OrganizationDM()
-        //TODO usando um email fixo por enquanto
-        let email = "bruno@gmail.com"
-        let id = Base64Converter.encodeStringAsBase64(email)
         
-//        orgDM.find(ByEmail: email) { (result) in
-//            guard let ong = result else {return}
-//            self.ong = ong
-//        }
         jobDM.listAll {
             (result) in
             self.jobs = result
@@ -88,30 +83,6 @@ class ExploreViewController: UIViewController {
         }
     }
     
-    func createCell(indexPath: IndexPath, tableView: UITableView) -> UITableViewCell {
-        switch indexPath.row {
-            
-        case 0:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: InfoCell.reuseIdentifer, for: indexPath) as? InfoCell else {
-            fatalError("The dequeued cell is not an instance of InfoCell.") }
-            cell.configure(ong: self.organization)
-            return cell
-            
-        case 1:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: AboutCell.reuseIdentifer, for: indexPath) as? AboutCell else {
-            fatalError("The dequeued cell is not an instance of AboutCell.") }
-            cell.configure(ong: self.organization)
-            return cell
-            
-        default:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: AreasCell.reuseIdentifer, for: indexPath) as? AreasCell else {
-            fatalError("The dequeued cell is not an instance of AreasCell.") }
-            
-            cell.configure() //TODO
-            return cell
-        }
-    }
-    
     func setupTableView(){
         jobsTableView.backgroundColor = .clear
         jobsTableView.delegate = self
@@ -124,12 +95,12 @@ class ExploreViewController: UIViewController {
     {
         if segue.destination is CategoryOportunitiesViewController {
             let vc = segue.destination as? CategoryOportunitiesViewController
-            vc?.titleHeader = selectedTitleHeader
+            vc?.titleHeader = selectedCause
         }
         
         else if segue.destination is ProfileViewController {
             let vc = segue.destination as? ProfileViewController
-            vc?.email = selectedOrganizationHeader
+            vc?.email = selectedOrganization
         }
     }
 }
@@ -199,7 +170,7 @@ extension ExploreViewController: CategoryCollectionViewDelegate {
     
         if(tagCollection == 0) {
             if let title = causeTitle {
-                self.selectedTitleHeader = title
+                self.selectedCause = title
             }
             
             self.performSegue(withIdentifier: "showCauses", sender: self)
@@ -207,7 +178,7 @@ extension ExploreViewController: CategoryCollectionViewDelegate {
             
         else {
             if let title = OrganizationEmail {
-                self.selectedOrganizationHeader = title
+                self.selectedOrganization = title
             }
             
             self.performSegue(withIdentifier: "showProfile", sender: self)
