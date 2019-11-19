@@ -18,6 +18,7 @@ class ExploreViewController: UIViewController {
     var selectedOrganization: String = ""
     var organizationsList : [Organization] = []
     var ongoingJobs : [Job] = []
+    var filteredOngoingJobs : [Job] = []
     var categories = ["Causas", "Organizações", "Todas as Vagas"]
     var searchController = UISearchController(searchResultsController: nil)
     
@@ -47,11 +48,32 @@ class ExploreViewController: UIViewController {
     }
     
     func setupSearchBar() {
+        
+        searchController.searchResultsUpdater = self
+        searchController.dimsBackgroundDuringPresentation = false
+        definesPresentationContext = true
+        jobsTableView.tableHeaderView = searchController.searchBar
+        searchController.searchBar.tintColor = UIColor.white
+        searchController.searchBar.barTintColor = UIColor.red
+        
         let searchBar = UISearchBar.appearance()
         searchBar.tintColor = UIColor.black
         searchBar.barTintColor = UIColor.white
         searchBar.alpha = 1
         searchBar.backgroundColor = UIColor.white
+        
+        searchController.searchResultsUpdater = self
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.placeholder = "Buscar"
+        definesPresentationContext = true
+        
+    }
+    
+    private func filterFootballers(for searchText: String) {
+      filteredOngoingJobs = ongoingJobs.filter { player in
+        return player.title.lowercased().contains(searchText.lowercased())
+      }
+      jobsTableView.reloadData()
     }
     
     func setupJobsTableView(){
@@ -111,8 +133,40 @@ extension ExploreViewController : UITableViewDelegate { }
 extension ExploreViewController : UITableViewDataSource, UISearchResultsUpdating {
 
     func updateSearchResults(for searchController: UISearchController) {
-        print(searchController.searchBar.text!)
+      filterFootballers(for: searchController.searchBar.text ?? "")
     }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+      if searchController.isActive && searchController.searchBar.text != "" {
+        return filteredOngoingJobs.count
+      }
+        
+    if section < 2 {
+        return 1
+    } else {
+        return ongoingJobs.count
+    }
+    }
+    
+//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//      let cell = jobsTableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath)
+//
+//      let footballer: Job
+//
+//      if searchController.isActive && searchController.searchBar.text != "" {
+//        footballer = filteredOngoingJobs[indexPath.row]
+//      } else {
+//        footballer = ongoingJobs[indexPath.row]
+//      }
+//
+//      cell.textLabel?.text = footballer.name
+//      cell.detailTextLabel?.text = footballer.league
+//      return cell
+//    }
+    
+//    func updateSearchResults(for searchController: UISearchController) {
+//        print(searchController.searchBar.text!)
+//    }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
@@ -127,13 +181,13 @@ extension ExploreViewController : UITableViewDataSource, UISearchResultsUpdating
         return categories.count
     }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if section < 2 {
-            return 1
-        } else {
-            return ongoingJobs.count
-        }
-    }
+//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        if section < 2 {
+//            return 1
+//        } else {
+//            return ongoingJobs.count
+//        }
+//    }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch indexPath.section {
@@ -155,9 +209,20 @@ extension ExploreViewController : UITableViewDataSource, UISearchResultsUpdating
             guard let cell = tableView.dequeueReusableCell(withIdentifier: JobsTableViewCell.reuseIdentifer, for: indexPath) as? JobsTableViewCell else {
                 fatalError("The dequeued cell is not an instance of JobsTableViewCell.")
             }
-            cell.configure(job: ongoingJobs[indexPath.row])
+            
+            let footballer: Job
+              
+            if searchController.isActive && searchController.searchBar.text != "" {
+              footballer = filteredOngoingJobs[indexPath.row]
+            } else {
+              footballer = ongoingJobs[indexPath.row]
+            }
+            
+            cell.configure(job: footballer)
             cell.backgroundColor = .clear
             cell.selectionStyle = .none
+//            return cell
+            
             return cell
             
         default:
