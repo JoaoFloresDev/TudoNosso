@@ -9,8 +9,8 @@
 import Foundation
 import FirebaseFirestore
 
-class OrganizationDM {
-    var db = Firestore.firestore()
+class OrganizationDM: GenericsDM {
+
     let TABLENAME = "ongs"
     
     func save(ong: Organization) {
@@ -19,44 +19,63 @@ class OrganizationDM {
     }
     
     func listAll(completion: @escaping ([Organization]?, Error?) ->()) {
-        
         db.collection(TABLENAME).getDocuments { (snapshot, err) in
-            if let err = err{
-                print("\(err.localizedDescription)")
-                completion(nil,err)
-            }else {
-                if let snapshot = snapshot{
-                    let result = snapshot.documents.compactMap { (child) -> Organization? in
-                        if let element = Organization(snapshot: child.data() as NSDictionary){
-                            return element
-                        }
-                        return nil
-                        
-                    }
-                    completion(result,nil)
-                }else {
-                    completion(nil,nil)
-                }
-            }
+            self.handleDocuments(snapshot, err, completion: completion)
         }
     }
 
     
     func find(ByEmail email:String, completion: @escaping (Organization?,Error?) -> Void) {
         let ongId = Base64Converter.encodeStringAsBase64(email)
+        self.find(ById: ongId, completion: completion)
+    }
+    
+    func find(ById id:String, completion: @escaping (Organization?,Error?) -> Void) {
+        db.collection(TABLENAME).document(id).getDocument { (snapshot, err) in
+            self.handleSingleDocument(snapshot, err, completion: completion)
+        }
+    }
+    
+    func find(inField field: OrganizationFields, withValueEqual value:String, completion: @escaping ([Organization]?,Error?) ->()) {
+        db.collection(TABLENAME).whereField(field.rawValue, isEqualTo: value).getDocuments() { (snapshot, err) in
+            self.handleDocuments(snapshot, err, completion: completion)
+       }
+    }
+    
+    
+    func find(inField field: OrganizationFields, comparation: ComparationKind, withValue value:Any, completion: @escaping ([Job]?,Error?) ->()){
         
-        db.collection(TABLENAME).document(ongId).getDocument { (snapshot, err) in
-            if let err = err {
-                print(err.localizedDescription)
-                completion(nil,err)
-            }else {
-                if let snapshot = snapshot {
-                    let job = Organization(snapshot: snapshot.data()! as NSDictionary)
-                    completion(job,nil)
-                }else {
-                    completion(nil,nil)
-                }
+        switch comparation {
+        case .equal:
+            db.collection(TABLENAME).whereField(field.rawValue, isEqualTo: value).getDocuments { (snapshot, error) in
+                self.handleDocuments(snapshot, error, completion: completion)
             }
+            break
+        case .lessThan:
+            db.collection(TABLENAME).whereField(field.rawValue, isLessThan: value).getDocuments { (snapshot, error) in
+                self.handleDocuments(snapshot, error, completion: completion)
+            }
+            break
+        case .lessThanOrEqual:
+            db.collection(TABLENAME).whereField(field.rawValue, isLessThanOrEqualTo: value).getDocuments { (snapshot, error) in
+                self.handleDocuments(snapshot, error, completion: completion)
+            }
+            break
+        case .greaterThan:
+            db.collection(TABLENAME).whereField(field.rawValue, isGreaterThan: value).getDocuments { (snapshot, error) in
+                self.handleDocuments(snapshot, error, completion: completion)
+            }
+            break
+        case .greaterThanOrEqual:
+            db.collection(TABLENAME).whereField(field.rawValue, isGreaterThanOrEqualTo: value).getDocuments { (snapshot, error) in
+                self.handleDocuments(snapshot, error, completion: completion)
+            }
+            break
+        case .arrayContains:
+            db.collection(TABLENAME).whereField(field.rawValue, arrayContains: value).getDocuments { (snapshot, error) in
+                self.handleDocuments(snapshot, error, completion: completion)
+            }
+            break
         }
     }
 }
