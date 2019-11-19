@@ -12,10 +12,10 @@ import FirebaseFirestore
 class Login {
     var id: String?
     var email: String
-    var kind: String
+    var kind: LoginKinds
     
     
-    init(email: String, kind: String){
+    init(email: String, kind: LoginKinds){
         self.email = email
         self.kind = kind
     }
@@ -28,9 +28,10 @@ class Login {
             else {
                 return nil
         }
+        guard let kindEnum = LoginKinds(rawValue: kind) else {return nil}
         self.id = id
         self.email = email
-        self.kind = kind
+        self.kind = kindEnum
         
     }
    
@@ -41,7 +42,7 @@ extension Login: DatabaseRepresentation {
     
     var representation: [String : Any] {
         let rep: [LoginFields : Any] = [
-            .kind: kind,
+            .kind: kind.rawValue,
             .email: email
         ]
         return Dictionary(uniqueKeysWithValues: rep.map { key, value in
@@ -53,8 +54,13 @@ extension Login: DatabaseRepresentation {
     }
 }
 
-enum LoginFields: String {
+enum LoginFields: String, Hashable  {
     case email = "email"
     case kind = "kind"
     
+}
+
+enum LoginKinds: String, Hashable  {
+    case ONG = "ong"
+    case volunteer
 }

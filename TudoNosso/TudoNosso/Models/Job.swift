@@ -51,10 +51,10 @@ class Job {
             let title: String = Self.snapshotField(snapshot,.title),
             let category: String = Self.snapshotField(snapshot,.category),
             let vacancyType: String = Self.snapshotField(snapshot,.vacancyType),
-            let vacancyNumber:Int = Self.snapshotField(snapshot,.vacancyNumber),
-            let organizationID:String = Self.snapshotField(snapshot,.organizationID),
-            let location:GeoPoint = Self.snapshotField(snapshot,.localization),
-            let status:Bool = Self.snapshotField(snapshot,.status)
+            let vacancyNumber: Int = Self.snapshotField(snapshot,.vacancyNumber),
+            let organizationID: String = Self.snapshotField(snapshot,.organizationID),
+            let location: GeoPoint = Self.snapshotField(snapshot,.localization),
+            let status: Bool = Self.snapshotField(snapshot,.status)
             else {
                 return nil
         }
@@ -104,7 +104,15 @@ extension Job: DatabaseRepresentation {
     }
 }
 
-enum JobFields: String {
+extension Job: DictionaryInterpreter {
+    static func interpret(data: NSDictionary) -> Self? {
+        return Job(snapshot: data) as? Self
+    }
+    
+    
+}
+
+enum JobFields: String, Hashable  {
     case id
     case title
     case description = "desc"

@@ -33,6 +33,11 @@ class ExploreViewController: UIViewController {
         jobsTableView.tableHeaderView = searchController.searchBar
     }
         
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        let kind = UserDefaults.standard.value(forKey: "connection_kind")
+        print(kind)
+    }
     func setupTableView(){
         jobsTableView.backgroundColor = .clear
         jobsTableView.delegate = self

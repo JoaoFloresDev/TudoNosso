@@ -97,8 +97,16 @@ extension Organization: DatabaseRepresentation {
     }
 }
 
+extension Organization: DictionaryInterpreter {
+    static func interpret(data: NSDictionary) -> Self? {
+        return Organization(snapshot: data) as? Self
+    }
+    
+    
+}
+
 enum OrganizationFields: String, Hashable {
-    case name
+    case name = "ongName"
     case address
     case email
     case description = "desc"

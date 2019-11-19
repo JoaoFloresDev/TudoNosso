@@ -30,17 +30,21 @@ class LoginViewController: UIViewController, UINavigationControllerDelegate, UII
         }else {
             guard let email = emailTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines),
                   let password = passwordTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines)  else {return}
-            LoginDM().signIn(email: email, pass: password) { (ong, error) in
+            LoginDM().signIn(email: email, pass: password) { (dictionary, error) in
                 if let error = error {
                     print(error.localizedDescription)
-                }else {
+                }else if let dictionary = dictionary as NSDictionary?  {
+                    if let ong = Organization(snapshot: dictionary){
+                        UserDefaults.standard.set(ong.email, forKey: "connected_email")
+                        UserDefaults.standard.set(LoginKinds.ONG.rawValue, forKey: "connection_kind")
+                    }else if let volunteer = Volunteer(snapshot: dictionary){
+                        UserDefaults.standard.set(volunteer.email, forKey: "connected_email")
+                        UserDefaults.standard.set(LoginKinds.volunteer.rawValue, forKey: "connection_kind")
+                    }
                     self.navigationController?.popViewController(animated: true)
                 }
             }
-            
         }
-        
-        
     }
     
     func showAlert(msg: String, field:UITextField) {
