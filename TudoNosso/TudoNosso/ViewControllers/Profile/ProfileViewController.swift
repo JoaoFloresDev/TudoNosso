@@ -20,12 +20,13 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var addJobButton: UIButton!
     @IBOutlet weak var editProfileButton: UIButton!
     
-    
     @IBOutlet weak var profileContainerView: UIView!
     @IBOutlet weak var jobsContainerView: UIView!
     
     private let jobsSegueIdentifier = "toJobsTable"
     private let profileSegueIdentifier = "toProfileTable"
+    
+    var email: String?
     
     var ong : Organization? {
         didSet{
@@ -55,8 +56,8 @@ class ProfileViewController: UIViewController {
     func loadData() {
         let jobDM = JobDM()
         let orgDM = OrganizationDM()
-        //TODO usando um email fixo por enquanto
-        let email = "bruno@gmail.com"
+        
+        guard let email = self.email else {return}
         let id = Base64Converter.encodeStringAsBase64(email)
         
         orgDM.find(ByEmail: email) { (result, error) in

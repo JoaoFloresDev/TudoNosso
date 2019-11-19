@@ -8,12 +8,15 @@
 
 import UIKit
 
+
 class CategoryOportunitiesViewController: UIViewController {
 
     var categories = ["Causas", "Organizações", "Todas as Vagas"]
     var searchController = UISearchController(searchResultsController: nil)
+    var titleHeader: String = ""
     
     @IBOutlet weak var jobsTableView: UITableView!
+    @IBOutlet weak var headerItem: UINavigationItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,6 +29,8 @@ class CategoryOportunitiesViewController: UIViewController {
         jobsTableView.tableHeaderView = searchController.searchBar
         searchController.searchBar.tintColor = UIColor.black
         searchController.searchBar.barTintColor = UIColor.white
+        
+        headerItem.title = titleHeader
     }
         
     func setupTableView(){
@@ -47,13 +52,9 @@ extension CategoryOportunitiesViewController : UITableViewDataSource, UISearchRe
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        self.performSegue(withIdentifier: "showDetailSegue", sender: indexPath.count)
+        self.performSegue(withIdentifier: "showDetailJobSegue", sender: indexPath.count)
     }
     
-//    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-//        return categories[section]
-//    }
-//
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -69,8 +70,8 @@ extension CategoryOportunitiesViewController : UITableViewDataSource, UISearchRe
             }
             
             //todo config cell
-//            cell.configureCell()tudo
-        
+//            cell.configure()
+            cell.selectionStyle = UITableViewCell.SelectionStyle(rawValue: 0)!
             cell.backgroundColor = .clear
             return cell
     }
