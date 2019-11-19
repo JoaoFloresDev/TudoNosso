@@ -14,7 +14,12 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var profileNameLabel: UILabel!
     @IBOutlet weak var profileImage: RoundedImageView!
     @IBOutlet weak var segmentedControl: CustomSegmentedControl!
-
+    
+    @IBOutlet weak var addJobLabelView: UIView!
+    @IBOutlet weak var editLabelView: UIView!
+    @IBOutlet weak var addJobButton: UIButton!
+    @IBOutlet weak var editProfileButton: UIButton!
+    
     
     @IBOutlet weak var profileContainerView: UIView!
     @IBOutlet weak var jobsContainerView: UIView!
@@ -106,15 +111,34 @@ class ProfileViewController: UIViewController {
 
     @IBAction func segmentChanged(_ sender: Any) {
         switch segmentedControl.selectedSegmentIndex {
-        case 0:
+        case 0: // show jobs
             self.jobsContainerView.isHidden = false
             self.profileContainerView.isHidden = true
-        case 1:
+            
+            self.addJobLabelView.isHidden = false
+            self.editLabelView.isHidden = true
+            
+            self.addJobButton.isUserInteractionEnabled = true
+            self.editProfileButton.isUserInteractionEnabled = false
+        case 1: // show profile
             self.jobsContainerView.isHidden = true
             self.profileContainerView.isHidden = false
+            
+            self.addJobLabelView.isHidden = true
+            self.editLabelView.isHidden = false
+            
+            self.addJobButton.isUserInteractionEnabled = false
+            self.editProfileButton.isUserInteractionEnabled = true
         default:
-            self.jobsContainerView.isHidden = false
-            self.profileContainerView.isHidden = true
+            break
         }
+    }
+    
+    @IBAction func addJobPressed(_ sender: Any) {
+        print("add job pressed")
+    }
+    
+    @IBAction func editProfilePressed(_ sender: Any) {
+        print("edit profile pressed")
     }
 }

@@ -90,11 +90,11 @@ class JobsTableViewController: UITableViewController {
         switch section {
         case 0:
             if ongoingJobs.count > 0 {
-                return JobsTableViewHeader.height
+                return JobsTableViewHeader.TypeOfHeader.ongoing.height
             } else { return 0 }
         default:
             if finishedJobs.count > 0 {
-                return JobsTableViewHeader.height
+                return JobsTableViewHeader.TypeOfHeader.finished.height
             } else { return 0 }
         }
     }

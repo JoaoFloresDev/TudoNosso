@@ -453,18 +453,10 @@
 		D7C97E8D237D971E0010BAC0 /* Areas */ = {
 			isa = PBXGroup;
 			children = (
-				D7C97E8E237D97340010BAC0 /* Collection Cell */,
-			);
-			path = Areas;
-			sourceTree = "<group>";
-		};
-		D7C97E8E237D97340010BAC0 /* Collection Cell */ = {
-			isa = PBXGroup;
-			children = (
 				D7C97E91237D97680010BAC0 /* AreaCollectionCell.swift */,
 				D7C97E8F237D97570010BAC0 /* AreaCollectionCell.xib */,
 			);
-			path = "Collection Cell";
+			path = Areas;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

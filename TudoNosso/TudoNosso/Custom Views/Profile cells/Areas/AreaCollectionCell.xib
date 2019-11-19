@@ -32,6 +32,7 @@
                     <constraints>
                         <constraint firstItem="gLC-6O-Wvj" firstAttribute="centerX" secondItem="0yw-lR-9Md" secondAttribute="centerX" id="JKh-vu-Dah"/>
                         <constraint firstItem="gLC-6O-Wvj" firstAttribute="centerY" secondItem="0yw-lR-9Md" secondAttribute="centerY" id="Yci-Ei-d04"/>
+                        <constraint firstAttribute="height" constant="24" id="vR9-V9-GhI"/>
                     </constraints>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="number" keyPath="border">
