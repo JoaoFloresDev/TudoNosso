@@ -17,6 +17,7 @@
 		567284D7238330E000DF4EA5 /* DictionaryInterpreter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567284D6238330E000DF4EA5 /* DictionaryInterpreter.swift */; };
 		567284D923833A4700DF4EA5 /* Volunteer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567284D823833A4700DF4EA5 /* Volunteer.swift */; };
 		567284DB23833DB800DF4EA5 /* VolunteerDM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567284DA23833DB800DF4EA5 /* VolunteerDM.swift */; };
+		567284DC2384106B00DF4EA5 /* TudoNossoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40A2E9123704BA700DB87BB /* TudoNossoTests.swift */; };
 		567380F22373016000F1B6C5 /* CLLocationCoordinate2D+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567380F12373016000F1B6C5 /* CLLocationCoordinate2D+extensions.swift */; };
 		567380F52373019600F1B6C5 /* Organization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567380F42373019600F1B6C5 /* Organization.swift */; };
 		567380F723730B9B00F1B6C5 /* Job.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567380F623730B9B00F1B6C5 /* Job.swift */; };
@@ -40,7 +41,6 @@
 		C40A2EB123704E9700DB87BB /* Notifications.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C40A2EB023704E9700DB87BB /* Notifications.storyboard */; };
 		C40A2EB323704EB200DB87BB /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C40A2EB223704EB200DB87BB /* Profile.storyboard */; };
 		C40A2EB523704EC700DB87BB /* Job.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C40A2EB423704EC700DB87BB /* Job.storyboard */; };
-		C40E1FE1237D780800F3E5F7 /* TudoNossoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40A2E9123704BA700DB87BB /* TudoNossoTests.swift */; };
 		C422673223705786000A6DA3 /* NotificationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C422673123705786000A6DA3 /* NotificationsViewController.swift */; };
 		C4226734237057A3000A6DA3 /* ExploreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4226733237057A3000A6DA3 /* ExploreViewController.swift */; };
 		C4226736237057B1000A6DA3 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4226735237057B1000A6DA3 /* ProfileViewController.swift */; };
@@ -732,7 +732,6 @@
 				5633E5B8237D851300E46EE3 /* Login.swift in Sources */,
 				D7C013A1237C4E87001CDD36 /* KeyboardDismissingView.swift in Sources */,
 				D765D3222373021000F596CD /* UIColor+Extension.swift in Sources */,
-				C40E1FE1237D780800F3E5F7 /* TudoNossoTests.swift in Sources */,
 				D78A53CB23758D58004B4689 /* JobsTableViewHeader.swift in Sources */,
 				C46E729E2379985B00D57BB9 /* CategoryOportunitiesViewController.swift in Sources */,
 				C46E728523745C1300D57BB9 /* CategoryCollectionView.swift in Sources */,
@@ -759,6 +758,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				567284DC2384106B00DF4EA5 /* TudoNossoTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -966,7 +966,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = NZC6LC8NWM;
+				DEVELOPMENT_TEAM = GJUSD98938;
 				INFOPLIST_FILE = TudoNossoTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -989,7 +989,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = NZC6LC8NWM;
+				DEVELOPMENT_TEAM = GJUSD98938;
 				INFOPLIST_FILE = TudoNossoTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1011,7 +1011,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = NZC6LC8NWM;
+				DEVELOPMENT_TEAM = GJUSD98938;
 				INFOPLIST_FILE = TudoNossoUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1032,7 +1032,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = NZC6LC8NWM;
+				DEVELOPMENT_TEAM = GJUSD98938;
 				INFOPLIST_FILE = TudoNossoUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

@@ -68,12 +68,13 @@ class ExploreViewController: UIViewController {
         let email = "bruno@gmail.com"
         let id = Base64Converter.encodeStringAsBase64(email)
         
-        orgDM.find(ByEmail: email) { (result) in
+        orgDM.find(ByEmail: email) { (result, error) in
             guard let ong = result else {return}
             self.ong = ong
         }
         
-        jobDM.find(inField: .organizationID, withValueEqual: id) { (result) in
+        jobDM.find(inField: .organizationID, withValueEqual: id) { (result,error) in
+            guard let result = result else { return }
             self.jobs = result
             self.jobsTableView.reloadData()
         }
