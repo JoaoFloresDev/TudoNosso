@@ -52,7 +52,13 @@ class JobViewController: UIViewController {
         ongDM.find(ById: job.organizationID) { (ong, err) in
             guard let ong = ong else { return }
             self.jobOrganizationName.setTitle(ong.name, for: .normal)
-            
+            if let avatar = ong.avatar {
+                FileDM().recoverProfileImage(profilePic: avatar) { (image, error) in
+                    guard let image = image else {return}
+                    self.jobOrganizationImage.image = image
+                }
+                
+            }
         }
     }
 
