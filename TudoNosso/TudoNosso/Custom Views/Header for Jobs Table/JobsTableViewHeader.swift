@@ -12,14 +12,6 @@ class JobsTableViewHeader: UITableViewHeaderFooterView {
     @IBOutlet weak var circleView: RoundedView!
     @IBOutlet weak var titleLabel: UILabel!
     
-    static let reuseIdentifer = String(describing: JobsTableViewHeader.self)
-    static let height = CGFloat(42)
-    
-    static var nib: UINib {
-        let nibName = String(describing: JobsTableViewHeader.self)
-        return UINib(nibName: nibName, bundle: nil)
-    }
-    
     enum TypeOfHeader {
         case ongoing
         case finished
@@ -37,6 +29,22 @@ class JobsTableViewHeader: UITableViewHeaderFooterView {
             case .finished: return UIColor.thinGray
             }
         }
+        
+        var height: CGFloat {
+            switch self {
+            case .ongoing:
+                return CGFloat(50)
+            case .finished:
+                return CGFloat(30)
+            }
+        }
+    }
+    
+    static let reuseIdentifer = String(describing: JobsTableViewHeader.self)
+    
+    static var nib: UINib {
+        let nibName = String(describing: JobsTableViewHeader.self)
+        return UINib(nibName: nibName, bundle: nil)
     }
     
     func configure(type: TypeOfHeader) {
@@ -44,3 +52,5 @@ class JobsTableViewHeader: UITableViewHeaderFooterView {
         self.titleLabel.text = type.title
     }
 }
+
+
