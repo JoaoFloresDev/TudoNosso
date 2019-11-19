@@ -14,10 +14,14 @@ class ExploreViewController: UIViewController {
     
     @IBOutlet weak var jobsTableView: UITableView!
     
+    var selectedCause: String = ""
+    var selectedOrganization: String = ""
+    var organizationsList : [Organization] = []
+    var ongoingJobs : [Job] = []
     var categories = ["Causas", "Organizações", "Todas as Vagas"]
     var searchController = UISearchController(searchResultsController: nil)
-    var selectedTitleHeader: String = ""
-    var ong : Organization = Organization(name: "", address: CLLocationCoordinate2D(), email: "")
+    
+    var organization : Organization = Organization(name: "", address: CLLocationCoordinate2D(), email: "")
     
     var jobs : [Job] = [] {
         didSet {
@@ -25,18 +29,10 @@ class ExploreViewController: UIViewController {
         }
     }
     
-    var ongoingJobs : [Job] = []
-    var finishedJobs : [Job] = []
-    
     override func viewDidLoad() {
         super.viewDidLoad()
          setupTableView()
-        
-        let searchBar = UISearchBar.appearance()
-        searchBar.tintColor = UIColor.black
-        searchBar.barTintColor = UIColor.white
-        searchBar.alpha = 1
-        searchBar.backgroundColor = UIColor.white
+        setupSearchBar()
         
         
         jobsTableView.dataSource = self
@@ -49,7 +45,15 @@ class ExploreViewController: UIViewController {
         
         loadData()
     }
-        
+    
+    func setupSearchBar() {
+        let searchBar = UISearchBar.appearance()
+        searchBar.tintColor = UIColor.black
+        searchBar.barTintColor = UIColor.white
+        searchBar.alpha = 1
+        searchBar.backgroundColor = UIColor.white
+    }
+    
     func setupJobsTableView(){
         jobsTableView.isHidden = false
         jobsTableView.backgroundColor = .clear
@@ -63,17 +67,9 @@ class ExploreViewController: UIViewController {
     
     func loadData() {
         let jobDM = JobDM()
-        let orgDM = OrganizationDM()
-        //TODO usando um email fixo por enquanto
-        let email = "bruno@gmail.com"
-        let id = Base64Converter.encodeStringAsBase64(email)
         
-        orgDM.find(ByEmail: email) { (result, error) in
-            guard let ong = result else {return}
-            self.ong = ong
-        }
-        
-        jobDM.find(inField: .organizationID, withValueEqual: id) { (result,error) in
+        jobDM.listAll {
+            (result, error) in
             guard let result = result else { return }
             self.jobs = result
             self.jobsTableView.reloadData()
@@ -84,8 +80,6 @@ class ExploreViewController: UIViewController {
         for job in jobs {
             if job.status {
                 ongoingJobs.append(job)
-            } else {
-                finishedJobs.append(job)
             }
         }
     }
@@ -100,10 +94,14 @@ class ExploreViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)
     {
-        if segue.destination is CategoryOportunitiesViewController
-        {
+        if segue.destination is CategoryOportunitiesViewController {
             let vc = segue.destination as? CategoryOportunitiesViewController
-            vc?.titleHeader = selectedTitleHeader
+            vc?.titleHeader = selectedCause
+        }
+        
+        else if segue.destination is ProfileViewController {
+            let vc = segue.destination as? ProfileViewController
+            vc?.email = selectedOrganization
         }
     }
 }
@@ -126,23 +124,14 @@ extension ExploreViewController : UITableViewDataSource, UISearchResultsUpdating
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-//        return categories.count
-        
-        var count = 0
-        if ongoingJobs.count > 0 {
-            count += 1
-        }
-        if finishedJobs.count > 0 {
-            count += 1
-        }
-        return count
+        return categories.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section < 2 {
             return 1
         } else {
-            return 10
+            return ongoingJobs.count
         }
     }
     
@@ -150,26 +139,25 @@ extension ExploreViewController : UITableViewDataSource, UISearchResultsUpdating
         switch indexPath.section {
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier:  "cell") as! CategoryCollectionView
-            cell.delegate = self
             cell.tag = 0
+            cell.delegate = self
+            cell.organizationsList = organizationsList
             return cell
+            
         case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier:  "cell2") as! CategoryCollectionView
             cell.tag = 1
             cell.delegate = self
-            
+            cell.loadDataOrganizations()
             return cell
+            
         case 2:
-//            let cell = tableView.dequeueReusableCell(withIdentifier:  "cell3") as! oportunityCell
             guard let cell = tableView.dequeueReusableCell(withIdentifier: JobsTableViewCell.reuseIdentifer, for: indexPath) as? JobsTableViewCell else {
                 fatalError("The dequeued cell is not an instance of JobsTableViewCell.")
             }
-            
-            //todo config cell
-//            cell.configure()
-            cell.selectionStyle = UITableViewCell.SelectionStyle(rawValue: 0)!
+            cell.configure(job: ongoingJobs[indexPath.row])
             cell.backgroundColor = .clear
-            
+            cell.selectionStyle = .none
             return cell
             
         default:
@@ -179,17 +167,21 @@ extension ExploreViewController : UITableViewDataSource, UISearchResultsUpdating
 }
 
 extension ExploreViewController: CategoryCollectionViewDelegate {
-    func causeSelected(_ view: CategoryCollectionView, causeTitle: String?, tagCollection: Int) {
+    func causeSelected(_ view: CategoryCollectionView, causeTitle: String?, OrganizationEmail: String?,tagCollection: Int) {
     
-        print("tag: \(tagCollection)")
         if(tagCollection == 0) {
             if let title = causeTitle {
-                self.selectedTitleHeader = title
+                self.selectedCause = title
             }
             
             self.performSegue(withIdentifier: "showCauses", sender: self)
         }
+            
         else {
+            if let title = OrganizationEmail {
+                self.selectedOrganization = title
+            }
+            
             self.performSegue(withIdentifier: "showProfile", sender: self)
         }
     }

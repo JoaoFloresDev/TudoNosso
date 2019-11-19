@@ -9,13 +9,27 @@
 import UIKit
 
 protocol CategoryCollectionViewDelegate: NSObjectProtocol {
-    func causeSelected(_ view: CategoryCollectionView, causeTitle: String?, tagCollection: Int )
+    func causeSelected(_ view: CategoryCollectionView, causeTitle: String?, OrganizationEmail: String?, tagCollection: Int )
 }
 
 
 class CategoryCollectionView : UITableViewCell {
     @IBOutlet weak var collectionView: UICollectionView!
     var categorysList = ["Cultura e Arte","Educação","Idosos","Crianças","Meio Ambiente","Proteção Animal","Saúde","Esportes","Refugiados","LGBTQ+","Combate à pobreza","Treinamento profissional"]
+    
+    var organizationsList : [Organization] = []
+    
+    var ongs : [Organization] = [] {
+        didSet {
+            self.sortOrganizations()
+        }
+    }
+    
+    func sortOrganizations(){
+        for ong in ongs {
+            organizationsList.append(ong)
+        }
+    }
     
     weak var delegate: CategoryCollectionViewDelegate!
 }
@@ -38,7 +52,7 @@ extension CategoryCollectionView : UICollectionViewDataSource, UICollectionViewD
         // tag 0 is Cause collection
         // tag 1 is Organization collection
         if(collectionView.tag == 1) {
-            numElem = 20
+            numElem = organizationsList.count
         }
         
         return numElem
@@ -53,11 +67,16 @@ extension CategoryCollectionView : UICollectionViewDataSource, UICollectionViewD
         cell.imageView.layer.cornerRadius = cell.imageView.frame.size.height/8
         cell.imageView.clipsToBounds = true
         cell.imageView.tag = indexPath.row
-        cell.titleLabel.text = String(indexPath.row)
         
         if(collectionView.tag == 0) {
             cell.titleLabel.text = categorysList[indexPath.row]
         }
+            
+        else {
+            cell.titleLabel.text = organizationsList[indexPath.row].name
+            cell.email = organizationsList[indexPath.row].email
+        }
+        
         
         let image = cropToBounds(image: UIImage(named: "ong-img_job")!, portraitOrientation: true)
         cell.imageView.image = image
@@ -103,6 +122,18 @@ extension CategoryCollectionView : UICollectionViewDataSource, UICollectionViewD
         
         return CGSize(width: itemHeight, height: itemHeight)
     }
+    
+    func loadDataOrganizations() {
+        let orgDM = OrganizationDM()
+        
+        orgDM.listAll {
+            (result, error) in
+            guard let result = result else { return }
+            self.ongs = result
+            self.reloadInputViews()
+            self.collectionView.reloadData()
+        }
+    }
 }
 
 
@@ -110,8 +141,9 @@ extension CategoryCollectionView : CellCasesOrganizationsDelegate {
     func causeSelected(_ cell: CellCasesOrganizations) {
         
         if let delegate = self.delegate {
-            delegate.causeSelected(self, causeTitle: cell.titleLabel.text, tagCollection: self.tag)
-            
+            delegate.causeSelected(self, causeTitle: cell.titleLabel.text, OrganizationEmail: cell.email, tagCollection: self.tag)
         }
     }
+    
+    
 }
