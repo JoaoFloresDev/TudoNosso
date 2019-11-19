@@ -72,6 +72,9 @@
                             </segmentedControl>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bd2-4V-TI7" userLabel="Jobs Container View">
                                 <rect key="frame" x="0.0" y="299" width="414" height="514"/>
+                                <connections>
+                                    <segue destination="zlr-x7-Ay4" kind="embed" identifier="toJobsTable" id="EdX-uL-l8F"/>
+                                </connections>
                             </containerView>
                             <containerView hidden="YES" opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mhb-Pr-5tE" userLabel="Profile Container View">
                                 <rect key="frame" x="0.0" y="299" width="414" height="514"/>
@@ -117,6 +120,34 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uwq-EZ-B5R" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="105.79710144927537" y="132.58928571428572"/>
+        </scene>
+        <!--Jobs Table View Controller-->
+        <scene sceneID="RnZ-8m-vrN">
+            <objects>
+                <tableViewController id="zlr-x7-Ay4" customClass="JobsTableViewController" customModule="TudoNosso" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="wfL-ou-JTl">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="514"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="jle-0B-qTA">
+                                <rect key="frame" x="0.0" y="55.5" width="414" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="jle-0B-qTA" id="iGH-LZ-jME">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="zlr-x7-Ay4" id="uL4-OJ-h8m"/>
+                            <outlet property="delegate" destination="zlr-x7-Ay4" id="Yjw-DL-0v1"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AYh-tp-1jP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="106" y="794"/>
         </scene>
         <!--Job-->
         <scene sceneID="P66-my-lsF">

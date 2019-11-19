@@ -42,4 +42,26 @@ class ProfileTableViewController : UITableViewController {
         aboutLabel.sizeToFit()
         aboutLabel.superview?.sizeToFit()
     }
+    
+    //
+    //extension ProfileViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    //    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    //        return placeholderAreas.count
+    //    }
+    //
+    //    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    //        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AreaCollectionCell.reuseIdentifer, for: indexPath) as? AreaCollectionCell else {
+    //            fatalError("The dequeued cell is not an instance of AreaCollectionCell.")
+    //        }
+    //
+    //        cell.label.text = placeholderAreas[indexPath.row]
+    //        widths[indexPath.row] = cell.label.intrinsicContentSize.width + 16
+    //
+    //        return cell
+    //    }
+    //
+    //    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+    //        return CGSize(width: widths[indexPath.row], height: CGFloat(24))
+    //    }
+    //}
 }

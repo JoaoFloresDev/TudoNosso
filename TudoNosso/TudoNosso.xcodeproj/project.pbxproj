@@ -60,6 +60,7 @@
 		D79E8803237ACAD600C5D8F7 /* AboutCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D79E8802237ACAD600C5D8F7 /* AboutCell.swift */; };
 		D79E8808237AD9BC00C5D8F7 /* AreasCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D79E8807237AD9BC00C5D8F7 /* AreasCell.xib */; };
 		D7A707612382CF8500D164AC /* ProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7A707602382CF8500D164AC /* ProfileTableViewController.swift */; };
+		D7A707632382EA9000D164AC /* JobsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7A707622382EA9000D164AC /* JobsTableViewController.swift */; };
 		D7C0139D237C4E68001CDD36 /* AddressUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7C0139B237C4E68001CDD36 /* AddressUtil.swift */; };
 		D7C0139E237C4E68001CDD36 /* Base64Converter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7C0139C237C4E68001CDD36 /* Base64Converter.swift */; };
 		D7C013A1237C4E87001CDD36 /* KeyboardDismissingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7C0139F237C4E87001CDD36 /* KeyboardDismissingView.swift */; };
@@ -150,6 +151,7 @@
 		D79E8802237ACAD600C5D8F7 /* AboutCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutCell.swift; sourceTree = "<group>"; };
 		D79E8807237AD9BC00C5D8F7 /* AreasCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AreasCell.xib; sourceTree = "<group>"; };
 		D7A707602382CF8500D164AC /* ProfileTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewController.swift; sourceTree = "<group>"; };
+		D7A707622382EA9000D164AC /* JobsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobsTableViewController.swift; sourceTree = "<group>"; };
 		D7C0139B237C4E68001CDD36 /* AddressUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddressUtil.swift; sourceTree = "<group>"; };
 		D7C0139C237C4E68001CDD36 /* Base64Converter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Base64Converter.swift; sourceTree = "<group>"; };
 		D7C0139F237C4E87001CDD36 /* KeyboardDismissingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardDismissingView.swift; sourceTree = "<group>"; };
@@ -376,6 +378,7 @@
 				C4226737237057C1000A6DA3 /* JobViewController.swift */,
 				C4226735237057B1000A6DA3 /* ProfileViewController.swift */,
 				D7A707602382CF8500D164AC /* ProfileTableViewController.swift */,
+				D7A707622382EA9000D164AC /* JobsTableViewController.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -753,6 +756,7 @@
 				C40A2E7823704BA500DB87BB /* AppDelegate.swift in Sources */,
 				567380F52373019600F1B6C5 /* Organization.swift in Sources */,
 				C4226738237057C1000A6DA3 /* JobViewController.swift in Sources */,
+				D7A707632382EA9000D164AC /* JobsTableViewController.swift in Sources */,
 				C4226738237057C1000A6DA3 /* JobViewController.swift in Sources */,
 				567381282374535A00F1B6C5 /* OrganizationDM.swift in Sources */,
 			);

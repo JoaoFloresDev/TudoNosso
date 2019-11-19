@@ -19,55 +19,38 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var profileContainerView: UIView!
     @IBOutlet weak var jobsContainerView: UIView!
     
+    private let jobsSegueIdentifier = "toJobsTable"
+    private let profileSegueIdentifier = "toProfileTable"
+    
     
     let placeholderAreas = ["Educação", "Saúde", "Educação", "Saúde", "Educação", "Saúde", "Educação", "Saúde", "Educação", "Saúde"]
     var widths : [CGFloat] = []
     var collection: UICollectionView?
     
-    var ong : Organization?
-    
-    var jobs : [Job] = [] {
-        didSet {
-            self.sortJobs()
+    var ong : Organization? {
+        didSet{
+            if self.shouldPerformSegue(withIdentifier: self.profileSegueIdentifier, sender: self) {
+                self.performSegue(withIdentifier: self.profileSegueIdentifier, sender: self)
+            }
         }
     }
     
-    var ongoingJobs : [Job] = []
-    var finishedJobs : [Job] = []
+    var jobs : [Job]? {
+        didSet {
+            if self.shouldPerformSegue(withIdentifier: self.jobsSegueIdentifier, sender: self) {
+                self.performSegue(withIdentifier: self.jobsSegueIdentifier, sender: self)
+            }
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        widths.append(contentsOf: repeatElement(0, count: placeholderAreas.count))
-
-//        setupJobsTableView()
-//        setupProfileTableView()
-        
-        loadData()
     }
     
-//    func setupJobsTableView(){
-//        jobsTableView.isHidden = false
-//        jobsTableView.backgroundColor = .clear
-//
-//        jobsTableView.delegate = self
-//        jobsTableView.dataSource = self
-//
-//        jobsTableView.register(JobsTableViewCell.nib, forCellReuseIdentifier: JobsTableViewCell.reuseIdentifer)
-//        jobsTableView.register(JobsTableViewHeader.nib, forHeaderFooterViewReuseIdentifier: JobsTableViewHeader.reuseIdentifer)
-//    }
-    
-//    func setupProfileTableView() {
-//        profileTableView.isHidden = true
-//        profileTableView.backgroundColor = .clear
-//
-//        profileTableView.delegate = self
-//        profileTableView.dataSource = self
-//
-//        profileTableView.register(InfoCell.nib, forCellReuseIdentifier: InfoCell.reuseIdentifer)
-//        profileTableView.register(AboutCell.nib, forCellReuseIdentifier: AboutCell.reuseIdentifer)
-//        profileTableView.register(AreasCell.nib, forCellReuseIdentifier: AreasCell.reuseIdentifer)
-//    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        loadData()
+    }
     
     func loadData() {
         let jobDM = JobDM()
@@ -83,12 +66,6 @@ class ProfileViewController: UIViewController {
                 guard let ong = result else {return}
                 self.ong = ong
                 self.profileNameLabel.text = ong.name
-                
-                if self.shouldPerformSegue(withIdentifier: "toProfileTable", sender: self) {
-                    self.performSegue(withIdentifier: "toProfileTable", sender: self)
-                }
-                
-//                self.profileTableView.reloadData()
             }
         }
         
@@ -98,68 +75,39 @@ class ProfileViewController: UIViewController {
             } else {
                 guard let jobs = result else {return}
                 self.jobs = jobs
-//                self.jobsTableView.reloadData()
-            }
-        }
-    }
-    
-    func sortJobs(){
-        for job in jobs {
-            if job.status {
-                ongoingJobs.append(job)
-            } else {
-                finishedJobs.append(job)
             }
         }
     }
     
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
-        if identifier == "toProfileTable" {
+        switch identifier{
+        case profileSegueIdentifier:
             if self.ong != nil {
                 return true
             } else {
                 return false
             }
-        } else {
-            return false
+        case jobsSegueIdentifier:
+            if self.jobs != nil {
+                return true
+            } else {
+                return false
+            }
+        default:    return false
         }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "toProfileTable" {
+        if segue.identifier == profileSegueIdentifier {
             if let nextVC = segue.destination as? ProfileTableViewController {
                 nextVC.data = self.ong
             }
+        } else if segue.identifier == jobsSegueIdentifier {
+            if let nextVC = segue.destination as? JobsTableViewController {
+                nextVC.data = self.jobs
+            }
         }
     }
-    
-//    func createCell(indexPath: IndexPath, tableView: UITableView) -> UITableViewCell {
-//        switch indexPath.row {
-//        case 0:
-//            guard let cell = tableView.dequeueReusableCell(withIdentifier: InfoCell.reuseIdentifer, for: indexPath) as? InfoCell else {
-//            fatalError("The dequeued cell is not an instance of InfoCell.") }
-//            cell.configure(ong: self.ong)
-//            return cell
-//        case 1:
-//            guard let cell = tableView.dequeueReusableCell(withIdentifier: AboutCell.reuseIdentifer, for: indexPath) as? AboutCell else {
-//            fatalError("The dequeued cell is not an instance of AboutCell.") }
-//            cell.configure(ong: self.ong)
-//            return cell
-//        default:
-//
-//            guard let cell = tableView.dequeueReusableCell(withIdentifier: AreasCell.reuseIdentifer, for: indexPath) as? AreasCell else {
-//            fatalError("The dequeued cell is not an instance of AreasCell.") }
-//
-//            cell.collection.delegate = self
-//            cell.collection.dataSource = self
-//
-//            cell.collection.register(AreaCollectionCell.nib, forCellWithReuseIdentifier: AreaCollectionCell.reuseIdentifer)
-//
-//            cell.collection.reloadData()
-//
-//            return cell
-//        }
-//    }
 
     @IBAction func segmentChanged(_ sender: Any) {
         switch segmentedControl.selectedSegmentIndex {
@@ -175,131 +123,3 @@ class ProfileViewController: UIViewController {
         }
     }
 }
-
-//extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
-//    
-//    func numberOfSections(in tableView: UITableView) -> Int {
-//        switch tableView {
-//        case jobsTableView:
-//            var count = 0
-//            if ongoingJobs.count > 0 {
-//                count += 1
-//            }
-//            if finishedJobs.count > 0 {
-//                count += 1
-//            }
-//            return count
-//        case profileTableView:  return 1
-//        default:                return 0
-//        }
-//    }
-//    
-//    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-//        switch tableView {
-//        case jobsTableView:
-//            
-//            guard let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: JobsTableViewHeader.reuseIdentifer) as? JobsTableViewHeader else {
-//                fatalError("The dequeued header is not an instance of JobsTableViewHeader.")
-//            }
-//            
-//            switch section {
-//            case 0:
-//                if ongoingJobs.count > 0 {
-//                    header.configure(type: .ongoing)
-//                } else {
-//                    return nil
-//                }
-//            case 1:
-//                if finishedJobs.count > 0 {
-//                    header.configure(type: .finished)
-//                } else {
-//                    return nil
-//                }
-//            default: break
-//            }
-//            
-//            return header
-//            
-//        default:    return nil
-//        }
-//    }
-//    
-//    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-//        switch tableView{
-//        case jobsTableView:
-//            switch section {
-//            case 0:
-//                if ongoingJobs.count > 0 {
-//                    return JobsTableViewHeader.height
-//                } else { return 0 }
-//            default:
-//                 if finishedJobs.count > 0 {
-//                                   return JobsTableViewHeader.height
-//                               } else { return 0 }
-//            }
-//        case profileTableView:  return 0
-//        default:                return 0
-//        }
-//    }
-//    
-//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        switch tableView {
-//        case jobsTableView:
-//            switch section {
-//            case 0:
-//                return ongoingJobs.count
-//            default:
-//                return finishedJobs.count
-//            }
-//        case profileTableView:
-//            return 3
-//        default:    return 0
-//        }
-//    }
-//    
-//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        
-//        switch tableView{
-//        case jobsTableView:
-//            guard let cell = tableView.dequeueReusableCell(withIdentifier: JobsTableViewCell.reuseIdentifer, for: indexPath) as? JobsTableViewCell else {
-//                fatalError("The dequeued cell is not an instance of JobsTableViewCell.")
-//            }
-//            switch indexPath.section {
-//            case 0:
-//                cell.configure(job: ongoingJobs[indexPath.row])
-//            default:
-//                cell.configure(job: finishedJobs[indexPath.row])
-//            }
-//            cell.backgroundColor = .clear
-//            cell.selectionStyle = .none
-//            return cell
-//        case profileTableView:
-//            let cell = self.createCell(indexPath: indexPath, tableView: tableView)
-//            
-//            cell.backgroundColor = .clear
-//            return cell
-//        default: return UITableViewCell()
-//        }
-//    }
-//}
-//
-//extension ProfileViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
-//    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-//        return placeholderAreas.count
-//    }
-//    
-//    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-//        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AreaCollectionCell.reuseIdentifer, for: indexPath) as? AreaCollectionCell else {
-//            fatalError("The dequeued cell is not an instance of AreaCollectionCell.")
-//        }
-//        
-//        cell.label.text = placeholderAreas[indexPath.row]
-//        widths[indexPath.row] = cell.label.intrinsicContentSize.width + 16
-//
-//        return cell
-//    }
-//    
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-//        return CGSize(width: widths[indexPath.row], height: CGFloat(24))
-//    }
-//}
