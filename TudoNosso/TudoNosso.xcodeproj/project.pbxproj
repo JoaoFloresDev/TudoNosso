@@ -18,6 +18,7 @@
 		567284D923833A4700DF4EA5 /* Volunteer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567284D823833A4700DF4EA5 /* Volunteer.swift */; };
 		567284DB23833DB800DF4EA5 /* VolunteerDM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567284DA23833DB800DF4EA5 /* VolunteerDM.swift */; };
 		567284DC2384106B00DF4EA5 /* TudoNossoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40A2E9123704BA700DB87BB /* TudoNossoTests.swift */; };
+		567284E023843BE200DF4EA5 /* FileDM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567284DF23843BE200DF4EA5 /* FileDM.swift */; };
 		567380F22373016000F1B6C5 /* CLLocationCoordinate2D+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567380F12373016000F1B6C5 /* CLLocationCoordinate2D+extensions.swift */; };
 		567380F52373019600F1B6C5 /* Organization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567380F42373019600F1B6C5 /* Organization.swift */; };
 		567380F723730B9B00F1B6C5 /* Job.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567380F623730B9B00F1B6C5 /* Job.swift */; };
@@ -104,6 +105,7 @@
 		567284D6238330E000DF4EA5 /* DictionaryInterpreter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DictionaryInterpreter.swift; sourceTree = "<group>"; };
 		567284D823833A4700DF4EA5 /* Volunteer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Volunteer.swift; path = DataManipulation/Volunteer.swift; sourceTree = "<group>"; };
 		567284DA23833DB800DF4EA5 /* VolunteerDM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolunteerDM.swift; sourceTree = "<group>"; };
+		567284DF23843BE200DF4EA5 /* FileDM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileDM.swift; sourceTree = "<group>"; };
 		567380F12373016000F1B6C5 /* CLLocationCoordinate2D+extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CLLocationCoordinate2D+extensions.swift"; sourceTree = "<group>"; };
 		567380F42373019600F1B6C5 /* Organization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Organization.swift; sourceTree = "<group>"; };
 		567380F623730B9B00F1B6C5 /* Job.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Job.swift; sourceTree = "<group>"; };
@@ -252,6 +254,7 @@
 		567381262374533700F1B6C5 /* DataManipulation */ = {
 			isa = PBXGroup;
 			children = (
+				567284DF23843BE200DF4EA5 /* FileDM.swift */,
 				567284D6238330E000DF4EA5 /* DictionaryInterpreter.swift */,
 				567381272374535A00F1B6C5 /* OrganizationDM.swift */,
 				5673812B2374A95900F1B6C5 /* JobDM.swift */,
@@ -712,6 +715,7 @@
 				D776C4D723744C6E002C3F3E /* JobsTableViewCell.swift in Sources */,
 				D79E8803237ACAD600C5D8F7 /* AboutCell.swift in Sources */,
 				D765D324237303CF00F596CD /* UIView+Extensions.swift in Sources */,
+				567284E023843BE200DF4EA5 /* FileDM.swift in Sources */,
 				D7C0139D237C4E68001CDD36 /* AddressUtil.swift in Sources */,
 				C40A2E8223704BA500DB87BB /* TudoNosso.xcdatamodeld in Sources */,
 				567380FB237350F700F1B6C5 /* DatabaseRepresentation.swift in Sources */,
