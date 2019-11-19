@@ -27,7 +27,7 @@ class JobsTableViewCell: UITableViewCell {
     }
     
     func configure(job: Job){
-        //TODO
+        
         jobTitleLabel.text = job.title
         typeOfJobLabel.text = job.vacancyType
         categoriesLabel.text = job.category.rawValue

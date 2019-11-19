@@ -98,16 +98,13 @@ extension CategoryCollectionView : UICollectionViewDataSource, UICollectionViewD
         if (portraitOrientation) { // if portrate
             posX = ((contextSize.width - contextSize.height) / 2)
             posY = 0
-            // hard coded
-            cgwidth = 3000
-            cgheight = 3000
         } else { // if landscape
             posX = 0
             posY = ((contextSize.height - contextSize.width) / 2)
-            // hard coded
-            cgwidth = 3000
-            cgheight = 3000
         }
+        
+        cgwidth = 3000
+        cgheight = 3000
         
         let rect: CGRect = CGRect(x: posX, y: posY, width: cgwidth, height: cgheight)
         

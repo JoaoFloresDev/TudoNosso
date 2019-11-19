@@ -17,6 +17,7 @@
 		567284D7238330E000DF4EA5 /* DictionaryInterpreter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567284D6238330E000DF4EA5 /* DictionaryInterpreter.swift */; };
 		567284D923833A4700DF4EA5 /* Volunteer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567284D823833A4700DF4EA5 /* Volunteer.swift */; };
 		567284DB23833DB800DF4EA5 /* VolunteerDM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567284DA23833DB800DF4EA5 /* VolunteerDM.swift */; };
+		567284DC2384106B00DF4EA5 /* TudoNossoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40A2E9123704BA700DB87BB /* TudoNossoTests.swift */; };
 		567380F22373016000F1B6C5 /* CLLocationCoordinate2D+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567380F12373016000F1B6C5 /* CLLocationCoordinate2D+extensions.swift */; };
 		567380F52373019600F1B6C5 /* Organization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567380F42373019600F1B6C5 /* Organization.swift */; };
 		567380F723730B9B00F1B6C5 /* Job.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567380F623730B9B00F1B6C5 /* Job.swift */; };
@@ -35,7 +36,6 @@
 		C40A2E8223704BA500DB87BB /* TudoNosso.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C40A2E8023704BA500DB87BB /* TudoNosso.xcdatamodeld */; };
 		C40A2E8423704BA700DB87BB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C40A2E8323704BA700DB87BB /* Assets.xcassets */; };
 		C40A2E8723704BA700DB87BB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C40A2E8523704BA700DB87BB /* LaunchScreen.storyboard */; };
-		C40A2E9223704BA700DB87BB /* TudoNossoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40A2E9123704BA700DB87BB /* TudoNossoTests.swift */; };
 		C40A2E9D23704BA700DB87BB /* TudoNossoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40A2E9C23704BA700DB87BB /* TudoNossoUITests.swift */; };
 		C40A2EAF23704E7C00DB87BB /* Explore.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C40A2EAE23704E7C00DB87BB /* Explore.storyboard */; };
 		C40A2EB123704E9700DB87BB /* Notifications.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C40A2EB023704E9700DB87BB /* Notifications.storyboard */; };
@@ -758,7 +758,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C40A2E9223704BA700DB87BB /* TudoNossoTests.swift in Sources */,
+				567284DC2384106B00DF4EA5 /* TudoNossoTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -966,7 +966,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = NZC6LC8NWM;
+				DEVELOPMENT_TEAM = GJUSD98938;
 				INFOPLIST_FILE = TudoNossoTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -989,7 +989,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = NZC6LC8NWM;
+				DEVELOPMENT_TEAM = GJUSD98938;
 				INFOPLIST_FILE = TudoNossoTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1011,7 +1011,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = NZC6LC8NWM;
+				DEVELOPMENT_TEAM = GJUSD98938;
 				INFOPLIST_FILE = TudoNossoUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1032,7 +1032,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = NZC6LC8NWM;
+				DEVELOPMENT_TEAM = GJUSD98938;
 				INFOPLIST_FILE = TudoNossoUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
