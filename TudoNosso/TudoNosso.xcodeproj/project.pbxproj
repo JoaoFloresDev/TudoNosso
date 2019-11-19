@@ -60,11 +60,6 @@
 		D776C4D723744C6E002C3F3E /* JobsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D776C4D623744C6E002C3F3E /* JobsTableViewCell.swift */; };
 		D78A53CB23758D58004B4689 /* JobsTableViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = D78A53CA23758D58004B4689 /* JobsTableViewHeader.swift */; };
 		D78A53CD23758D6B004B4689 /* JobsTableViewHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = D78A53CC23758D6B004B4689 /* JobsTableViewHeader.xib */; };
-		D78A53D02375B280004B4689 /* InfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D78A53CF2375B280004B4689 /* InfoCell.xib */; };
-		D78A53D22375B292004B4689 /* InfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D78A53D12375B292004B4689 /* InfoCell.swift */; };
-		D79E8801237ACAC900C5D8F7 /* AboutCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D79E8800237ACAC900C5D8F7 /* AboutCell.xib */; };
-		D79E8803237ACAD600C5D8F7 /* AboutCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D79E8802237ACAD600C5D8F7 /* AboutCell.swift */; };
-		D79E8808237AD9BC00C5D8F7 /* AreasCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D79E8807237AD9BC00C5D8F7 /* AreasCell.xib */; };
 		D7A707612382CF8500D164AC /* ProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7A707602382CF8500D164AC /* ProfileTableViewController.swift */; };
 		D7A707632382EA9000D164AC /* JobsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7A707622382EA9000D164AC /* JobsTableViewController.swift */; };
 		D7C0139D237C4E68001CDD36 /* AddressUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7C0139B237C4E68001CDD36 /* AddressUtil.swift */; };
@@ -73,7 +68,6 @@
 		D7C013A2237C4E87001CDD36 /* KeyboardAvoiding.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7C013A0237C4E87001CDD36 /* KeyboardAvoiding.swift */; };
 		D7C97E90237D97570010BAC0 /* AreaCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D7C97E8F237D97570010BAC0 /* AreaCollectionCell.xib */; };
 		D7C97E92237D97680010BAC0 /* AreaCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7C97E91237D97680010BAC0 /* AreaCollectionCell.swift */; };
-		D7C97E94237D9B690010BAC0 /* AreasCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7C97E93237D9B690010BAC0 /* AreasCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -157,11 +151,6 @@
 		D776C4D623744C6E002C3F3E /* JobsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobsTableViewCell.swift; sourceTree = "<group>"; };
 		D78A53CA23758D58004B4689 /* JobsTableViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobsTableViewHeader.swift; sourceTree = "<group>"; };
 		D78A53CC23758D6B004B4689 /* JobsTableViewHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = JobsTableViewHeader.xib; sourceTree = "<group>"; };
-		D78A53CF2375B280004B4689 /* InfoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InfoCell.xib; sourceTree = "<group>"; };
-		D78A53D12375B292004B4689 /* InfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoCell.swift; sourceTree = "<group>"; };
-		D79E8800237ACAC900C5D8F7 /* AboutCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AboutCell.xib; sourceTree = "<group>"; };
-		D79E8802237ACAD600C5D8F7 /* AboutCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutCell.swift; sourceTree = "<group>"; };
-		D79E8807237AD9BC00C5D8F7 /* AreasCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AreasCell.xib; sourceTree = "<group>"; };
 		D7A707602382CF8500D164AC /* ProfileTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewController.swift; sourceTree = "<group>"; };
 		D7A707622382EA9000D164AC /* JobsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobsTableViewController.swift; sourceTree = "<group>"; };
 		D7C0139B237C4E68001CDD36 /* AddressUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddressUtil.swift; sourceTree = "<group>"; };
@@ -170,7 +159,6 @@
 		D7C013A0237C4E87001CDD36 /* KeyboardAvoiding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardAvoiding.swift; sourceTree = "<group>"; };
 		D7C97E8F237D97570010BAC0 /* AreaCollectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AreaCollectionCell.xib; sourceTree = "<group>"; };
 		D7C97E91237D97680010BAC0 /* AreaCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AreaCollectionCell.swift; sourceTree = "<group>"; };
-		D7C97E93237D9B690010BAC0 /* AreasCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AreasCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -457,10 +445,6 @@
 		D78A53CE2375B25E004B4689 /* Profile cells */ = {
 			isa = PBXGroup;
 			children = (
-				D78A53D12375B292004B4689 /* InfoCell.swift */,
-				D78A53CF2375B280004B4689 /* InfoCell.xib */,
-				D79E8802237ACAD600C5D8F7 /* AboutCell.swift */,
-				D79E8800237ACAC900C5D8F7 /* AboutCell.xib */,
 				D7C97E8D237D971E0010BAC0 /* Areas */,
 			);
 			path = "Profile cells";
@@ -470,8 +454,6 @@
 			isa = PBXGroup;
 			children = (
 				D7C97E8E237D97340010BAC0 /* Collection Cell */,
-				D7C97E93237D9B690010BAC0 /* AreasCell.swift */,
-				D79E8807237AD9BC00C5D8F7 /* AreasCell.xib */,
 			);
 			path = Areas;
 			sourceTree = "<group>";
@@ -601,13 +583,10 @@
 				C40A2EB123704E9700DB87BB /* Notifications.storyboard in Resources */,
 				C40A2E8723704BA700DB87BB /* LaunchScreen.storyboard in Resources */,
 				D78A53CD23758D6B004B4689 /* JobsTableViewHeader.xib in Resources */,
-				D79E8801237ACAC900C5D8F7 /* AboutCell.xib in Resources */,
-				D79E8808237AD9BC00C5D8F7 /* AreasCell.xib in Resources */,
 				C40A2EB523704EC700DB87BB /* Job.storyboard in Resources */,
 				1663B33923730D90005E3363 /* Nunito-Regular.ttf in Resources */,
 				1663B33823730D90005E3363 /* Nunito-Bold.ttf in Resources */,
 				D7C97E90237D97570010BAC0 /* AreaCollectionCell.xib in Resources */,
-				D78A53D02375B280004B4689 /* InfoCell.xib in Resources */,
 				C40A2E8423704BA700DB87BB /* Assets.xcassets in Resources */,
 				C40A2E7F23704BA500DB87BB /* Main.storyboard in Resources */,
 			);
@@ -739,17 +718,14 @@
 			files = (
 				C46E72A3237AE4A400D57BB9 /* ViewUtilities.swift in Sources */,
 				D776C4D723744C6E002C3F3E /* JobsTableViewCell.swift in Sources */,
-				D79E8803237ACAD600C5D8F7 /* AboutCell.swift in Sources */,
 				D765D324237303CF00F596CD /* UIView+Extensions.swift in Sources */,
 				D7C0139D237C4E68001CDD36 /* AddressUtil.swift in Sources */,
 				C40A2E8223704BA500DB87BB /* TudoNosso.xcdatamodeld in Sources */,
 				567380FB237350F700F1B6C5 /* DatabaseRepresentation.swift in Sources */,
 				567284D523831C4500DF4EA5 /* GenericsDM.swift in Sources */,
 				567284D923833A4700DF4EA5 /* Volunteer.swift in Sources */,
-				D78A53D22375B292004B4689 /* InfoCell.swift in Sources */,
 				56A74711237193AA00A3FA76 /* Date+extensions.swift in Sources */,
 				C46E728623745C1300D57BB9 /* ImageCell.swift in Sources */,
-				D7C97E94237D9B690010BAC0 /* AreasCell.swift in Sources */,
 				C42267482371AFBE000A6DA3 /* (null) in Sources */,
 				C40A2E7C23704BA500DB87BB /* ViewController.swift in Sources */,
 				D776C4CE23743C7E002C3F3E /* CustomSegmentedControl.swift in Sources */,

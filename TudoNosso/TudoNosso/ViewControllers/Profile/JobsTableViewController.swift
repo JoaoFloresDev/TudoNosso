@@ -23,6 +23,9 @@ class JobsTableViewController: UITableViewController {
     }
     
     func setupJobsTableView(){
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.estimatedRowHeight = 200
+        
         tableView.backgroundColor = .clear
         
         tableView.register(JobsTableViewCell.nib, forCellReuseIdentifier: JobsTableViewCell.reuseIdentifer)
