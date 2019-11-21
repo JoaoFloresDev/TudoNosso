@@ -42,6 +42,11 @@ class ProfileViewController: UIViewController {
         }
     }
     
+    enum TypeOfProfile {
+        case ong
+        case volunteer
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
