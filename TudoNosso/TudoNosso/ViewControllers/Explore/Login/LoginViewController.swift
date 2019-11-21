@@ -35,11 +35,11 @@ class LoginViewController: UIViewController, UINavigationControllerDelegate, UII
                     print(error.localizedDescription)
                 }else if let dictionary = dictionary as NSDictionary?  {
                     if let ong = Organization(snapshot: dictionary){
-                        UserDefaults.standard.set(ong.email, forKey: "connected_email")
-                        UserDefaults.standard.set(LoginKinds.ONG.rawValue, forKey: "connection_kind")
+                        Local.userMail = ong.email
+                        Local.userKind = LoginKinds.ONG.rawValue
                     }else if let volunteer = Volunteer(snapshot: dictionary){
-                        UserDefaults.standard.set(volunteer.email, forKey: "connected_email")
-                        UserDefaults.standard.set(LoginKinds.volunteer.rawValue, forKey: "connection_kind")
+                        Local.userMail = volunteer.email
+                        Local.userKind = LoginKinds.volunteer.rawValue
                     }
                     self.navigationController?.popViewController(animated: true)
                 }
