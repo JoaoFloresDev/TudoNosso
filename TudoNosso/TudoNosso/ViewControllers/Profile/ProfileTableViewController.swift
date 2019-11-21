@@ -19,9 +19,7 @@ class ProfileTableViewController : UITableViewController {
     
     @IBOutlet weak var aboutLabel: UILabel!
     
-    var data: Organization?
-    
-    let placeholderAreas = ["Educação", "Saúde", "Educação", "Saúde", "Educação", "Saúde"]
+    var receivedData: ProfileViewController.Data?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,8 +29,8 @@ class ProfileTableViewController : UITableViewController {
     }
     
     func setupInfoCell(){
-        phoneLabel.text = data?.phone ?? ""
-        mailLabel.text = data?.email ?? ""
+        phoneLabel.text = receivedData?.phone ?? ""
+        mailLabel.text = receivedData?.email ?? ""
         
         adressLabel.text = "Rua Cabo Rubens Zimmermann, 186, Pq. Oziel – Campinas, SP, Brasil" //TODO esse foi só um teste de redimensionamento da view.
         adressLabel.numberOfLines = 0
@@ -41,7 +39,7 @@ class ProfileTableViewController : UITableViewController {
     }
     
     func setupAboutCell(){
-        aboutLabel.text = data?.desc
+        aboutLabel.text = receivedData?.description
         aboutLabel.numberOfLines = 0
         aboutLabel.sizeToFit()
         aboutLabel.superview?.sizeToFit()
@@ -57,24 +55,34 @@ class ProfileTableViewController : UITableViewController {
 
 extension ProfileTableViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return placeholderAreas.count
+        if let areas = receivedData?.areas {
+            return areas.count
+        } else {
+            return 0
+        }
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AreaCollectionCell.reuseIdentifer, for: indexPath) as? AreaCollectionCell else {
             fatalError("The dequeued cell is not an instance of AreaCollectionCell.")
         }
-
-        cell.label.text = placeholderAreas[indexPath.row]
+        if let areas = receivedData?.areas{
+            cell.label.text = areas[indexPath.row]
+        }
 
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let label = UILabel(frame: CGRect.zero)
-        label.text = placeholderAreas[indexPath.row]
-        label.sizeToFit()
-        let width = label.intrinsicContentSize.width + 16
+        
+        var width = CGFloat(0)
+        
+        if let areas = receivedData?.areas {
+            label.text = areas[indexPath.row]
+            label.sizeToFit()
+            width = label.intrinsicContentSize.width + 16
+        }
         
         return CGSize(width: width, height: CGFloat(24))
     }

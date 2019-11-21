@@ -29,8 +29,20 @@ class ProfileViewController: UIViewController {
     
     var email: String?
     
-    var ong : Organization? {
-        didSet{
+    struct Data {
+        var name: String?
+        var address: CLLocationCoordinate2D?
+        var email: String?
+        var description: String?
+        var phone: String?
+        var site: String?
+        var facebook: String?
+        var areas: [String]?
+        var avatar: String?
+    }
+    
+    var profileData: Data? {
+        didSet {
             if self.shouldPerformSegue(withIdentifier: self.profileSegueID, sender: self) {
                 self.performSegue(withIdentifier: self.profileSegueID, sender: self)
             }
@@ -55,6 +67,13 @@ class ProfileViewController: UIViewController {
             case .volunteer:                 return true
             }
         }
+        
+        var segmentedControlTitle: String {
+            switch self {
+            case .ong:          return "Oportunidades"
+            case .volunteer:    return "Participações"
+            }
+        }
     }
     
     var typeOfProfile: TypeOfProfile? {
@@ -62,6 +81,8 @@ class ProfileViewController: UIViewController {
             //TODO changes according to type of profile
             self.addJobLabelView.isHidden = typeOfProfile?.isAddJobButtonHidden ?? true
             self.buttonView.isHidden = typeOfProfile?.isAddJobButtonHidden ?? true
+            
+            self.segmentedControl.setTitle(typeOfProfile?.segmentedControlTitle ?? "", forSegmentAt: 0)
         }
     }
     var isMyProfile = false
@@ -106,7 +127,15 @@ class ProfileViewController: UIViewController {
                                    print(erro.localizedDescription)
                                } else {
                                    guard let ong = result else {return}
-                                   self.ong = ong
+                                   self.profileData = Data(name: ong.name,
+                                                            address: ong.address,
+                                                            email: ong.email,
+                                                            description: ong.desc,
+                                                            phone: ong.phone,
+                                                            site: ong.site,
+                                                            facebook: ong.facebook,
+                                                            areas: ong.areas,
+                                                            avatar: ong.avatar)
                                    self.profileNameLabel.text = ong.name
                                }
                            }
@@ -125,6 +154,26 @@ class ProfileViewController: UIViewController {
                 case LoginKinds.volunteer:
                     self.typeOfProfile = .volunteer
                     
+                    let volunteerDM = VolunteerDM()
+                    
+                    volunteerDM.find(ByEmail: emailAdress) { (result, error) in
+                               if let erro = error {
+                                   print(erro.localizedDescription)
+                               } else {
+                                   guard let volunteer = result else {return}
+                                   self.profileData = Data(name: volunteer.name,
+                                                            address: nil,
+                                                            email: volunteer.email,
+                                                            description: volunteer.description,
+                                                            phone: nil,
+                                                            site: nil,
+                                                            facebook: nil,
+                                                            areas: nil,
+                                                            avatar: nil)
+                                self.profileNameLabel.text = volunteer.name
+                               }
+                           }
+                    
                     //TODO
                 }
             }
@@ -134,7 +183,7 @@ class ProfileViewController: UIViewController {
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
         switch identifier{
         case profileSegueID:
-            if self.ong != nil {
+            if self.profileData != nil {
                 return true
             } else {
                 return false
@@ -152,7 +201,7 @@ class ProfileViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == profileSegueID {
             if let nextVC = segue.destination as? ProfileTableViewController {
-                nextVC.data = self.ong
+                nextVC.receivedData = self.profileData
             }
         } else if segue.identifier == jobsSegueID {
             if let nextVC = segue.destination as? JobsTableViewController {
