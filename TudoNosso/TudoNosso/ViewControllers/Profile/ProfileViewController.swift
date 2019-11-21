@@ -11,12 +11,15 @@ import CoreLocation
 
 class ProfileViewController: UIViewController {
     
+    let placeholderEmail = "bruno@gmail.com" // TODO deletar
+    
     @IBOutlet weak var profileNameLabel: UILabel!
     @IBOutlet weak var profileImage: RoundedImageView!
     @IBOutlet weak var segmentedControl: CustomSegmentedControl!
     
     @IBOutlet weak var addJobLabelView: UIView!
     @IBOutlet weak var editLabelView: UIView!
+    @IBOutlet weak var buttonView: UIView!
     
     @IBOutlet weak var profileContainerView: UIView!
     @IBOutlet weak var jobsContainerView: UIView!
@@ -43,49 +46,87 @@ class ProfileViewController: UIViewController {
     }
     
     enum TypeOfProfile {
-        case ong
+        case ong(Bool)
         case volunteer
+        
+        var isAddJobButtonHidden: Bool {
+            switch self {
+            case let .ong(myProfile):          return !myProfile
+            case .volunteer:                 return true
+            }
+        }
     }
+    
+    var typeOfProfile: TypeOfProfile? {
+        didSet{
+            //TODO changes according to type of profile
+            self.addJobLabelView.isHidden = typeOfProfile?.isAddJobButtonHidden ?? true
+            self.buttonView.isHidden = typeOfProfile?.isAddJobButtonHidden ?? true
+        }
+    }
+    var isMyProfile = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        loadData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        loadData()
     }
     
     func loadData() {
+        let loginDM = LoginDM()
         let jobDM = JobDM()
-        let orgDM = OrganizationDM()
         
         var emailAdress: String! = ""
-        
         if self.email != nil {
             emailAdress = self.email
+            isMyProfile = emailAdress == placeholderEmail // TODO placeholder
+//            isMyProfile = emailAdress == Local.userMail
         } else {
-            emailAdress = "bruno@gmail.com" //placeholder
+            emailAdress = placeholderEmail //TODO placeholder
+//            emailAdress = Local.userMail
+            isMyProfile = true
         }
         
-        let id = Base64Converter.encodeStringAsBase64(emailAdress)
-        
-        orgDM.find(ByEmail: emailAdress) { (result, error) in
+        loginDM.find(ByEmail: emailAdress) { (result, error) in
             if let erro = error {
                 print(erro.localizedDescription)
             } else {
-                guard let ong = result else {return}
-                self.ong = ong
-                self.profileNameLabel.text = ong.name
-            }
-        }
-        
-        jobDM.find(inField: .organizationID, withValueEqual: id) { (result, error) in
-            if let erro = error {
-                print(erro.localizedDescription)
-            } else {
-                guard let jobs = result else {return}
-                self.jobs = jobs
+                guard let login = result else {return}
+                switch login.kind {
+                case LoginKinds.ONG:
+                    self.typeOfProfile = .ong(self.isMyProfile)
+                    
+                    let orgDM = OrganizationDM()
+                    
+                    orgDM.find(ByEmail: emailAdress) { (result, error) in
+                               if let erro = error {
+                                   print(erro.localizedDescription)
+                               } else {
+                                   guard let ong = result else {return}
+                                   self.ong = ong
+                                   self.profileNameLabel.text = ong.name
+                               }
+                           }
+                    
+                    let id = Base64Converter.encodeStringAsBase64(emailAdress)
+
+                    jobDM.find(inField: .organizationID, withValueEqual: id) { (result, error) in
+                        if let erro = error {
+                            print(erro.localizedDescription)
+                        } else {
+                            guard let jobs = result else {return}
+                            self.jobs = jobs
+                        }
+                    }
+                    
+                case LoginKinds.volunteer:
+                    self.typeOfProfile = .volunteer
+                    
+                    //TODO
+                }
             }
         }
     }
@@ -126,14 +167,14 @@ class ProfileViewController: UIViewController {
             self.jobsContainerView.isHidden = false
             self.profileContainerView.isHidden = true
             
-            self.addJobLabelView.isHidden = false
+            self.addJobLabelView.isHidden = typeOfProfile?.isAddJobButtonHidden ?? true
             self.editLabelView.isHidden = true
         case 1: // show profile
             self.jobsContainerView.isHidden = true
             self.profileContainerView.isHidden = false
             
             self.addJobLabelView.isHidden = true
-            self.editLabelView.isHidden = false
+            self.editLabelView.isHidden = !isMyProfile
         default:
             break
         }

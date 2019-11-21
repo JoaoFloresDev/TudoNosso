@@ -20,6 +20,7 @@ class Organization {
     var site: String?
     var facebook: String?
     var areas: [String]?
+    var avatar: String?
     
     init (name: String, address: CLLocationCoordinate2D, email: String){
         
@@ -28,7 +29,7 @@ class Organization {
         self.email = email
     }
     
-    init (name: String, address: CLLocationCoordinate2D, desc: String, email: String, phone: String, site: String, facebook: String, areas:[String]?){
+    init (name: String, address: CLLocationCoordinate2D, desc: String, email: String, phone: String, site: String, facebook: String, areas:[String]?, avatar: String?){
         
         self.name = name
         self.address = address
@@ -38,6 +39,7 @@ class Organization {
         self.site = site
         self.facebook = facebook
         self.areas = areas
+        self.avatar = avatar
     }
     
     init?(snapshot: NSDictionary) {
@@ -56,6 +58,7 @@ class Organization {
         self.site = Self.snapshotField(snapshot,.site)
         self.facebook = Self.snapshotField(snapshot,.facebook)
         self.areas = Self.snapshotField(snapshot,.areas)
+        self.avatar = Self.snapshotField(snapshot,.avatar)
     }
     
     
@@ -87,6 +90,9 @@ extension Organization: DatabaseRepresentation {
         if let areas = self.areas {
             rep[.areas] = areas
         }
+        if let avatar = self.avatar{
+            rep[.avatar] = avatar
+        }
         
         return Dictionary(uniqueKeysWithValues: rep.map { key, value in
             (key.rawValue, value) })
@@ -114,5 +120,5 @@ enum OrganizationFields: String, Hashable {
     case site
     case facebook
     case areas
-    
+    case avatar = "profilePic"
 }

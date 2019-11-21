@@ -130,6 +130,11 @@ extension CategoryCollectionView : UICollectionViewDataSource, UICollectionViewD
             (result, error) in
             guard let result = result else { return }
             self.ongs = result
+            
+            for ong in result {
+                print(ong.name)
+            }
+            
             self.reloadInputViews()
             self.collectionView.reloadData()
         }

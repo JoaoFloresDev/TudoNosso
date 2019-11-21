@@ -73,7 +73,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="3Tl-iT-9Ef">
                                 <rect key="frame" x="0.0" y="347" width="414" height="549"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a9N-Rq-reB" userLabel="Button View">
+                                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a9N-Rq-reB" userLabel="Button View">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="47"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="z8Z-vY-y2N" customClass="RoundedView" customModule="TudoNosso" customModuleProvider="target">
@@ -93,13 +93,13 @@
                                                                         </connections>
                                                                     </button>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Adicionar oportunidade" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WfS-3T-76n">
-                                                                        <rect key="frame" x="0.0" y="13.5" width="147" height="16.5"/>
+                                                                        <rect key="frame" x="0.0" y="12" width="153.5" height="19.5"/>
                                                                         <fontDescription key="fontDescription" name="Nunito-Bold" family="Nunito" pointSize="14"/>
                                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="plus-icon" translatesAutoresizingMaskIntoConstraints="NO" id="Slb-v1-hXa">
-                                                                        <rect key="frame" x="155" y="11" width="15" height="21"/>
+                                                                        <rect key="frame" x="161.5" y="11" width="15" height="21"/>
                                                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="width" constant="15" id="1Jb-Yl-1GE"/>
@@ -127,13 +127,13 @@
                                                                         </connections>
                                                                     </button>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Editar meu perfil" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nyE-lH-jcc">
-                                                                        <rect key="frame" x="0.0" y="12" width="102.5" height="19"/>
+                                                                        <rect key="frame" x="0.0" y="12" width="108" height="19"/>
                                                                         <fontDescription key="fontDescription" name="Nunito-Bold" family="Nunito" pointSize="14"/>
                                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="edit_icon" translatesAutoresizingMaskIntoConstraints="NO" id="OKQ-jV-1ho">
-                                                                        <rect key="frame" x="110.5" y="11" width="18" height="21"/>
+                                                                        <rect key="frame" x="116" y="11" width="18" height="21"/>
                                                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="width" constant="18" id="TFi-4b-8hE"/>
@@ -192,7 +192,7 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2dc-9R-4YF" userLabel="Containers View">
-                                        <rect key="frame" x="0.0" y="47" width="414" height="502"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="549"/>
                                         <subviews>
                                             <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Bd2-4V-TI7" userLabel="Jobs Container View">
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="514"/>
@@ -239,6 +239,7 @@
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="addJobLabelView" destination="act-Ja-oPs" id="VTH-Jn-Me2"/>
+                        <outlet property="buttonView" destination="a9N-Rq-reB" id="x0n-D3-S3G"/>
                         <outlet property="editLabelView" destination="Fxl-Lz-myC" id="j4J-qz-6JO"/>
                         <outlet property="jobsContainerView" destination="Bd2-4V-TI7" id="zKo-k0-Cbc"/>
                         <outlet property="profileContainerView" destination="mhb-Pr-5tE" id="3Vg-9U-BZz"/>
