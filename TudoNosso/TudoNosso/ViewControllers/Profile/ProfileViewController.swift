@@ -21,23 +21,23 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var profileContainerView: UIView!
     @IBOutlet weak var jobsContainerView: UIView!
     
-    private let jobsSegueIdentifier = "toJobsTable"
-    private let profileSegueIdentifier = "toProfileTable"
+    private let jobsSegueID = "toJobsTable"
+    private let profileSegueID = "toProfileTable"
     
     var email: String?
     
     var ong : Organization? {
         didSet{
-            if self.shouldPerformSegue(withIdentifier: self.profileSegueIdentifier, sender: self) {
-                self.performSegue(withIdentifier: self.profileSegueIdentifier, sender: self)
+            if self.shouldPerformSegue(withIdentifier: self.profileSegueID, sender: self) {
+                self.performSegue(withIdentifier: self.profileSegueID, sender: self)
             }
         }
     }
     
     var jobs : [Job]? {
         didSet {
-            if self.shouldPerformSegue(withIdentifier: self.jobsSegueIdentifier, sender: self) {
-                self.performSegue(withIdentifier: self.jobsSegueIdentifier, sender: self)
+            if self.shouldPerformSegue(withIdentifier: self.jobsSegueID, sender: self) {
+                self.performSegue(withIdentifier: self.jobsSegueID, sender: self)
             }
         }
     }
@@ -92,13 +92,13 @@ class ProfileViewController: UIViewController {
     
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
         switch identifier{
-        case profileSegueIdentifier:
+        case profileSegueID:
             if self.ong != nil {
                 return true
             } else {
                 return false
             }
-        case jobsSegueIdentifier:
+        case jobsSegueID:
             if self.jobs != nil {
                 return true
             } else {
@@ -109,11 +109,11 @@ class ProfileViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == profileSegueIdentifier {
+        if segue.identifier == profileSegueID {
             if let nextVC = segue.destination as? ProfileTableViewController {
                 nextVC.data = self.ong
             }
-        } else if segue.identifier == jobsSegueIdentifier {
+        } else if segue.identifier == jobsSegueID {
             if let nextVC = segue.destination as? JobsTableViewController {
                 nextVC.data = self.jobs
             }

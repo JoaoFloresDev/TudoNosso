@@ -15,6 +15,10 @@ class JobsTableViewController: UITableViewController {
     var ongoingJobs : [Job] = []
     var finishedJobs : [Job] = []
     
+    var selectedJob: Job?
+    
+    private let jobsDetailSegueID = "toJobDetails"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -49,17 +53,18 @@ class JobsTableViewController: UITableViewController {
         tableView.reloadData()
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == jobsDetailSegueID {
+            if let nextVC = segue.destination as? JobViewController {
+                nextVC.job = self.selectedJob
+            }
+        }
+    }
+    
     // MARK: - Table view data source
     
     override func numberOfSections(in tableView: UITableView) -> Int {
-        var count = 0
-        if ongoingJobs.count > 0 {
-            count += 1
-        }
-        if finishedJobs.count > 0 {
-            count += 1
-        }
-        return count
+        return 2
     }
     
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -121,5 +126,15 @@ class JobsTableViewController: UITableViewController {
         cell.backgroundColor = .clear
         cell.selectionStyle = .none
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        switch indexPath.section {
+        case 0:
+            self.selectedJob = ongoingJobs[indexPath.row]
+            self.performSegue(withIdentifier: self.jobsDetailSegueID, sender: nil)
+        default:
+            return
+        }
     }
 }
