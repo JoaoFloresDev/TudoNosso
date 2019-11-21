@@ -25,7 +25,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4uf-3h-zcr" userLabel="Header">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="140"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="180"/>
                                 <color key="backgroundColor" red="1" green="0.34901960784313724" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="180" id="91V-dX-kKz"/>
@@ -51,13 +51,13 @@
                                 </userDefinedRuntimeAttributes>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e6H-tT-8R2">
-                                <rect key="frame" x="16" y="230" width="382" height="0.0"/>
+                                <rect key="frame" x="16" y="270" width="382" height="0.0"/>
                                 <fontDescription key="fontDescription" name="Nunito-Bold" family="Nunito" pointSize="16"/>
                                 <color key="textColor" red="0.12941176470588234" green="0.12941176470588234" blue="0.12941176470588234" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Fbt-ez-Tyx" customClass="CustomSegmentedControl" customModule="TudoNosso" customModuleProvider="target">
-                                <rect key="frame" x="16" y="246" width="382" height="30"/>
+                                <rect key="frame" x="16" y="286" width="382" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="29" id="bqe-HY-bb1"/>
                                 </constraints>
@@ -71,7 +71,7 @@
                                 </connections>
                             </segmentedControl>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="3Tl-iT-9Ef">
-                                <rect key="frame" x="0.0" y="307" width="414" height="589"/>
+                                <rect key="frame" x="0.0" y="347" width="414" height="549"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a9N-Rq-reB" userLabel="Button View">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="47"/>
@@ -85,6 +85,13 @@
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="act-Ja-oPs" userLabel="AddJobLabelView">
                                                                 <rect key="frame" x="102.5" y="0.0" width="177" height="43"/>
                                                                 <subviews>
+                                                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GwI-b5-Y95" userLabel="addJob">
+                                                                        <rect key="frame" x="-118.5" y="-2" width="414" height="47"/>
+                                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                        <connections>
+                                                                            <action selector="addJobPressed:" destination="nET-7L-Osk" eventType="touchUpInside" id="ej3-9r-yRy"/>
+                                                                        </connections>
+                                                                    </button>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Adicionar oportunidade" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WfS-3T-76n">
                                                                         <rect key="frame" x="0.0" y="12" width="153.5" height="19.5"/>
                                                                         <fontDescription key="fontDescription" name="Nunito-Bold" family="Nunito" pointSize="14"/>
@@ -112,6 +119,13 @@
                                                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fxl-Lz-myC" userLabel="EditLabelView">
                                                                 <rect key="frame" x="124" y="0.0" width="134" height="43"/>
                                                                 <subviews>
+                                                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9pv-y7-Fwa" userLabel="edit">
+                                                                        <rect key="frame" x="-140" y="-2" width="414" height="47"/>
+                                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                        <connections>
+                                                                            <action selector="editProfilePressed:" destination="nET-7L-Osk" eventType="touchUpInside" id="z1H-1t-0ms"/>
+                                                                        </connections>
+                                                                    </button>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Editar meu perfil" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nyE-lH-jcc">
                                                                         <rect key="frame" x="0.0" y="12" width="108" height="19"/>
                                                                         <fontDescription key="fontDescription" name="Nunito-Bold" family="Nunito" pointSize="14"/>
@@ -167,35 +181,18 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </view>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GwI-b5-Y95" userLabel="addJob">
-                                                <rect key="frame" x="0.0" y="0.0" width="414" height="47"/>
-                                                <connections>
-                                                    <action selector="addJobPressed:" destination="nET-7L-Osk" eventType="touchUpInside" id="ej3-9r-yRy"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9pv-y7-Fwa" userLabel="edit">
-                                                <rect key="frame" x="0.0" y="0.0" width="414" height="47"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <connections>
-                                                    <action selector="editProfilePressed:" destination="nET-7L-Osk" eventType="touchUpInside" id="z1H-1t-0ms"/>
-                                                </connections>
-                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="47" id="9Aa-vU-EnT"/>
                                             <constraint firstAttribute="bottom" secondItem="z8Z-vY-y2N" secondAttribute="bottom" id="FHY-mV-R2F"/>
-                                            <constraint firstItem="GwI-b5-Y95" firstAttribute="top" secondItem="a9N-Rq-reB" secondAttribute="top" id="JIF-GP-rS5"/>
-                                            <constraint firstItem="GwI-b5-Y95" firstAttribute="leading" secondItem="a9N-Rq-reB" secondAttribute="leading" id="K9o-fG-3gU"/>
-                                            <constraint firstAttribute="trailing" secondItem="GwI-b5-Y95" secondAttribute="trailing" id="OVl-y5-vPf"/>
                                             <constraint firstAttribute="trailing" secondItem="z8Z-vY-y2N" secondAttribute="trailing" constant="16" id="aBk-XO-izH"/>
                                             <constraint firstItem="z8Z-vY-y2N" firstAttribute="leading" secondItem="a9N-Rq-reB" secondAttribute="leading" constant="16" id="dbd-Fr-hRi"/>
-                                            <constraint firstAttribute="bottom" secondItem="GwI-b5-Y95" secondAttribute="bottom" id="jH9-xf-gh7"/>
                                             <constraint firstItem="z8Z-vY-y2N" firstAttribute="top" secondItem="a9N-Rq-reB" secondAttribute="top" id="paF-yw-Q8D"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2dc-9R-4YF" userLabel="Containers View">
-                                        <rect key="frame" x="0.0" y="47" width="414" height="542"/>
+                                        <rect key="frame" x="0.0" y="47" width="414" height="502"/>
                                         <subviews>
                                             <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Bd2-4V-TI7" userLabel="Jobs Container View">
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="514"/>
@@ -241,10 +238,8 @@
                     <tabBarItem key="tabBarItem" title="Perfil" image="profile_icon" id="A6U-EV-Cgd"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="addJobButton" destination="GwI-b5-Y95" id="W4O-jb-2jl"/>
                         <outlet property="addJobLabelView" destination="act-Ja-oPs" id="VTH-Jn-Me2"/>
                         <outlet property="editLabelView" destination="Fxl-Lz-myC" id="j4J-qz-6JO"/>
-                        <outlet property="editProfileButton" destination="9pv-y7-Fwa" id="cUC-5v-cKV"/>
                         <outlet property="jobsContainerView" destination="Bd2-4V-TI7" id="zKo-k0-Cbc"/>
                         <outlet property="profileContainerView" destination="mhb-Pr-5tE" id="3Vg-9U-BZz"/>
                         <outlet property="profileImage" destination="75K-5L-OFi" id="QAG-nf-WYj"/>
@@ -448,7 +443,7 @@
                                                                     <rect key="frame" x="0.0" y="0.0" width="382" height="40"/>
                                                                     <subviews>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sobre a ONG" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yY5-qD-dgU">
-                                                                            <rect key="frame" x="16" y="16" width="84.5" height="16.5"/>
+                                                                            <rect key="frame" x="16" y="16" width="85" height="19.5"/>
                                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                             <fontDescription key="fontDescription" name="Nunito-Bold" family="Nunito" pointSize="14"/>
                                                                             <color key="textColor" red="0.12941176469999999" green="0.12941176469999999" blue="0.12941176469999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -535,7 +530,7 @@
                                                                     <rect key="frame" x="0.0" y="0.0" width="382" height="40"/>
                                                                     <subviews>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Áreas de Atuação" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qif-C3-mt2">
-                                                                            <rect key="frame" x="16" y="16" width="111" height="16.5"/>
+                                                                            <rect key="frame" x="16" y="16" width="114.5" height="19.5"/>
                                                                             <fontDescription key="fontDescription" name="Nunito-Bold" family="Nunito" pointSize="14"/>
                                                                             <nil key="textColor"/>
                                                                             <nil key="highlightedColor"/>
