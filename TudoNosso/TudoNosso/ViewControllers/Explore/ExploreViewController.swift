@@ -16,6 +16,7 @@ class ExploreViewController: UIViewController {
     
     var selectedCause: String = ""
     var selectedOrganization: String = ""
+    var selectedJob: Int = 0
     var organizationsList : [Organization] = []
     var filteredOrganizationsList : [Organization] = []
     var ongoingJobs : [Job] = []
@@ -115,6 +116,13 @@ class ExploreViewController: UIViewController {
             let vc = segue.destination as? ProfileViewController
             vc?.email = selectedOrganization
         }
+        
+        else if segue.destination is JobViewController {
+            if let vc = segue.destination as? JobViewController,
+                let selectedJob = sender as? Job {
+                vc.job = selectedJob
+            }
+        }
     }
 }
 
@@ -140,7 +148,8 @@ extension ExploreViewController : UITableViewDataSource, UISearchResultsUpdating
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.performSegue(withIdentifier: "showDetailSegue", sender: indexPath.count)
+        let selectedJob = ongoingJobs[indexPath.row]
+        self.performSegue(withIdentifier: "showDetailSegue", sender: selectedJob)
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {

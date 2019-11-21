@@ -490,7 +490,7 @@
         <!--Explore-->
         <scene sceneID="BV3-kr-qX5">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="zvJ-uw-NgZ" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="Explore" automaticallyAdjustsScrollViewInsets="NO" id="zvJ-uw-NgZ" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Explore" id="BDI-ai-Gt5"/>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>

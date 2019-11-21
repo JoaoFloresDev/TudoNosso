@@ -38,6 +38,7 @@ class JobViewController: UIViewController {
         
         
     }
+    
     private func loadJob(_ job:Job){
         jobTitleLabel.text = job.title
         jobTypeLabel.text = "Vaga \(job.vacancyType)"
