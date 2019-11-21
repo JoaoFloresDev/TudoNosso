@@ -52,14 +52,7 @@ class JobsTableViewController: UITableViewController {
     // MARK: - Table view data source
     
     override func numberOfSections(in tableView: UITableView) -> Int {
-        var count = 0
-        if ongoingJobs.count > 0 {
-            count += 1
-        }
-        if finishedJobs.count > 0 {
-            count += 1
-        }
-        return count
+        return 2
     }
     
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
