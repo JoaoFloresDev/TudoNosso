@@ -19,8 +19,10 @@ class ExploreViewController: UIViewController {
     var selectedJob: Int = 0
     var organizationsList : [Organization] = []
     var filteredOrganizationsList : [Organization] = []
+    
     var ongoingJobs : [Job] = []
     var filteredOngoingJobs : [Job] = []
+    
     var categories = ["Causas", "Organizações", "Todas as Vagas"]
     var searchController = UISearchController(searchResultsController: nil)
     
@@ -164,6 +166,7 @@ extension ExploreViewController : UITableViewDataSource, UISearchResultsUpdating
         if searchController.isActive && searchController.searchBar.text != "" {
             return 1
         }
+        
         return categories.count
     }
     

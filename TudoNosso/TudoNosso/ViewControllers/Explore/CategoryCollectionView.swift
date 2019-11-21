@@ -26,24 +26,13 @@ class CategoryCollectionView : UITableViewCell {
     }
     
     func sortOrganizations(){
-        for ong in ongs {
-            organizationsList.append(ong)
-        }
+        organizationsList = ongs
     }
     
     weak var delegate: CategoryCollectionViewDelegate!
 }
 
 extension CategoryCollectionView : UICollectionViewDataSource, UICollectionViewDelegate {
-    
-    func prepare(for segue: UIStoryboardSegue, sender: Any?)
-    {
-        if segue.destination is CategoryOportunitiesViewController
-        {
-            let vc = segue.destination as? CategoryOportunitiesViewController
-            vc?.titleHeader = "Educação"
-        }
-    }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
@@ -130,10 +119,6 @@ extension CategoryCollectionView : UICollectionViewDataSource, UICollectionViewD
             (result, error) in
             guard let result = result else { return }
             self.ongs = result
-            
-            for ong in result {
-                print(ong.name)
-            }
             
             self.reloadInputViews()
             self.collectionView.reloadData()
