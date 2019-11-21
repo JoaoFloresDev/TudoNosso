@@ -235,7 +235,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5V9-8p-wcD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3203" y="290"/>
+            <point key="canvasLocation" x="3203" y="304"/>
         </scene>
         <!--Job-->
         <scene sceneID="MPH-R6-7DV">
@@ -490,7 +490,7 @@
         <!--Explore-->
         <scene sceneID="BV3-kr-qX5">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="zvJ-uw-NgZ" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="Explore" automaticallyAdjustsScrollViewInsets="NO" id="zvJ-uw-NgZ" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Explore" id="BDI-ai-Gt5"/>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
@@ -513,6 +513,6 @@
         <image name="orange_logo_tudonosso" width="1500" height="1694"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="hNG-PQ-MgU"/>
+        <segue reference="6hc-FF-ddR"/>
     </inferredMetricsTieBreakers>
 </document>

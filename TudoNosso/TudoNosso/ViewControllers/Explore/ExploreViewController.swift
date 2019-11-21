@@ -16,8 +16,11 @@ class ExploreViewController: UIViewController {
     
     var selectedCause: String = ""
     var selectedOrganization: String = ""
+    var selectedJob: Int = 0
     var organizationsList : [Organization] = []
+    var filteredOrganizationsList : [Organization] = []
     var ongoingJobs : [Job] = []
+    var filteredOngoingJobs : [Job] = []
     var categories = ["Causas", "Organizações", "Todas as Vagas"]
     var searchController = UISearchController(searchResultsController: nil)
     
@@ -31,30 +34,29 @@ class ExploreViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-         setupTableView()
+        setupTableView()
         setupSearchBar()
-        
-        
-        jobsTableView.dataSource = self
-        
-        searchController.dimsBackgroundDuringPresentation = false
-        definesPresentationContext = true
-        jobsTableView.tableHeaderView = searchController.searchBar
-        
         setupJobsTableView()
         
         loadData()
     }
     
     func setupSearchBar() {
+        jobsTableView.tableHeaderView = searchController.searchBar
+        
         let searchBar = UISearchBar.appearance()
         searchBar.tintColor = UIColor.black
         searchBar.barTintColor = UIColor.white
-        searchBar.alpha = 1
         searchBar.backgroundColor = UIColor.white
+        searchBar.alpha = 1
+        searchController.dimsBackgroundDuringPresentation = false
+        searchController.searchResultsUpdater = self
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.placeholder = "Buscar"
+        definesPresentationContext = true
     }
     
-    func setupJobsTableView(){
+    func setupJobsTableView() {
         jobsTableView.isHidden = false
         jobsTableView.backgroundColor = .clear
         
@@ -63,6 +65,12 @@ class ExploreViewController: UIViewController {
         
         jobsTableView.register(JobsTableViewCell.nib, forCellReuseIdentifier: JobsTableViewCell.reuseIdentifer)
         jobsTableView.register(JobsTableViewHeader.nib, forHeaderFooterViewReuseIdentifier: JobsTableViewHeader.reuseIdentifer)
+    }
+    
+    func setupTableView(){
+        jobsTableView.backgroundColor = .clear
+        jobsTableView.delegate = self
+        jobsTableView.dataSource = self
     }
     
     func loadData() {
@@ -76,6 +84,20 @@ class ExploreViewController: UIViewController {
         }
     }
     
+    private func filterJobs(for searchText: String) {
+      filteredOngoingJobs = ongoingJobs.filter { player in
+        return player.title.lowercased().contains(searchText.lowercased())
+      }
+      jobsTableView.reloadData()
+    }
+    
+    private func filterOrganizations(for searchText: String) {
+      filteredOrganizationsList = organizationsList.filter { player in
+        return player.name.lowercased().contains(searchText.lowercased())
+      }
+      jobsTableView.reloadData()
+    }
+    
     func sortJobs(){
         for job in jobs {
             if job.status {
@@ -84,16 +106,7 @@ class ExploreViewController: UIViewController {
         }
     }
     
-    func setupTableView(){
-        jobsTableView.backgroundColor = .clear
-        jobsTableView.delegate = self
-        jobsTableView.dataSource = self
-        
-        jobsTableView.register(JobsTableViewCell.nib, forCellReuseIdentifier: JobsTableViewCell.reuseIdentifer)
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
-    {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.destination is CategoryOportunitiesViewController {
             let vc = segue.destination as? CategoryOportunitiesViewController
             vc?.titleHeader = selectedCause
@@ -103,6 +116,13 @@ class ExploreViewController: UIViewController {
             let vc = segue.destination as? ProfileViewController
             vc?.email = selectedOrganization
         }
+        
+        else if segue.destination is JobViewController {
+            if let vc = segue.destination as? JobViewController,
+                let selectedJob = sender as? Job {
+                vc.job = selectedJob
+            }
+        }
     }
 }
 
@@ -111,32 +131,50 @@ extension ExploreViewController : UITableViewDelegate { }
 extension ExploreViewController : UITableViewDataSource, UISearchResultsUpdating {
 
     func updateSearchResults(for searchController: UISearchController) {
-        print(searchController.searchBar.text!)
-    }
-
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        self.performSegue(withIdentifier: "showDetailSegue", sender: indexPath.count)
-    }
-    
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return categories[section]
-    }
-    
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return categories.count
+        filterJobs(for: searchController.searchBar.text ?? "")
+        filterOrganizations(for: searchController.searchBar.text ?? "")
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if searchController.isActive && searchController.searchBar.text != "" {
+            return filteredOngoingJobs.count
+        }
+        
         if section < 2 {
             return 1
         } else {
             return ongoingJobs.count
         }
     }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let selectedJob = ongoingJobs[indexPath.row]
+        self.performSegue(withIdentifier: "showDetailSegue", sender: selectedJob)
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        if searchController.isActive && searchController.searchBar.text != "" {
+          return categories[2]
+        }
+        
+        return categories[section]
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        if searchController.isActive && searchController.searchBar.text != "" {
+            return 1
+        }
+        return categories.count
+    }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        switch indexPath.section {
+        var typeCell = indexPath.section
+        
+        if searchController.isActive && searchController.searchBar.text != "" {
+          typeCell = 2
+        }
+        
+        switch typeCell {
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier:  "cell") as! CategoryCollectionView
             cell.tag = 0
@@ -155,9 +193,19 @@ extension ExploreViewController : UITableViewDataSource, UISearchResultsUpdating
             guard let cell = tableView.dequeueReusableCell(withIdentifier: JobsTableViewCell.reuseIdentifer, for: indexPath) as? JobsTableViewCell else {
                 fatalError("The dequeued cell is not an instance of JobsTableViewCell.")
             }
-            cell.configure(job: ongoingJobs[indexPath.row])
+            
+            let jobList: Job
+              
+            if searchController.isActive && searchController.searchBar.text != "" {
+              jobList = filteredOngoingJobs[indexPath.row]
+            } else {
+              jobList = ongoingJobs[indexPath.row]
+            }
+            
+            cell.configure(job: jobList)
             cell.backgroundColor = .clear
             cell.selectionStyle = .none
+            
             return cell
             
         default:
