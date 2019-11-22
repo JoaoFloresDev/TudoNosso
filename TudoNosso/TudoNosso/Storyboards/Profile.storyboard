@@ -73,7 +73,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="3Tl-iT-9Ef">
                                 <rect key="frame" x="0.0" y="347" width="414" height="549"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a9N-Rq-reB" userLabel="Button View">
+                                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a9N-Rq-reB" userLabel="Button View">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="47"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="z8Z-vY-y2N" customClass="RoundedView" customModule="TudoNosso" customModuleProvider="target">
@@ -192,7 +192,7 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2dc-9R-4YF" userLabel="Containers View">
-                                        <rect key="frame" x="0.0" y="47" width="414" height="502"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="549"/>
                                         <subviews>
                                             <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Bd2-4V-TI7" userLabel="Jobs Container View">
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="514"/>
@@ -239,6 +239,7 @@
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="addJobLabelView" destination="act-Ja-oPs" id="VTH-Jn-Me2"/>
+                        <outlet property="buttonView" destination="a9N-Rq-reB" id="x0n-D3-S3G"/>
                         <outlet property="editLabelView" destination="Fxl-Lz-myC" id="j4J-qz-6JO"/>
                         <outlet property="jobsContainerView" destination="Bd2-4V-TI7" id="zKo-k0-Cbc"/>
                         <outlet property="profileContainerView" destination="mhb-Pr-5tE" id="3Vg-9U-BZz"/>
@@ -267,6 +268,9 @@
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="BEc-Uq-R0D" kind="show" identifier="toJobDetails" id="bJh-aW-om3"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -287,7 +291,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mwl-to-U34" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="605" y="-21"/>
+            <point key="canvasLocation" x="734" y="713"/>
         </scene>
         <!--Profile Table View Controller-->
         <scene sceneID="Io7-4Q-wkk">

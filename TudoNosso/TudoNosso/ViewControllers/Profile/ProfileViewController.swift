@@ -11,94 +11,184 @@ import CoreLocation
 
 class ProfileViewController: UIViewController {
     
+    let placeholderEmail = "bruno@gmail.com" // TODO deletar
+    
     @IBOutlet weak var profileNameLabel: UILabel!
     @IBOutlet weak var profileImage: RoundedImageView!
     @IBOutlet weak var segmentedControl: CustomSegmentedControl!
     
     @IBOutlet weak var addJobLabelView: UIView!
     @IBOutlet weak var editLabelView: UIView!
+    @IBOutlet weak var buttonView: UIView!
     
     @IBOutlet weak var profileContainerView: UIView!
     @IBOutlet weak var jobsContainerView: UIView!
     
-    private let jobsSegueIdentifier = "toJobsTable"
-    private let profileSegueIdentifier = "toProfileTable"
+    private let jobsSegueID = "toJobsTable"
+    private let profileSegueID = "toProfileTable"
     
     var email: String?
     
-    var ong : Organization? {
-        didSet{
-            if self.shouldPerformSegue(withIdentifier: self.profileSegueIdentifier, sender: self) {
-                self.performSegue(withIdentifier: self.profileSegueIdentifier, sender: self)
+    struct Data {
+        var name: String?
+        var address: CLLocationCoordinate2D?
+        var email: String?
+        var description: String?
+        var phone: String?
+        var site: String?
+        var facebook: String?
+        var areas: [String]?
+        var avatar: String?
+    }
+    
+    var profileData: Data? {
+        didSet {
+            if self.shouldPerformSegue(withIdentifier: self.profileSegueID, sender: self) {
+                self.performSegue(withIdentifier: self.profileSegueID, sender: self)
             }
         }
     }
     
     var jobs : [Job]? {
         didSet {
-            if self.shouldPerformSegue(withIdentifier: self.jobsSegueIdentifier, sender: self) {
-                self.performSegue(withIdentifier: self.jobsSegueIdentifier, sender: self)
+            if self.shouldPerformSegue(withIdentifier: self.jobsSegueID, sender: self) {
+                self.performSegue(withIdentifier: self.jobsSegueID, sender: self)
             }
         }
     }
     
     enum TypeOfProfile {
-        case ong
+        case ong(Bool)
         case volunteer
+        
+        var isAddJobButtonHidden: Bool {
+            switch self {
+            case let .ong(myProfile):          return !myProfile
+            case .volunteer:                 return true
+            }
+        }
+        
+        var segmentedControlTitle: String {
+            switch self {
+            case .ong:          return "Oportunidades"
+            case .volunteer:    return "Participações"
+            }
+        }
     }
+    
+    var typeOfProfile: TypeOfProfile? {
+        didSet{
+            //TODO changes according to type of profile
+            self.addJobLabelView.isHidden = typeOfProfile?.isAddJobButtonHidden ?? true
+            self.buttonView.isHidden = typeOfProfile?.isAddJobButtonHidden ?? true
+            
+            self.segmentedControl.setTitle(typeOfProfile?.segmentedControlTitle ?? "", forSegmentAt: 0)
+        }
+    }
+    var isMyProfile = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        loadData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        loadData()
     }
     
     func loadData() {
+        let loginDM = LoginDM()
         let jobDM = JobDM()
-        let orgDM = OrganizationDM()
         
         var emailAdress: String! = ""
-        
         if self.email != nil {
             emailAdress = self.email
+            isMyProfile = emailAdress == placeholderEmail // TODO placeholder
+//            isMyProfile = emailAdress == Local.userMail
         } else {
-            emailAdress = "bruno@gmail.com" //placeholder
+            emailAdress = placeholderEmail //TODO placeholder
+//            emailAdress = Local.userMail
+            isMyProfile = true
         }
         
-        let id = Base64Converter.encodeStringAsBase64(emailAdress)
-        
-        orgDM.find(ByEmail: emailAdress) { (result, error) in
+        loginDM.find(ByEmail: emailAdress) { (result, error) in
             if let erro = error {
                 print(erro.localizedDescription)
             } else {
-                guard let ong = result else {return}
-                self.ong = ong
-                self.profileNameLabel.text = ong.name
-            }
-        }
-        
-        jobDM.find(inField: .organizationID, withValueEqual: id) { (result, error) in
-            if let erro = error {
-                print(erro.localizedDescription)
-            } else {
-                guard let jobs = result else {return}
-                self.jobs = jobs
+                guard let login = result else {return}
+                switch login.kind {
+                case LoginKinds.ONG:
+                    self.typeOfProfile = .ong(self.isMyProfile)
+                    
+                    let orgDM = OrganizationDM()
+                    
+                    orgDM.find(ByEmail: emailAdress) { (result, error) in
+                               if let erro = error {
+                                   print(erro.localizedDescription)
+                               } else {
+                                   guard let ong = result else {return}
+                                   self.profileData = Data(name: ong.name,
+                                                            address: ong.address,
+                                                            email: ong.email,
+                                                            description: ong.desc,
+                                                            phone: ong.phone,
+                                                            site: ong.site,
+                                                            facebook: ong.facebook,
+                                                            areas: ong.areas,
+                                                            avatar: ong.avatar)
+                                   self.profileNameLabel.text = ong.name
+                               }
+                           }
+                    
+                    let id = Base64Converter.encodeStringAsBase64(emailAdress)
+
+                    jobDM.find(inField: .organizationID, withValueEqual: id) { (result, error) in
+                        if let erro = error {
+                            print(erro.localizedDescription)
+                        } else {
+                            guard let jobs = result else {return}
+                            self.jobs = jobs
+                        }
+                    }
+                    
+                case LoginKinds.volunteer:
+                    self.typeOfProfile = .volunteer
+                    
+                    let volunteerDM = VolunteerDM()
+                    
+                    volunteerDM.find(ByEmail: emailAdress) { (result, error) in
+                               if let erro = error {
+                                   print(erro.localizedDescription)
+                               } else {
+                                   guard let volunteer = result else {return}
+                                   self.profileData = Data(name: volunteer.name,
+                                                            address: nil,
+                                                            email: volunteer.email,
+                                                            description: volunteer.description,
+                                                            phone: nil,
+                                                            site: nil,
+                                                            facebook: nil,
+                                                            areas: nil,
+                                                            avatar: nil)
+                                self.profileNameLabel.text = volunteer.name
+                               }
+                           }
+                    
+                    //TODO
+                }
             }
         }
     }
     
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
         switch identifier{
-        case profileSegueIdentifier:
-            if self.ong != nil {
+        case profileSegueID:
+            if self.profileData != nil {
                 return true
             } else {
                 return false
             }
-        case jobsSegueIdentifier:
+        case jobsSegueID:
             if self.jobs != nil {
                 return true
             } else {
@@ -109,11 +199,11 @@ class ProfileViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == profileSegueIdentifier {
+        if segue.identifier == profileSegueID {
             if let nextVC = segue.destination as? ProfileTableViewController {
-                nextVC.data = self.ong
+                nextVC.receivedData = self.profileData
             }
-        } else if segue.identifier == jobsSegueIdentifier {
+        } else if segue.identifier == jobsSegueID {
             if let nextVC = segue.destination as? JobsTableViewController {
                 nextVC.data = self.jobs
             }
@@ -126,14 +216,14 @@ class ProfileViewController: UIViewController {
             self.jobsContainerView.isHidden = false
             self.profileContainerView.isHidden = true
             
-            self.addJobLabelView.isHidden = false
+            self.addJobLabelView.isHidden = typeOfProfile?.isAddJobButtonHidden ?? true
             self.editLabelView.isHidden = true
         case 1: // show profile
             self.jobsContainerView.isHidden = true
             self.profileContainerView.isHidden = false
             
             self.addJobLabelView.isHidden = true
-            self.editLabelView.isHidden = false
+            self.editLabelView.isHidden = !isMyProfile
         default:
             break
         }
