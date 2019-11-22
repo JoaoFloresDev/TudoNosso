@@ -50,7 +50,8 @@ class AddressUtil{
                     address = thoroughfare + ", "
                         + subThoroughfare + " - "
                         + subLocality + " - "
-                        + locality + " - "
+                        + locality
+//                        + " - "
 //                        + administrativeArea + " - "
 //                        + country
                     

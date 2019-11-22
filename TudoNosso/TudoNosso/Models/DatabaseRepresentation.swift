@@ -8,7 +8,13 @@
 
 import Foundation
 
-/// The class that use this protocol will need to inform a how it is described in the database
+/// The class that use this protocol will need to inform a how it is described in the database and a func to read a dictionary using a enum of fields
 protocol DatabaseRepresentation {
-  var representation: [String: Any] { get }
+    associatedtype fieldEnum
+    
+    var representation: [String: Any] { get }
+
+    static func snapshotFieldReader<T>(_ snapshot: NSDictionary,_ field: fieldEnum) -> T?
 }
+
+

@@ -237,6 +237,14 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
+		560C305923875C58004BD536 /* Job */ = {
+			isa = PBXGroup;
+			children = (
+				C4226737237057C1000A6DA3 /* JobViewController.swift */,
+			);
+			path = Job;
+			sourceTree = "<group>";
+		};
 		567380F32373016F00F1B6C5 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -342,6 +350,7 @@
 		C422672E237055BD000A6DA3 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				560C305923875C58004BD536 /* Job */,
 				C46E72982375C06300D57BB9 /* Profile */,
 				C46E72972375C04E00D57BB9 /* Notifications */,
 				C46E72932375B06900D57BB9 /* Explore */,
@@ -390,7 +399,6 @@
 		C46E72982375C06300D57BB9 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
-				C4226737237057C1000A6DA3 /* JobViewController.swift */,
 				C4226735237057B1000A6DA3 /* ProfileViewController.swift */,
 				D7A707602382CF8500D164AC /* ProfileTableViewController.swift */,
 				D7A707622382EA9000D164AC /* JobsTableViewController.swift */,

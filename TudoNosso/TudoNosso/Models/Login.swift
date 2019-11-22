@@ -23,8 +23,8 @@ class Login {
     init?(id:String,snapshot: NSDictionary) {
         
         guard
-            let email: String = Self.snapshotField(snapshot, .email),
-            let kind: String = Self.snapshotField(snapshot, .kind)
+            let email: String = Self.snapshotFieldReader(snapshot, .email),
+            let kind: String = Self.snapshotFieldReader(snapshot, .kind)
             else {
                 return nil
         }
@@ -38,7 +38,7 @@ class Login {
 }
 
 extension Login: DatabaseRepresentation {
-    
+    typealias fieldEnum = LoginFields
     
     var representation: [String : Any] {
         let rep: [LoginFields : Any] = [
@@ -49,7 +49,7 @@ extension Login: DatabaseRepresentation {
             (key.rawValue, value) })
     }
     
-    fileprivate static func snapshotField<T>(_ snapshot: NSDictionary,_ field: LoginFields) -> T?{
+    static func snapshotFieldReader<T>(_ snapshot: NSDictionary,_ field: LoginFields) -> T?{
         return snapshot[field.rawValue] as? T
     }
 }

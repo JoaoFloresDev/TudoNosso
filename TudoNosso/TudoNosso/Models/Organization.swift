@@ -44,21 +44,21 @@ class Organization {
     
     init?(snapshot: NSDictionary) {
         guard
-            let name: String = Self.snapshotField(snapshot,.name),
-            let email: String = Self.snapshotField(snapshot,.email),
-            let location: GeoPoint = Self.snapshotField(snapshot,.address)
+            let name: String = Self.snapshotFieldReader(snapshot,.name),
+            let email: String = Self.snapshotFieldReader(snapshot,.email),
+            let location: GeoPoint = Self.snapshotFieldReader(snapshot,.address)
             else {
                 return nil
         }
         self.name = name
         self.address = CLLocationCoordinate2D.fromGeoPoint(geoPoint: location)
         self.email = email
-        self.desc = Self.snapshotField(snapshot,.description)
-        self.phone = Self.snapshotField(snapshot,.phone)
-        self.site = Self.snapshotField(snapshot,.site)
-        self.facebook = Self.snapshotField(snapshot,.facebook)
-        self.areas = Self.snapshotField(snapshot,.areas)
-        self.avatar = Self.snapshotField(snapshot,.avatar)
+        self.desc = Self.snapshotFieldReader(snapshot,.description)
+        self.phone = Self.snapshotFieldReader(snapshot,.phone)
+        self.site = Self.snapshotFieldReader(snapshot,.site)
+        self.facebook = Self.snapshotFieldReader(snapshot,.facebook)
+        self.areas = Self.snapshotFieldReader(snapshot,.areas)
+        self.avatar = Self.snapshotFieldReader(snapshot,.avatar)
     }
     
     
@@ -67,6 +67,7 @@ class Organization {
 }
 
 extension Organization: DatabaseRepresentation {
+    typealias fieldEnum = OrganizationFields
     
     var representation: [String: Any] {
         var rep: [OrganizationFields : Any] = [
@@ -98,7 +99,7 @@ extension Organization: DatabaseRepresentation {
             (key.rawValue, value) })
     }
     
-    fileprivate static func snapshotField<T>(_ snapshot: NSDictionary, _ field: OrganizationFields) -> T? {
+    static func snapshotFieldReader<T>(_ snapshot: NSDictionary, _ field: OrganizationFields) -> T? {
         return snapshot[field.rawValue] as? T
     }
 }
