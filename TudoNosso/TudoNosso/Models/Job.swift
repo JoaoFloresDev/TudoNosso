@@ -22,7 +22,16 @@ class Job {
     var organizationID: String
     var localization: CLLocationCoordinate2D
     var status:Bool
+    var engagedOnes:[String]? = []
     
+    var engagedOnesSlashVacancyNumber: String {
+        let engagedCount = self.engagedOnes?.count ?? 0
+        
+        return String(format: "%02d engajado(s) / %02d vaga(s)", engagedCount,vacancyNumber)
+    }
+    
+    
+    /// initialiazer with all not optional parameters of the class
     init( title: String, category: CategoryEnum, vacancyType: String, vacancyNumber: Int, organizationID: String, localization: CLLocationCoordinate2D,status:Bool) {
         self.title = title
         self.category = category
@@ -33,7 +42,8 @@ class Job {
         self.status = status
     }
     
-    init(id: String, title: String, desc: String, category: CategoryEnum, vacancyType: String, vacancyNumber: Int, organizationID: String, localization: CLLocationCoordinate2D, status: Bool) {
+    /// initialiazer with all parameters of the class
+    init(id: String, title: String, desc: String, category: CategoryEnum, vacancyType: String, vacancyNumber: Int, organizationID: String, localization: CLLocationCoordinate2D, status: Bool, engagedOnes:[String]) {
         self.id = id
         self.title = title
         self.desc = desc
@@ -45,16 +55,18 @@ class Job {
         self.status = status
     }
     
+    /// Optional initialiazer with a dictionary
+    /// - Parameter snapshot: The dictionary 
     init?(snapshot: NSDictionary) {
         guard
-            let id: String = Self.snapshotField(snapshot,.id),
-            let title: String = Self.snapshotField(snapshot,.title),
-            let category: String = Self.snapshotField(snapshot,.category),
-            let vacancyType: String = Self.snapshotField(snapshot,.vacancyType),
-            let vacancyNumber: Int = Self.snapshotField(snapshot,.vacancyNumber),
-            let organizationID: String = Self.snapshotField(snapshot,.organizationID),
-            let location: GeoPoint = Self.snapshotField(snapshot,.localization),
-            let status: Bool = Self.snapshotField(snapshot,.status)
+            let id: String = Self.snapshotFieldReader(snapshot,.id),
+            let title: String = Self.snapshotFieldReader(snapshot,.title),
+            let category: String = Self.snapshotFieldReader(snapshot,.category),
+            let vacancyType: String = Self.snapshotFieldReader(snapshot,.vacancyType),
+            let vacancyNumber: Int = Self.snapshotFieldReader(snapshot,.vacancyNumber),
+            let organizationID: String = Self.snapshotFieldReader(snapshot,.organizationID),
+            let location: GeoPoint = Self.snapshotFieldReader(snapshot,.localization),
+            let status: Bool = Self.snapshotFieldReader(snapshot,.status)
             else {
                 return nil
         }
@@ -64,17 +76,19 @@ class Job {
         self.category = categoryEnum
         self.id = id
         self.title = title
-        self.desc = Self.snapshotField(snapshot,.description)
+        self.desc = Self.snapshotFieldReader(snapshot,.description)
         self.vacancyType = vacancyType
         self.vacancyNumber = vacancyNumber
         self.organizationID = organizationID
         self.localization = CLLocationCoordinate2D.fromGeoPoint(geoPoint: location)
         self.status = status
+        self.engagedOnes = Self.snapshotFieldReader(snapshot,.engagedOnes)
         
     }
 }
 
 extension Job: DatabaseRepresentation {
+    typealias fieldEnum = JobFields
     
     var representation: [String : Any] {
         var rep: [JobFields : Any] = [
@@ -91,15 +105,15 @@ extension Job: DatabaseRepresentation {
         if let desc = self.desc{
             rep[.description] = desc
         }
-        
+        if let engagedOnes = self.engagedOnes{
+            rep[.engagedOnes] = engagedOnes
+        }
         return Dictionary(uniqueKeysWithValues: rep.map({ (key, value) in
             (key.rawValue, value)
         }))
     }
     
-    
-    
-    fileprivate static func snapshotField<T>(_ snapshot: NSDictionary, _ field:JobFields) -> T? {
+    static func snapshotFieldReader<T>(_ snapshot: NSDictionary, _ field:JobFields) -> T? {
         return snapshot[field.rawValue] as? T
     }
 }
@@ -122,5 +136,5 @@ enum JobFields: String, Hashable  {
     case organizationID
     case localization
     case status
-    
+    case engagedOnes
 }

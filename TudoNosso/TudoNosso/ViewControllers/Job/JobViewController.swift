@@ -19,48 +19,44 @@ class JobViewController: UIViewController {
     @IBOutlet weak var jobTypeLabel: UILabel!
     @IBOutlet weak var jobOrganizationName: UIButton!
     @IBOutlet weak var engajedAndSlotsLabel: UILabel!
-    
     @IBOutlet weak var jobDescriptionLabel: UILabel!
     @IBOutlet weak var jobLocalizationLabel: UILabel!
     @IBOutlet weak var jobOrganizationImage: UIImageView!
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-    
-     override func viewWillAppear(_ animated: Bool) {
-           super.viewWillAppear(animated)
-        
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         guard let job = job else {return}
         loadJob(job)
-        
-        
     }
     
     private func loadJob(_ job:Job){
-        jobTitleLabel.text = job.title
-        jobTypeLabel.text = "Vaga \(job.vacancyType)"
-        jobDescriptionLabel.text = job.desc
-        engajedAndSlotsLabel.text = "~ / \(job.vacancyNumber) vagas"
-        
+        OperationQueue.main.addOperation {
+            self.jobTitleLabel.text = job.title
+            self.jobTypeLabel.text = "Vaga \(job.vacancyType)"
+            self.jobDescriptionLabel.text = job.desc
+            self.engajedAndSlotsLabel.text = job.engagedOnesSlashVacancyNumber
+        }
         AddressUtil.recoveryAddress(fromLocation: job.localization) { (address, err) in
             guard let address = address else { return }
+            OperationQueue.main.addOperation {
                 self.jobLocalizationLabel.text = address
+            }
         }
         
         ongDM.find(ById: job.organizationID) { (ong, err) in
             guard let ong = ong else { return }
-            self.jobOrganizationName.setTitle(ong.name, for: .normal)
+            OperationQueue.main.addOperation {
+                self.jobOrganizationName.setTitle(ong.name, for: .normal)
+            }
             if let avatar = ong.avatar {
                 FileDM().recoverProfileImage(profilePic: avatar) { (image, error) in
                     guard let image = image else {return}
-                    self.jobOrganizationImage.image = image
+                    OperationQueue.main.addOperation {
+                        self.jobOrganizationImage.image = image
+                    }
                 }
-                
             }
         }
     }
-
+    
 }

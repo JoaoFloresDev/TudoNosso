@@ -13,6 +13,11 @@ class GenericsDM {
     var db = Firestore.firestore()
     
     
+    /// func that transforms a firebase list into a T list, the T class needs to implement the DictionaryInterpreter protocol
+    /// - Parameters:
+    ///   - querySnapshot: firebase list
+    ///   - error: firebase erro
+    ///   - completion: func that will run when the firebase request was completed
     func handleDocuments<T: DictionaryInterpreter>(_ querySnapshot: QuerySnapshot?, _ error: Error?, completion:@escaping ([T]?,Error?) -> ())  {
         if let err = error {
             completion(nil,err)
@@ -29,6 +34,11 @@ class GenericsDM {
         }
     }
     
+    /// func that transforms a firebase element into a T element, the T class needs to implement the DictionaryInterpreter protocol
+    /// - Parameters:
+    ///   - snapshot: firebase element
+    ///   - error: firebase erro
+    ///   - completion: func that will run when the firebase request was completed
     func handleSingleDocument<T: DictionaryInterpreter>(_ snapshot:DocumentSnapshot?, _ error: Error?, completion:@escaping (T?,Error?) -> ()) {
         if let err = error{
             completion(nil,err)
@@ -43,7 +53,7 @@ class GenericsDM {
     }
 }
 
-enum ComparationKind{
+enum ComparisonKind{
     case equal
     case lessThan
     case lessThanOrEqual

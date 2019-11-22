@@ -27,18 +27,20 @@ class Volunteer{
     
     init?(snapshot:NSDictionary){
         guard
-            let name: String = Self.snapshotField(snapshot,.name),
-            let email: String = Self.snapshotField(snapshot,.email)
+            let name: String = Self.snapshotFieldReader(snapshot,.name),
+            let email: String = Self.snapshotFieldReader(snapshot,.email)
             else {return nil}
         self.name = name
         self.email = email
-        self.description = Self.snapshotField(snapshot,.description)
+        self.description = Self.snapshotFieldReader(snapshot,.description)
     }
     
     
 }
 
 extension Volunteer: DatabaseRepresentation{
+    typealias fieldEnum = VolunteerFields
+    
     var representation: [String : Any] {
         var rep:[VolunteerFields: Any] = [
             .name: name,
@@ -54,7 +56,7 @@ extension Volunteer: DatabaseRepresentation{
         })
     }
     
-    fileprivate static func snapshotField<T>(_ snapshot:NSDictionary,_ field: VolunteerFields) ->T?{
+    static func snapshotFieldReader<T>(_ snapshot:NSDictionary,_ field: VolunteerFields) ->T?{
         return snapshot[field.rawValue] as? T
     }
 }
