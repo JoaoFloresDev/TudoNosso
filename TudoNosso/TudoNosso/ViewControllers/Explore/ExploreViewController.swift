@@ -19,8 +19,10 @@ class ExploreViewController: UIViewController {
     var selectedJob: Int = 0
     var organizationsList : [Organization] = []
     var filteredOrganizationsList : [Organization] = []
+    
     var ongoingJobs : [Job] = []
     var filteredOngoingJobs : [Job] = []
+    
     var categories = ["Causas", "Organizações", "Todas as Vagas"]
     var searchController = UISearchController(searchResultsController: nil)
     
@@ -46,13 +48,18 @@ class ExploreViewController: UIViewController {
         
         let searchBar = UISearchBar.appearance()
         searchBar.tintColor = UIColor.black
-        searchBar.barTintColor = UIColor.white
-        searchBar.backgroundColor = UIColor.white
+        searchBar.barTintColor = UIColor(rgb: 0xFF5900, a: 1)
+        searchBar.backgroundColor = UIColor(rgb: 0xFF5900, a: 1)
         searchBar.alpha = 1
         searchController.dimsBackgroundDuringPresentation = false
         searchController.searchResultsUpdater = self
         searchController.obscuresBackgroundDuringPresentation = false
         searchController.searchBar.placeholder = "Buscar"
+        searchController.searchBar.searchTextField.backgroundColor = .white
+//        searchController.searchBar.setBackgroundImage(UIImage(named: "background Search"), for: UIBarPosition.top, barMetrics: UIBarMetrics.default)
+        searchController.searchBar.tintColor = .white //UIColor(rgb: 0xFF5900, a: 1)
+//        searchController.searchBar.isTranslucent = false
+        searchController.searchBar.backgroundColor = UIColor(rgb: 0xFF5900, a: 1)
         definesPresentationContext = true
     }
     
@@ -164,6 +171,7 @@ extension ExploreViewController : UITableViewDataSource, UISearchResultsUpdating
         if searchController.isActive && searchController.searchBar.text != "" {
             return 1
         }
+        
         return categories.count
     }
     
