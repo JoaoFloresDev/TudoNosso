@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+    
 class JobsTableViewCell: UITableViewCell {
     
     @IBOutlet weak var jobTitleLabel: UILabel!
@@ -30,7 +30,7 @@ class JobsTableViewCell: UITableViewCell {
         
         jobTitleLabel.text = job.title
         typeOfJobLabel.text = job.vacancyType
-        categoriesLabel.text = job.category.rawValue
-        engagedLabel.text = "00 engajados / " + String(format: "%02d", job.vacancyNumber) + " vagas"
+        categoriesLabel.text = NSLocalizedString(job.category.rawValue, comment: "")
+        engagedLabel.text = job.engagedOnesSlashVacancyNumber
     }
 }

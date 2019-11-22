@@ -11,6 +11,7 @@
 		1663B33823730D90005E3363 /* Nunito-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1663B33623730D90005E3363 /* Nunito-Bold.ttf */; };
 		1663B33923730D90005E3363 /* Nunito-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1663B33723730D90005E3363 /* Nunito-Regular.ttf */; };
 		3B08C35A717ED3964E4F36AF /* Pods_TudoNosso_TudoNossoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A01E7358CA8C4FF34A59BF3 /* Pods_TudoNosso_TudoNossoUITests.framework */; };
+		560C305E23880D70004BD536 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 560C306023880D70004BD536 /* Localizable.strings */; };
 		5633E5B8237D851300E46EE3 /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5633E5B7237D851300E46EE3 /* Login.swift */; };
 		5633E5BA237D8D6800E46EE3 /* LoginDM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5633E5B9237D8D6800E46EE3 /* LoginDM.swift */; };
 		567284D523831C4500DF4EA5 /* GenericsDM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567284D423831C4500DF4EA5 /* GenericsDM.swift */; };
@@ -99,6 +100,10 @@
 		16C644B359E32E5DDBC65E7B /* Pods-TudoNosso.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TudoNosso.debug.xcconfig"; path = "Target Support Files/Pods-TudoNosso/Pods-TudoNosso.debug.xcconfig"; sourceTree = "<group>"; };
 		224AFBC86B801E3B9A526E09 /* Pods-TudoNossoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TudoNossoTests.release.xcconfig"; path = "Target Support Files/Pods-TudoNossoTests/Pods-TudoNossoTests.release.xcconfig"; sourceTree = "<group>"; };
 		3A01E7358CA8C4FF34A59BF3 /* Pods_TudoNosso_TudoNossoUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TudoNosso_TudoNossoUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		560C305A23880D13004BD536 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		560C305B23880D16004BD536 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Main.strings"; sourceTree = "<group>"; };
+		560C305F23880D70004BD536 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		560C306123880D77004BD536 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		5633E5B7237D851300E46EE3 /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
 		5633E5B9237D8D6800E46EE3 /* LoginDM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginDM.swift; sourceTree = "<group>"; };
 		567284D423831C4500DF4EA5 /* GenericsDM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericsDM.swift; sourceTree = "<group>"; };
@@ -312,6 +317,7 @@
 				C40A2E8823704BA700DB87BB /* Info.plist */,
 				567D0C4E2370530A00420704 /* GoogleService-Info.plist */,
 				C40A2E8023704BA500DB87BB /* TudoNosso.xcdatamodeld */,
+				560C306023880D70004BD536 /* Localizable.strings */,
 			);
 			path = TudoNosso;
 			sourceTree = "<group>";
@@ -567,6 +573,7 @@
 			knownRegions = (
 				en,
 				Base,
+				"pt-BR",
 			);
 			mainGroup = C40A2E6B23704BA500DB87BB;
 			productRefGroup = C40A2E7523704BA500DB87BB /* Products */;
@@ -588,6 +595,7 @@
 				D776C4D5237442C0002C3F3E /* JobsTableViewCell.xib in Resources */,
 				C40A2EB323704EB200DB87BB /* Profile.storyboard in Resources */,
 				567D0C4F2370530A00420704 /* GoogleService-Info.plist in Resources */,
+				560C305E23880D70004BD536 /* Localizable.strings in Resources */,
 				C40A2EAF23704E7C00DB87BB /* Explore.storyboard in Resources */,
 				C40A2EB123704E9700DB87BB /* Notifications.storyboard in Resources */,
 				C40A2E8723704BA700DB87BB /* LaunchScreen.storyboard in Resources */,
@@ -806,10 +814,20 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		560C306023880D70004BD536 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				560C305F23880D70004BD536 /* pt-BR */,
+				560C306123880D77004BD536 /* en */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		C40A2E7D23704BA500DB87BB /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				C40A2E7E23704BA500DB87BB /* Base */,
+				560C305B23880D16004BD536 /* pt-BR */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -818,6 +836,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				C40A2E8623704BA700DB87BB /* Base */,
+				560C305A23880D13004BD536 /* pt-BR */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -829,6 +848,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -889,6 +909,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -945,7 +966,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = NZC6LC8NWM;
+				DEVELOPMENT_TEAM = GJUSD98938;
 				INFOPLIST_FILE = TudoNosso/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -965,7 +986,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = NZC6LC8NWM;
+				DEVELOPMENT_TEAM = GJUSD98938;
 				INFOPLIST_FILE = TudoNosso/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
