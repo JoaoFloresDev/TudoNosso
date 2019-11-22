@@ -20,23 +20,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         FirebaseApp.configure()
         
-//        window = UIWindow(frame: UIScreen.main.bounds)
+        window = UIWindow(frame: UIScreen.main.bounds)
         
-//        if Local.userMail == nil {  // no logged account
-//            let storyboard = UIStoryboard(name: "Explore", bundle: nil)
-//
-//            let initialViewController = storyboard.instantiateViewController(withIdentifier: "Explore")
-//
-//            window!.rootViewController = initialViewController
-//            window!.makeKeyAndVisible()
-//        } else {
-//            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-//
-//            let initialViewController = storyboard.instantiateViewController(withIdentifier: "Tab")
-//
-//            window!.rootViewController = initialViewController
-//            window!.makeKeyAndVisible()
-//        }
+        if Local.userMail == nil {  // no logged account
+            let storyboard = UIStoryboard(name: "Explore", bundle: nil)
+
+            let initialViewController = storyboard.instantiateViewController(withIdentifier: "Explore")
+
+            window!.rootViewController = initialViewController
+            window!.makeKeyAndVisible()
+        } else {
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+
+            let initialViewController = storyboard.instantiateViewController(withIdentifier: "Tab")
+
+            window!.rootViewController = initialViewController
+            window!.makeKeyAndVisible()
+        }
         
         return true
     }
