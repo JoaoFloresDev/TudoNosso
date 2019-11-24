@@ -84,6 +84,21 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>InputBarAccessoryView.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>MessageKit-MessageKitAssets.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>MessageKit.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-TudoNosso-TudoNossoUITests.xcscheme</key>
 		<dict>
 			<key>isShown</key>

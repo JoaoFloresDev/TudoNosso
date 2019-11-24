@@ -88,7 +88,7 @@ class Job {
 }
 
 extension Job: DatabaseRepresentation {
-    typealias fieldEnum = JobFields
+    
     
     var representation: [String : Any] {
         var rep: [JobFields : Any] = [
@@ -113,16 +113,19 @@ extension Job: DatabaseRepresentation {
         }))
     }
     
-    static func snapshotFieldReader<T>(_ snapshot: NSDictionary, _ field:JobFields) -> T? {
-        return snapshot[field.rawValue] as? T
-    }
+   
 }
 
 extension Job: DictionaryInterpreter {
+    typealias fieldEnum = JobFields
+    
     static func interpret(data: NSDictionary) -> Self? {
         return Job(snapshot: data) as? Self
     }
     
+    static func snapshotFieldReader<T>(_ snapshot: NSDictionary, _ field:JobFields) -> T? {
+           return snapshot[field.rawValue] as? T
+    }
     
 }
 

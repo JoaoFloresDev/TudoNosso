@@ -57,12 +57,35 @@ class LoginDM{
             }
         }
     }
+   
     private func handleLogin(completion:@escaping ([String : Any]?,Error?) ->()) -> (Login?, Error?) -> () {
         return { (login, error) -> () in
             self.handleLogin(login: login, error: error, completion: completion)
         }
     }
 
+    fileprivate func convertLoginToOrganizationOrVolunteer(_ id: String, _ kind:LoginKinds, _ completion: @escaping ([String : Any]?, Error?) -> ()) {
+        switch kind {
+        case .ONG:
+            OrganizationDM().find(ById: id) { (ong, err) in
+                if err == nil {
+                    completion(ong?.representation,nil)
+                }else {
+                    completion(nil,err)
+                }
+            }
+            break
+        case .volunteer:
+            VolunteerDM().find(ById: id) { (volunter, err) in
+                if err == nil{
+                    completion(volunter?.representation,nil)
+                }else{
+                    completion(nil,err)
+                }
+            }
+        }
+    }
+    
     private func handleLogin(login: Login?,
                              error: Error?,
                              completion: @escaping ([String : Any]?,Error?) ->()) {
@@ -70,25 +93,7 @@ class LoginDM{
         
         if error == nil {
             guard let login = login else {return}
-            switch login.kind {
-            case .ONG:
-                OrganizationDM().find(ById: login.id!) { (ong, err) in
-                    if err == nil {
-                        completion(ong?.representation,nil)
-                    }else {
-                        completion(nil,err)
-                    }
-                }
-                break
-            case .volunteer:
-                VolunteerDM().find(ById: login.id!) { (volunter, err) in
-                    if err == nil{
-                        completion(volunter?.representation,nil)
-                    }else{
-                        completion(nil,err)
-                    }
-                }
-            }
+            convertLoginToOrganizationOrVolunteer(login.id!, login.kind, completion)
             
         }else {
             completion(nil, error)
@@ -96,7 +101,9 @@ class LoginDM{
         
     }
     
-    
+    func recoverUser(ById id: String, onKind kind:LoginKinds, completion: @escaping ([String : Any]?,Error?) ->()) {
+        self.convertLoginToOrganizationOrVolunteer(id, kind, completion)
+    }
     
     func find(ByEmail email: String, completion: @escaping (Login? ,Error?) -> ()){
         let userID = Base64Converter.encodeStringAsBase64(email)

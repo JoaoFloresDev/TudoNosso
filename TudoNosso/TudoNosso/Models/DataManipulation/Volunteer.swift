@@ -12,6 +12,7 @@ class Volunteer{
     var name: String
     var email: String
     var description: String?
+    var avatar: String?
     
     
     init (name: String, email:String, description: String) {
@@ -33,6 +34,7 @@ class Volunteer{
         self.name = name
         self.email = email
         self.description = Self.snapshotFieldReader(snapshot,.description)
+        self.avatar = Self.snapshotFieldReader(snapshot,.avatar)
     }
     
     
@@ -48,6 +50,9 @@ extension Volunteer: DatabaseRepresentation{
         ]
         if let desc = description{
             rep[.description] = desc
+        }
+        if let avatar = avatar{
+                rep[.avatar] = avatar
         }
         
         
@@ -71,4 +76,6 @@ enum VolunteerFields: String, Hashable {
     case name = "volunteerName"
     case email
     case description = "desc"
+    case avatar = "profilePic"
 }
+
