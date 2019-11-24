@@ -25,6 +25,7 @@
 		560C307A23887B41004BD536 /* ChannelTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 560C307823887B41004BD536 /* ChannelTableViewCell.xib */; };
 		5633E5B8237D851300E46EE3 /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5633E5B7237D851300E46EE3 /* Login.swift */; };
 		5633E5BA237D8D6800E46EE3 /* LoginDM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5633E5B9237D8D6800E46EE3 /* LoginDM.swift */; };
+		5669CB54238B28700093B898 /* MessageDM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5669CB53238B28700093B898 /* MessageDM.swift */; };
 		567284D523831C4500DF4EA5 /* GenericsDM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567284D423831C4500DF4EA5 /* GenericsDM.swift */; };
 		567284D7238330E000DF4EA5 /* DictionaryInterpreter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567284D6238330E000DF4EA5 /* DictionaryInterpreter.swift */; };
 		567284D923833A4700DF4EA5 /* Volunteer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567284D823833A4700DF4EA5 /* Volunteer.swift */; };
@@ -128,6 +129,7 @@
 		560C307823887B41004BD536 /* ChannelTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChannelTableViewCell.xib; sourceTree = "<group>"; };
 		5633E5B7237D851300E46EE3 /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
 		5633E5B9237D8D6800E46EE3 /* LoginDM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginDM.swift; sourceTree = "<group>"; };
+		5669CB53238B28700093B898 /* MessageDM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageDM.swift; sourceTree = "<group>"; };
 		567284D423831C4500DF4EA5 /* GenericsDM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericsDM.swift; sourceTree = "<group>"; };
 		567284D6238330E000DF4EA5 /* DictionaryInterpreter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DictionaryInterpreter.swift; sourceTree = "<group>"; };
 		567284D823833A4700DF4EA5 /* Volunteer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Volunteer.swift; path = DataManipulation/Volunteer.swift; sourceTree = "<group>"; };
@@ -327,6 +329,7 @@
 				567284D423831C4500DF4EA5 /* GenericsDM.swift */,
 				567284DA23833DB800DF4EA5 /* VolunteerDM.swift */,
 				560C3066238868F9004BD536 /* ChannelDM.swift */,
+				5669CB53238B28700093B898 /* MessageDM.swift */,
 			);
 			path = DataManipulation;
 			sourceTree = "<group>";
@@ -808,6 +811,7 @@
 				C42267482371AFBE000A6DA3 /* (null) in Sources */,
 				C40A2E7C23704BA500DB87BB /* ViewController.swift in Sources */,
 				D776C4CE23743C7E002C3F3E /* CustomSegmentedControl.swift in Sources */,
+				5669CB54238B28700093B898 /* MessageDM.swift in Sources */,
 				C4226734237057A3000A6DA3 /* ExploreViewController.swift in Sources */,
 				567284D7238330E000DF4EA5 /* DictionaryInterpreter.swift in Sources */,
 				D7C013A2237C4E87001CDD36 /* KeyboardAvoiding.swift in Sources */,
@@ -845,7 +849,6 @@
 				567380F52373019600F1B6C5 /* Organization.swift in Sources */,
 				C4226738237057C1000A6DA3 /* JobViewController.swift in Sources */,
 				D7A707632382EA9000D164AC /* JobsTableViewController.swift in Sources */,
-				C4226738237057C1000A6DA3 /* JobViewController.swift in Sources */,
 				567381282374535A00F1B6C5 /* OrganizationDM.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

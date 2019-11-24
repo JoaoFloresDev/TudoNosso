@@ -35,22 +35,15 @@ import InputBarAccessoryView
 
 final class ChatViewController: MessagesViewController {
     
-    
+    private var messageDM: MessageDM!
     let outgoingAvatarOverlap: CGFloat = 17.5
-    private let db = Firestore.firestore()
-    private var reference: CollectionReference?
-    private let storage = Storage.storage().reference()
+   
     
     private var messages: [Message] = []
-    private var messageListener: ListenerRegistration?
     
     private let user: User
     private let channel: Channel
     
-    
-    deinit {
-        messageListener?.remove()
-    }
     
     init(user: User, channel: Channel) {
         self.user = user
@@ -71,18 +64,9 @@ final class ChatViewController: MessagesViewController {
             return
         }
         
-        reference = db.collection(["channels", id, "thread"].joined(separator: "/"))
-        
-        messageListener = reference?.addSnapshotListener { querySnapshot, error in
-            guard let snapshot = querySnapshot else {
-                print("Error listening for channel updates: \(error?.localizedDescription ?? "No error")")
-                return
-            }
-            
-            snapshot.documentChanges.forEach { change in
-                self.handleDocumentChange(change)
-            }
-        }
+        messageDM = MessageDM(channelID: id, completion: { (change) in
+            self.handleDocumentChange(change)
+        })
         
         if #available(iOS 11.0, *) {
             navigationItem.largeTitleDisplayMode = .never
@@ -114,16 +98,6 @@ final class ChatViewController: MessagesViewController {
     func isNextMessageSameSender(at indexPath: IndexPath) -> Bool {
         guard indexPath.section + 1 < messages.count else { return false }
         return messages[indexPath.section].user == messages[indexPath.section + 1].user
-    }
-    private func save(_ message: Message) {
-        reference?.addDocument(data: message.representation) { error in
-            if let e = error {
-                print("Error sending message: \(e.localizedDescription)")
-                return
-            }
-            
-            self.messagesCollectionView.scrollToBottom()
-        }
     }
     
     private func insertNewMessage(_ message: Message) {
@@ -283,7 +257,9 @@ extension ChatViewController: InputBarAccessoryViewDelegate {
         for component in data {
             if let str = component as? String {
                 let message = Message(user: self.user, content: str)
-                save(message)
+                messageDM.save(message) {
+                    self.messagesCollectionView.scrollToBottom(animated: true)
+                }
             }
         }
     }
