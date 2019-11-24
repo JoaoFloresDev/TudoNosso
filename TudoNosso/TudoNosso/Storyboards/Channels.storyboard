@@ -33,7 +33,7 @@
         <!--Chats-->
         <scene sceneID="yEF-rQ-gAv">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="IWV-gm-cyY" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="ChannelSBID" automaticallyAdjustsScrollViewInsets="NO" id="IWV-gm-cyY" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Chats" image="message" catalog="system" id="XDh-Ar-g7H"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="8KO-uJ-YD9">

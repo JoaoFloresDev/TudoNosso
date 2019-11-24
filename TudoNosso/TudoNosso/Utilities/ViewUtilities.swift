@@ -21,4 +21,13 @@ class ViewUtilities {
         cardView.layer.shouldRasterize = true
         cardView.layer.rasterizationScale = UIScreen.main.scale
     }
+    
+    static func navigateToStoryBoard(storyboardName: String, storyboardID: String,window: UIWindow?, completion: () -> ()){
+        let storyboard = UIStoryboard(name: storyboardName, bundle: nil)
+        
+        let initialViewController = storyboard.instantiateViewController(withIdentifier: storyboardID)
+        
+        window?.rootViewController = initialViewController
+        window?.makeKeyAndVisible()
+    }
 }
