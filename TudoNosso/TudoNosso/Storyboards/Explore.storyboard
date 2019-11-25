@@ -269,6 +269,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="YuP-RR-lT6">
+                                <rect key="frame" x="0.0" y="-50" width="414" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="AzZ-p1-RXa"/>
+                                </constraints>
+                            </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="186" sectionHeaderHeight="2" sectionFooterHeight="2" translatesAutoresizingMaskIntoConstraints="NO" id="D89-VI-4vT">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="725"/>
                                 <color key="backgroundColor" red="0.97645872831344604" green="0.97646445035934448" blue="0.97647935152053833" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -454,9 +460,12 @@
                         <color key="backgroundColor" red="0.97647058823529409" green="0.97647058823529409" blue="0.97647058823529409" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="D89-VI-4vT" secondAttribute="trailing" id="5h9-QJ-kJ7"/>
+                            <constraint firstItem="D89-VI-4vT" firstAttribute="top" secondItem="h0x-dn-rc0" secondAttribute="bottom" id="9Ym-yy-mMQ"/>
                             <constraint firstItem="iXS-Y1-fWR" firstAttribute="top" secondItem="D89-VI-4vT" secondAttribute="bottom" id="DfL-ER-Nbu"/>
+                            <constraint firstItem="YuP-RR-lT6" firstAttribute="width" secondItem="JtM-Ne-iCO" secondAttribute="width" id="G7e-b3-aLY"/>
+                            <constraint firstItem="YuP-RR-lT6" firstAttribute="top" secondItem="JtM-Ne-iCO" secondAttribute="top" constant="-50" id="JPz-JH-tMA"/>
                             <constraint firstItem="D89-VI-4vT" firstAttribute="leading" secondItem="JtM-Ne-iCO" secondAttribute="leading" id="Kr0-o0-xpg"/>
-                            <constraint firstItem="D89-VI-4vT" firstAttribute="top" secondItem="h0x-dn-rc0" secondAttribute="bottom" id="u6d-Y2-z4C"/>
+                            <constraint firstItem="YuP-RR-lT6" firstAttribute="centerX" secondItem="JtM-Ne-iCO" secondAttribute="centerX" id="W6S-Xu-a00"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="EEc-oX-1ja"/>
                     </view>
@@ -488,7 +497,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zp5-lL-Zpc" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1786.9565217391305" y="289.95535714285711"/>
+            <point key="canvasLocation" x="1786.9565217391305" y="289.28571428571428"/>
         </scene>
         <!--Explore-->
         <scene sceneID="BV3-kr-qX5">
@@ -501,7 +510,7 @@
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <color key="barTintColor" red="1" green="0.34901960780000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="barTintColor" red="0.92549019607843142" green="0.396078431372549" blue="0.16862745098039217" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </textAttributes>

@@ -34,6 +34,7 @@ class ExploreViewController: UIViewController {
         }
     }
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTableView()
@@ -41,24 +42,36 @@ class ExploreViewController: UIViewController {
         setupJobsTableView()
         
         loadData()
+        
+        navigationController?.navigationBar.barTintColor = UIColor(rgb: 0xFF5900, a: 1)
+        navigationController?.navigationBar.backgroundColor = UIColor(rgb: 0xFF5900, a: 1)
+        navigationController?.navigationBar.tintColor = UIColor(rgb: 0xFF5900, a: 1)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        loadData()
     }
     
     func setupSearchBar() {
         jobsTableView.tableHeaderView = searchController.searchBar
         
-        let searchBar = UISearchBar.appearance()
-        searchBar.tintColor = UIColor.black
-        searchBar.barTintColor = UIColor(rgb: 0xFF5900, a: 1)
-        searchBar.backgroundColor = UIColor(rgb: 0xFF5900, a: 1)
-        searchBar.alpha = 1
+//        let searchBar = UISearchBar.appearance()
+        let colText = UITextField.appearance()
+        colText.textColor = .gray
+        
         searchController.dimsBackgroundDuringPresentation = false
         searchController.searchResultsUpdater = self
         searchController.obscuresBackgroundDuringPresentation = false
         searchController.searchBar.placeholder = "Buscar"
         searchController.searchBar.searchTextField.backgroundColor = .white
-//        searchController.searchBar.setBackgroundImage(UIImage(named: "background Search"), for: UIBarPosition.top, barMetrics: UIBarMetrics.default)
+        searchController.searchBar.tintColor = UIColor.black
+        searchController.searchBar.barTintColor = UIColor(rgb: 0xFF5900, a: 1)
+        searchController.searchBar.backgroundColor = UIColor(rgb: 0xFF5900, a: 1)
+        searchController.searchBar.alpha = 1
+        searchController.searchBar.setBackgroundImage(UIImage(named: "background Search"), for: UIBarPosition.top, barMetrics: UIBarMetrics.default)
         searchController.searchBar.tintColor = .white //UIColor(rgb: 0xFF5900, a: 1)
-//        searchController.searchBar.isTranslucent = false
+        searchController.searchBar.isTranslucent = false
         searchController.searchBar.backgroundColor = UIColor(rgb: 0xFF5900, a: 1)
         definesPresentationContext = true
     }
