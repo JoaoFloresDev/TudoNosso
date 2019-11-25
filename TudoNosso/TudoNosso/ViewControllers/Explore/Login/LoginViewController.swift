@@ -15,7 +15,7 @@ import FirebaseAuth
 //import FIRStorage
 
 class LoginViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate, UITextFieldDelegate {
-
+    
     
     @IBOutlet weak var constrainTextBox: UIView!
     @IBOutlet weak var emailTextField: UITextField!
@@ -29,7 +29,7 @@ class LoginViewController: UIViewController, UINavigationControllerDelegate, UII
             showAlert(msg: "Campo senha precisa ser preenchido", field: passwordTextField)
         }else {
             guard let email = emailTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines),
-                  let password = passwordTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines)  else {return}
+                let password = passwordTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines)  else {return}
             LoginDM().signIn(email: email, pass: password) { (dictionary, error) in
                 if let error = error {
                     print(error.localizedDescription)
@@ -41,7 +41,13 @@ class LoginViewController: UIViewController, UINavigationControllerDelegate, UII
                         Local.userMail = volunteer.email
                         Local.userKind = LoginKinds.volunteer.rawValue
                     }
-                    self.navigationController?.popViewController(animated: true)
+                    let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                    
+                    let initialViewController = storyboard.instantiateViewController(withIdentifier: "Tab")
+                    
+                    
+                    self.view.window?.rootViewController = initialViewController
+                    self.view.window?.makeKeyAndVisible()
                 }
             }
         }
@@ -60,13 +66,13 @@ class LoginViewController: UIViewController, UINavigationControllerDelegate, UII
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         
         KeyboardAvoiding.avoidingView = self.constrainTextBox
         
     }
     
-//    keyboard functions
+    //    keyboard functions
     public func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
         if textField == self.emailTextField {
             KeyboardAvoiding.avoidingView = self.constrainTextBox
@@ -91,6 +97,6 @@ class LoginViewController: UIViewController, UINavigationControllerDelegate, UII
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-
+    
     
 }

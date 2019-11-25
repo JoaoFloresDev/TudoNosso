@@ -15,6 +15,10 @@ class LoginDM{
     let TABLENAME = "login"
     let auth = Auth.auth()
     
+    func save(login: Login) {
+        let loginId = Base64Converter.encodeStringAsBase64(login.email)
+        db.collection(TABLENAME).document(loginId).setData(login.representation)
+    }
     
     func signIn(email: String, pass:String, completion: @escaping ([String : Any]?,Error?) ->()){
         self.auth.signIn(withEmail: email, password: pass) { (fireUser, err) in
@@ -29,16 +33,26 @@ class LoginDM{
             }
         }
     }
-    func signUp(email: String, pass:String, kind:LoginKinds){
+    func signUp(email: String, pass:String, kind:LoginKinds,newUserData: NSDictionary, completion: @escaping (Login?,Error?) ->()){
         self.auth.createUser(withEmail: email, password: pass) { (fireUser, err) in
             if let err = err {
-                
+                completion(nil,err)
             }else {
+                let login = Login(email: email, kind: kind)
+                self.save(login: login)
                 switch kind {
                 case .ONG:
+                    
+                    if let ong = Organization(snapshot: newUserData){
+                        OrganizationDM().save(ong: ong)
+                        completion(login,nil)
+                    }
                     break
-                default:
-                    break
+                case .volunteer:
+                    if let volunteer = Volunteer(snapshot: newUserData){
+                        VolunteerDM().save(volunteer: volunteer)
+                        completion(login,nil)
+                    }
                 }
             }
         }
