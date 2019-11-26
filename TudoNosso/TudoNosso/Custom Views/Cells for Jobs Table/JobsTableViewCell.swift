@@ -15,7 +15,7 @@ class JobsTableViewCell: UITableViewCell {
     @IBOutlet weak var jobTitleLabel: UILabel!
     @IBOutlet weak var typeOfJobLabel: UILabel!
     @IBOutlet weak var jobAdressLabel: UILabel!
-    @IBOutlet weak var jobImageVeiw: UIImageView!
+    @IBOutlet weak var jobImageView: UIImageView!
     @IBOutlet weak var categoriesLabel: UILabel!
     @IBOutlet weak var firstVolunteerImage: RoundedImageView!
     @IBOutlet weak var secondVolunteerImage: RoundedImageView!
@@ -47,9 +47,9 @@ class JobsTableViewCell: UITableViewCell {
             
             if let avatar = ong.avatar {
                 FileDM().recoverProfileImage(profilePic: avatar) { (image, error) in
-                    guard let imanage = image else {return}
+                    guard let image = image else {return}
                     OperationQueue.main.addOperation {
-                        self.jobImageVeiw.image = image
+                        self.jobImageView.image = image
                     }
                 }
             }
@@ -60,10 +60,10 @@ class JobsTableViewCell: UITableViewCell {
     
     
     @IBAction func deletePressed(_ sender: Any) {
-        
+        print("delete job pressed")
     }
     
     @IBAction func finishPressed(_ sender: Any) {
-        
+        print("finish job pressed")
     }
 }

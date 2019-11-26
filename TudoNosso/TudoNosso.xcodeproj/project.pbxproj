@@ -12,7 +12,6 @@
 		1663B33923730D90005E3363 /* Nunito-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1663B33723730D90005E3363 /* Nunito-Regular.ttf */; };
 		3B08C35A717ED3964E4F36AF /* Pods_TudoNosso_TudoNossoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A01E7358CA8C4FF34A59BF3 /* Pods_TudoNosso_TudoNossoUITests.framework */; };
 		5601523D2388A4D100D9D8E8 /* SenderType+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5601523C2388A4D100D9D8E8 /* SenderType+extensions.swift */; };
-		560C305E23880D70004BD536 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 560C306023880D70004BD536 /* Localizable.strings */; };
 		560C30652388291D004BD536 /* Channel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560C30642388291D004BD536 /* Channel.swift */; };
 		560C3067238868F9004BD536 /* ChannelDM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560C3066238868F9004BD536 /* ChannelDM.swift */; };
 		560C306923886BF8004BD536 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560C306823886BF8004BD536 /* Message.swift */; };
@@ -113,10 +112,6 @@
 		224AFBC86B801E3B9A526E09 /* Pods-TudoNossoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TudoNossoTests.release.xcconfig"; path = "Target Support Files/Pods-TudoNossoTests/Pods-TudoNossoTests.release.xcconfig"; sourceTree = "<group>"; };
 		3A01E7358CA8C4FF34A59BF3 /* Pods_TudoNosso_TudoNossoUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TudoNosso_TudoNossoUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5601523C2388A4D100D9D8E8 /* SenderType+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SenderType+extensions.swift"; sourceTree = "<group>"; };
-		560C305A23880D13004BD536 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
-		560C305B23880D16004BD536 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Main.strings"; sourceTree = "<group>"; };
-		560C305F23880D70004BD536 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Localizable.strings"; sourceTree = "<group>"; };
-		560C306123880D77004BD536 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		560C30642388291D004BD536 /* Channel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Channel.swift; sourceTree = "<group>"; };
 		560C3066238868F9004BD536 /* ChannelDM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelDM.swift; sourceTree = "<group>"; };
 		560C306823886BF8004BD536 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
@@ -1021,7 +1016,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = NZC6LC8NWM;
+				DEVELOPMENT_TEAM = 9HYX7YXGKC;
 				INFOPLIST_FILE = TudoNosso/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1041,7 +1036,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = NZC6LC8NWM;
+				DEVELOPMENT_TEAM = 9HYX7YXGKC;
 				INFOPLIST_FILE = TudoNosso/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
