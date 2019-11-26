@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol JobsTableViewCellDelegate {
+    func deleteJob(indexPath: IndexPath)
+}
+
 class JobsTableViewCell: UITableViewCell {
     
     let ongDM = OrganizationDM()
@@ -28,6 +32,10 @@ class JobsTableViewCell: UITableViewCell {
         let nibName = String(describing: JobsTableViewCell.self)
         return UINib(nibName: nibName, bundle: nil)
     }
+    
+    var indexPath: IndexPath?
+    
+    var delegate: JobsTableViewCellDelegate?
     
     func configure(job: Job, buttonsAvailable: Bool){
         
@@ -58,9 +66,17 @@ class JobsTableViewCell: UITableViewCell {
 //        jobImageVeiw.image = job
     }
     
+    func configIfProfile(delegate: JobsTableViewCellDelegate, indexPath: IndexPath) {
+        self.delegate = delegate
+        self.indexPath = indexPath
+    }
+    
     
     @IBAction func deletePressed(_ sender: Any) {
         print("delete job pressed")
+        if let indexPath = self.indexPath {
+            delegate?.deleteJob(indexPath: indexPath)
+        }
     }
     
     @IBAction func finishPressed(_ sender: Any) {

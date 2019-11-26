@@ -12,11 +12,11 @@ class JobsTableViewController: UITableViewController {
     
     //MARK: Properties
     struct Dependencies {
-        var data: [Job]
+        var jobs: [Job]
         var isMyProfile: Bool
         
-        init(data: [Job], isMyProfile: Bool) {
-            self.data = data
+        init(jobs: [Job], isMyProfile: Bool) {
+            self.jobs = jobs
             self.isMyProfile = isMyProfile
         }
     }
@@ -41,7 +41,7 @@ class JobsTableViewController: UITableViewController {
     
     //MARK: Setup from Segue
     func setup(dependencies: Dependencies) {
-        self.jobs = dependencies.data
+        self.jobs = dependencies.jobs
         self.isMyProfile = dependencies.isMyProfile
     }
     
@@ -143,8 +143,14 @@ class JobsTableViewController: UITableViewController {
         default:
             cell.configure(job: finishedJobs[indexPath.row], buttonsAvailable: self.isMyProfile ?? false)
         }
+        
+        if isMyProfile ?? false {
+            cell.configIfProfile(delegate: self, indexPath: indexPath)
+        }
+        
         cell.backgroundColor = .clear
         cell.selectionStyle = .none
+        
         return cell
     }
     
@@ -156,5 +162,12 @@ class JobsTableViewController: UITableViewController {
         default:
             return
         }
+    }
+}
+
+//MARK: JobsTableViewCellDelegate
+extension JobsTableViewController : JobsTableViewCellDelegate {
+    func deleteJob(indexPath: IndexPath) {
+        //TODO
     }
 }
