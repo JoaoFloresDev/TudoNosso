@@ -3,7 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -17,10 +17,10 @@
             </objects>
             <point key="canvasLocation" x="793" y="9"/>
         </scene>
-        <!--Notifications-->
+        <!--Channels-->
         <scene sceneID="RqO-X7-6fw">
             <objects>
-                <viewControllerPlaceholder storyboardName="Notifications" id="nJg-d8-feq" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="Channels" id="nJg-d8-feq" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="ccb-Z9-K94"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Z4z-my-88r" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

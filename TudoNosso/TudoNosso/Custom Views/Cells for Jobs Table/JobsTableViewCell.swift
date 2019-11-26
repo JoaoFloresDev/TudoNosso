@@ -10,6 +10,8 @@ import UIKit
 
 class JobsTableViewCell: UITableViewCell {
     
+    let ongDM = OrganizationDM()
+    
     @IBOutlet weak var jobTitleLabel: UILabel!
     @IBOutlet weak var typeOfJobLabel: UILabel!
     @IBOutlet weak var jobAdressLabel: UILabel!
@@ -39,6 +41,21 @@ class JobsTableViewCell: UITableViewCell {
             buttonsView.superview?.sizeToFit()
             buttonsView.superview?.superview?.sizeToFit()
         }
+        
+        ongDM.find(ById: job.organizationID) { (ong, err) in
+            guard let ong = ong else { return }
+            
+            if let avatar = ong.avatar {
+                FileDM().recoverProfileImage(profilePic: avatar) { (image, error) in
+                    guard let imanage = image else {return}
+                    OperationQueue.main.addOperation {
+                        self.jobImageVeiw.image = image
+                    }
+                }
+            }
+        }
+        
+//        jobImageVeiw.image = job
     }
     
     

@@ -34,11 +34,11 @@ class Login {
         self.kind = kindEnum
         
     }
-   
+    
 }
 
 extension Login: DatabaseRepresentation {
-    typealias fieldEnum = LoginFields
+    
     
     var representation: [String : Any] {
         let rep: [LoginFields : Any] = [
@@ -49,6 +49,18 @@ extension Login: DatabaseRepresentation {
             (key.rawValue, value) })
     }
     
+    
+}
+
+extension Login: DictionaryInterpreter{
+    typealias fieldEnum = LoginFields
+    
+    static func interpret(data: NSDictionary) -> Self? {
+        if let id = data["id"] as? String {
+            return Login(id: id, snapshot: data) as? Self
+        }
+        return nil
+    }
     static func snapshotFieldReader<T>(_ snapshot: NSDictionary,_ field: LoginFields) -> T?{
         return snapshot[field.rawValue] as? T
     }
