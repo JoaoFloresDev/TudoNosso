@@ -36,6 +36,7 @@ class JobViewController: UIViewController {
             self.jobDescriptionLabel.text = job.desc
             self.engajedAndSlotsLabel.text = job.engagedOnesSlashVacancyNumber
         }
+        
         AddressUtil.recoveryAddress(fromLocation: job.localization) { (address, err) in
             guard let address = address else { return }
             OperationQueue.main.addOperation {
@@ -48,6 +49,7 @@ class JobViewController: UIViewController {
             OperationQueue.main.addOperation {
                 self.jobOrganizationName.setTitle(ong.name, for: .normal)
             }
+            
             if let avatar = ong.avatar {
                 FileDM().recoverProfileImage(profilePic: avatar) { (image, error) in
                     guard let image = image else {return}
