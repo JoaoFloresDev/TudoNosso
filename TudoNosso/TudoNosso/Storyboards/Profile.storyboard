@@ -71,7 +71,7 @@
                                 </connections>
                             </segmentedControl>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="3Tl-iT-9Ef">
-                                <rect key="frame" x="0.0" y="347" width="414" height="549"/>
+                                <rect key="frame" x="0.0" y="347" width="414" height="466"/>
                                 <subviews>
                                     <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a9N-Rq-reB" userLabel="Button View">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="47"/>
@@ -192,24 +192,32 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2dc-9R-4YF" userLabel="Containers View">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="549"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="466"/>
                                         <subviews>
-                                            <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Bd2-4V-TI7" userLabel="Jobs Container View">
-                                                <rect key="frame" x="0.0" y="0.0" width="414" height="514"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bd2-4V-TI7" userLabel="Jobs Container View">
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="466"/>
                                                 <connections>
                                                     <segue destination="zlr-x7-Ay4" kind="embed" identifier="toJobsTable" id="EdX-uL-l8F"/>
                                                 </connections>
                                             </containerView>
-                                            <containerView hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mhb-Pr-5tE" userLabel="Profile Container View">
-                                                <rect key="frame" x="0.0" y="0.0" width="414" height="514"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <containerView hidden="YES" opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mhb-Pr-5tE" userLabel="Profile Container View">
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="466"/>
                                                 <connections>
                                                     <segue destination="aEY-Ys-aZF" kind="embed" identifier="toProfileTable" id="74j-nc-Jq6"/>
                                                 </connections>
                                             </containerView>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstItem="mhb-Pr-5tE" firstAttribute="leading" secondItem="2dc-9R-4YF" secondAttribute="leading" id="Nt6-fm-xHD"/>
+                                            <constraint firstItem="Bd2-4V-TI7" firstAttribute="top" secondItem="2dc-9R-4YF" secondAttribute="top" id="S4k-T1-OjS"/>
+                                            <constraint firstAttribute="bottom" secondItem="mhb-Pr-5tE" secondAttribute="bottom" id="bfM-E2-Ycg"/>
+                                            <constraint firstAttribute="trailing" secondItem="mhb-Pr-5tE" secondAttribute="trailing" id="hvZ-WL-FLu"/>
+                                            <constraint firstAttribute="trailing" secondItem="Bd2-4V-TI7" secondAttribute="trailing" id="ieD-vo-LTj"/>
+                                            <constraint firstItem="mhb-Pr-5tE" firstAttribute="top" secondItem="2dc-9R-4YF" secondAttribute="top" id="k5H-Np-bcO"/>
+                                            <constraint firstAttribute="bottom" secondItem="Bd2-4V-TI7" secondAttribute="bottom" id="mZD-k3-Jrx"/>
+                                            <constraint firstItem="Bd2-4V-TI7" firstAttribute="leading" secondItem="2dc-9R-4YF" secondAttribute="leading" id="sZm-YJ-hk0"/>
+                                        </constraints>
                                     </view>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -217,7 +225,7 @@
                         </subviews>
                         <color key="backgroundColor" red="0.97647058823529409" green="0.97647058823529409" blue="0.97647058823529409" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="3Tl-iT-9Ef" secondAttribute="bottom" id="3FG-q1-prm"/>
+                            <constraint firstItem="n0i-jl-CD4" firstAttribute="bottom" secondItem="3Tl-iT-9Ef" secondAttribute="bottom" id="3FG-q1-prm"/>
                             <constraint firstItem="n0i-jl-CD4" firstAttribute="trailing" secondItem="4uf-3h-zcr" secondAttribute="trailing" id="4uX-4q-rly"/>
                             <constraint firstItem="3Tl-iT-9Ef" firstAttribute="top" secondItem="Fbt-ez-Tyx" secondAttribute="bottom" constant="32" id="MZb-32-kR2"/>
                             <constraint firstItem="3Tl-iT-9Ef" firstAttribute="trailing" secondItem="n0i-jl-CD4" secondAttribute="trailing" id="QNm-Pq-UYi"/>

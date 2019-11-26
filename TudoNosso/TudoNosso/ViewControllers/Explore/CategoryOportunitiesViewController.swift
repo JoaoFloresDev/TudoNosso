@@ -148,7 +148,7 @@ extension CategoryOportunitiesViewController : UITableViewDataSource, UISearchRe
               jobList = ongoingJobs[indexPath.row]
             }
             
-            cell.configure(job: jobList)
+            cell.configure(job: jobList, buttonsAvailable: false)
             cell.backgroundColor = .clear
             cell.selectionStyle = .none
             

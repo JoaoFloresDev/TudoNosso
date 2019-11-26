@@ -18,6 +18,7 @@ class JobsTableViewCell: UITableViewCell {
     @IBOutlet weak var firstVolunteerImage: RoundedImageView!
     @IBOutlet weak var secondVolunteerImage: RoundedImageView!
     @IBOutlet weak var engagedLabel: UILabel!
+    @IBOutlet weak var buttonsView: UIView!
     
     static let reuseIdentifer = "JobsTableViewCell"
     
@@ -26,11 +27,17 @@ class JobsTableViewCell: UITableViewCell {
         return UINib(nibName: nibName, bundle: nil)
     }
     
-    func configure(job: Job){
+    func configure(job: Job, buttonsAvailable: Bool){
         
         jobTitleLabel.text = job.title
         typeOfJobLabel.text = job.vacancyType
         categoriesLabel.text = job.category.rawValue
         engagedLabel.text = "00 engajados / " + String(format: "%02d", job.vacancyNumber) + " vagas"
+        
+        if buttonsAvailable { //TODO ajustes
+            buttonsView.isHidden = false
+            buttonsView.superview?.sizeToFit()
+            buttonsView.superview?.superview?.sizeToFit()
+        }
     }
 }

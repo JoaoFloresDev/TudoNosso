@@ -10,7 +10,18 @@ import UIKit
 
 class JobsTableViewController: UITableViewController {
     
-    var data: [Job]? 
+    struct Dependencies {
+        var data: [Job]
+        var isMyProfile: Bool
+        
+        init(data: [Job], isMyProfile: Bool) {
+            self.data = data
+            self.isMyProfile = isMyProfile
+        }
+    }
+    
+    var jobs: [Job]?
+    var isMyProfile: Bool?
     
     var ongoingJobs : [Job] = []
     var finishedJobs : [Job] = []
@@ -18,6 +29,11 @@ class JobsTableViewController: UITableViewController {
     var selectedJob: Job?
     
     private let jobsDetailSegueID = "toJobDetails"
+    
+    func setup(dependencies: Dependencies) {
+        self.jobs = dependencies.data
+        self.isMyProfile = dependencies.isMyProfile
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,8 +55,7 @@ class JobsTableViewController: UITableViewController {
     func sortJobs(){
         ongoingJobs.removeAll()
         finishedJobs.removeAll()
-        
-        if let jobs = self.data{
+        if let jobs = self.jobs {
             for job in jobs {
                 if job.status {
                     ongoingJobs.append(job)
@@ -119,9 +134,9 @@ class JobsTableViewController: UITableViewController {
         }
         switch indexPath.section {
         case 0:
-            cell.configure(job: ongoingJobs[indexPath.row])
+            cell.configure(job: ongoingJobs[indexPath.row], buttonsAvailable: self.isMyProfile ?? false)
         default:
-            cell.configure(job: finishedJobs[indexPath.row])
+            cell.configure(job: finishedJobs[indexPath.row], buttonsAvailable: self.isMyProfile ?? false)
         }
         cell.backgroundColor = .clear
         cell.selectionStyle = .none

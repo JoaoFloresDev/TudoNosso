@@ -221,7 +221,8 @@ class ProfileViewController: UIViewController {
             }
         } else if segue.identifier == jobsSegueID {
             if let nextVC = segue.destination as? JobsTableViewController {
-                nextVC.data = self.jobs
+                let dependencies = JobsTableViewController.Dependencies(data: self.jobs ?? [], isMyProfile: self.isMyProfile ?? false)
+                nextVC.setup(dependencies: dependencies)
             }
         }
     }
