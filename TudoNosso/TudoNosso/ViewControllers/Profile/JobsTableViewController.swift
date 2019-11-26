@@ -10,6 +10,7 @@ import UIKit
 
 class JobsTableViewController: UITableViewController {
     
+    //MARK: Properties
     struct Dependencies {
         var data: [Job]
         var isMyProfile: Bool
@@ -30,11 +31,7 @@ class JobsTableViewController: UITableViewController {
     
     private let jobsDetailSegueID = "toJobDetails"
     
-    func setup(dependencies: Dependencies) {
-        self.jobs = dependencies.data
-        self.isMyProfile = dependencies.isMyProfile
-    }
-    
+    //MARK: Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -42,6 +39,13 @@ class JobsTableViewController: UITableViewController {
         sortJobs()
     }
     
+    //MARK: Setup from Segue
+    func setup(dependencies: Dependencies) {
+        self.jobs = dependencies.data
+        self.isMyProfile = dependencies.isMyProfile
+    }
+    
+    //MARK: Methods
     func setupJobsTableView(){
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 200
@@ -68,6 +72,7 @@ class JobsTableViewController: UITableViewController {
         tableView.reloadData()
     }
     
+    //MARK: Segue
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == jobsDetailSegueID {
             if let nextVC = segue.destination as? JobViewController {
@@ -76,7 +81,7 @@ class JobsTableViewController: UITableViewController {
         }
     }
     
-    // MARK: - Table view data source
+    // MARK: Table view
     
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 2

@@ -13,6 +13,7 @@ class ProfileViewController: UIViewController {
     
     let placeholderEmail = "bruno@gmail.com" // TODO deletar
     
+    // MARK: Outlets
     @IBOutlet weak var profileNameLabel: UILabel!
     @IBOutlet weak var profileImage: RoundedImageView!
     @IBOutlet weak var segmentedControl: CustomSegmentedControl!
@@ -24,6 +25,7 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var profileContainerView: UIView!
     @IBOutlet weak var jobsContainerView: UIView!
     
+    //MARK: Properties
     private let jobsSegueID = "toJobsTable"
     private let profileSegueID = "toProfileTable"
     
@@ -103,6 +105,7 @@ class ProfileViewController: UIViewController {
     }
     var isMyProfile = false
     
+    //MARK: Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         loadData()
@@ -112,6 +115,7 @@ class ProfileViewController: UIViewController {
         super.viewWillAppear(animated)
     }
     
+    //MARK: Methods
     func loadData() {
         let loginDM = LoginDM()
         let jobDM = JobDM()
@@ -196,6 +200,7 @@ class ProfileViewController: UIViewController {
         }
     }
     
+    //MARK: Segues
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
         switch identifier{
         case profileSegueID:
@@ -227,6 +232,7 @@ class ProfileViewController: UIViewController {
         }
     }
 
+    //MARK: IBAction
     @IBAction func segmentChanged(_ sender: Any) {
         switch segmentedControl.selectedSegmentIndex {
         case 0: // show jobs

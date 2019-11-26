@@ -40,4 +40,13 @@ class JobsTableViewCell: UITableViewCell {
             buttonsView.superview?.superview?.sizeToFit()
         }
     }
+    
+    
+    @IBAction func deletePressed(_ sender: Any) {
+        
+    }
+    
+    @IBAction func finishPressed(_ sender: Any) {
+        
+    }
 }

@@ -70,7 +70,7 @@
                                     <action selector="segmentChanged:" destination="nET-7L-Osk" eventType="valueChanged" id="1K6-Nm-ZlU"/>
                                 </connections>
                             </segmentedControl>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="3Tl-iT-9Ef">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="3Tl-iT-9Ef">
                                 <rect key="frame" x="0.0" y="347" width="414" height="466"/>
                                 <subviews>
                                     <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a9N-Rq-reB" userLabel="Button View">
@@ -265,7 +265,7 @@
             <objects>
                 <tableViewController id="zlr-x7-Ay4" customClass="JobsTableViewController" customModule="TudoNosso" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="wfL-ou-JTl">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="514"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="466"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
@@ -306,7 +306,7 @@
             <objects>
                 <tableViewController id="aEY-Ys-aZF" customClass="ProfileTableViewController" customModule="TudoNosso" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="1" sectionFooterHeight="28" id="K9p-Fg-I1j">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="514"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="466"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <sections>
