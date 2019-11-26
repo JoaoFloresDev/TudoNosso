@@ -70,22 +70,24 @@ extension CategoryCollectionView : UICollectionViewDataSource, UICollectionViewD
             cell.titleLabel.text = organizationsList[indexPath.row].name
             cell.email = organizationsList[indexPath.row].email
             
-            let data = cell.email.data(using: .utf8)
-            let base64 = data!.base64EncodedString(options: NSData.Base64EncodingOptions(rawValue: 0))
-            
-            ongDM.find(ById: base64) { (ong, err) in
-                guard let ong = ong else { return }
-
-                if let avatar = ong.avatar {
-                    FileDM().recoverProfileImage(profilePic: avatar) { (image, error) in
-                        guard let image = image else {return}
-                        OperationQueue.main.addOperation {
-                            let image2 = self.cropToBounds(image: image, portraitOrientation: true)
-                            cell.imageView.image = image2
-                        }
-                    }
-                }
-            }
+            let image = cropToBounds(image: UIImage(named: "ong-img_job")!, portraitOrientation: true)
+            cell.imageView.image = image
+//            let data = cell.email.data(using: .utf8)
+//            let base64 = data!.base64EncodedString(options: NSData.Base64EncodingOptions(rawValue: 0))
+//
+//            ongDM.find(ById: base64) { (ong, err) in
+//                guard let ong = ong else { return }
+//
+//                if let avatar = ong.avatar {
+//                    FileDM().recoverProfileImage(profilePic: avatar) { (image, error) in
+//                        guard let image = image else {return}
+//                        OperationQueue.main.addOperation {
+//                            let image2 = self.cropToBounds(image: image, portraitOrientation: true)
+//                            cell.imageView.image = image2
+//                        }
+//                    }
+//                }
+//            }
         }
         
         cell.delegate = self
