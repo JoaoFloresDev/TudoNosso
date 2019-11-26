@@ -41,13 +41,8 @@ class LoginViewController: UIViewController, UINavigationControllerDelegate, UII
                         Local.userMail = volunteer.email
                         Local.userKind = LoginKinds.volunteer.rawValue
                     }
-                    let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                    ViewUtilities.navigateToStoryBoard(storyboardName: "Main", storyboardID: "Tab", window: self.view.window, completion: {})
                     
-                    let initialViewController = storyboard.instantiateViewController(withIdentifier: "Tab")
-                    
-                    
-                    self.view.window?.rootViewController = initialViewController
-                    self.view.window?.makeKeyAndVisible()
                 }
             }
         }

@@ -9,11 +9,18 @@
 import Foundation
 
 class Base64Converter {
-  static func encodeStringAsBase64(_ text:String) -> String{
+    static func encodeStringAsBase64(_ text:String) -> String{
         
         let data = text.data(using: .utf8)
         let base64 = data!.base64EncodedString(options: NSData.Base64EncodingOptions(rawValue: 0))
         
         return base64
+    }
+    static func decodeBase64AsString(_ text:String) -> String{
+        
+        let decodedData = Data(base64Encoded: text)!
+        let decodedString = String(data: decodedData, encoding: .utf8)!
+        
+        return decodedString
     }
 }

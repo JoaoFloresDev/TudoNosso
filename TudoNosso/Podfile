@@ -16,9 +16,18 @@ target 'TudoNosso' do
   target 'TudoNossoUITests' do
     # Pods for testing
   end
-  
+pod 'MessageKit'  
 pod 'Firebase/Auth'
 pod 'Firebase/Storage'
 pod 'Firebase/Firestore'
 pod 'Firebase/Analytics'
+  post_install do |installer|
+      installer.pods_project.targets.each do |target|
+          if target.name == 'MessageKit'
+              target.build_configurations.each do |config|
+                  config.build_settings['SWIFT_VERSION'] = '5.0'
+              end
+          end
+      end
+  end
 end

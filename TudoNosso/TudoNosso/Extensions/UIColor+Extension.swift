@@ -17,7 +17,13 @@ extension UIColor {
     class var appBlack: UIColor { return UIColor(rgb: 0x212121)}
     class var darkOrange: UIColor { return UIColor(rgb: 0xE45102)}
     class var orange: UIColor { return UIColor(rgb: 0xFF5900)}
+    static var primary: UIColor {
+      return UIColor(red: 1 / 255, green: 93 / 255, blue: 48 / 255, alpha: 1)
+    }
     
+    static var incomingMessage: UIColor {
+      return UIColor(red: 230 / 255, green: 230 / 255, blue: 230 / 255, alpha: 1)
+    }
     convenience init(red: Int, green: Int, blue: Int, a: CGFloat = 1.0) {
         self.init(
             red: CGFloat(red) / 255.0,

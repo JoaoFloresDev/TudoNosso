@@ -12,22 +12,47 @@ class FileDM {
     let storage = Storage.storage()
     
     func recoverProfileImage(profilePic:String, completion: @escaping (UIImage?,Error?) ->()) {
-          
-          storage.reference().child("profilePic/\(profilePic)").downloadURL { (url, err) in
-              if let err = err {
-                  print(err.localizedDescription)
-                  completion(nil,err)
-              }else {
-                  do {
-                      let image = try UIImage(data: Data(contentsOf: url!))
-                      completion(image,nil)
-                  } catch {
-                      print("erro na imagem")
-                  }
-              }
-          }
-          
-          
-      }
+        
+        
+        storage.reference().child("profilePic/\(profilePic)").downloadURL { (url, err) in
+            if let err = err {
+                print(err.localizedDescription)
+                completion(nil,err)
+            }else {
+                do {
+                    let image = try UIImage(data: Data(contentsOf: url!))
+                    completion(image,nil)
+                } catch {
+                    print("erro na imagem")
+                }
+            }
+        }
+        
+    }
+    
+    func recoverProfileImages(profilePics:[String], completion: @escaping ([UIImage?],Error?) ->())     {
+        var images:[UIImage?] = []
+        profilePics.forEach { (imagePic) in
+            if imagePic != "padrao"{
+                storage.reference().child("profilePic/\(imagePic)").downloadURL { (url, err) in
+                    if let err = err {
+                        print(err.localizedDescription)
+                        completion(images,err)
+                    }else {
+                        do {
+                            let image = try UIImage(data: Data(contentsOf: url!))
+                            images.append(image)
+                        } catch {
+                            print("erro na imagem")
+                        }
+                    }
+                }
+            }else {
+                images.append(UIImage(named: "user_placeholder"))
+            }
+        }
+        completion(images,nil)
+        
+    }
     
 }

@@ -8,10 +8,11 @@
 
 import Foundation
 
-/// The class that use this protocol will need to inform how it inits itself interpreting a NSDictionary
+/// The class that use this protocol will need to inform how it inits itself interpreting a NSDictionary and a func to read a dictionary using a enum of fields
 protocol DictionaryInterpreter {
-    static func interpret(data: NSDictionary) -> Self?
+    associatedtype fieldEnum
     
+    static func interpret(data: NSDictionary) -> Self?
+    static func snapshotFieldReader<T>(_ snapshot: NSDictionary,_ field: fieldEnum) -> T?
 }
-
 
