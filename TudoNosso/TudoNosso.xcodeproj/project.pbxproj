@@ -394,7 +394,6 @@
 				C40A2E8823704BA700DB87BB /* Info.plist */,
 				567D0C4E2370530A00420704 /* GoogleService-Info.plist */,
 				C40A2E8023704BA500DB87BB /* TudoNosso.xcdatamodeld */,
-				560C306023880D70004BD536 /* Localizable.strings */,
 			);
 			path = TudoNosso;
 			sourceTree = "<group>";
@@ -656,7 +655,6 @@
 			knownRegions = (
 				en,
 				Base,
-				"pt-BR",
 			);
 			mainGroup = C40A2E6B23704BA500DB87BB;
 			productRefGroup = C40A2E7523704BA500DB87BB /* Products */;
@@ -678,7 +676,6 @@
 				D776C4D5237442C0002C3F3E /* JobsTableViewCell.xib in Resources */,
 				C40A2EB323704EB200DB87BB /* Profile.storyboard in Resources */,
 				567D0C4F2370530A00420704 /* GoogleService-Info.plist in Resources */,
-				560C305E23880D70004BD536 /* Localizable.strings in Resources */,
 				C40A2EAF23704E7C00DB87BB /* Explore.storyboard in Resources */,
 				560C307A23887B41004BD536 /* ChannelTableViewCell.xib in Resources */,
 				C40A2EB123704E9700DB87BB /* Notifications.storyboard in Resources */,
@@ -913,20 +910,10 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		560C306023880D70004BD536 /* Localizable.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				560C305F23880D70004BD536 /* pt-BR */,
-				560C306123880D77004BD536 /* en */,
-			);
-			name = Localizable.strings;
-			sourceTree = "<group>";
-		};
 		C40A2E7D23704BA500DB87BB /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				C40A2E7E23704BA500DB87BB /* Base */,
-				560C305B23880D16004BD536 /* pt-BR */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -935,7 +922,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				C40A2E8623704BA700DB87BB /* Base */,
-				560C305A23880D13004BD536 /* pt-BR */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -947,7 +933,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -1008,7 +993,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -1065,7 +1049,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = GJUSD98938;
+				DEVELOPMENT_TEAM = NZC6LC8NWM;
 				INFOPLIST_FILE = TudoNosso/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1085,7 +1069,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = GJUSD98938;
+				DEVELOPMENT_TEAM = NZC6LC8NWM;
 				INFOPLIST_FILE = TudoNosso/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (

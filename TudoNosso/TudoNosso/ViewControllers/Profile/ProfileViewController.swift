@@ -74,6 +74,13 @@ class ProfileViewController: UIViewController {
             case .volunteer:    return "Participações"
             }
         }
+        
+        var isSegmentedControlHidden: Bool {
+            switch self {
+            case .ong:          return false
+            case .volunteer:    return true
+            }
+        }
     }
     
     var typeOfProfile: TypeOfProfile? {
@@ -83,6 +90,15 @@ class ProfileViewController: UIViewController {
             self.buttonView.isHidden = typeOfProfile?.isAddJobButtonHidden ?? true
             
             self.segmentedControl.setTitle(typeOfProfile?.segmentedControlTitle ?? "", forSegmentAt: 0)
+            self.segmentedControl.isHidden = typeOfProfile?.isSegmentedControlHidden ?? false
+            if typeOfProfile?.isSegmentedControlHidden ?? false {
+                self.jobsContainerView.isHidden = true
+                self.profileContainerView.isHidden = false
+                
+                self.addJobLabelView.isHidden = true
+                self.editLabelView.isHidden = !isMyProfile
+            }
+            
         }
     }
     var isMyProfile = false

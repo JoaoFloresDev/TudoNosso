@@ -104,6 +104,7 @@ class JobViewController: UIViewController {
             OperationQueue.main.addOperation {
                 self.jobOrganizationName.setTitle(ong.name, for: .normal)
             }
+            
             if let avatar = ong.avatar {
                 FileDM().recoverProfileImage(profilePic: avatar) { (image, error) in
                     guard let image = image else {return}

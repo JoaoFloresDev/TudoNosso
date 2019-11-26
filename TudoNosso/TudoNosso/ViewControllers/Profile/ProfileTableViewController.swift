@@ -32,7 +32,22 @@ class ProfileTableViewController : UITableViewController {
         phoneLabel.text = receivedData?.phone ?? ""
         mailLabel.text = receivedData?.email ?? ""
         
-        adressLabel.text = "Rua Cabo Rubens Zimmermann, 186, Pq. Oziel – Campinas, SP, Brasil" //TODO esse foi só um teste de redimensionamento da view.
+        if let coordinates = receivedData?.address {
+            AddressUtil.recoveryAddress(fromLocation: coordinates) { (result, error) in
+                if error == nil {
+                    if let adress = result {
+                        self.adressLabel.text = adress
+                    } else {
+                        self.adressLabel.text = ""
+                    }
+                } else {
+                    print ("Error getting adress from coordinates.")
+                }
+            }
+        } else {
+            adressLabel.text = ""
+        }
+        
         adressLabel.numberOfLines = 0
         adressLabel.sizeToFit()
         adressLabel.superview?.sizeToFit()
