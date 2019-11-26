@@ -11,8 +11,6 @@ import CoreLocation
 
 class ProfileViewController: UIViewController {
     
-//    let placeholderEmail = "bruno@gmail.com" // TODO deletar
-    
     @IBOutlet weak var profileNameLabel: UILabel!
     @IBOutlet weak var profileImage: RoundedImageView!
     @IBOutlet weak var segmentedControl: CustomSegmentedControl!
@@ -119,10 +117,8 @@ class ProfileViewController: UIViewController {
         var emailAdress: String! = ""
         if self.email != nil {
             emailAdress = self.email
-//            isMyProfile = emailAdress == placeholderEmail // TODO placeholder
             isMyProfile = emailAdress == Local.userMail
         } else {
-//            emailAdress = placeholderEmail //TODO placeholder
             emailAdress = Local.userMail
             isMyProfile = true
         }
