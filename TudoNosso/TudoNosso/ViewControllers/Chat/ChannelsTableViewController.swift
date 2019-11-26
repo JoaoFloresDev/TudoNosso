@@ -17,7 +17,6 @@ class ChannelsTableViewController: UITableViewController {
     }
     //MARK: IBOutlet's
     @IBOutlet var channelsTableView: UITableView!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -31,6 +30,10 @@ class ChannelsTableViewController: UITableViewController {
         
         loadChannels()
     }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        loadChannels()
+    }
     
     func loadChannels(){
         ChannelDM().listAll { (channels, err) in
@@ -38,15 +41,14 @@ class ChannelsTableViewController: UITableViewController {
             self.channels = channels
         }
     }
+    
     // MARK: - Table view data source
     
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 1
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
         return channels.count
     }
     
@@ -61,10 +63,21 @@ class ChannelsTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
         openChannel(self.channels[indexPath.row])
-        
     }
+    
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+//            tableView.deleteRows(at: [indexPath], with: .fade)
+        } else if editingStyle == .insert {
+        }
+    }
+    
+    
     fileprivate func openChannel(_ channel: Channel) {
         let userID = Base64Converter.encodeStringAsBase64(Local.userMail!)
         let userKind = LoginKinds(rawValue: Local.userKind!)!
@@ -79,25 +92,7 @@ class ChannelsTableViewController: UITableViewController {
             }
         }
     }
-    /*
-     // Override to support conditional editing of the table view.
-     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-     // Return false if you do not want the specified item to be editable.
-     return true
-     }
-     */
-    
-    /*
-     // Override to support editing the table view.
-     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-     if editingStyle == .delete {
-     // Delete the row from the data source
-     tableView.deleteRows(at: [indexPath], with: .fade)
-     } else if editingStyle == .insert {
-     // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-     }
-     }
-     */
+   
     
     /*
      // Override to support rearranging the table view.

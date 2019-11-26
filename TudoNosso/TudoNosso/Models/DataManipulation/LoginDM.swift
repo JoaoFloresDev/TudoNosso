@@ -57,13 +57,13 @@ class LoginDM{
             }
         }
     }
-   
+    
     private func handleLogin(completion:@escaping ([String : Any]?,Error?) ->()) -> (Login?, Error?) -> () {
         return { (login, error) -> () in
             self.handleLogin(login: login, error: error, completion: completion)
         }
     }
-
+    
     fileprivate func convertLoginToOrganizationOrVolunteer(_ id: String, _ kind:LoginKinds, _ completion: @escaping ([String : Any]?, Error?) -> ()) {
         switch kind {
         case .ONG:
@@ -89,7 +89,6 @@ class LoginDM{
     private func handleLogin(login: Login?,
                              error: Error?,
                              completion: @escaping ([String : Any]?,Error?) ->()) {
-        
         
         if error == nil {
             guard let login = login else {return}
@@ -122,4 +121,16 @@ class LoginDM{
     }
     
     
+    func listLogins(ByIds ids:[String],completion: @escaping ([String : Any]?,Error?) ->()){
+        let emails = ids.map { (id) -> String in
+            return Base64Converter.decodeBase64AsString(id)
+        }
+        print(emails)
+        db.collection(TABLENAME).filter(using: NSPredicate(format: "\(LoginFields.email.rawValue) in %@", emails)).getDocuments { (snapshot, error) in
+            guard let snapshot = snapshot else {return}
+            for child in snapshot.documents {
+                print(child)
+            }
+        }
+    }
 }

@@ -41,7 +41,7 @@ class LoginViewController: UIViewController, UINavigationControllerDelegate, UII
                         Local.userMail = volunteer.email
                         Local.userKind = LoginKinds.volunteer.rawValue
                     }
-                    ViewUtilities.navigateToStoryBoard(storyboardName: "Main", storyboardID: "Tab", window: self.view.window, completion: {})
+                    ViewUtilities.navigateToStoryBoard(storyboardName: "Main", storyboardID: "Tab", window: self.view.window)
                     
                 }
             }
@@ -64,6 +64,9 @@ class LoginViewController: UIViewController, UINavigationControllerDelegate, UII
         
         
         KeyboardAvoiding.avoidingView = self.constrainTextBox
+        LoginDM().listLogins(ByIds:["YnJ1bm9AZ21haWwuY29t","YnJ1bm8yQGdtYWlsLmNvbQ=="]) { (dict, error) in
+            
+        }
         
     }
     

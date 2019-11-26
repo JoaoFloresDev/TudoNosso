@@ -21,7 +21,18 @@ class ChannelDM: GenericsDM{
         }
     }
 
+    func find(ById id:String, completion: @escaping (Channel?, Error?) ->()) {
+        db.collection(tableName).document(id).getDocument { (snapshot, err) in
+            self.handleSingleDocument(snapshot, err, completion: completion)
+        }
+    }
     
+    func addUser(channel: Channel, userID:String, userKind:String) -> Channel {
+        channel.between.append(userID)
+        channel.betweenKinds.append(userKind)
+        self.save(channel: channel, completion: {_ in })
+        return channel
+    }
     func save(channel: Channel, completion: @escaping (Channel) -> ()){
         if channel.id != nil{
             db.collection(tableName).document(channel.id!).setData(channel.representation,merge: true)

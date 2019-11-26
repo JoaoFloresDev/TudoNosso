@@ -142,6 +142,9 @@
                                                             </stackView>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0wb-Mu-CWy">
                                                                 <rect key="frame" x="0.0" y="0.0" width="88" height="97"/>
+                                                                <connections>
+                                                                    <action selector="applyForButtonPressed:" destination="3Qj-ar-GWM" eventType="touchUpInside" id="1Ei-hv-QG0"/>
+                                                                </connections>
                                                             </button>
                                                         </subviews>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>

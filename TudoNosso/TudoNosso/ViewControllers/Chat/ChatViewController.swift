@@ -35,12 +35,9 @@ import InputBarAccessoryView
 
 final class ChatViewController: MessagesViewController {
     
-    private var messageDM: MessageDM!
     let outgoingAvatarOverlap: CGFloat = 17.5
-   
-    
+    private var messageDM: MessageDM!
     private var messages: [Message] = []
-    
     private let user: User
     private let channel: Channel
     
@@ -80,10 +77,17 @@ final class ChatViewController: MessagesViewController {
         messagesCollectionView.messagesDataSource = self
         messagesCollectionView.messagesLayoutDelegate = self
         messagesCollectionView.messagesDisplayDelegate = self
-        messagesCollectionView.messageCellDelegate = self
-        
+        let infoButton = UIBarButtonItem(title: "info", style: .plain, target: self, action: Selector("openGroupInfo"))
+        self.navigationItem.rightBarButtonItem = infoButton
     }
     
+    
+    @objc func openGroupInfo() {
+        let storyboard = UIStoryboard(name: "Channels", bundle: nil)
+        
+        let viewController = storyboard.instantiateViewController(withIdentifier: "ChannelInfoSBID")
+        self.navigationController?.pushViewController(viewController, animated: true)
+    }
     
     // MARK: - Helpers
     func isTimeLabelVisible(at indexPath: IndexPath) -> Bool {
@@ -148,10 +152,8 @@ extension ChatViewController: MessagesDisplayDelegate {
     }
     
     func shouldDisplayHeader(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> Bool {
-        return false
+        return true
     }
-    
-    
     func messageStyle(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> MessageStyle {
         return .bubble
     }
@@ -202,7 +204,6 @@ extension ChatViewController: MessagesDataSource {
     func numberOfSections(in messagesCollectionView: MessagesCollectionView) -> Int {
         return messages.count
     }
-    
     
     func currentSender() -> SenderType {
         return Sender(id: user.id, displayName: user.displayName)
@@ -263,39 +264,6 @@ extension ChatViewController: InputBarAccessoryViewDelegate {
             }
         }
     }
-}
-// MARK: - MessageCellDelegate
-
-extension ChatViewController: MessageCellDelegate {
-    
-    func didTapAvatar(in cell: MessageCollectionViewCell) {
-        print("Avatar tapped")
-    }
-    
-    func didTapMessage(in cell: MessageCollectionViewCell) {
-        print("Message tapped")
-    }
-    
-    func didTapCellTopLabel(in cell: MessageCollectionViewCell) {
-        print("Top cell label tapped")
-    }
-    
-    func didTapCellBottomLabel(in cell: MessageCollectionViewCell) {
-        print("Bottom cell label tapped")
-    }
-    
-    func didTapMessageTopLabel(in cell: MessageCollectionViewCell) {
-        print("Top message label tapped")
-    }
-    
-    func didTapMessageBottomLabel(in cell: MessageCollectionViewCell) {
-        print("Bottom label tapped")
-    }
-    
-    func didTapAccessoryView(in cell: MessageCollectionViewCell) {
-        print("Accessory view tapped")
-    }
-    
 }
 
 
