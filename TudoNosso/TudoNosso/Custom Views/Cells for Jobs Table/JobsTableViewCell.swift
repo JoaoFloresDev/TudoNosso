@@ -40,7 +40,7 @@ class JobsTableViewCell: UITableViewCell {
             
             if let avatar = ong.avatar {
                 FileDM().recoverProfileImage(profilePic: avatar) { (image, error) in
-                    guard let image = image else {return}
+                    guard let imanage = image else {return}
                     OperationQueue.main.addOperation {
                         self.jobImageVeiw.image = image
                     }

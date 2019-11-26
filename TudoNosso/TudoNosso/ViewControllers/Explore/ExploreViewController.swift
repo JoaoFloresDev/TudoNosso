@@ -43,9 +43,9 @@ class ExploreViewController: UIViewController {
         
         loadData()
         
-        navigationController?.navigationBar.barTintColor = UIColor(rgb: 0xFF5900, a: 1)
-        navigationController?.navigationBar.backgroundColor = UIColor(rgb: 0xFF5900, a: 1)
-        navigationController?.navigationBar.tintColor = UIColor(rgb: 0xFF5900, a: 1)
+//        navigationController?.navigationBar.barTintColor = UIColor(rgb: 0xFF5900, a: 1)
+//        navigationController?.navigationBar.backgroundColor = UIColor(rgb: 0xFF5900, a: 1)
+//        navigationController?.navigationBar.tintColor = UIColor(rgb: 0xFFFFFF, a: 1)
     }
     
 //    override func viewWillAppear(_ animated: Bool) {
