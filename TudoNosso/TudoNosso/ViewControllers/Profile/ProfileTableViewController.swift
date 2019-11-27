@@ -10,7 +10,7 @@ import UIKit
 
 class ProfileTableViewController : UITableViewController {
     
-    //MARK: Outlets
+    //MARK: - Outlets
     @IBOutlet weak var phoneLabel: UILabel!
     @IBOutlet weak var adressLabel: UILabel!
     @IBOutlet weak var mailLabel: UILabel!
@@ -19,10 +19,10 @@ class ProfileTableViewController : UITableViewController {
     
     @IBOutlet weak var aboutLabel: UILabel!
     
-    //MARK: Properties
+    //MARK: - Properties
     var receivedData: ProfileViewController.Data?
     
-    //MARK: Lifecycle
+    //MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         prepareCollection()
@@ -30,7 +30,7 @@ class ProfileTableViewController : UITableViewController {
         setupAboutCell()
     }
     
-    //MARK: Methods
+    //MARK: - Methods
     func setupInfoCell(){
         phoneLabel.text = receivedData?.phone ?? ""
         mailLabel.text = receivedData?.email ?? ""
@@ -71,7 +71,7 @@ class ProfileTableViewController : UITableViewController {
     }
 }
 
-//MARK: Collection View
+//MARK: - Collection View
 extension ProfileTableViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if let areas = receivedData?.areas {
@@ -80,7 +80,7 @@ extension ProfileTableViewController: UICollectionViewDelegate, UICollectionView
             return 0
         }
     }
-
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AreaCollectionCell.reuseIdentifer, for: indexPath) as? AreaCollectionCell else {
             fatalError("The dequeued cell is not an instance of AreaCollectionCell.")
@@ -88,7 +88,7 @@ extension ProfileTableViewController: UICollectionViewDelegate, UICollectionView
         if let areas = receivedData?.areas{
             cell.label.text = areas[indexPath.row]
         }
-
+        
         return cell
     }
     

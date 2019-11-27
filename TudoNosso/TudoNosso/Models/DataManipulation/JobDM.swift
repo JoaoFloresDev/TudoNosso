@@ -18,6 +18,11 @@ class JobDM: GenericsDM {
         //update an existing item
         if let jobID = job.id{
             db.collection(TABLENAME).document(jobID).setData(job.representation,merge: true)
+            db.collection(TABLENAME).document(jobID).setData(job.representation, merge: true) { (error) in
+                if error != nil {
+                    print("Error updating a job: \(error?.localizedDescription)")
+                }
+            }
         }else {//save new
             let doc = db.collection(TABLENAME).document()
             job.id = doc.documentID
@@ -28,7 +33,7 @@ class JobDM: GenericsDM {
     func delete(ById id:String){
         db.collection(TABLENAME).document(id).delete { (error) in
             if error != nil {
-                print("Error deleting a job!")
+                print("Error deleting a job: \(error?.localizedDescription)")
             }
         }
     }

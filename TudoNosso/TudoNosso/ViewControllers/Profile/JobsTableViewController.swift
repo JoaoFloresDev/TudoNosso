@@ -82,8 +82,10 @@ class JobsTableViewController: UITableViewController {
         jobDM.delete(ById: id)
     }
     
-    func finishJob(id: String) {
+    func finishJob(job: Job) {
+        let jobDM = JobDM()
         
+        jobDM.save(job: job)
     }
     
     //MARK: - Segue
@@ -204,10 +206,10 @@ extension JobsTableViewController : JobsTableViewCellDelegate {
         switch indexPath.section {
         case 0:
             if let id = ongoingJobs[indexPath.row].id {
-                finishJob(id: id)
                 let shouldSort = jobs?.contains(where: { (job) -> Bool in
                     if job.id == id {
                         job.status = false
+                        finishJob(job: job)
                         return true
                     } else {
                         return false
