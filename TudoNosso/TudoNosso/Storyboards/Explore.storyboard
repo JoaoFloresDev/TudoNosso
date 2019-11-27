@@ -3,7 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -247,10 +247,10 @@
             </objects>
             <point key="canvasLocation" x="3630" y="708"/>
         </scene>
-        <!--Profile-->
+        <!--profile-->
         <scene sceneID="dOo-ZL-t2c">
             <objects>
-                <viewControllerPlaceholder storyboardName="Profile" id="p5g-qt-6RG" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="Profile" referencedIdentifier="profile" id="p5g-qt-6RG" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="4qx-XO-h73"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ySh-ps-Utb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
