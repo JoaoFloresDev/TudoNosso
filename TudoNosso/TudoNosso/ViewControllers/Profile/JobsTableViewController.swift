@@ -82,6 +82,10 @@ class JobsTableViewController: UITableViewController {
         jobDM.delete(ById: id)
     }
     
+    func finishJob(id: String) {
+        
+    }
+    
     //MARK: - Segue
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == jobsDetailSegueID {
@@ -148,9 +152,9 @@ class JobsTableViewController: UITableViewController {
         }
         switch indexPath.section {
         case 0:
-            cell.configure(job: ongoingJobs[indexPath.row], buttonsAvailable: self.isMyProfile ?? false)
+            cell.configure(job: ongoingJobs[indexPath.row])
         default:
-            cell.configure(job: finishedJobs[indexPath.row], buttonsAvailable: self.isMyProfile ?? false)
+            cell.configure(job: finishedJobs[indexPath.row])
         }
         
         if isMyProfile ?? false {
@@ -186,9 +190,35 @@ extension JobsTableViewController : JobsTableViewCellDelegate {
                 return job.id == self.ongoingJobs[indexPath.row].id
             })
         case 1:
+            if let id = finishedJobs[indexPath.row].id {
+                deleteJob(id: id)
+            }
             self.jobs?.removeAll(where: { (job) -> Bool in
                 return job.id == self.finishedJobs[indexPath.row].id
             })
+        default:    break
+        }
+    }
+    
+    func finishJob(indexPath: IndexPath) {
+        switch indexPath.section {
+        case 0:
+            if let id = ongoingJobs[indexPath.row].id {
+                finishJob(id: id)
+                let shouldSort = jobs?.contains(where: { (job) -> Bool in
+                    if job.id == id {
+                        job.status = false
+                        return true
+                    } else {
+                        return false
+                    }
+                })
+                
+                if shouldSort ?? false {
+                    sortJobs()
+                }
+            }
+            
         default:    break
         }
     }

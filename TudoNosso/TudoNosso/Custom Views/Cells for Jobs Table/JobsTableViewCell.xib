@@ -165,7 +165,7 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Qt-2J-IOz" userLabel="Finish" customClass="RoundedView" customModule="TudoNosso" customModuleProvider="target">
                                                     <rect key="frame" x="119" y="0.0" width="112" height="24"/>
                                                     <subviews>
-                                                        <view contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="YI9-uo-yRj">
+                                                        <view contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="YI9-uo-yRj" userLabel="Finish View">
                                                             <rect key="frame" x="22.5" y="3.5" width="67" height="17"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Encerrar" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pHe-O6-uRZ">
@@ -181,34 +181,34 @@
                                                                         <constraint firstAttribute="width" constant="17" id="h4W-TX-JCA"/>
                                                                     </constraints>
                                                                 </imageView>
+                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3nX-Xa-9lk" userLabel="Finish Button">
+                                                                    <rect key="frame" x="-22.5" y="-3.5" width="112" height="24"/>
+                                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    <connections>
+                                                                        <action selector="finishPressed:" destination="iN0-l3-epB" eventType="touchUpInside" id="7tx-Hy-yn7"/>
+                                                                    </connections>
+                                                                </button>
                                                             </subviews>
                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <constraints>
+                                                                <constraint firstAttribute="trailing" secondItem="3nX-Xa-9lk" secondAttribute="trailing" constant="-22.5" id="1GA-GI-zFf"/>
+                                                                <constraint firstAttribute="bottom" secondItem="3nX-Xa-9lk" secondAttribute="bottom" constant="-3.5" id="2Lo-hv-Ibg"/>
                                                                 <constraint firstAttribute="height" constant="17" id="60E-BW-btf"/>
+                                                                <constraint firstItem="3nX-Xa-9lk" firstAttribute="top" secondItem="YI9-uo-yRj" secondAttribute="top" constant="-3.5" id="AMQ-Xw-2tt"/>
                                                                 <constraint firstItem="pHe-O6-uRZ" firstAttribute="centerY" secondItem="YI9-uo-yRj" secondAttribute="centerY" id="Czm-r4-QQj"/>
                                                                 <constraint firstItem="w3z-Xh-wO4" firstAttribute="leading" secondItem="YI9-uo-yRj" secondAttribute="leading" id="Z6A-RK-r1I"/>
+                                                                <constraint firstItem="3nX-Xa-9lk" firstAttribute="leading" secondItem="YI9-uo-yRj" secondAttribute="leading" constant="-22.5" id="c7K-9T-tEd"/>
                                                                 <constraint firstAttribute="width" constant="67" id="iqb-tb-QKE"/>
                                                                 <constraint firstItem="w3z-Xh-wO4" firstAttribute="centerY" secondItem="YI9-uo-yRj" secondAttribute="centerY" id="kh0-fO-msY"/>
                                                                 <constraint firstItem="pHe-O6-uRZ" firstAttribute="centerY" secondItem="YI9-uo-yRj" secondAttribute="centerY" id="lzS-m4-3oH"/>
                                                                 <constraint firstAttribute="trailing" secondItem="pHe-O6-uRZ" secondAttribute="trailing" id="u8g-oL-f6F"/>
                                                             </constraints>
                                                         </view>
-                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3nX-Xa-9lk" userLabel="Finish Button">
-                                                            <rect key="frame" x="0.0" y="0.0" width="112" height="24"/>
-                                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                            <connections>
-                                                                <action selector="finishPressed:" destination="iN0-l3-epB" eventType="touchUpInside" id="7tx-Hy-yn7"/>
-                                                            </connections>
-                                                        </button>
                                                     </subviews>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="trailing" secondItem="3nX-Xa-9lk" secondAttribute="trailing" id="CiA-dn-Eaq"/>
-                                                        <constraint firstAttribute="bottom" secondItem="3nX-Xa-9lk" secondAttribute="bottom" id="LLu-T6-luF"/>
                                                         <constraint firstItem="YI9-uo-yRj" firstAttribute="centerX" secondItem="4Qt-2J-IOz" secondAttribute="centerX" id="jl9-bc-vx2"/>
                                                         <constraint firstItem="YI9-uo-yRj" firstAttribute="centerY" secondItem="4Qt-2J-IOz" secondAttribute="centerY" id="jsC-0Y-xce"/>
-                                                        <constraint firstItem="3nX-Xa-9lk" firstAttribute="top" secondItem="4Qt-2J-IOz" secondAttribute="top" id="nlF-zZ-fLb"/>
-                                                        <constraint firstItem="3nX-Xa-9lk" firstAttribute="leading" secondItem="4Qt-2J-IOz" secondAttribute="leading" id="wDc-yH-Kk2"/>
                                                     </constraints>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="number" keyPath="border">
@@ -333,6 +333,7 @@
                 <outlet property="buttonsView" destination="Tlb-lj-6n5" id="fQt-Vw-LB4"/>
                 <outlet property="categoriesLabel" destination="tn0-TD-LIf" id="39r-n6-lBQ"/>
                 <outlet property="engagedLabel" destination="qnE-1O-bGO" id="j5l-Mf-qpo"/>
+                <outlet property="finishView" destination="YI9-uo-yRj" id="Dm4-OM-3Ku"/>
                 <outlet property="firstVolunteerImage" destination="o0a-26-IgC" id="BCb-vg-olU"/>
                 <outlet property="jobAdressLabel" destination="cBY-lx-UxT" id="y2X-Jw-evn"/>
                 <outlet property="jobImageView" destination="INI-D7-tXl" id="y37-G8-fmy"/>

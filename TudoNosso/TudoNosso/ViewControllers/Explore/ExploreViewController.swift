@@ -223,7 +223,7 @@ extension ExploreViewController : UITableViewDataSource, UISearchResultsUpdating
               jobList = ongoingJobs[indexPath.row]
             }
             
-            cell.configure(job: jobList, buttonsAvailable: false)
+            cell.configure(job: jobList)
             cell.backgroundColor = .clear
             cell.selectionStyle = .none
             
