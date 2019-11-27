@@ -6,60 +6,148 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Nunito-Bold.ttf">
+            <string>Nunito-Bold</string>
+        </array>
+    </customFonts>
     <scenes>
-        <!--Table View Controller-->
+        <!--Adicionar oportunidade-->
         <scene sceneID="VI8-EI-GAe">
             <objects>
                 <tableViewController id="OGx-83-pQH" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="U14-Jc-PHd">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="U14-Jc-PHd">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <sections>
                             <tableViewSection id="bdb-qA-hTT">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="cjz-HM-UgC">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="44"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="117" id="cjz-HM-UgC" userLabel="Title">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="117"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="cjz-HM-UgC" id="nKk-2L-L9j">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="117"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Título" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y54-eB-NjM">
+                                                    <rect key="frame" x="36" y="35" width="37.5" height="19.5"/>
+                                                    <fontDescription key="fontDescription" name="Nunito-Bold" family="Nunito" pointSize="14"/>
+                                                    <color key="textColor" red="0.12941176470588234" green="0.12941176470588234" blue="0.12941176470588234" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yh7-7j-K2o">
+                                                    <rect key="frame" x="36" y="62.5" width="342" height="43"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="43" id="oXb-oI-KIp"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="yh7-7j-K2o" firstAttribute="top" secondItem="y54-eB-NjM" secondAttribute="bottom" constant="8" id="3hb-Ih-7dm"/>
+                                                <constraint firstItem="yh7-7j-K2o" firstAttribute="leading" secondItem="nKk-2L-L9j" secondAttribute="leadingMargin" constant="16" id="50N-dP-ObJ"/>
+                                                <constraint firstItem="y54-eB-NjM" firstAttribute="top" secondItem="nKk-2L-L9j" secondAttribute="topMargin" constant="24" id="5hY-ho-CHD"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="yh7-7j-K2o" secondAttribute="trailing" constant="16" id="69F-hd-aSy"/>
+                                                <constraint firstItem="y54-eB-NjM" firstAttribute="leading" secondItem="nKk-2L-L9j" secondAttribute="leadingMargin" constant="16" id="jUk-WC-OdW"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="ztr-UL-knH">
-                                        <rect key="frame" x="0.0" y="72" width="414" height="43.5"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="ztr-UL-knH" userLabel="Description">
+                                        <rect key="frame" x="0.0" y="145" width="414" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ztr-UL-knH" id="Py7-j6-yRy">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Descrição" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="viM-Jn-S8u">
+                                                    <rect key="frame" x="20" y="11" width="63" height="20"/>
+                                                    <fontDescription key="fontDescription" name="Nunito-Bold" family="Nunito" pointSize="14"/>
+                                                    <color key="textColor" red="0.12941176469999999" green="0.12941176469999999" blue="0.12941176469999999" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="viM-Jn-S8u" firstAttribute="top" secondItem="Py7-j6-yRy" secondAttribute="topMargin" id="4yi-Li-6rx"/>
+                                                <constraint firstItem="viM-Jn-S8u" firstAttribute="leading" secondItem="Py7-j6-yRy" secondAttribute="leadingMargin" id="SWs-iX-Wje"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="aFP-wq-reT">
-                                        <rect key="frame" x="0.0" y="115.5" width="414" height="43.5"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="182" id="aFP-wq-reT" userLabel="Categories">
+                                        <rect key="frame" x="0.0" y="188.5" width="414" height="182"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="aFP-wq-reT" id="DM5-IN-gmd">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="182"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Categorias" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TuI-yV-e4Q">
+                                                    <rect key="frame" x="20" y="11" width="69.5" height="20"/>
+                                                    <fontDescription key="fontDescription" name="Nunito-Bold" family="Nunito" pointSize="14"/>
+                                                    <color key="textColor" red="0.12941176469999999" green="0.12941176469999999" blue="0.12941176469999999" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="TuI-yV-e4Q" firstAttribute="leading" secondItem="DM5-IN-gmd" secondAttribute="leadingMargin" id="DZS-WD-EnY"/>
+                                                <constraint firstItem="TuI-yV-e4Q" firstAttribute="top" secondItem="DM5-IN-gmd" secondAttribute="topMargin" id="lO5-zt-PLz"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="YC5-f7-XCC">
-                                        <rect key="frame" x="0.0" y="159" width="414" height="43.5"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="YC5-f7-XCC" userLabel="Type">
+                                        <rect key="frame" x="0.0" y="370.5" width="414" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="YC5-f7-XCC" id="j3a-5R-rY5">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tipo de vaga" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AdI-BP-qMR">
+                                                    <rect key="frame" x="20" y="11" width="83" height="20"/>
+                                                    <fontDescription key="fontDescription" name="Nunito-Bold" family="Nunito" pointSize="14"/>
+                                                    <color key="textColor" red="0.12941176469999999" green="0.12941176469999999" blue="0.12941176469999999" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="AdI-BP-qMR" firstAttribute="leading" secondItem="j3a-5R-rY5" secondAttribute="leadingMargin" id="6ah-I7-rFd"/>
+                                                <constraint firstItem="AdI-BP-qMR" firstAttribute="top" secondItem="j3a-5R-rY5" secondAttribute="topMargin" id="l95-6Z-p1r"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="EIO-Gu-EtY">
-                                        <rect key="frame" x="0.0" y="202.5" width="414" height="43.5"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="EIO-Gu-EtY" userLabel="Number">
+                                        <rect key="frame" x="0.0" y="414" width="414" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="EIO-Gu-EtY" id="DwY-vC-bS3">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="EIO-Gu-EtY" id="DwY-vC-bS3">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DH1-B5-bCW">
+                                                    <rect key="frame" x="16" y="39" width="382" height="43"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="43" id="OKp-I6-wP3"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Número de vagas" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lws-GU-1wz">
+                                                    <rect key="frame" x="16" y="11" width="113" height="20"/>
+                                                    <fontDescription key="fontDescription" name="Nunito-Bold" family="Nunito" pointSize="14"/>
+                                                    <color key="textColor" red="0.12941176469999999" green="0.12941176469999999" blue="0.12941176469999999" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Lws-GU-1wz" firstAttribute="top" secondItem="DwY-vC-bS3" secondAttribute="topMargin" id="5iU-n1-L0h"/>
+                                                <constraint firstItem="DH1-B5-bCW" firstAttribute="top" secondItem="Lws-GU-1wz" secondAttribute="bottom" constant="8" id="JR2-aJ-Yuq"/>
+                                                <constraint firstItem="DH1-B5-bCW" firstAttribute="leading" secondItem="DwY-vC-bS3" secondAttribute="leading" constant="16" id="REu-pz-YYE"/>
+                                                <constraint firstAttribute="trailing" secondItem="DH1-B5-bCW" secondAttribute="trailing" constant="16" id="ShW-M1-duW"/>
+                                                <constraint firstAttribute="bottom" secondItem="DH1-B5-bCW" secondAttribute="bottom" constant="24" id="bXk-xe-z6q"/>
+                                                <constraint firstItem="Lws-GU-1wz" firstAttribute="leading" secondItem="DwY-vC-bS3" secondAttribute="leading" constant="16" id="yZX-vN-Uk7"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="8QW-UU-2p2">
-                                        <rect key="frame" x="0.0" y="246" width="414" height="43.5"/>
+                                        <rect key="frame" x="0.0" y="457.5" width="414" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="8QW-UU-2p2" id="uih-l8-PTa">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
@@ -74,10 +162,14 @@
                             <outlet property="delegate" destination="OGx-83-pQH" id="MJI-Bz-78p"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="Adicionar oportunidade" id="7Q4-px-pfb">
+                        <barButtonItem key="leftBarButtonItem" title="Cancelar" id="bDQ-0d-Eo9" userLabel="Cancelar"/>
+                        <barButtonItem key="rightBarButtonItem" title="Publicar" id="qkK-n3-PMK"/>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AaI-q1-d4q" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-367" y="-11"/>
+            <point key="canvasLocation" x="-368.11594202898556" y="-11.383928571428571"/>
         </scene>
     </scenes>
 </document>
