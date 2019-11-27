@@ -10,7 +10,7 @@ import UIKit
 
 class JobsTableViewController: UITableViewController {
     
-    //MARK: Properties
+    //MARK: - Properties
     struct Dependencies {
         var jobs: [Job]
         var isMyProfile: Bool
@@ -21,7 +21,12 @@ class JobsTableViewController: UITableViewController {
         }
     }
     
-    var jobs: [Job]?
+    var jobs: [Job]? {
+        didSet {
+            sortJobs()
+        }
+    }
+    
     var isMyProfile: Bool?
     
     var ongoingJobs : [Job] = []
@@ -31,21 +36,20 @@ class JobsTableViewController: UITableViewController {
     
     private let jobsDetailSegueID = "toJobDetails"
     
-    //MARK: Lifecycle
+    //MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupJobsTableView()
-        sortJobs()
     }
     
-    //MARK: Setup from Segue
+    //MARK: - Setup from Segue
     func setup(dependencies: Dependencies) {
         self.jobs = dependencies.jobs
         self.isMyProfile = dependencies.isMyProfile
     }
     
-    //MARK: Methods
+    //MARK: - Methods
     func setupJobsTableView(){
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 200
@@ -72,7 +76,13 @@ class JobsTableViewController: UITableViewController {
         tableView.reloadData()
     }
     
-    //MARK: Segue
+    func deleteJob(id: String) {
+        let jobDM = JobDM()
+        
+        jobDM.delete(ById: id)
+    }
+    
+    //MARK: - Segue
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == jobsDetailSegueID {
             if let nextVC = segue.destination as? JobViewController {
@@ -81,8 +91,7 @@ class JobsTableViewController: UITableViewController {
         }
     }
     
-    // MARK: Table view
-    
+    // MARK: - Table view
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 2
     }
@@ -165,9 +174,22 @@ class JobsTableViewController: UITableViewController {
     }
 }
 
-//MARK: JobsTableViewCellDelegate
+//MARK: - JobsTableViewCellDelegate
 extension JobsTableViewController : JobsTableViewCellDelegate {
     func deleteJob(indexPath: IndexPath) {
-        //TODO
+        switch indexPath.section {
+        case 0:
+            if let id = ongoingJobs[indexPath.row].id {
+                deleteJob(id: id)
+            }
+            self.jobs?.removeAll(where: { (job) -> Bool in
+                return job.id == self.ongoingJobs[indexPath.row].id
+            })
+        case 1:
+            self.jobs?.removeAll(where: { (job) -> Bool in
+                return job.id == self.finishedJobs[indexPath.row].id
+            })
+        default:    break
+        }
     }
 }
