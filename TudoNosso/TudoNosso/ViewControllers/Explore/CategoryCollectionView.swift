@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 protocol CategoryCollectionViewDelegate: NSObjectProtocol {
     func causeSelected(_ view: CategoryCollectionView, causeTitle: String?, OrganizationEmail: String?, tagCollection: Int )
@@ -38,7 +39,7 @@ class CategoryCollectionView : UITableViewCell {
     
     var backgroundQueue: OperationQueue {
         let queue = OperationQueue()
-        queue.maxConcurrentOperationCount = 1
+        queue.maxConcurrentOperationCount = 3
         return queue
     }
     

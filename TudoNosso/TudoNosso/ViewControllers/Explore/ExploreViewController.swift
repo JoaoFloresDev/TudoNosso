@@ -8,7 +8,7 @@
 
 import UIKit
 import CoreLocation
-
+import SDWebImage
 
 class ExploreViewController: UIViewController {
     
@@ -35,6 +35,11 @@ class ExploreViewController: UIViewController {
         }
     }
     
+    var backgroundQueue: OperationQueue {
+        let queue = OperationQueue()
+        queue.maxConcurrentOperationCount = 3
+        return queue
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -230,10 +235,7 @@ extension ExploreViewController : UITableViewDataSource, UISearchResultsUpdating
             
             let ongDM = OrganizationDM()
             
-//            let imageDownloadOperation = BlockOperation {
-//
-//            }
-            OperationQueue().addOperation {
+            let imageDownloadOperation = BlockOperation {
                 ongDM.find(ById: jobList.organizationID) { (ong, err) in
                     guard let ong = ong else { return }
 
@@ -247,6 +249,8 @@ extension ExploreViewController : UITableViewDataSource, UISearchResultsUpdating
                     }
                 }
             }
+           
+            self.backgroundQueue.addOperation(imageDownloadOperation)
             
             cell.configure(job: jobList)
             cell.backgroundColor = .clear

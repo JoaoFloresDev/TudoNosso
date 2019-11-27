@@ -8,6 +8,9 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
+        <array key="Nunito-Bold.ttf">
+            <string>Nunito-Bold</string>
+        </array>
         <array key="Nunito-Regular.ttf">
             <string>Nunito-Regular</string>
         </array>
@@ -450,6 +453,28 @@
                                     <outlet property="delegate" destination="82i-MY-zrX" id="K1W-5k-AnY"/>
                                 </connections>
                             </tableView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="RectangleWhiteLogin" translatesAutoresizingMaskIntoConstraints="NO" id="iWW-pd-shl">
+                                <rect key="frame" x="0.0" y="609" width="414" height="116"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="iWW-pd-shl" secondAttribute="height" multiplier="375:105" id="dQo-Iw-dIq"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ubQ-dE-1hY">
+                                <rect key="frame" x="20.5" y="648" width="373" height="51.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="ubQ-dE-1hY" secondAttribute="height" multiplier="800:110" id="XQC-m7-atB"/>
+                                </constraints>
+                                <color key="tintColor" red="0.0" green="1" blue="0.030457442939999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <state key="normal" title="Button" image="button confirm">
+                                    <color key="titleColor" red="0.97645872830000002" green="0.97646445039999996" blue="0.97647935149999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </state>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Adicionar nova oportunidade" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4FA-3v-7ib">
+                                <rect key="frame" x="79.5" y="660.5" width="255" height="26"/>
+                                <fontDescription key="fontDescription" name="Nunito-Bold" family="Nunito" pointSize="19"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.97647058823529409" green="0.97647058823529409" blue="0.97647058823529409" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
@@ -457,6 +482,14 @@
                             <constraint firstItem="D89-VI-4vT" firstAttribute="top" secondItem="h0x-dn-rc0" secondAttribute="bottom" id="9Ym-yy-mMQ"/>
                             <constraint firstItem="iXS-Y1-fWR" firstAttribute="top" secondItem="D89-VI-4vT" secondAttribute="bottom" id="DfL-ER-Nbu"/>
                             <constraint firstItem="D89-VI-4vT" firstAttribute="leading" secondItem="JtM-Ne-iCO" secondAttribute="leading" id="Kr0-o0-xpg"/>
+                            <constraint firstItem="4FA-3v-7ib" firstAttribute="centerX" secondItem="ubQ-dE-1hY" secondAttribute="centerX" id="PRa-Yi-0PZ"/>
+                            <constraint firstItem="ubQ-dE-1hY" firstAttribute="width" secondItem="iWW-pd-shl" secondAttribute="width" multiplier="0.9" id="SpH-PD-RQs"/>
+                            <constraint firstItem="iWW-pd-shl" firstAttribute="leading" secondItem="EEc-oX-1ja" secondAttribute="leading" id="Sr1-QJ-3DO"/>
+                            <constraint firstItem="EEc-oX-1ja" firstAttribute="trailing" secondItem="iWW-pd-shl" secondAttribute="trailing" id="Yrr-Sa-Wni"/>
+                            <constraint firstItem="ubQ-dE-1hY" firstAttribute="centerY" secondItem="iWW-pd-shl" secondAttribute="centerY" multiplier="1.01" id="Ztu-8F-kfs"/>
+                            <constraint firstItem="EEc-oX-1ja" firstAttribute="bottom" secondItem="iWW-pd-shl" secondAttribute="bottom" id="aPJ-uj-qGK"/>
+                            <constraint firstItem="ubQ-dE-1hY" firstAttribute="centerX" secondItem="iWW-pd-shl" secondAttribute="centerX" id="iAr-8Q-7pR"/>
+                            <constraint firstItem="4FA-3v-7ib" firstAttribute="centerY" secondItem="ubQ-dE-1hY" secondAttribute="centerY" id="pg4-bp-Nj5"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="EEc-oX-1ja"/>
                     </view>
@@ -522,6 +555,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="RectangleWhiteLogin" width="222" height="62"/>
         <image name="button confirm" width="800" height="94"/>
         <image name="orange_logo_tudonosso" width="1500" height="1694"/>
     </resources>
