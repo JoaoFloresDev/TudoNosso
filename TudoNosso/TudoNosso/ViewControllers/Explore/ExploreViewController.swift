@@ -14,6 +14,7 @@ class ExploreViewController: UIViewController {
     
     @IBOutlet weak var jobsTableView: UITableView!
     
+    
     var selectedCause: String = ""
     var selectedOrganization: String = ""
     var selectedJob: Int = 0
@@ -227,23 +228,29 @@ extension ExploreViewController : UITableViewDataSource, UISearchResultsUpdating
               jobList = ongoingJobs[indexPath.row]
             }
             
-            cell.configure(job: jobList)
-            cell.backgroundColor = .clear
-            cell.selectionStyle = .none
+            let ongDM = OrganizationDM()
             
-            self.ongDM.find(ById: job.organizationID) { (ong, err) in
-                guard let ong = ong else { return }
+//            let imageDownloadOperation = BlockOperation {
+//
+//            }
+            OperationQueue().addOperation {
+                ongDM.find(ById: jobList.organizationID) { (ong, err) in
+                    guard let ong = ong else { return }
 
-                if let avatar = ong.avatar {
-                    FileDM().recoverProfileImage(profilePic: avatar) { (image, error) in
-                        guard let image = image else {return}
-                        OperationQueue.main.addOperation {
-                            self.jobImageVeiw.image = image
+                    if let avatar = ong.avatar {
+                        FileDM().recoverProfileImage(profilePic: avatar) { (image, error) in
+                            guard let image = image else {return}
+                            OperationQueue.main.addOperation {
+                                cell.jobImageVeiw.image = image
+                            }
                         }
                     }
                 }
             }
             
+            cell.configure(job: jobList)
+            cell.backgroundColor = .clear
+            cell.selectionStyle = .none
             
             return cell
             

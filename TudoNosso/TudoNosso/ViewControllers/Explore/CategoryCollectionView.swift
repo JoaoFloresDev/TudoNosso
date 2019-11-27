@@ -90,7 +90,7 @@ extension CategoryCollectionView : UICollectionViewDataSource, UICollectionViewD
                         }
                     }
                 } else {
-                    let image = self.cropToBounds(image: UIImage(named: "ong-img_job")!, portraitOrientation: true)
+                    let image = UIImage(named: "ong-img_job")!
                     
                     OperationQueue.main.addOperation {
                         cell.imageView.image = image

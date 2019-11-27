@@ -34,20 +34,6 @@ class JobsTableViewCell: UITableViewCell {
         typeOfJobLabel.text = job.vacancyType
         categoriesLabel.text = job.category.rawValue
         engagedLabel.text = "00 engajados / " + String(format: "%02d", job.vacancyNumber) + " vagas"
-        
-        OperationQueue().addOperation {
-            self.ongDM.find(ById: job.organizationID) { (ong, err) in
-                guard let ong = ong else { return }
-
-                if let avatar = ong.avatar {
-                    FileDM().recoverProfileImage(profilePic: avatar) { (image, error) in
-                        guard let image = image else {return}
-                        OperationQueue.main.addOperation {
-                            self.jobImageVeiw.image = image
-                        }
-                    }
-                }
-            }
-        }
     }
+    
 }
