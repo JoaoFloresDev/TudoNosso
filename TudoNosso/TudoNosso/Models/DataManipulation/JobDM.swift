@@ -26,7 +26,11 @@ class JobDM: GenericsDM {
     }
     
     func delete(ById id:String){
-        db.collection(TABLENAME).document(id).delete()
+        db.collection(TABLENAME).document(id).delete { (error) in
+            if error != nil {
+                print("Error deleting a job!")
+            }
+        }
     }
     
     func listAll(completion: @escaping ([Job]?, Error?) ->()){

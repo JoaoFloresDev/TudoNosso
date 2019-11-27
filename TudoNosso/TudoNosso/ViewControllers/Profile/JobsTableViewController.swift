@@ -10,7 +10,24 @@ import UIKit
 
 class JobsTableViewController: UITableViewController {
     
-    var data: [Job]? 
+    //MARK: - Properties
+    struct Dependencies {
+        var jobs: [Job]
+        var isMyProfile: Bool
+        
+        init(jobs: [Job], isMyProfile: Bool) {
+            self.jobs = jobs
+            self.isMyProfile = isMyProfile
+        }
+    }
+    
+    var jobs: [Job]? {
+        didSet {
+            sortJobs()
+        }
+    }
+    
+    var isMyProfile: Bool?
     
     var ongoingJobs : [Job] = []
     var finishedJobs : [Job] = []
@@ -19,13 +36,20 @@ class JobsTableViewController: UITableViewController {
     
     private let jobsDetailSegueID = "toJobDetails"
     
+    //MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupJobsTableView()
-        sortJobs()
     }
     
+    //MARK: - Setup from Segue
+    func setup(dependencies: Dependencies) {
+        self.jobs = dependencies.jobs
+        self.isMyProfile = dependencies.isMyProfile
+    }
+    
+    //MARK: - Methods
     func setupJobsTableView(){
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 200
@@ -39,8 +63,7 @@ class JobsTableViewController: UITableViewController {
     func sortJobs(){
         ongoingJobs.removeAll()
         finishedJobs.removeAll()
-        
-        if let jobs = self.data{
+        if let jobs = self.jobs {
             for job in jobs {
                 if job.status {
                     ongoingJobs.append(job)
@@ -53,6 +76,17 @@ class JobsTableViewController: UITableViewController {
         tableView.reloadData()
     }
     
+    func deleteJob(id: String) {
+        let jobDM = JobDM()
+        
+        jobDM.delete(ById: id)
+    }
+    
+    func finishJob(id: String) {
+        
+    }
+    
+    //MARK: - Segue
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == jobsDetailSegueID {
             if let nextVC = segue.destination as? JobViewController {
@@ -61,8 +95,7 @@ class JobsTableViewController: UITableViewController {
         }
     }
     
-    // MARK: - Table view data source
-    
+    // MARK: - Table view
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 2
     }
@@ -123,8 +156,14 @@ class JobsTableViewController: UITableViewController {
         default:
             cell.configure(job: finishedJobs[indexPath.row])
         }
+        
+        if isMyProfile ?? false {
+            cell.configIfProfile(delegate: self, indexPath: indexPath)
+        }
+        
         cell.backgroundColor = .clear
         cell.selectionStyle = .none
+        
         return cell
     }
     
@@ -135,6 +174,52 @@ class JobsTableViewController: UITableViewController {
             self.performSegue(withIdentifier: self.jobsDetailSegueID, sender: nil)
         default:
             return
+        }
+    }
+}
+
+//MARK: - JobsTableViewCellDelegate
+extension JobsTableViewController : JobsTableViewCellDelegate {
+    func deleteJob(indexPath: IndexPath) {
+        switch indexPath.section {
+        case 0:
+            if let id = ongoingJobs[indexPath.row].id {
+                deleteJob(id: id)
+            }
+            self.jobs?.removeAll(where: { (job) -> Bool in
+                return job.id == self.ongoingJobs[indexPath.row].id
+            })
+        case 1:
+            if let id = finishedJobs[indexPath.row].id {
+                deleteJob(id: id)
+            }
+            self.jobs?.removeAll(where: { (job) -> Bool in
+                return job.id == self.finishedJobs[indexPath.row].id
+            })
+        default:    break
+        }
+    }
+    
+    func finishJob(indexPath: IndexPath) {
+        switch indexPath.section {
+        case 0:
+            if let id = ongoingJobs[indexPath.row].id {
+                finishJob(id: id)
+                let shouldSort = jobs?.contains(where: { (job) -> Bool in
+                    if job.id == id {
+                        job.status = false
+                        return true
+                    } else {
+                        return false
+                    }
+                })
+                
+                if shouldSort ?? false {
+                    sortJobs()
+                }
+            }
+            
+        default:    break
         }
     }
 }
