@@ -67,7 +67,7 @@
 		C46E729E2379985B00D57BB9 /* CategoryOportunitiesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C46E729D2379985B00D57BB9 /* CategoryOportunitiesViewController.swift */; };
 		C46E72A3237AE4A400D57BB9 /* ViewUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = C46E72A2237AE4A400D57BB9 /* ViewUtilities.swift */; };
 		D75A3F22238EAEE10075FD94 /* AddJob.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D75A3F21238EAEE10075FD94 /* AddJob.storyboard */; };
-		D75A3F25238EAF460075FD94 /* AddJobViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D75A3F24238EAF460075FD94 /* AddJobViewController.swift */; };
+		D75A3F27238EB3940075FD94 /* AddJobTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D75A3F26238EB3940075FD94 /* AddJobTableViewController.swift */; };
 		D765D3222373021000F596CD /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D765D3212373021000F596CD /* UIColor+Extension.swift */; };
 		D765D324237303CF00F596CD /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D765D323237303CF00F596CD /* UIView+Extensions.swift */; };
 		D765D3262373041B00F596CD /* RoundedViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = D765D3252373041B00F596CD /* RoundedViews.swift */; };
@@ -175,7 +175,7 @@
 		C46E729D2379985B00D57BB9 /* CategoryOportunitiesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryOportunitiesViewController.swift; sourceTree = "<group>"; };
 		C46E72A2237AE4A400D57BB9 /* ViewUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewUtilities.swift; sourceTree = "<group>"; };
 		D75A3F21238EAEE10075FD94 /* AddJob.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddJob.storyboard; sourceTree = "<group>"; };
-		D75A3F24238EAF460075FD94 /* AddJobViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddJobViewController.swift; sourceTree = "<group>"; };
+		D75A3F26238EB3940075FD94 /* AddJobTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddJobTableViewController.swift; sourceTree = "<group>"; };
 		D765D3212373021000F596CD /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		D765D323237303CF00F596CD /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
 		D765D3252373041B00F596CD /* RoundedViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedViews.swift; sourceTree = "<group>"; };
@@ -484,7 +484,7 @@
 		D75A3F23238EAF230075FD94 /* Add Job */ = {
 			isa = PBXGroup;
 			children = (
-				D75A3F24238EAF460075FD94 /* AddJobViewController.swift */,
+				D75A3F26238EB3940075FD94 /* AddJobTableViewController.swift */,
 			);
 			path = "Add Job";
 			sourceTree = "<group>";
@@ -823,10 +823,10 @@
 				567284D7238330E000DF4EA5 /* DictionaryInterpreter.swift in Sources */,
 				D7C013A2237C4E87001CDD36 /* KeyboardAvoiding.swift in Sources */,
 				C422673223705786000A6DA3 /* NotificationsViewController.swift in Sources */,
+				D75A3F27238EB3940075FD94 /* AddJobTableViewController.swift in Sources */,
 				C430DBB12386D70B007B800A /* JobsDataSource.swift in Sources */,
 				D7B8229A2386A2B80017F306 /* Local.swift in Sources */,
 				D7C0139E237C4E68001CDD36 /* Base64Converter.swift in Sources */,
-				D75A3F25238EAF460075FD94 /* AddJobViewController.swift in Sources */,
 				5633E5B8237D851300E46EE3 /* Login.swift in Sources */,
 				D7C013A1237C4E87001CDD36 /* KeyboardDismissingView.swift in Sources */,
 				D765D3222373021000F596CD /* UIColor+Extension.swift in Sources */,

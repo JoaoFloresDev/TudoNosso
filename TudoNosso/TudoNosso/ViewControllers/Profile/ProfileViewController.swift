@@ -11,6 +11,7 @@ import CoreLocation
 
 class ProfileViewController: UIViewController {
     
+    //MARK: - Outlets
     @IBOutlet weak var profileNameLabel: UILabel!
     @IBOutlet weak var profileImage: RoundedImageView!
     @IBOutlet weak var segmentedControl: CustomSegmentedControl!
@@ -22,9 +23,10 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var profileContainerView: UIView!
     @IBOutlet weak var jobsContainerView: UIView!
     
-    //MARK: Properties
+    //MARK: - Properties
     private let jobsSegueID = "toJobsTable"
     private let profileSegueID = "toProfileTable"
+    private let addJobSegueID = "toAddJob"
     
     var email: String?
     
@@ -102,9 +104,14 @@ class ProfileViewController: UIViewController {
     }
     var isMyProfile = false
     
-    //MARK: Lifecycle
+    //MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // remove border from nav bar
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        self.navigationController?.navigationBar.layoutIfNeeded()
+        
         loadData()
     }
     
@@ -112,7 +119,7 @@ class ProfileViewController: UIViewController {
         super.viewWillAppear(animated)
     }
     
-    //MARK: Methods
+    //MARK: - Methods
     func loadData() {
         let loginDM = LoginDM()
         let jobDM = JobDM()
@@ -138,25 +145,25 @@ class ProfileViewController: UIViewController {
                     let orgDM = OrganizationDM()
                     
                     orgDM.find(ByEmail: emailAdress) { (result, error) in
-                               if let erro = error {
-                                   print(erro.localizedDescription)
-                               } else {
-                                   guard let ong = result else {return}
-                                   self.profileData = Data(name: ong.name,
-                                                            address: ong.address,
-                                                            email: ong.email,
-                                                            description: ong.desc,
-                                                            phone: ong.phone,
-                                                            site: ong.site,
-                                                            facebook: ong.facebook,
-                                                            areas: ong.areas,
-                                                            avatar: ong.avatar)
-                                   self.profileNameLabel.text = ong.name
-                               }
-                           }
+                        if let erro = error {
+                            print(erro.localizedDescription)
+                        } else {
+                            guard let ong = result else {return}
+                            self.profileData = Data(name: ong.name,
+                                                    address: ong.address,
+                                                    email: ong.email,
+                                                    description: ong.desc,
+                                                    phone: ong.phone,
+                                                    site: ong.site,
+                                                    facebook: ong.facebook,
+                                                    areas: ong.areas,
+                                                    avatar: ong.avatar)
+                            self.profileNameLabel.text = ong.name
+                        }
+                    }
                     
                     let id = Base64Converter.encodeStringAsBase64(emailAdress)
-
+                    
                     jobDM.find(inField: .organizationID, withValueEqual: id) { (result, error) in
                         if let erro = error {
                             print(erro.localizedDescription)
@@ -172,30 +179,28 @@ class ProfileViewController: UIViewController {
                     let volunteerDM = VolunteerDM()
                     
                     volunteerDM.find(ByEmail: emailAdress) { (result, error) in
-                               if let erro = error {
-                                   print(erro.localizedDescription)
-                               } else {
-                                   guard let volunteer = result else {return}
-                                   self.profileData = Data(name: volunteer.name,
-                                                            address: nil,
-                                                            email: volunteer.email,
-                                                            description: volunteer.description,
-                                                            phone: nil,
-                                                            site: nil,
-                                                            facebook: nil,
-                                                            areas: nil,
-                                                            avatar: nil)
-                                self.profileNameLabel.text = volunteer.name
-                               }
-                           }
-                    
-                    //TODO
+                        if let erro = error {
+                            print(erro.localizedDescription)
+                        } else {
+                            guard let volunteer = result else {return}
+                            self.profileData = Data(name: volunteer.name,
+                                                    address: nil,
+                                                    email: volunteer.email,
+                                                    description: volunteer.description,
+                                                    phone: nil,
+                                                    site: nil,
+                                                    facebook: nil,
+                                                    areas: nil,
+                                                    avatar: nil)
+                            self.profileNameLabel.text = volunteer.name
+                        }
+                    }
                 }
             }
         }
     }
     
-    //MARK: Segues
+    //MARK: - Segues
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
         switch identifier{
         case profileSegueID:
@@ -215,19 +220,21 @@ class ProfileViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == profileSegueID {
+        switch segue.identifier {
+        case profileSegueID:
             if let nextVC = segue.destination as? ProfileTableViewController {
                 nextVC.receivedData = self.profileData
             }
-        } else if segue.identifier == jobsSegueID {
+        case jobsSegueID:
             if let nextVC = segue.destination as? JobsTableViewController {
                 let dependencies = JobsTableViewController.Dependencies(jobs: self.jobs ?? [], isMyProfile: self.isMyProfile ?? false)
                 nextVC.setup(dependencies: dependencies)
             }
+        default:    break
         }
     }
-
-    //MARK: IBAction
+    
+    //MARK: - IBAction
     @IBAction func segmentChanged(_ sender: Any) {
         switch segmentedControl.selectedSegmentIndex {
         case 0: // show jobs
@@ -248,7 +255,7 @@ class ProfileViewController: UIViewController {
     }
     
     @IBAction func addJobPressed(_ sender: Any) {
-        print("add job pressed")
+        performSegue(withIdentifier: addJobSegueID, sender: self)
     }
     
     @IBAction func editProfilePressed(_ sender: Any) {
