@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import SDWebImage
 
 protocol CategoryCollectionViewDelegate: NSObjectProtocol {
     func causeSelected(_ view: CategoryCollectionView, causeTitle: String?, OrganizationEmail: String?, tagCollection: Int )
