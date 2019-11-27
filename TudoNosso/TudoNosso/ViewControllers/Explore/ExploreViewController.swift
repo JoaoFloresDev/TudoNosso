@@ -37,15 +37,19 @@ class ExploreViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        setupNavegationController()
         setupTableView()
         setupSearchBar()
         setupJobsTableView()
         
         loadData()
-        
+    }
+    
+    func setupNavegationController() {
         navigationController?.navigationBar.barTintColor = UIColor(rgb: 0xFF5900, a: 1)
         navigationController?.navigationBar.backgroundColor = UIColor(rgb: 0xFF5900, a: 1)
-        navigationController?.navigationBar.tintColor = UIColor(rgb: 0xFF5900, a: 1)
+        navigationController?.navigationBar.tintColor = UIColor(rgb: 0xFFFFFF, a: 1)
     }
     
 //    override func viewWillAppear(_ animated: Bool) {
@@ -226,6 +230,20 @@ extension ExploreViewController : UITableViewDataSource, UISearchResultsUpdating
             cell.configure(job: jobList)
             cell.backgroundColor = .clear
             cell.selectionStyle = .none
+            
+            self.ongDM.find(ById: job.organizationID) { (ong, err) in
+                guard let ong = ong else { return }
+
+                if let avatar = ong.avatar {
+                    FileDM().recoverProfileImage(profilePic: avatar) { (image, error) in
+                        guard let image = image else {return}
+                        OperationQueue.main.addOperation {
+                            self.jobImageVeiw.image = image
+                        }
+                    }
+                }
+            }
+            
             
             return cell
             

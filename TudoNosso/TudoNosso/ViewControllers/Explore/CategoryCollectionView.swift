@@ -21,6 +21,8 @@ class CategoryCollectionView : UITableViewCell {
     let ongDM = OrganizationDM()
     var organizationsList : [Organization] = []
     
+    var organizartionImg : [String : UIImage] = [:]
+    
     var ongs : [Organization] = [] {
         didSet {
             self.sortOrganizations()
@@ -32,6 +34,15 @@ class CategoryCollectionView : UITableViewCell {
     }
     
     weak var delegate: CategoryCollectionViewDelegate!
+    
+    
+    var backgroundQueue: OperationQueue {
+        let queue = OperationQueue()
+        queue.maxConcurrentOperationCount = 1
+        return queue
+    }
+    
+    
 }
 
 extension CategoryCollectionView : UICollectionViewDataSource, UICollectionViewDelegate {
@@ -58,39 +69,37 @@ extension CategoryCollectionView : UICollectionViewDataSource, UICollectionViewD
         cell.imageView.layer.cornerRadius = cell.imageView.frame.size.height/8
         cell.imageView.clipsToBounds = true
         cell.imageView.tag = indexPath.row
+        cell.delegate = self
         
         if(collectionView.tag == 0) {
             cell.titleLabel.text = categorysList[indexPath.row]
-            
-            let image = cropToBounds(image: UIImage(named: "ong-img_job")!, portraitOrientation: true)
-            cell.imageView.image = image
+            cell.imageView.image = UIImage(named: "ong-img_job")!
         }
             
         else {
             cell.titleLabel.text = organizationsList[indexPath.row].name
             cell.email = organizationsList[indexPath.row].email
-            
-            let image = cropToBounds(image: UIImage(named: "ong-img_job")!, portraitOrientation: true)
-            cell.imageView.image = image
-//            let data = cell.email.data(using: .utf8)
-//            let base64 = data!.base64EncodedString(options: NSData.Base64EncodingOptions(rawValue: 0))
-//
-//            ongDM.find(ById: base64) { (ong, err) in
-//                guard let ong = ong else { return }
-//
-//                if let avatar = ong.avatar {
-//                    FileDM().recoverProfileImage(profilePic: avatar) { (image, error) in
-//                        guard let image = image else {return}
-//                        OperationQueue.main.addOperation {
-//                            let image2 = self.cropToBounds(image: image, portraitOrientation: true)
-//                            cell.imageView.image = image2
-//                        }
-//                    }
-//                }
-//            }
-        }
         
-        cell.delegate = self
+            let imageDownloadOperation = BlockOperation {
+                
+                if let avatar = self.organizationsList[indexPath.row].avatar {
+                    FileDM().recoverProfileImage(profilePic: avatar) { (image, error) in
+                        guard let image = image else {return}
+                        OperationQueue.main.addOperation {
+                            cell.imageView.image = image
+                        }
+                    }
+                } else {
+                    let image = self.cropToBounds(image: UIImage(named: "ong-img_job")!, portraitOrientation: true)
+                    
+                    OperationQueue.main.addOperation {
+                        cell.imageView.image = image
+                    }
+                }
+            }
+            
+            self.backgroundQueue.addOperation(imageDownloadOperation)
+        }
         
         return cell
     }
@@ -140,10 +149,11 @@ extension CategoryCollectionView : UICollectionViewDataSource, UICollectionViewD
             (result, error) in
             guard let result = result else { return }
             self.ongs = result
-            
-            self.reloadInputViews()
-            self.collectionView.reloadData()
         }
+        
+        organizationsList = ongs
+        self.reloadInputViews()
+        self.collectionView.reloadData()
     }
 }
 
