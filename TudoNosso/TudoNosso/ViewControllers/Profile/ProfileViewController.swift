@@ -11,7 +11,7 @@ import CoreLocation
 
 class ProfileViewController: UIViewController {
     
-    //MARK: - Outlets
+    //MARK: - OUTLETS
     @IBOutlet weak var profileNameLabel: UILabel!
     @IBOutlet weak var profileImage: RoundedImageView!
     @IBOutlet weak var segmentedControl: CustomSegmentedControl!
@@ -23,7 +23,7 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var profileContainerView: UIView!
     @IBOutlet weak var jobsContainerView: UIView!
     
-    //MARK: - Properties
+    //MARK: - PROPERTIES
     private let jobsSegueID = "toJobsTable"
     private let profileSegueID = "toProfileTable"
     private let addJobSegueID = "toAddJob"
@@ -104,7 +104,7 @@ class ProfileViewController: UIViewController {
     }
     var isMyProfile = false
     
-    //MARK: - Lifecycle
+    //MARK: - LIFECYCLE
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -119,7 +119,7 @@ class ProfileViewController: UIViewController {
         super.viewWillAppear(animated)
     }
     
-    //MARK: - Methods
+    //MARK: - METHODS
     func loadData() {
         let loginDM = LoginDM()
         let jobDM = JobDM()
@@ -200,7 +200,7 @@ class ProfileViewController: UIViewController {
         }
     }
     
-    //MARK: - Segues
+    //MARK: - SEGUES
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
         switch identifier{
         case profileSegueID:
@@ -234,7 +234,7 @@ class ProfileViewController: UIViewController {
         }
     }
     
-    //MARK: - IBAction
+    //MARK: - ACTIONS
     @IBAction func segmentChanged(_ sender: Any) {
         switch segmentedControl.selectedSegmentIndex {
         case 0: // show jobs

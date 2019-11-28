@@ -10,7 +10,7 @@ import UIKit
 
 class ProfileTableViewController : UITableViewController {
     
-    //MARK: - Outlets
+    //MARK: - OUTLETS
     @IBOutlet weak var phoneLabel: UILabel!
     @IBOutlet weak var adressLabel: UILabel!
     @IBOutlet weak var mailLabel: UILabel!
@@ -19,10 +19,10 @@ class ProfileTableViewController : UITableViewController {
     
     @IBOutlet weak var aboutLabel: UILabel!
     
-    //MARK: - Properties
+    //MARK: - PROPERTIES
     var receivedData: ProfileViewController.Data?
     
-    //MARK: - Lifecycle
+    //MARK: - LIFECYCLE
     override func viewDidLoad() {
         super.viewDidLoad()
         prepareCollection()
@@ -30,7 +30,7 @@ class ProfileTableViewController : UITableViewController {
         setupAboutCell()
     }
     
-    //MARK: - Methods
+    //MARK: - METHODS
     func setupInfoCell(){
         phoneLabel.text = receivedData?.phone ?? ""
         mailLabel.text = receivedData?.email ?? ""
@@ -71,7 +71,7 @@ class ProfileTableViewController : UITableViewController {
     }
 }
 
-//MARK: - Collection View
+//MARK: - COLLECTION
 extension ProfileTableViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if let areas = receivedData?.areas {

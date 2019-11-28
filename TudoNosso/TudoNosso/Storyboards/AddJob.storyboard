@@ -48,7 +48,7 @@
                                                         <constraint firstAttribute="height" constant="43" id="oXb-oI-KIp"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits"/>
+                                                    <textInputTraits key="textInputTraits" returnKeyType="done" textContentType="name"/>
                                                 </textField>
                                             </subviews>
                                             <constraints>
@@ -162,7 +162,7 @@
                                                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Nsg-YV-L29">
                                                             <rect key="frame" x="0.0" y="23.5" width="382" height="15"/>
                                                             <subviews>
-                                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UEt-WR-TJh" userLabel="Cultura e arte">
+                                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UEt-WR-TJh" userLabel="educacao">
                                                                     <rect key="frame" x="0.0" y="0.0" width="191" height="15"/>
                                                                     <subviews>
                                                                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3rL-hY-ZRI" customClass="Checkbox" customModule="TudoNosso" customModuleProvider="target">
@@ -181,7 +181,7 @@
                                                                     </subviews>
                                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 </view>
-                                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D1d-hv-IdU" userLabel="Saúde">
+                                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D1d-hv-IdU" userLabel="esportes">
                                                                     <rect key="frame" x="191" y="0.0" width="191" height="15"/>
                                                                     <subviews>
                                                                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DI0-Ge-lNw" customClass="Checkbox" customModule="TudoNosso" customModuleProvider="target">
@@ -205,7 +205,7 @@
                                                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="41i-rv-9rR">
                                                             <rect key="frame" x="0.0" y="46.5" width="382" height="15.5"/>
                                                             <subviews>
-                                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xa2-j9-rnR" userLabel="Cultura e arte">
+                                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xa2-j9-rnR" userLabel="Idosos">
                                                                     <rect key="frame" x="0.0" y="0.0" width="191" height="15.5"/>
                                                                     <subviews>
                                                                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8dZ-cG-3KU" customClass="Checkbox" customModule="TudoNosso" customModuleProvider="target">
@@ -224,7 +224,7 @@
                                                                     </subviews>
                                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 </view>
-                                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pnz-ck-alT" userLabel="Saúde">
+                                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pnz-ck-alT" userLabel="refugiados">
                                                                     <rect key="frame" x="191" y="0.0" width="191" height="15.5"/>
                                                                     <subviews>
                                                                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pLd-yU-Ov5" customClass="Checkbox" customModule="TudoNosso" customModuleProvider="target">
@@ -248,7 +248,7 @@
                                                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="zwx-UK-Fj9">
                                                             <rect key="frame" x="0.0" y="70" width="382" height="15.5"/>
                                                             <subviews>
-                                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dhu-9k-cQB" userLabel="Cultura e arte">
+                                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dhu-9k-cQB" userLabel="criancas">
                                                                     <rect key="frame" x="0.0" y="0.0" width="191" height="15.5"/>
                                                                     <subviews>
                                                                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ahp-p6-gI0" customClass="Checkbox" customModule="TudoNosso" customModuleProvider="target">
@@ -267,7 +267,7 @@
                                                                     </subviews>
                                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 </view>
-                                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PDM-FG-whK" userLabel="Saúde">
+                                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PDM-FG-whK" userLabel="lgbtq">
                                                                     <rect key="frame" x="191" y="0.0" width="191" height="15.5"/>
                                                                     <subviews>
                                                                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D6j-B8-uWr" customClass="Checkbox" customModule="TudoNosso" customModuleProvider="target">
@@ -291,7 +291,7 @@
                                                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="pdt-tK-faU">
                                                             <rect key="frame" x="0.0" y="93.5" width="382" height="15"/>
                                                             <subviews>
-                                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vsD-dG-aYb" userLabel="Cultura e arte">
+                                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vsD-dG-aYb" userLabel="meio ambiente">
                                                                     <rect key="frame" x="0.0" y="0.0" width="191" height="15"/>
                                                                     <subviews>
                                                                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p2q-ys-D7F" customClass="Checkbox" customModule="TudoNosso" customModuleProvider="target">
@@ -310,7 +310,7 @@
                                                                     </subviews>
                                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 </view>
-                                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zo1-bV-jGV" userLabel="Saúde">
+                                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zo1-bV-jGV" userLabel="pobreza">
                                                                     <rect key="frame" x="191" y="0.0" width="191" height="15"/>
                                                                     <subviews>
                                                                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yF5-sM-bdE" customClass="Checkbox" customModule="TudoNosso" customModuleProvider="target">
@@ -554,8 +554,32 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Adicionar oportunidade" id="7Q4-px-pfb">
                         <barButtonItem key="backBarButtonItem" title="Cancelar" id="ifY-br-Spn"/>
-                        <barButtonItem key="rightBarButtonItem" title="Publicar" id="qkK-n3-PMK"/>
+                        <barButtonItem key="rightBarButtonItem" title="Publicar" id="qkK-n3-PMK">
+                            <connections>
+                                <action selector="publishJobPressed:" destination="OGx-83-pQH" id="Ez9-T3-DqO"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="adressInput" destination="FHa-kq-rJN" id="A47-11-GYh"/>
+                        <outlet property="animals" destination="uN8-dv-nQY" id="GLf-h4-YGS"/>
+                        <outlet property="childrenCheck" destination="ahp-p6-gI0" id="cUA-sK-saY"/>
+                        <outlet property="cultureAndEducation" destination="PQU-4S-gyG" id="dT1-Ck-cI6"/>
+                        <outlet property="descriptionInput" destination="SXF-gM-79Z" id="Gle-qY-YnG"/>
+                        <outlet property="education" destination="3rL-hY-ZRI" id="WM0-d0-9Lq"/>
+                        <outlet property="elders" destination="8dZ-cG-3KU" id="iOi-9O-WrB"/>
+                        <outlet property="environment" destination="p2q-ys-D7F" id="a8f-Tc-y9E"/>
+                        <outlet property="health" destination="YzZ-9Z-XOy" id="c8z-Yq-2HG"/>
+                        <outlet property="lgbtq" destination="D6j-B8-uWr" id="Pql-Dj-dZq"/>
+                        <outlet property="numberInput" destination="DH1-B5-bCW" id="NND-fF-WA7"/>
+                        <outlet property="poverty" destination="yF5-sM-bdE" id="dnP-FE-Wbo"/>
+                        <outlet property="punctualCheck" destination="Ab8-Tj-Zk5" id="ROH-ii-4Zr"/>
+                        <outlet property="recurrentCheck" destination="Wb2-XS-VNN" id="4M6-sm-vOk"/>
+                        <outlet property="refugees" destination="pLd-yU-Ov5" id="cbS-Dp-d3c"/>
+                        <outlet property="sports" destination="DI0-Ge-lNw" id="ILO-px-n0l"/>
+                        <outlet property="titleInput" destination="yh7-7j-K2o" id="6Eb-Rn-OXL"/>
+                        <outlet property="training" destination="Nam-2C-VmA" id="LWO-UZ-219"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AaI-q1-d4q" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
