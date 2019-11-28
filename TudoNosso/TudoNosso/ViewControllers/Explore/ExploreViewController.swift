@@ -42,6 +42,7 @@ class ExploreViewController: UIViewController {
     
     var jobs : [Job] = [] {
         didSet {
+            ongoingJobs = []
             self.sortJobs()
         }
     }
@@ -58,8 +59,7 @@ class ExploreViewController: UIViewController {
         setupTableView()
         setupSearchBar()
         setupJobsTableView()
-        
-        loadData()
+//        loadData()
         
         let tipoLogin = UserDefaults.standard.string(forKey: "USER_KIND") ?? "0"
         switch tipoLogin {
@@ -73,10 +73,10 @@ class ExploreViewController: UIViewController {
         }
     }
     
-    //    override func viewWillAppear(_ animated: Bool) {
-    //        super.viewWillAppear(animated)
-    //        loadData()
-    //    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        loadData()
+    }
     
     func setupNavegationBar() {
         navigationController?.navigationBar.barTintColor = UIColor(rgb: 0xFF5900, a: 1)

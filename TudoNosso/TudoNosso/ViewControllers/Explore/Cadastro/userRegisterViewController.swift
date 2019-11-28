@@ -10,21 +10,39 @@ import UIKit
 
 class userRegisterViewController: UIViewController {
 
+    @IBOutlet weak var viewVoluntary: UIView!
+    @IBOutlet weak var viewOng: UIView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        setupViewDesign(view: viewVoluntary)
+        setupViewDesign(view: viewOng)
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func actionVoluntary(_ sender: Any) {
+        viewVoluntary.alpha = 0.7
+        self.performSegue(withIdentifier: "showSignUpVoluntary", sender: self)
+        viewVoluntary.alpha = 1
     }
-    */
-
+    
+    @IBAction func actionOng(_ sender: Any) {
+        viewOng.alpha = 0.7
+        self.performSegue(withIdentifier: "showSignUpOng", sender: self)
+        viewOng.alpha = 1
+    }
+    
+    func setupViewDesign(view: UIView) {
+        view.layer.borderWidth = 1.0
+        view.layer.masksToBounds = false
+        view.layer.borderColor = UIColor.white.cgColor
+        
+        view.layer.borderWidth = 1.0
+        view.layer.masksToBounds = false
+        view.layer.borderColor = UIColor.white.cgColor
+        
+        view.layer.cornerRadius = viewVoluntary.frame.size.height/8
+        view.clipsToBounds = true
+    }
+    
 }
