@@ -1,3 +1,5 @@
+
+
 //
 //  ExploreViewController.swift
 //  TudoNosso
@@ -14,7 +16,7 @@ import Photos
 import FirebaseAuth
 //import FIRStorage
 
-class LoginViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate, UITextFieldDelegate {
+class informationsRegisterViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate, UITextFieldDelegate {
     
     
     @IBOutlet weak var constrainTextBox: UIView!
@@ -64,6 +66,7 @@ class LoginViewController: UIViewController, UINavigationControllerDelegate, UII
         
         
         KeyboardAvoiding.avoidingView = self.constrainTextBox
+        self.passwordTextField.becomeFirstResponder()
     }
     
     //    keyboard functions
