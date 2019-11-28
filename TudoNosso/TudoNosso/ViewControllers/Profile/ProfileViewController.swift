@@ -11,8 +11,6 @@ import CoreLocation
 
 class ProfileViewController: UIViewController {
     
-//    let placeholderEmail = "bruno@gmail.com" // TODO deletar
-    
     @IBOutlet weak var profileNameLabel: UILabel!
     @IBOutlet weak var profileImage: RoundedImageView!
     @IBOutlet weak var segmentedControl: CustomSegmentedControl!
@@ -24,6 +22,7 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var profileContainerView: UIView!
     @IBOutlet weak var jobsContainerView: UIView!
     
+    //MARK: Properties
     private let jobsSegueID = "toJobsTable"
     private let profileSegueID = "toProfileTable"
     
@@ -103,6 +102,7 @@ class ProfileViewController: UIViewController {
     }
     var isMyProfile = false
     
+    //MARK: Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         loadData()
@@ -112,6 +112,7 @@ class ProfileViewController: UIViewController {
         super.viewWillAppear(animated)
     }
     
+    //MARK: Methods
     func loadData() {
         let loginDM = LoginDM()
         let jobDM = JobDM()
@@ -119,10 +120,8 @@ class ProfileViewController: UIViewController {
         var emailAdress: String! = ""
         if self.email != nil {
             emailAdress = self.email
-//            isMyProfile = emailAdress == placeholderEmail // TODO placeholder
             isMyProfile = emailAdress == Local.userMail
         } else {
-//            emailAdress = placeholderEmail //TODO placeholder
             emailAdress = Local.userMail
             isMyProfile = true
         }
@@ -196,6 +195,7 @@ class ProfileViewController: UIViewController {
         }
     }
     
+    //MARK: Segues
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
         switch identifier{
         case profileSegueID:
@@ -221,11 +221,13 @@ class ProfileViewController: UIViewController {
             }
         } else if segue.identifier == jobsSegueID {
             if let nextVC = segue.destination as? JobsTableViewController {
-                nextVC.data = self.jobs
+                let dependencies = JobsTableViewController.Dependencies(jobs: self.jobs ?? [], isMyProfile: self.isMyProfile ?? false)
+                nextVC.setup(dependencies: dependencies)
             }
         }
     }
 
+    //MARK: IBAction
     @IBAction func segmentChanged(_ sender: Any) {
         switch segmentedControl.selectedSegmentIndex {
         case 0: // show jobs
