@@ -31,4 +31,17 @@ class ChannelGeneralInfoTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
+    
+    func configure(channel:Channel){
+        OperationQueue.main.addOperation {
+            self.chatNameLabel.text = channel.name
+            self.ongNameLabel.text = ""
+            self.membersCountLabel.text = "\(NSLocalizedString("Participants", comment: ""))  \(channel.between.count)"
+        }
+    }
+    func configure(user:User){
+        OperationQueue.main.addOperation {
+            self.ongNameLabel.text = user.displayName
+        }
+    }
 }

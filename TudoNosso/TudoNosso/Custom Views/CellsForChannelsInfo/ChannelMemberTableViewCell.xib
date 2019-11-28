@@ -33,11 +33,19 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Voluntário" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7dA-HU-zxg">
+                                <rect key="frame" x="240.5" y="54" width="69.5" height="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="80" id="FwY-wP-2g3"/>
                             <constraint firstItem="bdY-ub-ZNo" firstAttribute="top" secondItem="pBX-X5-0Oh" secondAttribute="top" constant="9" id="HEm-cD-4Wq"/>
+                            <constraint firstAttribute="bottom" secondItem="7dA-HU-zxg" secondAttribute="bottom" constant="8" id="Pa7-br-qba"/>
+                            <constraint firstAttribute="trailing" secondItem="7dA-HU-zxg" secondAttribute="trailing" constant="10" id="qth-Ju-JZG"/>
                             <constraint firstItem="bdY-ub-ZNo" firstAttribute="leading" secondItem="gPj-pE-rNr" secondAttribute="trailing" constant="20" id="t5T-pq-2Qy"/>
                             <constraint firstItem="gPj-pE-rNr" firstAttribute="centerY" secondItem="pBX-X5-0Oh" secondAttribute="centerY" id="xRE-AR-MAG"/>
                             <constraint firstItem="gPj-pE-rNr" firstAttribute="leading" secondItem="pBX-X5-0Oh" secondAttribute="leading" id="yOt-Qt-aG4"/>
@@ -54,6 +62,7 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="memberImage" destination="gPj-pE-rNr" id="uOn-Rf-cm9"/>
+                <outlet property="memberKindLabel" destination="7dA-HU-zxg" id="FE9-dF-iTv"/>
                 <outlet property="memberNameLabel" destination="bdY-ub-ZNo" id="K2c-Vb-Cro"/>
             </connections>
             <point key="canvasLocation" x="137.68115942028987" y="121.875"/>

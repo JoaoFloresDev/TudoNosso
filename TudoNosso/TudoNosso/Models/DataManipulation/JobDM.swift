@@ -92,6 +92,11 @@ class JobDM: GenericsDM {
                 self.handleDocuments(snapshot, error, completion: completion)
             }
             break
+        case .inArray:
+            db.collection(TABLENAME).whereField(field.rawValue, in: [value]).getDocuments { (snapshot, error) in
+                self.handleDocuments(snapshot, error, completion: completion)
+            }
+            
         }
     }
 }

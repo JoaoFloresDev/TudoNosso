@@ -10,6 +10,7 @@ import Foundation
 import FirebaseFirestore
 import FirebaseAuth
 
+
 class LoginDM{
     let db = Firestore.firestore()
     let TABLENAME = "login"
@@ -119,18 +120,5 @@ class LoginDM{
             }
         }
     }
-    
-    
-    func listLogins(ByIds ids:[String],completion: @escaping ([String : Any]?,Error?) ->()){
-        let emails = ids.map { (id) -> String in
-            return Base64Converter.decodeBase64AsString(id)
-        }
-        print(emails)
-        db.collection(TABLENAME).filter(using: NSPredicate(format: "\(LoginFields.email.rawValue) in %@", emails)).getDocuments { (snapshot, error) in
-            guard let snapshot = snapshot else {return}
-            for child in snapshot.documents {
-                print(child)
-            }
-        }
-    }
+
 }

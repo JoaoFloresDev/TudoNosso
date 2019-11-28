@@ -64,9 +64,7 @@ class LoginViewController: UIViewController, UINavigationControllerDelegate, UII
         
         
         KeyboardAvoiding.avoidingView = self.constrainTextBox
-        LoginDM().listLogins(ByIds:["YnJ1bm9AZ21haWwuY29t","YnJ1bm8yQGdtYWlsLmNvbQ=="]) { (dict, error) in
-            
-        }
+      
         
     }
     

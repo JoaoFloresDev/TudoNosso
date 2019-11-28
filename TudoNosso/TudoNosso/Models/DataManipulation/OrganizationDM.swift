@@ -53,7 +53,7 @@ class OrganizationDM: GenericsDM {
     ///   - comparison: comparison method to be used (e.g: equal, lessThan, greaterThan...)
     ///   - value: value that needs to be in field considering the comparison method
     ///   - completion: Function to be executed when the search on firebase was finished
-    func find(inField field: OrganizationFields, comparison: ComparisonKind, withValue value:Any, completion: @escaping ([Job]?,Error?) ->()){
+    func find(inField field: OrganizationFields, comparison: ComparisonKind, withValue value:Any, completion: @escaping ([Organization]?,Error?) ->()){
         
         switch comparison {
         case .equal:
@@ -86,6 +86,11 @@ class OrganizationDM: GenericsDM {
                 self.handleDocuments(snapshot, error, completion: completion)
             }
             break
+        case .inArray:
+            guard let array = value as? Array<Any> else {fatalError("Not an array")}
+            db.collection(TABLENAME).whereField(field.rawValue, in: array).getDocuments { (snapshot, error) in
+                self.handleDocuments(snapshot, error, completion: completion)
+            }
         }
     }
 }
