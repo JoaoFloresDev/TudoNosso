@@ -18,7 +18,6 @@ class ChannelGeneralInfoTableViewCell: UITableViewCell {
     
     @IBOutlet weak var chatNameLabel: UILabel!
     @IBOutlet weak var ongNameLabel: UILabel!
-    @IBOutlet weak var membersCountLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -36,7 +35,6 @@ class ChannelGeneralInfoTableViewCell: UITableViewCell {
         OperationQueue.main.addOperation {
             self.chatNameLabel.text = channel.name
             self.ongNameLabel.text = ""
-            self.membersCountLabel.text = "\(NSLocalizedString("Participants", comment: ""))  \(channel.between.count)"
         }
     }
     func configure(user:User){

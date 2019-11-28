@@ -20,7 +20,7 @@ class ChannelInfoViewController: UIViewController {
         }
     }
     var match: [(email: String, kind: String)] = []
-    var members:[User] = []{
+    var members:[User]! = []{
         didSet{
             tableView.reloadData()
         }
@@ -33,16 +33,23 @@ class ChannelInfoViewController: UIViewController {
         tableView.register(ChannelGeneralInfoTableViewCell.nib,
                            forCellReuseIdentifier: ChannelGeneralInfoTableViewCell.reuseIdentifer)
         
-        tableView.register(ChannelMemberTableViewCell.nib,                            forCellReuseIdentifier: ChannelMemberTableViewCell.reuseIdentifer)
+        tableView.register(ChannelMemberTableViewCell.nib,forCellReuseIdentifier: ChannelMemberTableViewCell.reuseIdentifer)
         navigationController?.navigationItem.backBarButtonItem?.title = ""
-        
+        self.members.removeAll()
         loadMembers()
+        if Local.userKind! == "volunteer" {
+            let leaveGroup = UIBarButtonItem(title: "Sair", style: .plain, target: self, action: Selector("sair"))
+            self.navigationItem.rightBarButtonItem = leaveGroup
+        }
+        
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+    @objc func sair(){
+        let userID = Base64Converter.encodeStringAsBase64(Local.userMail!)
+        self.channel = ChannelDM().removeUser(channel: channel, userID: userID)
+        
+        navigationController?.popToRootViewController(animated: true)
     }
-    
     func loadMembers(){
         
         let result = match.reduce([String:[String]]()) { (partialDictionary, element) -> [String:[String]] in
@@ -91,22 +98,25 @@ class ChannelInfoViewController: UIViewController {
                     return nil
                 }
                 self.members.append(contentsOf: ongUsers)
+                if result["volunteer"] != nil {
+                    VolunteerDM().find(inField: .email, comparison: .inArray, withValue: result["volunteer"] as Any) { (vonlunteers, error) in
+                        if error == nil {
+                            guard let vonlunteers = vonlunteers else {return}
+                            let vonlunteerUsers = vonlunteers.compactMap { (child) -> User? in
+                                if let element = User(snapshot: child.representation as NSDictionary){
+                                    element.kind = "volunteer"
+                                    return element
+                                }
+                                return nil
+                            }
+                            self.members.append(contentsOf: vonlunteerUsers)
+                        }
+                    }
+                }
             }
         }
         
-        VolunteerDM().find(inField: .email, comparison: .inArray, withValue: result["volunteer"] as Any) { (vonlunteers, error) in
-            if error == nil {
-                guard let vonlunteers = vonlunteers else {return}
-                let vonlunteerUsers = vonlunteers.compactMap { (child) -> User? in
-                    if let element = User(snapshot: child.representation as NSDictionary){
-                        element.kind = "volunteer"
-                        return element
-                    }
-                    return nil
-                }
-                self.members.append(contentsOf: vonlunteerUsers)
-            }
-        }
+        
     }
 }
 
@@ -151,7 +161,7 @@ extension ChannelInfoViewController:UITableViewDelegate, UITableViewDataSource{
         case 0:
             return ""
         default:
-            return NSLocalizedString("Participants", comment: "")
+            return "\(members.count) \(NSLocalizedString("Participants", comment: ""))"
             
         }
     }

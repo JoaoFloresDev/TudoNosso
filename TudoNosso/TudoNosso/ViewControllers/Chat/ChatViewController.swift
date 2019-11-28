@@ -40,14 +40,18 @@ final class ChatViewController: MessagesViewController {
     private var messages: [Message] = []
     private let user: User
     private let channel: Channel
+    private var userFirstTimeIn = false
     
     
-    init(user: User, channel: Channel) {
+    init(user: User, channel: Channel, firstTimeIn: Bool = false) {
         self.user = user
         self.channel = channel
         super.init(nibName: nil, bundle: nil)
         self.title = channel.name
+        self.userFirstTimeIn = firstTimeIn
+        
     }
+    
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -77,8 +81,15 @@ final class ChatViewController: MessagesViewController {
         messagesCollectionView.messagesDataSource = self
         messagesCollectionView.messagesLayoutDelegate = self
         messagesCollectionView.messagesDisplayDelegate = self
-        let infoButton = UIBarButtonItem(title: "info", style: .plain, target: self, action: Selector("openGroupInfo"))
+        let infoButton = UIBarButtonItem(title: "info", style: .plain, target: self, action: Selector(("openGroupInfo")))
         self.navigationItem.rightBarButtonItem = infoButton
+        
+        if userFirstTimeIn {
+            messageInputBar.inputTextView.text = "Olá! Gostaria de me candidatar à vaga de \(channel.name)"
+            
+        }else {
+            messageInputBar.inputTextView.text = ""
+        }
     }
     
     
@@ -147,11 +158,13 @@ final class ChatViewController: MessagesViewController {
 // MARK: - MessagesDisplayDelegate
 
 extension ChatViewController: MessagesDisplayDelegate {
+    func textColor(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> UIColor {
+        return UIColor.black
+    }
     
     func backgroundColor(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> UIColor {
         return isFromCurrentSender(message: message) ? .primary : .incomingMessage
     }
-    
     func shouldDisplayHeader(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> Bool {
         return true
     }
@@ -194,7 +207,6 @@ extension ChatViewController: MessagesLayoutDelegate {
         avatarView.set(avatar: Avatar(image: nil, initials: message.sender.initials))
         avatarView.isHidden = isNextMessageSameSender(at: indexPath)
         avatarView.layer.borderWidth = 2
-        avatarView.layer.borderColor = UIColor.primary.cgColor
     }
     
 }

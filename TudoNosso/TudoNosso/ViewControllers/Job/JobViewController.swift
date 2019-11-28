@@ -51,7 +51,7 @@ class JobViewController: UIViewController {
                         let dictionary = dictionary,
                         let user = User(snapshot: dictionary as NSDictionary)
                         else {return}
-                    let vc = ChatViewController(user: user, channel: channel)
+                    let vc = ChatViewController(user: user, channel: channel,firstTimeIn: true)
                     self.navigationController?.pushViewController(vc, animated: true)
                 }
             }
