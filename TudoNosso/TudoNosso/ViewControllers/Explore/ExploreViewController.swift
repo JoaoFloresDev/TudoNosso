@@ -34,6 +34,12 @@ class ExploreViewController: UIViewController {
         }
     }
     
+    var backgroundQueue: OperationQueue {
+        let queue = OperationQueue()
+        queue.maxConcurrentOperationCount = 3
+        return queue
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -222,6 +228,25 @@ extension ExploreViewController : UITableViewDataSource, UISearchResultsUpdating
             } else {
               jobList = ongoingJobs[indexPath.row]
             }
+            
+            let ongDM = OrganizationDM()
+             
+             let imageDownloadOperation = BlockOperation {
+                 ongDM.find(ById: jobList.organizationID) { (ong, err) in
+                     guard let ong = ong else { return }
+
+                     if let avatar = ong.avatar {
+                         FileDM().recoverProfileImage(profilePic: avatar) { (image, error) in
+                             guard let image = image else {return}
+                             OperationQueue.main.addOperation {
+                                 cell.jobImageView.image = image
+                             }
+                         }
+                     }
+                 }
+             }
+            
+             self.backgroundQueue.addOperation(imageDownloadOperation)
             
             cell.configure(job: jobList)
             cell.backgroundColor = .clear
