@@ -227,7 +227,7 @@ class ProfileViewController: UIViewController {
             }
         case jobsSegueID:
             if let nextVC = segue.destination as? JobsTableViewController {
-                let dependencies = JobsTableViewController.Dependencies(jobs: self.jobs ?? [], isMyProfile: self.isMyProfile ?? false)
+                let dependencies = JobsTableViewController.Dependencies(jobs: self.jobs ?? [], isMyProfile: self.isMyProfile)
                 nextVC.setup(dependencies: dependencies)
             }
         default:    break

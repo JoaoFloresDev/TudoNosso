@@ -66,6 +66,7 @@
 		C46E728623745C1300D57BB9 /* CellCasesOrganizations.swift in Sources */ = {isa = PBXBuildFile; fileRef = C46E728423745C1300D57BB9 /* CellCasesOrganizations.swift */; };
 		C46E729E2379985B00D57BB9 /* CategoryOportunitiesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C46E729D2379985B00D57BB9 /* CategoryOportunitiesViewController.swift */; };
 		C46E72A3237AE4A400D57BB9 /* ViewUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = C46E72A2237AE4A400D57BB9 /* ViewUtilities.swift */; };
+		D7210584238FEC550094EE0D /* Checkbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7210583238FEC550094EE0D /* Checkbox.swift */; };
 		D75A3F22238EAEE10075FD94 /* AddJob.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D75A3F21238EAEE10075FD94 /* AddJob.storyboard */; };
 		D75A3F27238EB3940075FD94 /* AddJobTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D75A3F26238EB3940075FD94 /* AddJobTableViewController.swift */; };
 		D765D3222373021000F596CD /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D765D3212373021000F596CD /* UIColor+Extension.swift */; };
@@ -174,6 +175,7 @@
 		C46E728423745C1300D57BB9 /* CellCasesOrganizations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellCasesOrganizations.swift; sourceTree = "<group>"; };
 		C46E729D2379985B00D57BB9 /* CategoryOportunitiesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryOportunitiesViewController.swift; sourceTree = "<group>"; };
 		C46E72A2237AE4A400D57BB9 /* ViewUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewUtilities.swift; sourceTree = "<group>"; };
+		D7210583238FEC550094EE0D /* Checkbox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Checkbox.swift; sourceTree = "<group>"; };
 		D75A3F21238EAEE10075FD94 /* AddJob.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddJob.storyboard; sourceTree = "<group>"; };
 		D75A3F26238EB3940075FD94 /* AddJobTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddJobTableViewController.swift; sourceTree = "<group>"; };
 		D765D3212373021000F596CD /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
@@ -511,6 +513,7 @@
 				D776C4D3237442A1002C3F3E /* Cells for Jobs Table */,
 				D765D3252373041B00F596CD /* RoundedViews.swift */,
 				D776C4CD23743C7E002C3F3E /* CustomSegmentedControl.swift */,
+				D7210583238FEC550094EE0D /* Checkbox.swift */,
 			);
 			path = "Custom Views";
 			sourceTree = "<group>";
@@ -838,6 +841,7 @@
 				5601523D2388A4D100D9D8E8 /* SenderType+extensions.swift in Sources */,
 				560C306B23886F44004BD536 /* User.swift in Sources */,
 				D7C97E92237D97680010BAC0 /* AreaCollectionCell.swift in Sources */,
+				D7210584238FEC550094EE0D /* Checkbox.swift in Sources */,
 				C46E728523745C1300D57BB9 /* CategoryCollectionView.swift in Sources */,
 				560C30652388291D004BD536 /* Channel.swift in Sources */,
 				C42267462371AF28000A6DA3 /* (null) in Sources */,
