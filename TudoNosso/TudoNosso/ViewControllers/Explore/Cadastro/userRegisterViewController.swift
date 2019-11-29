@@ -21,15 +21,11 @@ class userRegisterViewController: UIViewController {
     }
     
     @IBAction func actionVoluntary(_ sender: Any) {
-        viewVoluntary.alpha = 0.7
         self.performSegue(withIdentifier: "showSignUpVoluntary", sender: self)
-        viewVoluntary.alpha = 1
     }
     
     @IBAction func actionOng(_ sender: Any) {
-        viewOng.alpha = 0.7
         self.performSegue(withIdentifier: "showSignUpOng", sender: self)
-        viewOng.alpha = 1
     }
     
     func setupViewDesign(view: UIView) {
@@ -44,5 +40,4 @@ class userRegisterViewController: UIViewController {
         view.layer.cornerRadius = viewVoluntary.frame.size.height/8
         view.clipsToBounds = true
     }
-    
 }
