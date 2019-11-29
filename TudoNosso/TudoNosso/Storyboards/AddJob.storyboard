@@ -15,6 +15,16 @@
         </array>
     </customFonts>
     <scenes>
+        <!--Job-->
+        <scene sceneID="W9v-8n-uwa">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Job" id="OES-MJ-RGX" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="nn7-dL-KVF"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oWH-N2-y1z" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-367" y="382"/>
+        </scene>
         <!--Adicionar oportunidade-->
         <scene sceneID="VI8-EI-GAe">
             <objects>
@@ -64,7 +74,7 @@
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="ztr-UL-knH" userLabel="Description">
                                         <rect key="frame" x="0.0" y="145" width="414" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ztr-UL-knH" id="Py7-j6-yRy">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ztr-UL-knH" id="Py7-j6-yRy">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="100"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
@@ -78,7 +88,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SXF-gM-79Z">
-                                                    <rect key="frame" x="20" y="35.5" width="374" height="34"/>
+                                                    <rect key="frame" x="20" y="35.5" width="374" height="43"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="43" id="Ncl-gX-9UD"/>
                                                     </constraints>
@@ -419,7 +429,7 @@
                                                                     <state key="selected" image="selected-checkbox"/>
                                                                 </button>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recorrente" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0M1-jL-O49">
-                                                                    <rect key="frame" x="23" y="0.5" width="160" height="14"/>
+                                                                    <rect key="frame" x="23" y="-0.5" width="160" height="16.5"/>
                                                                     <fontDescription key="fontDescription" name="Nunito-Regular" family="Nunito" pointSize="12"/>
                                                                     <color key="textColor" red="0.12941176469999999" green="0.12941176469999999" blue="0.12941176469999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                     <nil key="highlightedColor"/>
@@ -448,7 +458,7 @@
                                                                     <state key="selected" image="selected-checkbox"/>
                                                                 </button>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pontual" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hzM-Qz-9hu">
-                                                                    <rect key="frame" x="23" y="0.5" width="160" height="14"/>
+                                                                    <rect key="frame" x="23" y="-0.5" width="160" height="16.5"/>
                                                                     <fontDescription key="fontDescription" name="Nunito-Regular" family="Nunito" pointSize="12"/>
                                                                     <color key="textColor" red="0.12941176469999999" green="0.12941176469999999" blue="0.12941176469999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                     <nil key="highlightedColor"/>
@@ -486,15 +496,15 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DH1-B5-bCW">
-                                                    <rect key="frame" x="16" y="35.5" width="382" height="43"/>
+                                                    <rect key="frame" x="16" y="38.5" width="382" height="43"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="43" id="OKp-I6-wP3"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits"/>
+                                                    <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                 </textField>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Número de vagas" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lws-GU-1wz">
-                                                    <rect key="frame" x="16" y="11" width="398" height="16.5"/>
+                                                    <rect key="frame" x="16" y="11" width="398" height="19.5"/>
                                                     <fontDescription key="fontDescription" name="Nunito-Bold" family="Nunito" pointSize="14"/>
                                                     <color key="textColor" red="0.12941176469999999" green="0.12941176469999999" blue="0.12941176469999999" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -519,7 +529,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FHa-kq-rJN">
-                                                    <rect key="frame" x="16" y="35.5" width="382" height="43"/>
+                                                    <rect key="frame" x="16" y="38.5" width="382" height="43"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="43" id="lfy-NM-ydj"/>
                                                     </constraints>
@@ -527,7 +537,7 @@
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Local" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S5r-cc-zIz">
-                                                    <rect key="frame" x="16" y="11" width="398" height="16.5"/>
+                                                    <rect key="frame" x="16" y="11" width="398" height="19.5"/>
                                                     <fontDescription key="fontDescription" name="Nunito-Bold" family="Nunito" pointSize="14"/>
                                                     <color key="textColor" red="0.12941176469999999" green="0.12941176469999999" blue="0.12941176469999999" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -557,6 +567,7 @@
                         <barButtonItem key="rightBarButtonItem" title="Publicar" id="qkK-n3-PMK">
                             <connections>
                                 <action selector="publishJobPressed:" destination="OGx-83-pQH" id="Ez9-T3-DqO"/>
+                                <segue destination="OES-MJ-RGX" kind="show" identifier="toCreatedJobDetails" id="lhk-t9-8HY"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
