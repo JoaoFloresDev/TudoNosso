@@ -629,6 +629,7 @@
                     <connections>
                         <outlet property="aboutLabel" destination="4XQ-hN-Odw" id="Igy-47-fMr"/>
                         <outlet property="adressLabel" destination="xUQ-hs-fui" id="4uC-Rw-3Bx"/>
+                        <outlet property="areasCell" destination="6Z5-VR-t4B" id="QmO-FQ-AEF"/>
                         <outlet property="areasCollection" destination="qwx-Zd-h7C" id="xDm-Al-CkM"/>
                         <outlet property="mailLabel" destination="x5d-R2-VBQ" id="1JN-3G-pYT"/>
                         <outlet property="phoneLabel" destination="3tE-RQ-mhU" id="fy3-aU-qly"/>
