@@ -80,11 +80,11 @@ class AddJobTableViewController: UITableViewController {
     }
     
     func setTypeButtons() {
-        recurrentCheck.addTarget(self, action: #selector(typeChoosen(sender:)), for: .touchUpInside)
-        punctualCheck.addTarget(self, action: #selector(typeChoosen(sender:)), for: .touchUpInside)
+        recurrentCheck.addTarget(self, action: #selector(typeChosen(sender:)), for: .touchUpInside)
+        punctualCheck.addTarget(self, action: #selector(typeChosen(sender:)), for: .touchUpInside)
     }
     
-    @objc func typeChoosen(sender: UIButton!) {
+    @objc func typeChosen(sender: UIButton!) {
         switch sender {
         case recurrentCheck:
             recurrentCheck.isChecked = true
