@@ -16,7 +16,6 @@ import FirebaseAuth
 
 class LoginViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate, UITextFieldDelegate {
     
-    
     @IBOutlet weak var constrainTextBox: UIView!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
@@ -53,9 +52,9 @@ class LoginViewController: UIViewController, UINavigationControllerDelegate, UII
         let okAction = UIAlertAction(title: "OK", style: .default) { (act) in
             field.becomeFirstResponder()
         }
+        
         alertController.addAction(okAction)
         present(alertController,animated: true)
-        
     }
     
     
@@ -64,7 +63,6 @@ class LoginViewController: UIViewController, UINavigationControllerDelegate, UII
         
         
         KeyboardAvoiding.avoidingView = self.constrainTextBox
-        
     }
     
     //    keyboard functions
@@ -92,6 +90,4 @@ class LoginViewController: UIViewController, UINavigationControllerDelegate, UII
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-    
-    
 }
