@@ -20,34 +20,41 @@ class informationsRegisterViewController: UIViewController, UINavigationControll
     
     
     @IBOutlet weak var constrainTextBox: UIView!
-    @IBOutlet weak var emailTextField: UITextField!
-    @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var nameTextBox: UITextField!
+    @IBOutlet weak var endressTextBox: UITextField!
+    @IBOutlet weak var phoneTextField: UITextField!
+    @IBOutlet weak var emailTextBox: UITextField!
+    @IBOutlet weak var descriptionTextBox: UITextField!
+    @IBOutlet weak var siteTextBox: UITextField!
+    @IBOutlet weak var facebookTextBox: UITextField!
+    @IBOutlet weak var constrainViewSite: UIView!
     
-    @IBAction func signIn(_ sender: Any) {
-        
-        if emailTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" {
-            showAlert(msg: "Campo e-mail precisa ser preenchido", field: emailTextField)
-        } else if passwordTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" {
-            showAlert(msg: "Campo senha precisa ser preenchido", field: passwordTextField)
+    @IBAction func registerAction(_ sender: Any) {
+        if nameTextBox.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" {
+            showAlert(msg: "Campo Nome precisa ser preenchido", field: nameTextBox)
+        } else if endressTextBox.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" {
+            showAlert(msg: "Campo Endereço precisa ser preenchido", field: endressTextBox)
         }else {
-            guard let email = emailTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines),
-                let password = passwordTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines)  else {return}
-            LoginDM().signIn(email: email, pass: password) { (dictionary, error) in
-                if let error = error {
-                    print(error.localizedDescription)
-                }else if let dictionary = dictionary as NSDictionary?  {
-                    if let ong = Organization(snapshot: dictionary){
-                        Local.userMail = ong.email
-                        Local.userKind = LoginKinds.ONG.rawValue
-                    }else if let volunteer = Volunteer(snapshot: dictionary){
-                        Local.userMail = volunteer.email
-                        Local.userKind = LoginKinds.volunteer.rawValue
-                    }
-                    ViewUtilities.navigateToStoryBoard(storyboardName: "Main", storyboardID: "Tab", window: self.view.window, completion: {})
-                    
-                }
-            }
+            showAlert(msg: "Finalizar cadastro?", field: endressTextBox)
+//            cadastrar
         }
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
+        view.addGestureRecognizer(tap)
+        
+        nameTextBox.delegate = self
+        endressTextBox.delegate = self
+        phoneTextField.delegate = self
+        emailTextBox.delegate = self
+        descriptionTextBox.delegate = self
+        siteTextBox.delegate = self
+        facebookTextBox.delegate = self
+        
+        KeyboardAvoiding.avoidingView = self.constrainTextBox
     }
     
     func showAlert(msg: String, field:UITextField) {
@@ -60,34 +67,47 @@ class informationsRegisterViewController: UIViewController, UINavigationControll
         present(alertController,animated: true)
     }
     
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        
-        KeyboardAvoiding.avoidingView = self.constrainTextBox
-        self.passwordTextField.becomeFirstResponder()
-    }
-    
     //    keyboard functions
+    @objc func dismissKeyboard() {
+        //Causes the view (or one of its embedded text fields) to resign the first responder status.
+        view.endEditing(true)
+    }
+
     public func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
-        if textField == self.emailTextField {
-            KeyboardAvoiding.avoidingView = self.constrainTextBox
-        }
-        else if textField == self.passwordTextField {
-            KeyboardAvoiding.avoidingView = self.constrainTextBox
+        if textField == self.emailTextBox {
+            KeyboardAvoiding.avoidingView = self.constrainViewSite
         }
         
         return true
     }
     
     public func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        if textField == self.emailTextField {
-            self.passwordTextField.becomeFirstResponder()
-        }
-        else if textField == self.passwordTextField {
+        
+        switch textField {
+            
+        case nameTextBox:
+            self.endressTextBox.becomeFirstResponder()
+            
+        case endressTextBox:
+            self.phoneTextField.becomeFirstResponder()
+            
+        case phoneTextField:
+            self.emailTextBox.becomeFirstResponder()
+            
+        case emailTextBox:
+            self.descriptionTextBox.becomeFirstResponder()
+            
+        case descriptionTextBox:
+            self.siteTextBox.becomeFirstResponder()
+            
+        case siteTextBox:
+            self.facebookTextBox.becomeFirstResponder()
+            
+        default: //facebookTextBox:
+            KeyboardAvoiding.avoidingView = self.constrainTextBox
             textField.resignFirstResponder()
         }
+        
         return true
     }
     
