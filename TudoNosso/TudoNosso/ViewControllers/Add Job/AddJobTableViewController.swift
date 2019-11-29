@@ -139,11 +139,11 @@ class AddJobTableViewController: UITableViewController {
     
     //MARK: - SEGUES
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        switch segue.identifier {
-        case jobDetailsSegueID:
-            //TODO: enviar Job criado para tela de detalhes
-        default:        break
-        }
+//        switch segue.identifier {
+//        case jobDetailsSegueID:
+//            //TODO: enviar Job criado para tela de detalhes
+//        default:        break
+//        }
     }
 }
 
