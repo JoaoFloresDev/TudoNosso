@@ -18,7 +18,6 @@ import FirebaseAuth
 
 class informationsRegisterViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate, UITextFieldDelegate {
     
-    
     @IBOutlet weak var constrainTextBox: UIView!
     @IBOutlet weak var nameTextBox: UITextField!
     @IBOutlet weak var endressTextBox: UITextField!
@@ -28,15 +27,32 @@ class informationsRegisterViewController: UIViewController, UINavigationControll
     @IBOutlet weak var siteTextBox: UITextField!
     @IBOutlet weak var facebookTextBox: UITextField!
     @IBOutlet weak var constrainViewSite: UIView!
+    @IBOutlet weak var labelsite: UILabel!
+    @IBOutlet weak var textBoxSite: UITextField!
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var enddressLabel: UILabel!
+    
+    
     
     @IBAction func registerAction(_ sender: Any) {
         if nameTextBox.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" {
             showAlert(msg: "Campo Nome precisa ser preenchido", field: nameTextBox)
         } else if endressTextBox.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" {
             showAlert(msg: "Campo Endereço precisa ser preenchido", field: endressTextBox)
-        }else {
-            showAlert(msg: "Finalizar cadastro?", field: endressTextBox)
-//            cadastrar
+        } else {
+            let refreshAlert = UIAlertController(title: "Deseja finalizar cadastro?", message: "", preferredStyle: UIAlertController.Style.alert)
+            
+            refreshAlert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action: UIAlertAction!) in
+                print("realizar cadastro")
+                self.performSegue(withIdentifier: "showConfirmRegister", sender: nil)
+                //            cadastrar
+            }))
+            
+            refreshAlert.addAction(UIAlertAction(title: "Cancelar", style: .cancel, handler: { (action: UIAlertAction!) in
+                print("Cancel cadastro")
+            }))
+            
+            present(refreshAlert, animated: true, completion: nil)
         }
     }
     
@@ -72,7 +88,7 @@ class informationsRegisterViewController: UIViewController, UINavigationControll
         //Causes the view (or one of its embedded text fields) to resign the first responder status.
         view.endEditing(true)
     }
-
+    
     public func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
         if textField == self.emailTextBox {
             KeyboardAvoiding.avoidingView = self.constrainViewSite
