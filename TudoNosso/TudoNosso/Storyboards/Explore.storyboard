@@ -663,7 +663,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EJV-kw-5hS">
-                                <rect key="frame" x="184.5" y="681.5" width="45" height="21"/>
+                                <rect key="frame" x="184.5" y="679.5" width="45" height="25"/>
                                 <fontDescription key="fontDescription" name="Nunito-Bold" family="Nunito" pointSize="18"/>
                                 <color key="textColor" red="0.97645872830000002" green="0.97646445039999996" blue="0.97647935149999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
@@ -689,20 +689,10 @@
                     <tabBarItem key="tabBarItem" systemItem="bookmarks" id="GN7-gH-o2Q">
                         <color key="badgeColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
                     </tabBarItem>
-                    <navigationItem key="navigationItem" title="Explorar" leftItemsSupplementBackButton="YES" id="LN9-ih-qyx">
-                        <barButtonItem key="rightBarButtonItem" title="login" springLoaded="YES" style="plain" id="GYa-qn-CMo">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="NgP-oC-HmD" userLabel="login">
-                                <rect key="frame" x="302" y="7" width="92" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Login">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                            </button>
-                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Explorar" leftItemsSupplementBackButton="YES" id="LN9-ih-qyx"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="buttonAreaImage" destination="ciO-VS-laC" id="jeB-cC-QGH"/>
                         <outlet property="buttonLogin" destination="5V2-D5-u24" id="cDX-xD-1Vh"/>
                         <outlet property="jobsTableView" destination="D89-VI-4vT" id="Zcb-fR-j1G"/>
                         <outlet property="labelButtonLogin" destination="EJV-kw-5hS" id="x2l-2D-RHW"/>
@@ -755,6 +745,6 @@
         <image name="user" width="61" height="72"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="6hc-FF-ddR"/>
+        <segue reference="hNG-PQ-MgU"/>
     </inferredMetricsTieBreakers>
 </document>

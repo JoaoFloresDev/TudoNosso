@@ -38,17 +38,24 @@ class ChannelInfoViewController: UIViewController {
         self.members.removeAll()
         loadMembers()
         if Local.userKind! == "volunteer" {
-            let leaveGroup = UIBarButtonItem(title: "Sair", style: .plain, target: self, action: Selector("sair"))
+            let leaveGroup = UIBarButtonItem(title: "Sair", style: .plain, target: self, action: Selector("leaveChannel"))
             self.navigationItem.rightBarButtonItem = leaveGroup
         }
         
     }
     
-    @objc func sair(){
-        let userID = Base64Converter.encodeStringAsBase64(Local.userMail!)
-        self.channel = ChannelDM().removeUser(channel: channel, userID: userID)
+    @objc func leaveChannel(){
         
-        navigationController?.popToRootViewController(animated: true)
+        let controller = UIAlertController(title: "Deseja mesmo sair?", message: "Ao sair do chat também estará desistindo da participação no trabalho voluntário.", preferredStyle: .alert)
+        
+        controller.addAction(UIAlertAction(title: "Sim", style: .default, handler: { (act) in
+            let userID = Base64Converter.encodeStringAsBase64(Local.userMail!)
+            self.channel = ChannelDM().removeUser(channel: self.channel, userID: userID)
+            
+            self.navigationController?.popToRootViewController(animated: true)
+        }))
+        controller.addAction(UIAlertAction(title: "Não", style: .cancel, handler: nil))
+        present(controller, animated: true)
     }
     func loadMembers(){
         
@@ -61,31 +68,6 @@ class ChannelInfoViewController: UIViewController {
             }
             return dict
         }
-        
-//        print(result)
-        
-        /*
-        let lists = match.reduce(([String](),[String]())) { (partial, element) -> ([String],[String]) in
-            if element.1 == "ong" {
-                return (partial.0 + [element.0], partial.1)
-            } else {
-                 return (partial.0 , partial.1 + [element.0])
-            }
-        }
-        
-        print(lists)
-         */
-        
-        
-        
-        /*
-        let matchList = match.filter { (id,type) -> Bool in
-            type == "volunteer"
-        }.map { (id,type) -> String in
-            id
-        }*/
-        
-        //print(matchList)
         
         OrganizationDM().find(inField: .email, comparison: .inArray, withValue: result["ong"] as Any) { (ongs, error) in
              if error == nil {

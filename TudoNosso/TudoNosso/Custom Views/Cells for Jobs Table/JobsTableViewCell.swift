@@ -55,8 +55,15 @@ class JobsTableViewCell: UITableViewCell {
         status = job.status
         jobTitleLabel.text = job.title
         typeOfJobLabel.text = job.vacancyType
-        categoriesLabel.text = job.category.rawValue
-        engagedLabel.text = "00 engajados / " + String(format: "%02d", job.vacancyNumber) + " vagas"
+        categoriesLabel.text = job.firstCategoryAndCount
+        engagedLabel.text = job.engagedOnesSlashVacancyNumber
+        
+        AddressUtil.recoveryShortAddress(fromLocation: job.localization) { (address, error) in
+            guard let address = address else {return}
+            OperationQueue.main.addOperation {
+                self.jobAdressLabel.text = address
+            }
+        }
         
 //        ongDM.find(ById: job.organizationID) { (ong, err) in
 //            guard let ong = ong else { return }

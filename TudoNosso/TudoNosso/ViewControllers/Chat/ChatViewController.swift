@@ -241,7 +241,7 @@ extension ChatViewController: MessagesDataSource {
 
 
 
-// MARK: - MessageInputBarDelegate
+// MARK: - InputBarAccessoryViewDelegate
 
 extension ChatViewController: InputBarAccessoryViewDelegate {
     

@@ -56,7 +56,7 @@ class JobDM: GenericsDM {
     ///   - field: The field that needs to be equal to the value - its one of the JobFields (enum)
     ///   - value: A string that represents the value
     ///   - completion: Function to be executed when the search on firebase was finished
-    func find(inField field: JobFields, withValueEqual value:String, completion: @escaping ([Job]?,Error?) ->()) {
+    func find(inField field: JobFields, withValueEqual value:Any, completion: @escaping ([Job]?,Error?) ->()) {
         db.collection(TABLENAME).whereField(field.rawValue, isEqualTo: value).getDocuments() { (snapshot, err) in
             self.handleDocuments(snapshot, err, completion: completion)
         }
