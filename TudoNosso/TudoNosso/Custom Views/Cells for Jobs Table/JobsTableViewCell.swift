@@ -8,15 +8,18 @@
 
 import UIKit
 
+//MARK: - PROTOCOL
 protocol JobsTableViewCellDelegate {
     func deleteJob(indexPath: IndexPath)
     func finishJob(indexPath: IndexPath)
 }
 
+//MARK: - CLASS JobsTableViewCell
 class JobsTableViewCell: UITableViewCell {
     
     let ongDM = OrganizationDM()
     
+    //MARK: - OUTLETS
     @IBOutlet weak var jobTitleLabel: UILabel!
     @IBOutlet weak var typeOfJobLabel: UILabel!
     @IBOutlet weak var jobAdressLabel: UILabel!
@@ -28,6 +31,7 @@ class JobsTableViewCell: UITableViewCell {
     @IBOutlet weak var buttonsView: UIView!
     @IBOutlet weak var finishView: UIView!
     
+    //MARK: - PROPERTIES
     static let reuseIdentifer = "JobsTableViewCell"
     
     static var nib: UINib {
@@ -51,6 +55,7 @@ class JobsTableViewCell: UITableViewCell {
     var indexPath: IndexPath?
     var delegate: JobsTableViewCellDelegate?
     
+    //MARK: - METHODS
     func configure(job: Job){
         status = job.status
         jobTitleLabel.text = job.title
@@ -85,7 +90,7 @@ class JobsTableViewCell: UITableViewCell {
         self.buttonsAvailable = true
     }
     
-    
+    //MARK: - ACTIONS
     @IBAction func deletePressed(_ sender: Any) {
         if let indexPath = self.indexPath {
             delegate?.deleteJob(indexPath: indexPath)
