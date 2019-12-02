@@ -224,4 +224,14 @@ extension JobsTableViewController : JobsTableViewCellDelegate {
         default:    break
         }
     }
+    
+    func editJob(indexPath: IndexPath) {
+        switch indexPath.section {
+        case 0:
+            if let id = ongoingJobs[indexPath.row].id {
+                //TODO
+            }
+        default:    break
+        }
+    }
 }

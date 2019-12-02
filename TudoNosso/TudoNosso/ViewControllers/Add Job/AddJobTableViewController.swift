@@ -38,7 +38,7 @@ class AddJobTableViewController: UITableViewController {
     var selectedCategories: [CategoryEnum] = []
     var selectedType: String?
     
-    var createdJob: Job?
+    var job: Job?
     
     var jobDetailsSegueID = "toCreatedJobDetails"
     
@@ -65,6 +65,10 @@ class AddJobTableViewController: UITableViewController {
         setNavBar()
         setTextFields()
         setTypeButtons()
+        
+        if job != nil { // user is editing a job
+            //TODO: preencher campos
+        }
     }
     
     //MARK: - METHODS
@@ -100,7 +104,7 @@ class AddJobTableViewController: UITableViewController {
         }
     }
     
-    func createJob() /*-> Job */{
+    func createJob() {
         //TODO: terminar
         guard let ongEmail = Local.userMail else { return }
         let ongID = Base64Converter.decodeBase64AsString(ongEmail)
@@ -126,7 +130,7 @@ class AddJobTableViewController: UITableViewController {
         }
         
         
-//        let job = Job(title: jobTitle, category: <#T##CategoryEnum#>, vacancyType: selectedType, vacancyNumber: openings, organizationID: ongID, localization: <#T##CLLocationCoordinate2D#>, status: true, channelID: <#T##String#>)
+//        job = Job(title: jobTitle, category: <#T##CategoryEnum#>, vacancyType: selectedType, vacancyNumber: openings, organizationID: ongID, localization: <#T##CLLocationCoordinate2D#>, status: true, channelID: <#T##String#>)
         
         if let description = descriptionInput.text, descriptionInput.text != "" {
 //            job.desc = description
@@ -141,7 +145,7 @@ class AddJobTableViewController: UITableViewController {
     
     //MARK: - ACTIONS
     @IBAction func publishJobPressed(_ sender: Any) {
-        /*let job = */ createJob()
+        createJob()
         let jobDM = JobDM()
 //        jobDM.save(job: job)
 //        performSegue(withIdentifier: jobDetailsSegueID, sender: self)
