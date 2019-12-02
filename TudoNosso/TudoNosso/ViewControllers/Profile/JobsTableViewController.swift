@@ -33,8 +33,10 @@ class JobsTableViewController: UITableViewController {
     var finishedJobs : [Job] = []
     
     var selectedJob: Job?
+    var jobForEdition: Job?
     
     private let jobsDetailSegueID = "toJobDetails"
+    private let editJobSegueID = "toEditJob"
     
     //MARK: - LIFECYCLE
     override func viewDidLoad() {
@@ -90,10 +92,18 @@ class JobsTableViewController: UITableViewController {
     
     //MARK: - SEGUE
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == jobsDetailSegueID {
+        switch segue.identifier {
+        case jobsDetailSegueID:
             if let nextVC = segue.destination as? JobViewController {
                 nextVC.job = self.selectedJob
             }
+        case editJobSegueID:
+            if let nextVC = segue.destination as? AddJobTableViewController {
+                if let jobForEdition = jobForEdition {
+                    nextVC.job = jobForEdition
+                }
+            }
+        default:    break
         }
     }
     
@@ -228,10 +238,10 @@ extension JobsTableViewController : JobsTableViewCellDelegate {
     func editJob(indexPath: IndexPath) {
         switch indexPath.section {
         case 0:
-            if let id = ongoingJobs[indexPath.row].id {
-                //TODO
-            }
+            jobForEdition = ongoingJobs[indexPath.row]
         default:    break
         }
+        
+        performSegue(withIdentifier: editJobSegueID, sender: self)
     }
 }

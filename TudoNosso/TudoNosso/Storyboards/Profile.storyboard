@@ -288,6 +288,9 @@
                             <outlet property="delegate" destination="zlr-x7-Ay4" id="Yjw-DL-0v1"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <segue destination="6uR-Cs-wil" kind="show" identifier="toEditJob" id="AGp-gJ-Gck"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AYh-tp-1jP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -302,6 +305,16 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mwl-to-U34" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="734" y="713"/>
+        </scene>
+        <!--AddJob-->
+        <scene sceneID="MGq-aY-Ybd">
+            <objects>
+                <viewControllerPlaceholder storyboardName="AddJob" id="6uR-Cs-wil" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="mdn-WH-mHl"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DjG-2W-CQr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="750" y="897"/>
         </scene>
         <!--AddJob-->
         <scene sceneID="LTQ-5c-vW4">
