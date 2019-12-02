@@ -67,7 +67,7 @@ class AddJobTableViewController: UITableViewController {
         setTypeButtons()
         
         if job != nil { // user is editing a job
-            //TODO: preencher campos
+            fillFieldsForEdition()
         }
     }
     
@@ -101,6 +101,27 @@ class AddJobTableViewController: UITableViewController {
             punctualCheck.isChecked = true
             selectedType = "Pontual"
         default:        break
+        }
+    }
+    
+    func fillFieldsForEdition() {
+        if let job = job {
+            titleInput.text = job.title
+            descriptionInput.text = job.desc
+            
+            //TODO: categories
+            
+            switch job.vacancyType {
+            case "Recorrente":
+                typeChosen(sender: recurrentCheck)
+            case "Pontual":
+                typeChosen(sender: punctualCheck)
+            default:    break
+            }
+            
+            numberInput.text = String(job.vacancyNumber)
+            
+            //TODO: adress
         }
     }
     
