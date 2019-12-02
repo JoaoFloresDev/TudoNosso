@@ -15,7 +15,7 @@ class AddJobTableViewController: UITableViewController {
     @IBOutlet weak var titleInput: UITextField!
     @IBOutlet weak var descriptionInput: UITextField!
     @IBOutlet weak var numberInput: UITextField!
-    @IBOutlet weak var adressInput: UITextField!
+    @IBOutlet weak var addressInput: UITextField!
     //MARK: Categories
     @IBOutlet weak var cultureAndArt: Checkbox!
     @IBOutlet weak var health: Checkbox!
@@ -48,14 +48,14 @@ class AddJobTableViewController: UITableViewController {
         case title
         case typeOfJob
         case openings
-        case adress
+        case address
         
         var message: String {
             switch self {
             case .title:            return "O título da vaga é obrigatório!"
             case .typeOfJob:        return "O tipo da vaga é obrigatório!"
             case .openings:         return "Informe quantas vagas há para esta oportunidade!"
-            case .adress:           return "Informe um endereço para referência!"
+            case .address:           return "Informe um endereço para referência!"
             }
         }
     }
@@ -86,7 +86,7 @@ class AddJobTableViewController: UITableViewController {
         titleInput.delegate = self
         descriptionInput.delegate = self
         numberInput.delegate = self
-        adressInput.delegate = self
+        addressInput.delegate = self
     }
     
     func setTypeButtons() {
@@ -145,40 +145,58 @@ class AddJobTableViewController: UITableViewController {
             
             numberInput.text = String(job.vacancyNumber)
             
-            //TODO: adress
+            if job.address == nil || job.address == "" {
+                AddressUtil.recoveryAddress(fromLocation: job.localization, completion: { (result, error) in
+                    if error == nil {
+                        if result != nil {
+                            job.address = result
+                            self.addressInput.text = result
+                        }
+                    }
+                })
+            } else {
+                addressInput.text = job.address
+            }
         }
     }
     
     func createJob() {
-        //TODO: terminar
         guard let ongEmail = Local.userMail else { return }
-        let ongID = Base64Converter.decodeBase64AsString(ongEmail)
+        let ongID = Base64Converter.encodeStringAsBase64(ongEmail)
+        job?.organizationID = ongID
         
         guard let jobTitle = titleInput.text, titleInput.text != "" else {
             showAlert(type: .title)
             return
         }
+        job?.title = jobTitle
+        
+        if let description = descriptionInput.text, descriptionInput.text != "" {
+            job?.desc = description
+        }
+        
+        //TODO: categories
         
         guard let type = selectedType else {
             showAlert(type: .typeOfJob)
             return
         }
+        job?.vacancyType = type
         
         guard let openings = Int(numberInput.text ?? "") else {
             showAlert(type: .openings)
             return
         }
+        job?.vacancyNumber = openings
         
-        guard let adress = adressInput.text, adressInput.text != "" else {
-            showAlert(type: .adress)
+        guard let address = addressInput.text, addressInput.text != "" else {
+            showAlert(type: .address)
             return
         }
-        
-        
-//        job = Job(title: jobTitle, category: <#T##CategoryEnum#>, vacancyType: selectedType, vacancyNumber: openings, organizationID: ongID, localization: <#T##CLLocationCoordinate2D#>, status: true, channelID: <#T##String#>)
-        
-        if let description = descriptionInput.text, descriptionInput.text != "" {
-//            job.desc = description
+        job?.address = address
+        AddressUtil.getCoordinatesFromAddress(address: address) { (location) in
+            guard let location = location else { return }
+            self.job?.localization = location
         }
     }
     
@@ -191,18 +209,24 @@ class AddJobTableViewController: UITableViewController {
     //MARK: - ACTIONS
     @IBAction func publishJobPressed(_ sender: Any) {
         createJob()
-        let jobDM = JobDM()
-//        jobDM.save(job: job)
-//        performSegue(withIdentifier: jobDetailsSegueID, sender: self)
+        
+        if let job = job {
+            let jobDM = JobDM()
+            jobDM.save(job: job)
+
+            performSegue(withIdentifier: jobDetailsSegueID, sender: self)
+        }
     }
     
     //MARK: - SEGUES
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        switch segue.identifier {
-//        case jobDetailsSegueID:
-//            //TODO: enviar Job criado para tela de detalhes
-//        default:        break
-//        }
+        switch segue.identifier {
+        case jobDetailsSegueID:
+            if let nextVC = segue.destination as? JobViewController {
+                nextVC.job = job
+            }
+        default:        break
+        }
     }
 }
 

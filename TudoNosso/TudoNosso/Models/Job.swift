@@ -23,6 +23,7 @@ class Job {
     var status:Bool
     var engagedOnes:[String]? = []
     var channelID: String
+    var address: String?
     
     var engagedOnesSlashVacancyNumber: String {
         let engagedCount = self.engagedOnes?.count ?? 0
@@ -99,6 +100,7 @@ class Job {
         self.channelID = channelID
         self.desc = Self.snapshotFieldReader(snapshot,.description)
         self.engagedOnes = Self.snapshotFieldReader(snapshot,.engagedOnes)
+        self.address = Self.snapshotFieldReader(snapshot,.address)
         
     }
 }
@@ -121,7 +123,8 @@ extension Job: DatabaseRepresentation {
             .organizationID: organizationID,
             .localization: localization.toGeoPoint(),
             .status: status,
-            .channelID: channelID
+            .channelID: channelID,
+            .address: address
         ]
         
         if let desc = self.desc{
@@ -163,4 +166,5 @@ enum JobFields: String, Hashable  {
     case status
     case engagedOnes
     case channelID
+    case address
 }
