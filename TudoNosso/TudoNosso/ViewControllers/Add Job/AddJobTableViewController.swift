@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreLocation
 
 class AddJobTableViewController: UITableViewController {
 
@@ -124,6 +125,16 @@ class AddJobTableViewController: UITableViewController {
                             ]
     }
     
+    func checkedCategories() {
+        selectedCategories.removeAll()
+        
+        for (category, checkbox) in categoriesDict {
+            if checkbox.isChecked {
+                selectedCategories.append(category)
+            }
+        }
+    }
+    
     func fillFieldsForEdition() {
         if let job = job {
             titleInput.text = job.title
@@ -161,12 +172,17 @@ class AddJobTableViewController: UITableViewController {
     }
     
     func createJob() {
+        
+        if job == nil { //create "empty" job
+            job = Job(title: "", category: [], vacancyType: "", vacancyNumber: 0, organizationID: "", localization: CLLocationCoordinate2D(), status: false, channelID: "")
+        }
+        
         guard let ongEmail = Local.userMail else { return }
         let ongID = Base64Converter.encodeStringAsBase64(ongEmail)
         job?.organizationID = ongID
         
         guard let jobTitle = titleInput.text, titleInput.text != "" else {
-            showAlert(type: .title)
+            showFillAlert(type: .title)
             return
         }
         job?.title = jobTitle
@@ -175,22 +191,23 @@ class AddJobTableViewController: UITableViewController {
             job?.desc = description
         }
         
-        //TODO: categories
+        checkedCategories()
+        job?.categories = selectedCategories
         
         guard let type = selectedType else {
-            showAlert(type: .typeOfJob)
+            showFillAlert(type: .typeOfJob)
             return
         }
         job?.vacancyType = type
         
         guard let openings = Int(numberInput.text ?? "") else {
-            showAlert(type: .openings)
+            showFillAlert(type: .openings)
             return
         }
         job?.vacancyNumber = openings
         
         guard let address = addressInput.text, addressInput.text != "" else {
-            showAlert(type: .address)
+            showFillAlert(type: .address)
             return
         }
         job?.address = address
@@ -200,7 +217,7 @@ class AddJobTableViewController: UITableViewController {
         }
     }
     
-    func showAlert(type: Alerts){
+    func showFillAlert(type: Alerts){
         let alert = UIAlertController(title: "Campo obrigatório", message: type.message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Entendi", style: .default, handler: nil))
         self.present(alert, animated: true)
