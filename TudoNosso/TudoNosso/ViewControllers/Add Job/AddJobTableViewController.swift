@@ -46,12 +46,14 @@ class AddJobTableViewController: UITableViewController {
         case title
         case typeOfJob
         case openings
+        case adress
         
         var message: String {
             switch self {
             case .title:            return "O título da vaga é obrigatório!"
             case .typeOfJob:        return "O tipo da vaga é obrigatório!"
-            case .openings:        return "Informe quantas vagas há para esta oportunidade!"
+            case .openings:         return "Informe quantas vagas há para esta oportunidade!"
+            case .adress:           return "Informe um endereço para referência!"
             }
         }
     }
@@ -98,8 +100,11 @@ class AddJobTableViewController: UITableViewController {
         }
     }
     
-    func createJob() {
+    func createJob() /*-> Job */{
         //TODO: terminar
+        guard let ongEmail = Local.userMail else { return }
+        let ongID = Base64Converter.decodeBase64AsString(ongEmail)
+        
         guard let jobTitle = titleInput.text, titleInput.text != "" else {
             showAlert(type: .title)
             return
@@ -115,8 +120,11 @@ class AddJobTableViewController: UITableViewController {
             return
         }
         
-        guard let ongEmail = Local.userMail else { return }
-        let ongID = Base64Converter.decodeBase64AsString(ongEmail)
+        guard let adress = adressInput.text, adressInput.text != "" else {
+            showAlert(type: .adress)
+            return
+        }
+        
         
 //        let job = Job(title: jobTitle, category: <#T##CategoryEnum#>, vacancyType: selectedType, vacancyNumber: openings, organizationID: ongID, localization: <#T##CLLocationCoordinate2D#>, status: true, channelID: <#T##String#>)
         
@@ -133,8 +141,10 @@ class AddJobTableViewController: UITableViewController {
     
     //MARK: - ACTIONS
     @IBAction func publishJobPressed(_ sender: Any) {
-        createJob()
-        //TODO: enviar para banco de dados
+        /*let job = */ createJob()
+        let jobDM = JobDM()
+//        jobDM.save(job: job)
+//        performSegue(withIdentifier: jobDetailsSegueID, sender: self)
     }
     
     //MARK: - SEGUES
