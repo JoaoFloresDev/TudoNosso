@@ -10,6 +10,7 @@ import UIKit
 import CoreLocation
 
 class ProfileViewController: UIViewController {
+    
     //MARK: - OUTLETS
     @IBOutlet weak var profileNameLabel: UILabel!
     @IBOutlet weak var profileImage: RoundedImageView!
@@ -25,6 +26,7 @@ class ProfileViewController: UIViewController {
     //MARK: - PROPERTIES
     private let jobsSegueID = "toJobsTable"
     private let profileSegueID = "toProfileTable"
+    private let addJobSegueID = "toAddJob"
     
     var email: String?
     
@@ -117,9 +119,14 @@ class ProfileViewController: UIViewController {
     }
     var isMyProfile = false
     
-    //MARK: Lifecycle
+    //MARK: - LIFECYCLE
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // remove border from nav bar
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        self.navigationController?.navigationBar.layoutIfNeeded()
+        
         loadData()
     }
     
@@ -127,7 +134,7 @@ class ProfileViewController: UIViewController {
         super.viewWillAppear(animated)
     }
     
-    //MARK: Methods
+    //MARK: - METHODS
     func loadData() {
         let loginDM = LoginDM()
         let jobDM = JobDM()
@@ -212,7 +219,7 @@ class ProfileViewController: UIViewController {
         }
     }
     
-    //MARK: Segues
+    //MARK: - SEGUES
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
         switch identifier{
         case profileSegueID:
@@ -232,19 +239,21 @@ class ProfileViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == profileSegueID {
+        switch segue.identifier {
+        case profileSegueID:
             if let nextVC = segue.destination as? ProfileTableViewController {
                 nextVC.receivedData = self.profileData
             }
-        } else if segue.identifier == jobsSegueID {
+        case jobsSegueID:
             if let nextVC = segue.destination as? JobsTableViewController {
-                let dependencies = JobsTableViewController.Dependencies(jobs: self.jobs ?? [], isMyProfile: self.isMyProfile ?? false)
+                let dependencies = JobsTableViewController.Dependencies(jobs: self.jobs ?? [], isMyProfile: self.isMyProfile)
                 nextVC.setup(dependencies: dependencies)
             }
+        default:    break
         }
     }
     
-    //MARK: IBAction
+    //MARK: - ACTIONS
     @IBAction func segmentChanged(_ sender: Any) {
         switch segmentedControl.selectedSegmentIndex {
         case 0: // show jobs
@@ -265,7 +274,7 @@ class ProfileViewController: UIViewController {
     }
     
     @IBAction func addJobPressed(_ sender: Any) {
-        print("add job pressed")
+        performSegue(withIdentifier: addJobSegueID, sender: self)
     }
     
     @IBAction func editProfilePressed(_ sender: Any) {

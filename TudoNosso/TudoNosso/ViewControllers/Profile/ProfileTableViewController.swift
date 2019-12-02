@@ -10,7 +10,7 @@ import UIKit
 
 class ProfileTableViewController : UITableViewController {
     
-    //MARK: - OUTLET
+    //MARK: - OUTLETS
     @IBOutlet weak var phoneLabel: UILabel!
     @IBOutlet weak var adressLabel: UILabel!
     @IBOutlet weak var mailLabel: UILabel!
@@ -82,7 +82,7 @@ class ProfileTableViewController : UITableViewController {
     }
 }
 
-//MARK: - COLLECTION DELEGAT, DATA SOURCE, FLOW LAYOUT
+//MARK: - COLLECTION
 extension ProfileTableViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if let areas = receivedData?.areas {

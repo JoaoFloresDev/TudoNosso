@@ -12,6 +12,7 @@ import UIKit
 protocol JobsTableViewCellDelegate {
     func deleteJob(indexPath: IndexPath)
     func finishJob(indexPath: IndexPath)
+    func editJob(indexPath: IndexPath)
 }
 
 //MARK: - CLASS JobsTableViewCell
@@ -30,6 +31,7 @@ class JobsTableViewCell: UITableViewCell {
     @IBOutlet weak var engagedLabel: UILabel!
     @IBOutlet weak var buttonsView: UIView!
     @IBOutlet weak var finishView: UIView!
+    @IBOutlet weak var editView: RoundedView!
     
     //MARK: - PROPERTIES
     static let reuseIdentifer = "JobsTableViewCell"
@@ -47,6 +49,7 @@ class JobsTableViewCell: UITableViewCell {
                 
                 if (status ?? false) == false { // if job is finished
                     self.finishView.isHidden = true //shouldn't show Finish button.
+                    self.editView.isHidden = true   //shouldn't show Edit button.
                 }
             }
         }
@@ -100,6 +103,12 @@ class JobsTableViewCell: UITableViewCell {
     @IBAction func finishPressed(_ sender: Any) {
         if let indexPath = self.indexPath {
             delegate?.finishJob(indexPath: indexPath)
+        }
+    }
+    
+    @IBAction func editPressed(_ sender: Any) {
+        if let indexPath = self.indexPath {
+            delegate?.editJob(indexPath: indexPath)
         }
     }
 }
