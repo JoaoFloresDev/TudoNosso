@@ -61,17 +61,35 @@ class JobsTableViewCell: UITableViewCell {
     //MARK: - METHODS
     func configure(job: Job){
         status = job.status
+        
         jobTitleLabel.text = job.title
+        jobTitleLabel.numberOfLines = 0
+        jobTitleLabel.lineBreakMode = .byWordWrapping
+        jobTitleLabel.sizeToFit()
+        jobTitleLabel.superview?.sizeToFit()
+        
         typeOfJobLabel.text = job.vacancyType
         categoriesLabel.text = job.firstCategoryAndCount
         engagedLabel.text = job.engagedOnesSlashVacancyNumber
         
-        AddressUtil.recoveryShortAddress(fromLocation: job.localization) { (address, error) in
-            guard let address = address else {return}
-            OperationQueue.main.addOperation {
-                self.jobAdressLabel.text = address
-            }
+        if job.address == nil || job.address == "" {
+            AddressUtil.recoveryAddress(fromLocation: job.localization, completion: { (result, error) in
+                if error == nil {
+                    if result != nil {
+                        job.address = result
+                        self.jobAdressLabel.text = result
+                    }
+                }
+            })
+        } else {
+            jobAdressLabel.text = job.address
         }
+        
+        jobAdressLabel.numberOfLines = 0
+        jobAdressLabel.lineBreakMode = .byWordWrapping
+        jobAdressLabel.sizeToFit()
+        jobAdressLabel.superview?.sizeToFit()
+        
         
 //        ongDM.find(ById: job.organizationID) { (ong, err) in
 //            guard let ong = ong else { return }

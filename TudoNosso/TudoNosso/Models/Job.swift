@@ -32,11 +32,15 @@ class Job {
     }
     
     var firstCategoryAndCount:String{
-        let localizedCategory = NSLocalizedString(categories[0].rawValue, comment: "")
-        if categories.count > 1{
-            return String(format: "\(localizedCategory) e +%02d",(categories.count-1))
+        if categories.count > 0 {
+            let localizedCategory = NSLocalizedString(categories[0].rawValue, comment: "")
+            if categories.count > 1{
+                return String(format: "\(localizedCategory) e +%02d",(categories.count-1))
+            }
+            return localizedCategory
+        } else {
+            return ""
         }
-        return localizedCategory
     }
     
     

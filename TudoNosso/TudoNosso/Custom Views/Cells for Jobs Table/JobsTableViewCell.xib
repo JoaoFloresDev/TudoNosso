@@ -25,17 +25,17 @@
                             <rect key="frame" x="0.0" y="0.0" width="382" height="178"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zSB-4V-Kps">
-                                    <rect key="frame" x="0.0" y="0.0" width="382" height="109"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="382" height="121"/>
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="orange_logo_tudonosso" translatesAutoresizingMaskIntoConstraints="NO" id="INI-D7-tXl">
-                                            <rect key="frame" x="0.0" y="0.0" width="117" height="108"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="117" height="120"/>
                                             <color key="backgroundColor" red="0.97647058823529409" green="0.97647058823529409" blue="0.97647058823529409" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="117" id="TBu-dU-RtA"/>
                                             </constraints>
                                         </imageView>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yta-ck-3Z8" userLabel="Divisor line">
-                                            <rect key="frame" x="0.0" y="108" width="382" height="1"/>
+                                            <rect key="frame" x="0.0" y="120" width="382" height="1"/>
                                             <color key="backgroundColor" red="0.83137254901960778" green="0.83137254901960778" blue="0.83137254901960778" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="1" id="P2T-YS-ieR"/>
@@ -74,11 +74,11 @@
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="51" id="RRz-2U-eer"/>
+                                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="51" id="RRz-2U-eer"/>
                                             </constraints>
                                         </stackView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Educação" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tn0-TD-LIf">
-                                            <rect key="frame" x="133" y="74" width="233" height="18"/>
+                                            <rect key="frame" x="133" y="86" width="233" height="18"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="18" id="VIY-7R-kGM"/>
                                             </constraints>
@@ -97,6 +97,7 @@
                                         <constraint firstItem="Yta-ck-3Z8" firstAttribute="leading" secondItem="zSB-4V-Kps" secondAttribute="leading" id="JDO-AI-ddg"/>
                                         <constraint firstItem="INI-D7-tXl" firstAttribute="leading" secondItem="zSB-4V-Kps" secondAttribute="leading" id="XJb-oO-3kj"/>
                                         <constraint firstAttribute="trailing" secondItem="5by-PK-KmT" secondAttribute="trailing" constant="16" id="bmp-Uj-37u"/>
+                                        <constraint firstItem="tn0-TD-LIf" firstAttribute="top" relation="greaterThanOrEqual" secondItem="5by-PK-KmT" secondAttribute="bottom" constant="4" id="d4n-ar-Z5e"/>
                                         <constraint firstItem="Yta-ck-3Z8" firstAttribute="top" secondItem="tn0-TD-LIf" secondAttribute="bottom" constant="16" id="fQQ-7g-xxo"/>
                                         <constraint firstItem="INI-D7-tXl" firstAttribute="top" secondItem="zSB-4V-Kps" secondAttribute="top" id="j1v-mU-Nap"/>
                                         <constraint firstItem="5by-PK-KmT" firstAttribute="leading" secondItem="INI-D7-tXl" secondAttribute="trailing" constant="16" id="j86-N6-9QI"/>
@@ -105,16 +106,16 @@
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TxF-Oh-s0P">
-                                    <rect key="frame" x="0.0" y="109" width="382" height="69"/>
+                                    <rect key="frame" x="0.0" y="121" width="382" height="57"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="05 engajados / 05 vagas" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qnE-1O-bGO">
-                                            <rect key="frame" x="58" y="27.5" width="308" height="14.5"/>
+                                            <rect key="frame" x="58" y="21.5" width="308" height="14.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                             <color key="textColor" red="0.31764705882352939" green="0.31764705882352939" blue="0.31764705882352939" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile_icon" translatesAutoresizingMaskIntoConstraints="NO" id="o0a-26-IgC" customClass="RoundedImageView" customModule="TudoNosso" customModuleProvider="target">
-                                            <rect key="frame" x="16" y="22" width="25" height="25"/>
+                                            <rect key="frame" x="16" y="16" width="25" height="25"/>
                                             <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="25" id="cFt-Fl-8DL"/>
@@ -130,7 +131,7 @@
                                             </userDefinedRuntimeAttributes>
                                         </imageView>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile_icon" translatesAutoresizingMaskIntoConstraints="NO" id="T0s-l9-3Pv" customClass="RoundedImageView" customModule="TudoNosso" customModuleProvider="target">
-                                            <rect key="frame" x="29" y="22.5" width="24" height="24"/>
+                                            <rect key="frame" x="29" y="16.5" width="24" height="24"/>
                                             <color key="backgroundColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="24" id="A7w-19-mk9"/>

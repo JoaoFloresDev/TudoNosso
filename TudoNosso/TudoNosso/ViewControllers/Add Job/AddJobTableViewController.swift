@@ -174,7 +174,7 @@ class AddJobTableViewController: UITableViewController {
     func createJob() {
         
         if job == nil { //create "empty" job
-            job = Job(title: "", category: [], vacancyType: "", vacancyNumber: 0, organizationID: "", localization: CLLocationCoordinate2D(), status: false, channelID: "")
+            job = Job(title: "", category: [], vacancyType: "", vacancyNumber: 0, organizationID: "", localization: CLLocationCoordinate2D(), status: true, channelID: "")
         }
         
         guard let ongEmail = Local.userMail else { return }
