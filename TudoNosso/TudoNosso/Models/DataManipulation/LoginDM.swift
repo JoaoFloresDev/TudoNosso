@@ -10,6 +10,7 @@ import Foundation
 import FirebaseFirestore
 import FirebaseAuth
 
+
 class LoginDM{
     let db = Firestore.firestore()
     let TABLENAME = "login"
@@ -57,13 +58,13 @@ class LoginDM{
             }
         }
     }
-   
+    
     private func handleLogin(completion:@escaping ([String : Any]?,Error?) ->()) -> (Login?, Error?) -> () {
         return { (login, error) -> () in
             self.handleLogin(login: login, error: error, completion: completion)
         }
     }
-
+    
     fileprivate func convertLoginToOrganizationOrVolunteer(_ id: String, _ kind:LoginKinds, _ completion: @escaping ([String : Any]?, Error?) -> ()) {
         switch kind {
         case .ONG:
@@ -89,7 +90,6 @@ class LoginDM{
     private func handleLogin(login: Login?,
                              error: Error?,
                              completion: @escaping ([String : Any]?,Error?) ->()) {
-        
         
         if error == nil {
             guard let login = login else {return}
@@ -120,6 +120,5 @@ class LoginDM{
             }
         }
     }
-    
-    
+
 }

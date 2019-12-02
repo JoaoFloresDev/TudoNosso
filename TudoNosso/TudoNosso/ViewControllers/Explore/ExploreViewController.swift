@@ -11,73 +11,69 @@ import CoreLocation
 
 
 class ExploreViewController: UIViewController {
-    
+    //MARK: IBOutlet
     @IBOutlet weak var jobsTableView: UITableView!
     @IBOutlet weak var buttonLogin: UIButton!
     @IBOutlet weak var labelButtonLogin: UILabel!
-    
-    @IBAction func actionButtonLogin(_ sender: Any) {
-        let tipoLogin = UserDefaults.standard.string(forKey: "USER_KIND") ?? "0"
-        if(tipoLogin == "ong") {
-            //            showCriarVaga
-            //            self.performSegue(withIdentifier: "showProfile", sender: self)
-        } else if(tipoLogin == "0") {
-            self.performSegue(withIdentifier: "showLogin", sender: self)
-        }
-    }
-    
+    @IBOutlet weak var buttonAreaImage: UIImageView!
+    //MARK: variable
     var selectedCause: String = ""
     var selectedOrganization: String = ""
     var selectedJob: Int = 0
     var organizationsList : [Organization] = []
     var filteredOrganizationsList : [Organization] = []
-    
-    var ongoingJobs : [Job] = []
     var filteredOngoingJobs : [Job] = []
-    
-    var categories = ["Causas", "Organizações", "Todas as Vagas"]
+    let categories = ["Causas", "Organizações", "Todas as Vagas"]
     var searchController = UISearchController(searchResultsController: nil)
-    
     var organization : Organization = Organization(name: "", address: CLLocationCoordinate2D(), email: "")
-    
-    var jobs : [Job] = [] {
-        didSet {
-            ongoingJobs = []
-            self.sortJobs()
-        }
-    }
-    
+    var jobs : [Job] = []
     var backgroundQueue: OperationQueue {
         let queue = OperationQueue()
         queue.maxConcurrentOperationCount = 3
         return queue
     }
+    //MARK: IBAction
+    @IBAction func actionButtonLogin(_ sender: Any) {
+        if let kind = Local.userKind{
+            if(kind == LoginKinds.ONG.rawValue) {
+                //            showCriarVaga
+                //            self.performSegue(withIdentifier: "showProfile", sender: self)
+            }
+        }else{
+            self.performSegue(withIdentifier: "showLogin", sender: self)
+        }
+    }
     
-    
+    //MARK: lifecycles
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTableView()
         setupSearchBar()
         setupJobsTableView()
-//        loadData()
-        
-        let tipoLogin = UserDefaults.standard.string(forKey: "USER_KIND") ?? "0"
-        switch tipoLogin {
-        case "ong":
-            labelButtonLogin.text = "Criar vaga"
-        case "voluntary":
-            buttonLogin.alpha = 0
-            labelButtonLogin.alpha = 0
-        default:
+
+        if let kind = Local.userKind,
+           let tipoLogin = LoginKinds(rawValue:kind ){
+            switch tipoLogin {
+            case .ONG:
+                labelButtonLogin.text = "Criar vaga"
+            case .volunteer:
+                buttonLogin.alpha = 0
+                labelButtonLogin.alpha = 0
+                buttonAreaImage.alpha = 0
+            }
+        }
+        else{
             labelButtonLogin.text = "Cadastrar ou fazer login"
         }
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         loadData()
     }
-    
+   
+    //MARK: setups
     func setupNavegationBar() {
         navigationController?.navigationBar.barTintColor = UIColor(rgb: 0xFF5900, a: 1)
         navigationController?.navigationBar.backgroundColor = UIColor(rgb: 0xFF5900, a: 1)
@@ -124,19 +120,9 @@ class ExploreViewController: UIViewController {
         jobsTableView.dataSource = self
     }
     
-    func loadData() {
-        let jobDM = JobDM()
-        
-        jobDM.listAll {
-            (result, error) in
-            guard let result = result else { return }
-            self.jobs = result
-            self.jobsTableView.reloadData()
-        }
-    }
-    
+    //MARK: filters
     private func filterJobs(for searchText: String) {
-        filteredOngoingJobs = ongoingJobs.filter { player in
+        filteredOngoingJobs = jobs.filter { player in
             return player.title.lowercased().contains(searchText.lowercased())
         }
         jobsTableView.reloadData()
@@ -149,14 +135,18 @@ class ExploreViewController: UIViewController {
         jobsTableView.reloadData()
     }
     
-    func sortJobs(){
-        for job in jobs {
-            if job.status {
-                ongoingJobs.append(job)
-            }
-        }
+    //MARK: loaders
+    func loadData() {
+        let jobDM = JobDM()
+        jobDM.find(inField: .status, withValueEqual: true, completion: { (result, error) in
+            guard let result = result else { return }
+            self.jobs = result
+            self.jobsTableView.reloadData()
+        })
+        
     }
     
+    //MARK: Segue
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.destination is CategoryOportunitiesViewController {
             let vc = segue.destination as? CategoryOportunitiesViewController
@@ -177,9 +167,7 @@ class ExploreViewController: UIViewController {
     }
 }
 
-extension ExploreViewController : UITableViewDelegate { }
-
-extension ExploreViewController : UITableViewDataSource, UISearchResultsUpdating {
+extension ExploreViewController :UITableViewDelegate, UITableViewDataSource, UISearchResultsUpdating {
     
     func updateSearchResults(for searchController: UISearchController) {
         filterJobs(for: searchController.searchBar.text ?? "")
@@ -194,12 +182,12 @@ extension ExploreViewController : UITableViewDataSource, UISearchResultsUpdating
         if section < 2 {
             return 1
         } else {
-            return ongoingJobs.count
+            return jobs.count
         }
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let selectedJob = ongoingJobs[indexPath.row]
+        let selectedJob = jobs[indexPath.row]
         self.performSegue(withIdentifier: "showDetailSegue", sender: selectedJob)
     }
     
@@ -251,7 +239,7 @@ extension ExploreViewController : UITableViewDataSource, UISearchResultsUpdating
             if searchController.isActive && searchController.searchBar.text != "" {
                 jobList = filteredOngoingJobs[indexPath.row]
             } else {
-                jobList = ongoingJobs[indexPath.row]
+                jobList = jobs[indexPath.row]
             }
             
             let ongDM = OrganizationDM()

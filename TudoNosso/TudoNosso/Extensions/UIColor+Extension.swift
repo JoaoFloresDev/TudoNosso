@@ -18,7 +18,7 @@ extension UIColor {
     class var darkOrange: UIColor { return UIColor(rgb: 0xE45102)}
     class var orange: UIColor { return UIColor(rgb: 0xFF5900)}
     static var primary: UIColor {
-      return UIColor(red: 1 / 255, green: 93 / 255, blue: 48 / 255, alpha: 1)
+      return UIColor(red: 216 / 255, green: 242 / 255, blue: 173 / 255, alpha: 1)
     }
     
     static var incomingMessage: UIColor {

@@ -965,6 +965,7 @@
                     <navigationItem key="navigationItem" title="Explorar" leftItemsSupplementBackButton="YES" id="LN9-ih-qyx"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="buttonAreaImage" destination="ciO-VS-laC" id="jeB-cC-QGH"/>
                         <outlet property="buttonLogin" destination="5V2-D5-u24" id="cDX-xD-1Vh"/>
                         <outlet property="jobsTableView" destination="D89-VI-4vT" id="Zcb-fR-j1G"/>
                         <outlet property="labelButtonLogin" destination="EJV-kw-5hS" id="x2l-2D-RHW"/>

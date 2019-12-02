@@ -35,22 +35,23 @@ import InputBarAccessoryView
 
 final class ChatViewController: MessagesViewController {
     
-    private var messageDM: MessageDM!
     let outgoingAvatarOverlap: CGFloat = 17.5
-   
-    
+    private var messageDM: MessageDM!
     private var messages: [Message] = []
-    
     private let user: User
     private let channel: Channel
+    private var userFirstTimeIn = false
     
     
-    init(user: User, channel: Channel) {
+    init(user: User, channel: Channel, firstTimeIn: Bool = false) {
         self.user = user
         self.channel = channel
         super.init(nibName: nil, bundle: nil)
         self.title = channel.name
+        self.userFirstTimeIn = firstTimeIn
+        
     }
+    
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -80,10 +81,25 @@ final class ChatViewController: MessagesViewController {
         messagesCollectionView.messagesDataSource = self
         messagesCollectionView.messagesLayoutDelegate = self
         messagesCollectionView.messagesDisplayDelegate = self
-        messagesCollectionView.messageCellDelegate = self
+        let infoButton = UIBarButtonItem(title: "info", style: .plain, target: self, action: Selector(("openGroupInfo")))
+        self.navigationItem.rightBarButtonItem = infoButton
         
+        if userFirstTimeIn {
+            messageInputBar.inputTextView.text = "Olá! Gostaria de me candidatar à vaga de \(channel.name)"
+            
+        }else {
+            messageInputBar.inputTextView.text = ""
+        }
     }
     
+    
+    @objc func openGroupInfo() {
+        let storyboard = UIStoryboard(name: "Channels", bundle: nil)
+        
+        guard let viewController = storyboard.instantiateViewController(withIdentifier: "ChannelInfoSBID") as? ChannelInfoViewController else {return}
+        viewController.channel = channel
+        self.navigationController?.pushViewController(viewController, animated: true)
+    }
     
     // MARK: - Helpers
     func isTimeLabelVisible(at indexPath: IndexPath) -> Bool {
@@ -142,16 +158,16 @@ final class ChatViewController: MessagesViewController {
 // MARK: - MessagesDisplayDelegate
 
 extension ChatViewController: MessagesDisplayDelegate {
+    func textColor(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> UIColor {
+        return UIColor.black
+    }
     
     func backgroundColor(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> UIColor {
         return isFromCurrentSender(message: message) ? .primary : .incomingMessage
     }
-    
     func shouldDisplayHeader(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> Bool {
-        return false
+        return true
     }
-    
-    
     func messageStyle(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> MessageStyle {
         return .bubble
     }
@@ -191,7 +207,6 @@ extension ChatViewController: MessagesLayoutDelegate {
         avatarView.set(avatar: Avatar(image: nil, initials: message.sender.initials))
         avatarView.isHidden = isNextMessageSameSender(at: indexPath)
         avatarView.layer.borderWidth = 2
-        avatarView.layer.borderColor = UIColor.primary.cgColor
     }
     
 }
@@ -202,7 +217,6 @@ extension ChatViewController: MessagesDataSource {
     func numberOfSections(in messagesCollectionView: MessagesCollectionView) -> Int {
         return messages.count
     }
-    
     
     func currentSender() -> SenderType {
         return Sender(id: user.id, displayName: user.displayName)
@@ -227,7 +241,7 @@ extension ChatViewController: MessagesDataSource {
 
 
 
-// MARK: - MessageInputBarDelegate
+// MARK: - InputBarAccessoryViewDelegate
 
 extension ChatViewController: InputBarAccessoryViewDelegate {
     
@@ -263,39 +277,6 @@ extension ChatViewController: InputBarAccessoryViewDelegate {
             }
         }
     }
-}
-// MARK: - MessageCellDelegate
-
-extension ChatViewController: MessageCellDelegate {
-    
-    func didTapAvatar(in cell: MessageCollectionViewCell) {
-        print("Avatar tapped")
-    }
-    
-    func didTapMessage(in cell: MessageCollectionViewCell) {
-        print("Message tapped")
-    }
-    
-    func didTapCellTopLabel(in cell: MessageCollectionViewCell) {
-        print("Top cell label tapped")
-    }
-    
-    func didTapCellBottomLabel(in cell: MessageCollectionViewCell) {
-        print("Bottom cell label tapped")
-    }
-    
-    func didTapMessageTopLabel(in cell: MessageCollectionViewCell) {
-        print("Top message label tapped")
-    }
-    
-    func didTapMessageBottomLabel(in cell: MessageCollectionViewCell) {
-        print("Bottom label tapped")
-    }
-    
-    func didTapAccessoryView(in cell: MessageCollectionViewCell) {
-        print("Accessory view tapped")
-    }
-    
 }
 
 

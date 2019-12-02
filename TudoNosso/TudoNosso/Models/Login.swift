@@ -13,6 +13,7 @@ class Login {
     var id: String?
     var email: String
     var kind: LoginKinds
+    var avatar: String?
     
     
     init(email: String, kind: LoginKinds){
@@ -32,6 +33,7 @@ class Login {
         self.id = id
         self.email = email
         self.kind = kindEnum
+        self.avatar = Self.snapshotFieldReader(snapshot,.avatar)
         
     }
     
@@ -41,10 +43,14 @@ extension Login: DatabaseRepresentation {
     
     
     var representation: [String : Any] {
-        let rep: [LoginFields : Any] = [
+        var rep: [LoginFields : Any] = [
             .kind: kind.rawValue,
             .email: email
         ]
+        
+        if let avatar = self.avatar {
+            rep[.avatar] = avatar
+        }
         return Dictionary(uniqueKeysWithValues: rep.map { key, value in
             (key.rawValue, value) })
     }
@@ -69,6 +75,7 @@ extension Login: DictionaryInterpreter{
 enum LoginFields: String, Hashable  {
     case email = "email"
     case kind = "kind"
+    case avatar = "profilePic"
     
 }
 

@@ -45,7 +45,7 @@ class JobsDataSource {
     func loadDataJobs(key : String, view : UITableView) {
         let jobDM = JobDM()
         
-        jobDM.find(inField: .category, withValueEqual: self.nameKeyBD(key: key), completion: {
+        jobDM.find(inField: .categories, withValueEqual: self.nameKeyBD(key: key), completion: {
             (result, error) in
             guard let result = result else { return }
             self.jobs = result
