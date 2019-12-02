@@ -427,7 +427,7 @@
                 <outlet property="engagedLabel" destination="qnE-1O-bGO" id="j5l-Mf-qpo"/>
                 <outlet property="finishView" destination="3Bc-Bp-usB" id="GuA-Ai-vWc"/>
                 <outlet property="firstVolunteerImage" destination="o0a-26-IgC" id="BCb-vg-olU"/>
-                <outlet property="jobAdressLabel" destination="cBY-lx-UxT" id="y2X-Jw-evn"/>
+                <outlet property="jobAddressLabel" destination="cBY-lx-UxT" id="y2X-Jw-evn"/>
                 <outlet property="jobImageView" destination="INI-D7-tXl" id="y37-G8-fmy"/>
                 <outlet property="jobTitleLabel" destination="uuM-fF-T6D" id="874-qV-PYj"/>
                 <outlet property="secondVolunteerImage" destination="T0s-l9-3Pv" id="VsI-Qc-Fb8"/>

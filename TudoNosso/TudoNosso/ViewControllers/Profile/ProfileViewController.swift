@@ -139,16 +139,16 @@ class ProfileViewController: UIViewController {
         let loginDM = LoginDM()
         let jobDM = JobDM()
         
-        var emailAdress: String! = ""
+        var emailAddress: String! = ""
         if self.email != nil {
-            emailAdress = self.email
-            isMyProfile = emailAdress == Local.userMail
+            emailAddress = self.email
+            isMyProfile = emailAddress == Local.userMail
         } else {
-            emailAdress = Local.userMail
+            emailAddress = Local.userMail
             isMyProfile = true
         }
         
-        loginDM.find(ByEmail: emailAdress) { (result, error) in
+        loginDM.find(ByEmail: emailAddress) { (result, error) in
             if let erro = error {
                 print(erro.localizedDescription)
             } else {
@@ -159,7 +159,7 @@ class ProfileViewController: UIViewController {
                     
                     let orgDM = OrganizationDM()
                     
-                    orgDM.find(ByEmail: emailAdress) { (result, error) in
+                    orgDM.find(ByEmail: emailAddress) { (result, error) in
                         if let erro = error {
                             print(erro.localizedDescription)
                         } else {
@@ -178,7 +178,7 @@ class ProfileViewController: UIViewController {
                         }
                     }
                     
-                    let id = Base64Converter.encodeStringAsBase64(emailAdress)
+                    let id = Base64Converter.encodeStringAsBase64(emailAddress)
                     
                     jobDM.find(inField: .organizationID, withValueEqual: id) { (result, error) in
                         if let erro = error {
@@ -194,7 +194,7 @@ class ProfileViewController: UIViewController {
                     
                     let volunteerDM = VolunteerDM()
                     
-                    volunteerDM.find(ByEmail: emailAdress) { (result, error) in
+                    volunteerDM.find(ByEmail: emailAddress) { (result, error) in
                         if let erro = error {
                             print(erro.localizedDescription)
                         } else {

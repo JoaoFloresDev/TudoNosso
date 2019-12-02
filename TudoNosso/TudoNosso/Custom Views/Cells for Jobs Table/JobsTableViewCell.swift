@@ -23,7 +23,7 @@ class JobsTableViewCell: UITableViewCell {
     //MARK: - OUTLETS
     @IBOutlet weak var jobTitleLabel: UILabel!
     @IBOutlet weak var typeOfJobLabel: UILabel!
-    @IBOutlet weak var jobAdressLabel: UILabel!
+    @IBOutlet weak var jobAddressLabel: UILabel!
     @IBOutlet weak var jobImageView: UIImageView!
     @IBOutlet weak var categoriesLabel: UILabel!
     @IBOutlet weak var firstVolunteerImage: RoundedImageView!
@@ -77,18 +77,18 @@ class JobsTableViewCell: UITableViewCell {
                 if error == nil {
                     if result != nil {
                         job.address = result
-                        self.jobAdressLabel.text = result
+                        self.jobAddressLabel.text = result
                     }
                 }
             })
         } else {
-            jobAdressLabel.text = job.address
+            jobAddressLabel.text = job.address
         }
         
-        jobAdressLabel.numberOfLines = 0
-        jobAdressLabel.lineBreakMode = .byWordWrapping
-        jobAdressLabel.sizeToFit()
-        jobAdressLabel.superview?.sizeToFit()
+        jobAddressLabel.numberOfLines = 0
+        jobAddressLabel.lineBreakMode = .byWordWrapping
+        jobAddressLabel.sizeToFit()
+        jobAddressLabel.superview?.sizeToFit()
         
         
 //        ongDM.find(ById: job.organizationID) { (ong, err) in

@@ -12,7 +12,7 @@ class ProfileTableViewController : UITableViewController {
     
     //MARK: - OUTLETS
     @IBOutlet weak var phoneLabel: UILabel!
-    @IBOutlet weak var adressLabel: UILabel!
+    @IBOutlet weak var addressLabel: UILabel!
     @IBOutlet weak var mailLabel: UILabel!
     
     @IBOutlet weak var areasCollection: UICollectionView!
@@ -38,25 +38,25 @@ class ProfileTableViewController : UITableViewController {
         phoneLabel.text = receivedData?.phone ?? ""
         mailLabel.text = receivedData?.email ?? ""
         
-        adressLabel.numberOfLines = 0
-        adressLabel.sizeToFit()
-        adressLabel.superview?.sizeToFit()
+        addressLabel.numberOfLines = 0
+        addressLabel.sizeToFit()
+        addressLabel.superview?.sizeToFit()
         
         if let coordinates = receivedData?.address {
             AddressUtil.recoveryAddress(fromLocation: coordinates) { (result, error) in
                 if error == nil {
-                    if let adress = result {
-                        self.adressLabel.text = adress
+                    if let address = result {
+                        self.addressLabel.text = address
                         self.tableView.reloadData()
                     } else {
-                        self.adressLabel.text = ""
+                        self.addressLabel.text = ""
                     }
                 } else {
-                    print ("Error getting adress from coordinates.")
+                    print ("Error getting address from coordinates.")
                 }
             }
         } else {
-            adressLabel.text = ""
+            addressLabel.text = ""
         }
     }
     
