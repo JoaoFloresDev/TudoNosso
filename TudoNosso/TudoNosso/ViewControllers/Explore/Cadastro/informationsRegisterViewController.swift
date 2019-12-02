@@ -41,9 +41,9 @@ class informationsRegisterViewController: UIViewController, UINavigationControll
         } else if (endressTextBox.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "") {
             showAlert(msg: "Campo Endereço precisa ser preenchido", field: endressTextBox)
         } else if (keyTextBox.text != confirmationKeyTextBox.text) {
-            showAlert(msg: "Senhas incompativeis", field: nameTextBox)
+            showAlert(msg: "Senhas incompativeis", field: keyTextBox)
         } else if (keyTextBox.text?.count ?? 0 < 6) {
-            showAlert(msg: "Sua senha deve possuir 6 digitos ou mais", field: nameTextBox)
+            showAlert(msg: "Sua senha deve possuir 6 digitos ou mais", field: keyTextBox)
         }
         else {
             let refreshAlert = UIAlertController(title: "Deseja finalizar cadastro?", message: "", preferredStyle: UIAlertController.Style.alert)
@@ -64,20 +64,33 @@ class informationsRegisterViewController: UIViewController, UINavigationControll
         let loginDM = LoginDM()
         
         if(titleView.title == "Cadastro Organização") {
-            let organization = Organization(name: nameTextBox.text ?? "", address: CLLocationCoordinate2D(latitude: -10, longitude: 0), desc: descriptionTextBox.text ?? "", email: emailTextBox.text ?? "", phone: phoneTextField.text ?? "", site: siteTextBox.text ?? "", facebook: facebookTextBox.text ?? "", areas: [], avatar: "")
+            let organization = Organization(name: nameTextBox.text ?? "", address: CLLocationCoordinate2D(latitude: -10, longitude: 0), desc: descriptionTextBox.text, email: emailTextBox.text ?? "", phone: phoneTextField.text, site: siteTextBox.text ?? "", facebook: facebookTextBox.text, areas: nil, avatar: nil)
             
             loginDM.signUp(email: organization.email, pass: keyTextBox.text!, kind: .ONG, newUserData: organization.representation as NSDictionary) { (login, error) in
                 if error != nil {
-                    print("Error updating register: \(error?.localizedDescription ?? "Not identified")")
-//                    if (error == erro) {
-//                        showAlert(msg: "Sua senha deve possuir 6 digitos ou mais", field: nameTextBox)
-//                    }
+                    if (error?.localizedDescription ?? "" == "The email address is badly formatted.") {
+                        self.showAlert(msg: "E-mail invalido", field: self.nameTextBox)
+                    } else {
+                        self.showAlert(msg: "Erro: \(error?.localizedDescription ?? "Não identificado")", field: self.emailTextBox)
+                    }
                 } else {
                     self.performSegue(withIdentifier: "showConfirmRegister", sender: nil)
                 }
             }
         } else {
-            print("voluntário")
+            let volunteer = Volunteer(name: nameTextBox.text ?? "", email: emailTextBox.text ?? "", description: descriptionTextBox.text)
+            
+            loginDM.signUp(email: volunteer.email, pass: keyTextBox.text!, kind: .volunteer, newUserData: volunteer.representation as NSDictionary) { (login, error) in
+                if error != nil {
+                    if (error?.localizedDescription ?? "" == "The email address is badly formatted.") {
+                        self.showAlert(msg: "E-mail invalido", field: self.nameTextBox)
+                    } else {
+                        self.showAlert(msg: "Erro: \(error?.localizedDescription ?? "Não identificado")", field: self.emailTextBox)
+                    }
+                } else {
+                    self.performSegue(withIdentifier: "showConfirmRegister", sender: nil)
+                }
+            }
         }
     }
     
@@ -101,7 +114,7 @@ class informationsRegisterViewController: UIViewController, UINavigationControll
     }
     
     func showAlert(msg: String, field:UITextField) {
-        let alertController = UIAlertController(title: "Campos necessários", message: msg, preferredStyle: .alert)
+        let alertController = UIAlertController(title: "Preenchimento incorreto", message: msg, preferredStyle: .alert)
         let okAction = UIAlertAction(title: "OK", style: .default) { (act) in
             field.becomeFirstResponder()
         }

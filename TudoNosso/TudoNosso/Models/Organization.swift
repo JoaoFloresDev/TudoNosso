@@ -29,7 +29,7 @@ class Organization {
         self.email = email
     }
     
-    init (name: String, address: CLLocationCoordinate2D, desc: String, email: String, phone: String, site: String, facebook: String, areas:[String]?, avatar: String?){
+    init (name: String, address: CLLocationCoordinate2D, desc: String?, email: String, phone: String?, site: String?, facebook: String?, areas:[String]?, avatar: String?){
         
         self.name = name
         self.address = address
