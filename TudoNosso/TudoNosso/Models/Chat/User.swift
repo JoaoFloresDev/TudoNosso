@@ -18,6 +18,7 @@ class User: Equatable {
     var name: String
     var email: String
     var profileImage: String?
+    var kind: String? = ""
     
     init(id: String, name: String, email:String, profileImage:String?) {
         self.id = id

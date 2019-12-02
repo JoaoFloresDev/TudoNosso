@@ -40,6 +40,7 @@ class ProfileViewController: UIViewController {
         var facebook: String?
         var areas: [String]?
         var avatar: String?
+        var typeOfProfile: TypeOfProfile?
     }
     
     var profileData: Data? {
@@ -80,6 +81,20 @@ class ProfileViewController: UIViewController {
             switch self {
             case .ong:          return false
             case .volunteer:    return true
+            }
+        }
+        
+        var aboutTitle: String {
+            switch self {
+            case .ong:          return "Sobre a ONG"
+            case .volunteer:    return "Sobre mim"
+            }
+        }
+        
+        var isAreasFieldHidden: Bool {
+            switch self {
+            case .ong:      return false
+            default:        return true
             }
         }
     }
@@ -157,7 +172,8 @@ class ProfileViewController: UIViewController {
                                                     site: ong.site,
                                                     facebook: ong.facebook,
                                                     areas: ong.areas,
-                                                    avatar: ong.avatar)
+                                                    avatar: ong.avatar,
+                                                    typeOfProfile: self.typeOfProfile)
                             self.profileNameLabel.text = ong.name
                         }
                     }
@@ -191,10 +207,13 @@ class ProfileViewController: UIViewController {
                                                     site: nil,
                                                     facebook: nil,
                                                     areas: nil,
-                                                    avatar: nil)
+                                                    avatar: nil,
+                                                    typeOfProfile: self.typeOfProfile)
                             self.profileNameLabel.text = volunteer.name
                         }
                     }
+                    
+                    //TODO
                 }
             }
         }

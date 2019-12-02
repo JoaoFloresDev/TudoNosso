@@ -44,7 +44,8 @@ class GenericsDM {
             completion(nil,err)
         }else if
             let snapshot = snapshot,
-            let interpreted = T.interpret(data: snapshot.data()! as NSDictionary){
+            let data = snapshot.data(),
+            let interpreted = T.interpret(data: data as NSDictionary){
                 completion(interpreted,nil)
         }else {
             completion(nil,nil)
@@ -60,4 +61,5 @@ enum ComparisonKind{
     case greaterThan
     case greaterThanOrEqual
     case arrayContains
+    case inArray
 }

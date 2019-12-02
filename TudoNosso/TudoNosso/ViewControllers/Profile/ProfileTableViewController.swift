@@ -19,15 +19,18 @@ class ProfileTableViewController : UITableViewController {
     
     @IBOutlet weak var aboutLabel: UILabel!
     
+    @IBOutlet weak var areasCell: UITableViewCell!
+    
     //MARK: - PROPERTIES
     var receivedData: ProfileViewController.Data?
     
     //MARK: - LIFECYCLE
     override func viewDidLoad() {
         super.viewDidLoad()
-        prepareCollection()
+        
         setupInfoCell()
         setupAboutCell()
+        setupAreasCell()
     }
     
     //MARK: - METHODS
@@ -35,11 +38,16 @@ class ProfileTableViewController : UITableViewController {
         phoneLabel.text = receivedData?.phone ?? ""
         mailLabel.text = receivedData?.email ?? ""
         
+        adressLabel.numberOfLines = 0
+        adressLabel.sizeToFit()
+        adressLabel.superview?.sizeToFit()
+        
         if let coordinates = receivedData?.address {
             AddressUtil.recoveryAddress(fromLocation: coordinates) { (result, error) in
                 if error == nil {
                     if let adress = result {
                         self.adressLabel.text = adress
+                        self.tableView.reloadData()
                     } else {
                         self.adressLabel.text = ""
                     }
@@ -50,10 +58,6 @@ class ProfileTableViewController : UITableViewController {
         } else {
             adressLabel.text = ""
         }
-        
-        adressLabel.numberOfLines = 0
-        adressLabel.sizeToFit()
-        adressLabel.superview?.sizeToFit()
     }
     
     func setupAboutCell(){
@@ -61,6 +65,13 @@ class ProfileTableViewController : UITableViewController {
         aboutLabel.numberOfLines = 0
         aboutLabel.sizeToFit()
         aboutLabel.superview?.sizeToFit()
+    }
+    
+    func setupAreasCell() {
+        areasCell.isHidden = receivedData?.typeOfProfile?.isAreasFieldHidden ?? true
+        if !areasCell.isHidden {
+            prepareCollection()
+        }
     }
     
     func prepareCollection(){

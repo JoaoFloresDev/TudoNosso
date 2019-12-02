@@ -24,9 +24,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         if Local.userMail == nil {  // no logged account
             
-            ViewUtilities.navigateToStoryBoard(storyboardName: "Explore", storyboardID: "Explore", window: window, completion: {})
+            ViewUtilities.navigateToStoryBoard(storyboardName: "Explore", storyboardID: "Explore", window: window)
         } else {
-            ViewUtilities.navigateToStoryBoard(storyboardName: "Main", storyboardID: "Tab", window: window, completion: {})
+            ViewUtilities.navigateToStoryBoard(storyboardName: "Main", storyboardID: "Tab", window: window)
         }
         
         return true

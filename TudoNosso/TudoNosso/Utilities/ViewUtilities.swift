@@ -22,12 +22,23 @@ class ViewUtilities {
         cardView.layer.rasterizationScale = UIScreen.main.scale
     }
     
-    static func navigateToStoryBoard(storyboardName: String, storyboardID: String,window: UIWindow?, completion: () -> ()){
+    static func navigateToStoryBoard(storyboardName: String, storyboardID: String,window: UIWindow?){
         let storyboard = UIStoryboard(name: storyboardName, bundle: nil)
         
         let initialViewController = storyboard.instantiateViewController(withIdentifier: storyboardID)
         
         window?.rootViewController = initialViewController
         window?.makeKeyAndVisible()
+    }
+    
+    static func navigateToStoryBoard(storyboardName: String, storyboardID: String,window: UIWindow?, completion: (UIViewController)->()){
+        let storyboard = UIStoryboard(name: storyboardName, bundle: nil)
+        
+        let initialViewController = storyboard.instantiateViewController(withIdentifier: storyboardID)
+
+        window?.rootViewController = initialViewController
+        window?.makeKeyAndVisible()
+        
+        completion(initialViewController)
     }
 }

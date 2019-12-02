@@ -25,39 +25,48 @@
                             <rect key="frame" x="0.0" y="0.0" width="382" height="178"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zSB-4V-Kps">
-                                    <rect key="frame" x="0.0" y="0.0" width="382" height="121"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="382" height="109"/>
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="orange_logo_tudonosso" translatesAutoresizingMaskIntoConstraints="NO" id="INI-D7-tXl">
-                                            <rect key="frame" x="0.0" y="0.0" width="117" height="120"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="117" height="108"/>
                                             <color key="backgroundColor" red="0.97647058823529409" green="0.97647058823529409" blue="0.97647058823529409" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="117" id="TBu-dU-RtA"/>
                                             </constraints>
                                         </imageView>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yta-ck-3Z8" userLabel="Divisor line">
-                                            <rect key="frame" x="0.0" y="120" width="382" height="1"/>
+                                            <rect key="frame" x="0.0" y="108" width="382" height="1"/>
                                             <color key="backgroundColor" red="0.83137254901960778" green="0.83137254901960778" blue="0.83137254901960778" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="1" id="P2T-YS-ieR"/>
                                             </constraints>
                                         </view>
-                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="5by-PK-KmT">
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="5by-PK-KmT">
                                             <rect key="frame" x="133" y="16" width="233" height="51"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Professor(a)" textAlignment="natural" lineBreakMode="characterWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uuM-fF-T6D">
                                                     <rect key="frame" x="0.0" y="0.0" width="233" height="19"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="19" id="EpW-Tj-dxs"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                                     <color key="textColor" red="0.12941176470588234" green="0.12941176470588234" blue="0.12941176470588234" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pontual" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NME-d4-7oj">
                                                     <rect key="frame" x="0.0" y="19" width="233" height="16"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="16" id="E4D-2j-dxA"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <color key="textColor" red="0.31764705882352939" green="0.31764705882352939" blue="0.31764705882352939" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pq. Oziel, Campinas (SP)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cBY-lx-UxT">
                                                     <rect key="frame" x="0.0" y="35" width="233" height="16"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="16" id="Af5-3K-DX6"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <color key="textColor" red="0.31764705882352939" green="0.31764705882352939" blue="0.31764705882352939" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -69,7 +78,7 @@
                                             </constraints>
                                         </stackView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Educação" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tn0-TD-LIf">
-                                            <rect key="frame" x="133" y="86" width="233" height="18"/>
+                                            <rect key="frame" x="133" y="74" width="233" height="18"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="18" id="VIY-7R-kGM"/>
                                             </constraints>
@@ -96,16 +105,16 @@
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TxF-Oh-s0P">
-                                    <rect key="frame" x="0.0" y="121" width="382" height="57"/>
+                                    <rect key="frame" x="0.0" y="109" width="382" height="69"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="05 engajados / 05 vagas" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qnE-1O-bGO">
-                                            <rect key="frame" x="58" y="21.5" width="308" height="14.5"/>
+                                            <rect key="frame" x="58" y="27.5" width="308" height="14.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                             <color key="textColor" red="0.31764705882352939" green="0.31764705882352939" blue="0.31764705882352939" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile_icon" translatesAutoresizingMaskIntoConstraints="NO" id="o0a-26-IgC" customClass="RoundedImageView" customModule="TudoNosso" customModuleProvider="target">
-                                            <rect key="frame" x="16" y="16" width="25" height="25"/>
+                                            <rect key="frame" x="16" y="22" width="25" height="25"/>
                                             <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="25" id="cFt-Fl-8DL"/>
@@ -121,7 +130,7 @@
                                             </userDefinedRuntimeAttributes>
                                         </imageView>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile_icon" translatesAutoresizingMaskIntoConstraints="NO" id="T0s-l9-3Pv" customClass="RoundedImageView" customModule="TudoNosso" customModuleProvider="target">
-                                            <rect key="frame" x="29" y="16.5" width="24" height="24"/>
+                                            <rect key="frame" x="29" y="22.5" width="24" height="24"/>
                                             <color key="backgroundColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="24" id="A7w-19-mk9"/>
@@ -165,23 +174,24 @@
                                                             <rect key="frame" x="0.0" y="0.0" width="112" height="24"/>
                                                             <subviews>
                                                                 <view contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="YI9-uo-yRj">
-                                                                    <rect key="frame" x="22.5" y="3.5" width="67" height="17"/>
+                                                                    <rect key="frame" x="29" y="3.5" width="54" height="17"/>
                                                                     <subviews>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Editar" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pHe-O6-uRZ">
-                                                                            <rect key="frame" x="35.5" y="0.5" width="31.5" height="16.5"/>
+                                                                            <rect key="frame" x="22.5" y="0.5" width="31.5" height="16.5"/>
                                                                             <fontDescription key="fontDescription" name="Nunito-Regular" family="Nunito" pointSize="12"/>
                                                                             <color key="textColor" red="1" green="0.34901960784313724" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
-                                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="check-icon" translatesAutoresizingMaskIntoConstraints="NO" id="w3z-Xh-wO4">
+                                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="edit_icon" translatesAutoresizingMaskIntoConstraints="NO" id="w3z-Xh-wO4">
                                                                             <rect key="frame" x="0.0" y="0.0" width="17" height="17"/>
+                                                                            <color key="tintColor" red="1" green="0.34901960780000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="height" constant="17" id="Yn0-nf-4F0"/>
                                                                                 <constraint firstAttribute="width" constant="17" id="h4W-TX-JCA"/>
                                                                             </constraints>
                                                                         </imageView>
                                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3nX-Xa-9lk" userLabel="Edit Button">
-                                                                            <rect key="frame" x="-22.5" y="-3.5" width="112" height="24"/>
+                                                                            <rect key="frame" x="-22.5" y="-3.5" width="99" height="24"/>
                                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                             <connections>
                                                                                 <action selector="editPressed:" destination="iN0-l3-epB" eventType="touchUpInside" id="ltD-0B-5MQ"/>
@@ -197,7 +207,7 @@
                                                                         <constraint firstItem="pHe-O6-uRZ" firstAttribute="centerY" secondItem="YI9-uo-yRj" secondAttribute="centerY" id="Czm-r4-QQj"/>
                                                                         <constraint firstItem="w3z-Xh-wO4" firstAttribute="leading" secondItem="YI9-uo-yRj" secondAttribute="leading" id="Z6A-RK-r1I"/>
                                                                         <constraint firstItem="3nX-Xa-9lk" firstAttribute="leading" secondItem="YI9-uo-yRj" secondAttribute="leading" constant="-22.5" id="c7K-9T-tEd"/>
-                                                                        <constraint firstAttribute="width" constant="67" id="iqb-tb-QKE"/>
+                                                                        <constraint firstAttribute="width" constant="54" id="iqb-tb-QKE"/>
                                                                         <constraint firstItem="w3z-Xh-wO4" firstAttribute="centerY" secondItem="YI9-uo-yRj" secondAttribute="centerY" id="kh0-fO-msY"/>
                                                                         <constraint firstItem="pHe-O6-uRZ" firstAttribute="centerY" secondItem="YI9-uo-yRj" secondAttribute="centerY" id="lzS-m4-3oH"/>
                                                                         <constraint firstAttribute="trailing" secondItem="pHe-O6-uRZ" secondAttribute="trailing" id="u8g-oL-f6F"/>
@@ -427,6 +437,7 @@
     </objects>
     <resources>
         <image name="check-icon" width="13" height="10"/>
+        <image name="edit_icon" width="18" height="15"/>
         <image name="orange_logo_tudonosso" width="1500" height="1694"/>
         <image name="profile_icon" width="19" height="23"/>
         <image name="trash-icon" width="12" height="13"/>

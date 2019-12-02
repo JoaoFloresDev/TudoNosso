@@ -8,16 +8,19 @@
 
 import UIKit
 
+//MARK: - PROTOCOL
 protocol JobsTableViewCellDelegate {
     func deleteJob(indexPath: IndexPath)
     func finishJob(indexPath: IndexPath)
     func editJob(indexPath: IndexPath)
 }
 
+//MARK: - CLASS JobsTableViewCell
 class JobsTableViewCell: UITableViewCell {
     
     let ongDM = OrganizationDM()
     
+    //MARK: - OUTLETS
     @IBOutlet weak var jobTitleLabel: UILabel!
     @IBOutlet weak var typeOfJobLabel: UILabel!
     @IBOutlet weak var jobAdressLabel: UILabel!
@@ -30,6 +33,7 @@ class JobsTableViewCell: UITableViewCell {
     @IBOutlet weak var finishView: UIView!
     @IBOutlet weak var editView: RoundedView!
     
+    //MARK: - PROPERTIES
     static let reuseIdentifer = "JobsTableViewCell"
     
     static var nib: UINib {
@@ -54,27 +58,33 @@ class JobsTableViewCell: UITableViewCell {
     var indexPath: IndexPath?
     var delegate: JobsTableViewCellDelegate?
     
+    //MARK: - METHODS
     func configure(job: Job){
         status = job.status
         jobTitleLabel.text = job.title
         typeOfJobLabel.text = job.vacancyType
-        categoriesLabel.text = job.category.rawValue
-        engagedLabel.text = "00 engajados / " + String(format: "%02d", job.vacancyNumber) + " vagas"
+        categoriesLabel.text = job.firstCategoryAndCount
+        engagedLabel.text = job.engagedOnesSlashVacancyNumber
         
-        ongDM.find(ById: job.organizationID) { (ong, err) in
-            guard let ong = ong else { return }
-            
-            if let avatar = ong.avatar {
-                FileDM().recoverProfileImage(profilePic: avatar) { (image, error) in
-                    guard let image = image else {return}
-                    OperationQueue.main.addOperation {
-                        self.jobImageView.image = image
-                    }
-                }
+        AddressUtil.recoveryShortAddress(fromLocation: job.localization) { (address, error) in
+            guard let address = address else {return}
+            OperationQueue.main.addOperation {
+                self.jobAdressLabel.text = address
             }
         }
         
-//        jobImageVeiw.image = job
+//        ongDM.find(ById: job.organizationID) { (ong, err) in
+//            guard let ong = ong else { return }
+//            
+//            if let avatar = ong.avatar {
+//                FileDM().recoverProfileImage(profilePic: avatar) { (image, error) in
+//                    guard let image = image else {return}
+//                    OperationQueue.main.addOperation {
+//                        self.jobImageView.image = image
+//                    }
+//                }
+//            }
+//        }
     }
     
     func configIfProfile(delegate: JobsTableViewCellDelegate, indexPath: IndexPath) {
@@ -83,7 +93,7 @@ class JobsTableViewCell: UITableViewCell {
         self.buttonsAvailable = true
     }
     
-    
+    //MARK: - ACTIONS
     @IBAction func deletePressed(_ sender: Any) {
         if let indexPath = self.indexPath {
             delegate?.deleteJob(indexPath: indexPath)
