@@ -33,7 +33,9 @@ class LoginDM{
             }
         }
     }
+    
     func signUp(email: String, pass:String, kind:LoginKinds,newUserData: NSDictionary, completion: @escaping (Login?,Error?) ->()){
+        print("registrando")
         self.auth.createUser(withEmail: email, password: pass) { (fireUser, err) in
             if let err = err {
                 completion(nil,err)

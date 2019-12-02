@@ -18,6 +18,8 @@ import FirebaseAuth
 
 class informationsRegisterViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate, UITextFieldDelegate {
     
+    @IBOutlet weak var titleView: UINavigationItem!
+    @IBOutlet weak var scrollViewRegister: UIScrollView!
     @IBOutlet weak var constrainTextBox: UIView!
     @IBOutlet weak var nameTextBox: UITextField!
     @IBOutlet weak var endressTextBox: UITextField!
@@ -29,23 +31,25 @@ class informationsRegisterViewController: UIViewController, UINavigationControll
     @IBOutlet weak var constrainViewSite: UIView!
     @IBOutlet weak var labelsite: UILabel!
     @IBOutlet weak var textBoxSite: UITextField!
-    @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var enddressLabel: UILabel!
-    
-    
+    @IBOutlet weak var keyTextBox: UITextField!
+    @IBOutlet weak var confirmationKeyTextBox: UITextField!
+    @IBOutlet weak var constrainViewKey: UIView!
     
     @IBAction func registerAction(_ sender: Any) {
         if nameTextBox.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" {
             showAlert(msg: "Campo Nome precisa ser preenchido", field: nameTextBox)
-        } else if endressTextBox.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" {
+        } else if (endressTextBox.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "") {
             showAlert(msg: "Campo Endereço precisa ser preenchido", field: endressTextBox)
-        } else {
+        } else if (keyTextBox.text != confirmationKeyTextBox.text) {
+            showAlert(msg: "Senhas incompativeis", field: nameTextBox)
+        } else if (keyTextBox.text?.count ?? 0 < 6) {
+            showAlert(msg: "Sua senha deve possuir 6 digitos ou mais", field: nameTextBox)
+        }
+        else {
             let refreshAlert = UIAlertController(title: "Deseja finalizar cadastro?", message: "", preferredStyle: UIAlertController.Style.alert)
             
             refreshAlert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action: UIAlertAction!) in
-                print("realizar cadastro")
-                self.performSegue(withIdentifier: "showConfirmRegister", sender: nil)
-                //            cadastrar
+                self.signUp()
             }))
             
             refreshAlert.addAction(UIAlertAction(title: "Cancelar", style: .cancel, handler: { (action: UIAlertAction!) in
@@ -53,6 +57,27 @@ class informationsRegisterViewController: UIViewController, UINavigationControll
             }))
             
             present(refreshAlert, animated: true, completion: nil)
+        }
+    }
+    
+    func signUp() {
+        let loginDM = LoginDM()
+        
+        if(titleView.title == "Cadastro Organização") {
+            let organization = Organization(name: nameTextBox.text ?? "", address: CLLocationCoordinate2D(latitude: -10, longitude: 0), desc: descriptionTextBox.text ?? "", email: emailTextBox.text ?? "", phone: phoneTextField.text ?? "", site: siteTextBox.text ?? "", facebook: facebookTextBox.text ?? "", areas: [], avatar: "")
+            
+            loginDM.signUp(email: organization.email, pass: keyTextBox.text!, kind: .ONG, newUserData: organization.representation as NSDictionary) { (login, error) in
+                if error != nil {
+                    print("Error updating register: \(error?.localizedDescription ?? "Not identified")")
+//                    if (error == erro) {
+//                        showAlert(msg: "Sua senha deve possuir 6 digitos ou mais", field: nameTextBox)
+//                    }
+                } else {
+                    self.performSegue(withIdentifier: "showConfirmRegister", sender: nil)
+                }
+            }
+        } else {
+            print("voluntário")
         }
     }
     
@@ -69,6 +94,8 @@ class informationsRegisterViewController: UIViewController, UINavigationControll
         descriptionTextBox.delegate = self
         siteTextBox.delegate = self
         facebookTextBox.delegate = self
+        keyTextBox.delegate = self
+        confirmationKeyTextBox.delegate = self
         
         KeyboardAvoiding.avoidingView = self.constrainTextBox
     }
@@ -90,9 +117,9 @@ class informationsRegisterViewController: UIViewController, UINavigationControll
     }
     
     public func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
-        if textField == self.emailTextBox {
-            KeyboardAvoiding.avoidingView = self.constrainViewSite
-        }
+        var contentInset:UIEdgeInsets = self.scrollViewRegister.contentInset
+        contentInset.bottom = 700
+        scrollViewRegister.contentInset = contentInset
         
         return true
     }
@@ -119,8 +146,17 @@ class informationsRegisterViewController: UIViewController, UINavigationControll
         case siteTextBox:
             self.facebookTextBox.becomeFirstResponder()
             
-        default: //facebookTextBox:
-            KeyboardAvoiding.avoidingView = self.constrainTextBox
+        case facebookTextBox:
+            self.keyTextBox.becomeFirstResponder()
+            
+        case keyTextBox:
+            self.confirmationKeyTextBox.becomeFirstResponder()
+            
+        default: //confirmationKeyTextBox
+            //            KeyboardAvoiding.avoidingView = self.constrainTextBox
+            var contentInset:UIEdgeInsets = self.scrollViewRegister.contentInset
+            contentInset.bottom = -5
+            scrollViewRegister.contentInset = contentInset
             textField.resignFirstResponder()
         }
         
@@ -129,5 +165,14 @@ class informationsRegisterViewController: UIViewController, UINavigationControll
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+    
+    //    Pass information next view
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.destination is ConfirmRegisterViewController {
+            let vc = segue.destination as? ConfirmRegisterViewController
+            vc?.email = emailTextBox.text ?? ""
+            vc?.key = keyTextBox.text ?? ""
+        }
     }
 }

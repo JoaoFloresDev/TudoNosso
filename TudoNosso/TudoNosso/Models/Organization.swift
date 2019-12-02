@@ -60,10 +60,6 @@ class Organization {
         self.areas = Self.snapshotFieldReader(snapshot,.areas)
         self.avatar = Self.snapshotFieldReader(snapshot,.avatar)
     }
-    
-    
-    
-    
 }
 
 extension Organization: DatabaseRepresentation {
