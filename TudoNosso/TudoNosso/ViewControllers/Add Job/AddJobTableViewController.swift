@@ -17,7 +17,7 @@ class AddJobTableViewController: UITableViewController {
     @IBOutlet weak var numberInput: UITextField!
     @IBOutlet weak var adressInput: UITextField!
     //MARK: Categories
-    @IBOutlet weak var cultureAndEducation: Checkbox!
+    @IBOutlet weak var cultureAndArt: Checkbox!
     @IBOutlet weak var health: Checkbox!
     @IBOutlet weak var education: Checkbox!
     @IBOutlet weak var sports: Checkbox!
@@ -42,6 +42,8 @@ class AddJobTableViewController: UITableViewController {
     
     var jobDetailsSegueID = "toCreatedJobDetails"
     
+    var categoriesDict : [CategoryEnum:Checkbox] = [:]
+    
     enum Alerts {
         case title
         case typeOfJob
@@ -65,6 +67,8 @@ class AddJobTableViewController: UITableViewController {
         setNavBar()
         setTextFields()
         setTypeButtons()
+        
+        createCategoriesDictionary()
         
         if job != nil { // user is editing a job
             fillFieldsForEdition()
@@ -104,12 +108,32 @@ class AddJobTableViewController: UITableViewController {
         }
     }
     
+    func createCategoriesDictionary() {
+        categoriesDict = [CategoryEnum.cultureAndArt : self.cultureAndArt,
+                          CategoryEnum.health : self.health,
+                          CategoryEnum.education : self.education,
+                          CategoryEnum.sport : self.sports,
+                          CategoryEnum.elderly : self.elders,
+                          CategoryEnum.refugees : self.refugees,
+                          CategoryEnum.kids : self.childrenCheck,
+                          CategoryEnum.lgbtq : self.lgbtq,
+                          CategoryEnum.environment : self.environment,
+                          CategoryEnum.againstPoverty : self.poverty,
+                          CategoryEnum.animalProtection : self.animals,
+                          CategoryEnum.professionalTraining : self.training
+                            ]
+    }
+    
     func fillFieldsForEdition() {
         if let job = job {
             titleInput.text = job.title
             descriptionInput.text = job.desc
             
-            //TODO: categories
+            for category in job.categories {
+                if let checkbox = categoriesDict[category] {
+                    checkbox.isChecked = true
+                }
+            }
             
             switch job.vacancyType {
             case "Recorrente":

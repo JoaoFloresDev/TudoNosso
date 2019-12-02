@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="OGx-83-pQH">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -30,21 +28,21 @@
             <objects>
                 <tableViewController id="OGx-83-pQH" customClass="AddJobTableViewController" customModule="TudoNosso" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="U14-Jc-PHd">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <sections>
                             <tableViewSection id="bdb-qA-hTT">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="117" id="cjz-HM-UgC" userLabel="Title">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="117"/>
+                                        <rect key="frame" x="0.0" y="28" width="600" height="117"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="cjz-HM-UgC" id="nKk-2L-L9j">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="117"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="117"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Título" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y54-eB-NjM">
-                                                    <rect key="frame" x="20" y="35" width="374" height="19.5"/>
+                                                    <rect key="frame" x="20" y="35" width="560" height="19.5"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="19.5" id="BDM-xs-iAc"/>
                                                     </constraints>
@@ -53,7 +51,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yh7-7j-K2o">
-                                                    <rect key="frame" x="20" y="62.5" width="374" height="43"/>
+                                                    <rect key="frame" x="20" y="62.5" width="560" height="43"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="43" id="oXb-oI-KIp"/>
                                                     </constraints>
@@ -72,14 +70,14 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="ztr-UL-knH" userLabel="Description">
-                                        <rect key="frame" x="0.0" y="145" width="414" height="100"/>
+                                        <rect key="frame" x="0.0" y="145" width="600" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ztr-UL-knH" id="Py7-j6-yRy">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="100"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="100"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Descrição" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="viM-Jn-S8u">
-                                                    <rect key="frame" x="20" y="11" width="374" height="16.5"/>
+                                                    <rect key="frame" x="20" y="11" width="560" height="16.5"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="16.5" id="gCZ-ZZ-p0R"/>
                                                     </constraints>
@@ -88,7 +86,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SXF-gM-79Z">
-                                                    <rect key="frame" x="20" y="35.5" width="374" height="43"/>
+                                                    <rect key="frame" x="20" y="35.5" width="560" height="43"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="43" id="Ncl-gX-9UD"/>
                                                     </constraints>
@@ -108,14 +106,14 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="182" id="aFP-wq-reT" userLabel="Categories">
-                                        <rect key="frame" x="0.0" y="245" width="414" height="182"/>
+                                        <rect key="frame" x="0.0" y="245" width="600" height="182"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="aFP-wq-reT" id="DM5-IN-gmd">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="182"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="182"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="Categorias" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TuI-yV-e4Q">
-                                                    <rect key="frame" x="16" y="0.0" width="382" height="19.5"/>
+                                                    <rect key="frame" x="16" y="0.0" width="568" height="19.5"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="19.5" id="Smj-t1-raj"/>
                                                     </constraints>
@@ -124,13 +122,13 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <stackView opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="1000" axis="vertical" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="6Nh-Uv-uTo">
-                                                    <rect key="frame" x="16" y="27.5" width="382" height="132"/>
+                                                    <rect key="frame" x="16" y="27.5" width="568" height="132"/>
                                                     <subviews>
                                                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="3mN-Vt-zh7">
-                                                            <rect key="frame" x="0.0" y="0.0" width="382" height="15.5"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="568" height="15.5"/>
                                                             <subviews>
                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dfx-RV-bGV" userLabel="Cultura e arte">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="191" height="15.5"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="284" height="15.5"/>
                                                                     <subviews>
                                                                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PQU-4S-gyG" customClass="Checkbox" customModule="TudoNosso" customModuleProvider="target">
                                                                             <rect key="frame" x="0.0" y="0.0" width="15" height="15"/>
@@ -149,7 +147,7 @@
                                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 </view>
                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a2n-B6-IBm" userLabel="Saúde">
-                                                                    <rect key="frame" x="191" y="0.0" width="191" height="15.5"/>
+                                                                    <rect key="frame" x="284" y="0.0" width="284" height="15.5"/>
                                                                     <subviews>
                                                                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YzZ-9Z-XOy" customClass="Checkbox" customModule="TudoNosso" customModuleProvider="target">
                                                                             <rect key="frame" x="0.0" y="0.0" width="15" height="15"/>
@@ -170,10 +168,10 @@
                                                             </subviews>
                                                         </stackView>
                                                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Nsg-YV-L29">
-                                                            <rect key="frame" x="0.0" y="23.5" width="382" height="15"/>
+                                                            <rect key="frame" x="0.0" y="23.5" width="568" height="15"/>
                                                             <subviews>
                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UEt-WR-TJh" userLabel="educacao">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="191" height="15"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="284" height="15"/>
                                                                     <subviews>
                                                                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3rL-hY-ZRI" customClass="Checkbox" customModule="TudoNosso" customModuleProvider="target">
                                                                             <rect key="frame" x="0.0" y="0.0" width="15" height="15"/>
@@ -192,7 +190,7 @@
                                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 </view>
                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D1d-hv-IdU" userLabel="esportes">
-                                                                    <rect key="frame" x="191" y="0.0" width="191" height="15"/>
+                                                                    <rect key="frame" x="284" y="0.0" width="284" height="15"/>
                                                                     <subviews>
                                                                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DI0-Ge-lNw" customClass="Checkbox" customModule="TudoNosso" customModuleProvider="target">
                                                                             <rect key="frame" x="0.0" y="0.0" width="15" height="15"/>
@@ -213,10 +211,10 @@
                                                             </subviews>
                                                         </stackView>
                                                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="41i-rv-9rR">
-                                                            <rect key="frame" x="0.0" y="46.5" width="382" height="15.5"/>
+                                                            <rect key="frame" x="0.0" y="46.5" width="568" height="15.5"/>
                                                             <subviews>
                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xa2-j9-rnR" userLabel="Idosos">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="191" height="15.5"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="284" height="15.5"/>
                                                                     <subviews>
                                                                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8dZ-cG-3KU" customClass="Checkbox" customModule="TudoNosso" customModuleProvider="target">
                                                                             <rect key="frame" x="0.0" y="0.0" width="15" height="15"/>
@@ -235,7 +233,7 @@
                                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 </view>
                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pnz-ck-alT" userLabel="refugiados">
-                                                                    <rect key="frame" x="191" y="0.0" width="191" height="15.5"/>
+                                                                    <rect key="frame" x="284" y="0.0" width="284" height="15.5"/>
                                                                     <subviews>
                                                                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pLd-yU-Ov5" customClass="Checkbox" customModule="TudoNosso" customModuleProvider="target">
                                                                             <rect key="frame" x="0.0" y="0.0" width="15" height="15"/>
@@ -256,10 +254,10 @@
                                                             </subviews>
                                                         </stackView>
                                                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="zwx-UK-Fj9">
-                                                            <rect key="frame" x="0.0" y="70" width="382" height="15.5"/>
+                                                            <rect key="frame" x="0.0" y="70" width="568" height="15.5"/>
                                                             <subviews>
                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dhu-9k-cQB" userLabel="criancas">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="191" height="15.5"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="284" height="15.5"/>
                                                                     <subviews>
                                                                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ahp-p6-gI0" customClass="Checkbox" customModule="TudoNosso" customModuleProvider="target">
                                                                             <rect key="frame" x="0.0" y="0.0" width="15" height="15"/>
@@ -278,7 +276,7 @@
                                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 </view>
                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PDM-FG-whK" userLabel="lgbtq">
-                                                                    <rect key="frame" x="191" y="0.0" width="191" height="15.5"/>
+                                                                    <rect key="frame" x="284" y="0.0" width="284" height="15.5"/>
                                                                     <subviews>
                                                                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D6j-B8-uWr" customClass="Checkbox" customModule="TudoNosso" customModuleProvider="target">
                                                                             <rect key="frame" x="0.0" y="0.0" width="15" height="15"/>
@@ -299,10 +297,10 @@
                                                             </subviews>
                                                         </stackView>
                                                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="pdt-tK-faU">
-                                                            <rect key="frame" x="0.0" y="93.5" width="382" height="15"/>
+                                                            <rect key="frame" x="0.0" y="93.5" width="568" height="15"/>
                                                             <subviews>
                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vsD-dG-aYb" userLabel="meio ambiente">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="191" height="15"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="284" height="15"/>
                                                                     <subviews>
                                                                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p2q-ys-D7F" customClass="Checkbox" customModule="TudoNosso" customModuleProvider="target">
                                                                             <rect key="frame" x="0.0" y="0.0" width="15" height="15"/>
@@ -321,7 +319,7 @@
                                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 </view>
                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zo1-bV-jGV" userLabel="pobreza">
-                                                                    <rect key="frame" x="191" y="0.0" width="191" height="15"/>
+                                                                    <rect key="frame" x="284" y="0.0" width="284" height="15"/>
                                                                     <subviews>
                                                                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yF5-sM-bdE" customClass="Checkbox" customModule="TudoNosso" customModuleProvider="target">
                                                                             <rect key="frame" x="0.0" y="0.0" width="15" height="15"/>
@@ -342,10 +340,10 @@
                                                             </subviews>
                                                         </stackView>
                                                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="N7b-Nw-EUS">
-                                                            <rect key="frame" x="0.0" y="116.5" width="382" height="15.5"/>
+                                                            <rect key="frame" x="0.0" y="116.5" width="568" height="15.5"/>
                                                             <subviews>
                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Uw-HI-rVg" userLabel="Cultura e arte">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="191" height="15.5"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="284" height="15.5"/>
                                                                     <subviews>
                                                                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uN8-dv-nQY" customClass="Checkbox" customModule="TudoNosso" customModuleProvider="target">
                                                                             <rect key="frame" x="0.0" y="0.0" width="15" height="15"/>
@@ -364,7 +362,7 @@
                                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 </view>
                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jrw-g0-JAl" userLabel="Saúde">
-                                                                    <rect key="frame" x="191" y="0.0" width="191" height="15.5"/>
+                                                                    <rect key="frame" x="284" y="0.0" width="284" height="15.5"/>
                                                                     <subviews>
                                                                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nam-2C-VmA" customClass="Checkbox" customModule="TudoNosso" customModuleProvider="target">
                                                                             <rect key="frame" x="0.0" y="0.0" width="15" height="15"/>
@@ -401,23 +399,23 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="YC5-f7-XCC" userLabel="Type">
-                                        <rect key="frame" x="0.0" y="427" width="414" height="43.5"/>
+                                        <rect key="frame" x="0.0" y="427" width="600" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="YC5-f7-XCC" id="j3a-5R-rY5">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tipo de vaga" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AdI-BP-qMR">
-                                                    <rect key="frame" x="20" y="11" width="374" height="10"/>
+                                                    <rect key="frame" x="20" y="11" width="560" height="10"/>
                                                     <fontDescription key="fontDescription" name="Nunito-Bold" family="Nunito" pointSize="14"/>
                                                     <color key="textColor" red="0.12941176469999999" green="0.12941176469999999" blue="0.12941176469999999" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="X9E-7J-EFe">
-                                                    <rect key="frame" x="16" y="29" width="382" height="15"/>
+                                                    <rect key="frame" x="16" y="29" width="568" height="15"/>
                                                     <subviews>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hlE-XR-vwB" userLabel="Recorrente">
-                                                            <rect key="frame" x="0.0" y="0.0" width="191" height="15"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="284" height="15"/>
                                                             <subviews>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wb2-XS-VNN" customClass="Checkbox" customModule="TudoNosso" customModuleProvider="target">
                                                                     <rect key="frame" x="0.0" y="0.0" width="15" height="15"/>
@@ -429,7 +427,7 @@
                                                                     <state key="selected" image="selected-checkbox"/>
                                                                 </button>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recorrente" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0M1-jL-O49">
-                                                                    <rect key="frame" x="23" y="-0.5" width="160" height="16.5"/>
+                                                                    <rect key="frame" x="23" y="0.5" width="253" height="14"/>
                                                                     <fontDescription key="fontDescription" name="Nunito-Regular" family="Nunito" pointSize="12"/>
                                                                     <color key="textColor" red="0.12941176469999999" green="0.12941176469999999" blue="0.12941176469999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                     <nil key="highlightedColor"/>
@@ -446,7 +444,7 @@
                                                             </constraints>
                                                         </view>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cih-H4-uuB" userLabel="Pontual">
-                                                            <rect key="frame" x="191" y="0.0" width="191" height="15"/>
+                                                            <rect key="frame" x="284" y="0.0" width="284" height="15"/>
                                                             <subviews>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ab8-Tj-Zk5" customClass="Checkbox" customModule="TudoNosso" customModuleProvider="target">
                                                                     <rect key="frame" x="0.0" y="0.0" width="15" height="15"/>
@@ -458,7 +456,7 @@
                                                                     <state key="selected" image="selected-checkbox"/>
                                                                 </button>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pontual" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hzM-Qz-9hu">
-                                                                    <rect key="frame" x="23" y="-0.5" width="160" height="16.5"/>
+                                                                    <rect key="frame" x="23" y="0.5" width="253" height="14"/>
                                                                     <fontDescription key="fontDescription" name="Nunito-Regular" family="Nunito" pointSize="12"/>
                                                                     <color key="textColor" red="0.12941176469999999" green="0.12941176469999999" blue="0.12941176469999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                     <nil key="highlightedColor"/>
@@ -489,14 +487,14 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="EIO-Gu-EtY" userLabel="Number">
-                                        <rect key="frame" x="0.0" y="470.5" width="414" height="43.5"/>
+                                        <rect key="frame" x="0.0" y="470.5" width="600" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="EIO-Gu-EtY" id="DwY-vC-bS3">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DH1-B5-bCW">
-                                                    <rect key="frame" x="16" y="38.5" width="382" height="43"/>
+                                                    <rect key="frame" x="16" y="35.5" width="568" height="43"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="43" id="OKp-I6-wP3"/>
                                                     </constraints>
@@ -504,7 +502,7 @@
                                                     <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                 </textField>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Número de vagas" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lws-GU-1wz">
-                                                    <rect key="frame" x="16" y="11" width="398" height="19.5"/>
+                                                    <rect key="frame" x="16" y="11" width="584" height="16.5"/>
                                                     <fontDescription key="fontDescription" name="Nunito-Bold" family="Nunito" pointSize="14"/>
                                                     <color key="textColor" red="0.12941176469999999" green="0.12941176469999999" blue="0.12941176469999999" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -522,14 +520,14 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="Jgd-Rc-BjD" userLabel="Adress">
-                                        <rect key="frame" x="0.0" y="514" width="414" height="43.5"/>
+                                        <rect key="frame" x="0.0" y="514" width="600" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Jgd-Rc-BjD" id="8iV-8j-Rja">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FHa-kq-rJN">
-                                                    <rect key="frame" x="16" y="38.5" width="382" height="43"/>
+                                                    <rect key="frame" x="16" y="35.5" width="568" height="43"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="43" id="lfy-NM-ydj"/>
                                                     </constraints>
@@ -537,7 +535,7 @@
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Local" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S5r-cc-zIz">
-                                                    <rect key="frame" x="16" y="11" width="398" height="19.5"/>
+                                                    <rect key="frame" x="16" y="11" width="584" height="16.5"/>
                                                     <fontDescription key="fontDescription" name="Nunito-Bold" family="Nunito" pointSize="14"/>
                                                     <color key="textColor" red="0.12941176469999999" green="0.12941176469999999" blue="0.12941176469999999" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -575,7 +573,7 @@
                         <outlet property="adressInput" destination="FHa-kq-rJN" id="A47-11-GYh"/>
                         <outlet property="animals" destination="uN8-dv-nQY" id="GLf-h4-YGS"/>
                         <outlet property="childrenCheck" destination="ahp-p6-gI0" id="cUA-sK-saY"/>
-                        <outlet property="cultureAndEducation" destination="PQU-4S-gyG" id="dT1-Ck-cI6"/>
+                        <outlet property="cultureAndArt" destination="PQU-4S-gyG" id="dT1-Ck-cI6"/>
                         <outlet property="descriptionInput" destination="SXF-gM-79Z" id="Gle-qY-YnG"/>
                         <outlet property="education" destination="3rL-hY-ZRI" id="WM0-d0-9Lq"/>
                         <outlet property="elders" destination="8dZ-cG-3KU" id="iOi-9O-WrB"/>
