@@ -28,7 +28,7 @@ class Job {
     var engagedOnesSlashVacancyNumber: String {
         let engagedCount = self.engagedOnes?.count ?? 0
         
-        return String(format: "%02d engajado(s) / %02d vaga(s)", engagedCount,vacancyNumber)
+        return String(format: "%02d envolvido(s) / %02d vaga(s)", engagedCount,vacancyNumber)
     }
     
     var firstCategoryAndCount:String{

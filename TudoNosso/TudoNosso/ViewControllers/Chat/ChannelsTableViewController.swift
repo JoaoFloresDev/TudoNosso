@@ -36,9 +36,11 @@ class ChannelsTableViewController: UITableViewController {
     }
     
     func loadChannels(){
-        ChannelDM().listAll { (channels, err) in
-            guard let channels = channels else {return}
-            self.channels = channels
+        if Local.userKind != nil {
+            ChannelDM().listAll { (channels, err) in
+                guard let channels = channels else {return}
+                self.channels = channels
+            }
         }
     }
     

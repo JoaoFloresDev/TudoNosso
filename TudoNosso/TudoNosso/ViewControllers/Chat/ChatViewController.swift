@@ -74,8 +74,9 @@ final class ChatViewController: MessagesViewController {
         }
         
         maintainPositionOnKeyboardFrameChanged = true
-        messageInputBar.inputTextView.tintColor = .primary
-        messageInputBar.sendButton.setTitleColor(.primary, for: .normal)
+        messageInputBar.sendButton.setTitle("Enviar", for: .normal)
+        messageInputBar.inputTextView.tintColor = .black
+        messageInputBar.sendButton.setTitleColor(.black, for: .normal)
         
         messageInputBar.delegate = self
         messagesCollectionView.messagesDataSource = self
