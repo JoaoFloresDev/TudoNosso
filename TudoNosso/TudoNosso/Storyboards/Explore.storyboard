@@ -3,7 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -1023,7 +1023,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="EEc-oX-1ja"/>
                     </view>
-                    <tabBarItem key="tabBarItem" systemItem="bookmarks" id="GN7-gH-o2Q">
+                    <tabBarItem key="tabBarItem" title="Explorar" image="Vectorexplore" id="GN7-gH-o2Q">
                         <color key="badgeColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
                     </tabBarItem>
                     <navigationItem key="navigationItem" title="Explorar" leftItemsSupplementBackButton="YES" id="LN9-ih-qyx"/>
@@ -1397,6 +1397,7 @@
     </scenes>
     <resources>
         <image name="RectangleWhiteLogin" width="341" height="66"/>
+        <image name="Vectorexplore" width="31" height="22"/>
         <image name="button confirm" width="800" height="94"/>
         <image name="groupUser" width="91" height="84"/>
         <image name="hand" width="93" height="109"/>
@@ -1404,7 +1405,7 @@
         <image name="user" width="61" height="72"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="6hc-FF-ddR"/>
+        <segue reference="hNG-PQ-MgU"/>
         <segue reference="7dw-te-yJj"/>
     </inferredMetricsTieBreakers>
 </document>
