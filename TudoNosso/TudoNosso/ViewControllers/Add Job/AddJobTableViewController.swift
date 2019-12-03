@@ -42,6 +42,7 @@ class AddJobTableViewController: UITableViewController {
     var job: Job?
     
     var jobDetailsSegueID = "toCreatedJobDetails"
+    var locationSegueID = "toLocation"
     
     var categoriesDict : [CategoryEnum:Checkbox] = [:]
     
@@ -73,6 +74,7 @@ class AddJobTableViewController: UITableViewController {
         
         if job != nil { // user is editing a job
             fillFieldsForEdition()
+            self.title = "Editar oportunidade"
         }
     }
     
@@ -249,6 +251,16 @@ class AddJobTableViewController: UITableViewController {
 
 //MARK: UITextFieldDelegate
 extension AddJobTableViewController: UITextFieldDelegate {
+    
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        switch textField {
+        case addressInput:
+            performSegue(withIdentifier: locationSegueID, sender: self)
+            return false
+        default:
+            return true
+        }
+    }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()

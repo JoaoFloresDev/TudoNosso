@@ -95,6 +95,8 @@
 		D7C013A2237C4E87001CDD36 /* KeyboardAvoiding.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7C013A0237C4E87001CDD36 /* KeyboardAvoiding.swift */; };
 		D7C97E90237D97570010BAC0 /* AreaCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D7C97E8F237D97570010BAC0 /* AreaCollectionCell.xib */; };
 		D7C97E92237D97680010BAC0 /* AreaCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7C97E91237D97680010BAC0 /* AreaCollectionCell.swift */; };
+		D7DC738B2396A30F007A0532 /* Location.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D7DC738A2396A30F007A0532 /* Location.storyboard */; };
+		D7DC738E2396A3C8007A0532 /* LocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7DC738D2396A3C8007A0532 /* LocationViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -213,6 +215,8 @@
 		D7C013A0237C4E87001CDD36 /* KeyboardAvoiding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardAvoiding.swift; sourceTree = "<group>"; };
 		D7C97E8F237D97570010BAC0 /* AreaCollectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AreaCollectionCell.xib; sourceTree = "<group>"; };
 		D7C97E91237D97680010BAC0 /* AreaCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AreaCollectionCell.swift; sourceTree = "<group>"; };
+		D7DC738A2396A30F007A0532 /* Location.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Location.storyboard; sourceTree = "<group>"; };
+		D7DC738D2396A3C8007A0532 /* LocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -445,6 +449,7 @@
 				D75A3F21238EAEE10075FD94 /* AddJob.storyboard */,
 				C40A2EB423704EC700DB87BB /* Job.storyboard */,
 				560C3072238877C3004BD536 /* Channels.storyboard */,
+				D7DC738A2396A30F007A0532 /* Location.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -452,6 +457,7 @@
 		C422672E237055BD000A6DA3 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				D7DC738C2396A3AA007A0532 /* Location */,
 				D75A3F23238EAF230075FD94 /* Add Job */,
 				560C306D23887365004BD536 /* Chat */,
 				560C305923875C58004BD536 /* Job */,
@@ -604,6 +610,14 @@
 			path = Areas;
 			sourceTree = "<group>";
 		};
+		D7DC738C2396A3AA007A0532 /* Location */ = {
+			isa = PBXGroup;
+			children = (
+				D7DC738D2396A3C8007A0532 /* LocationViewController.swift */,
+			);
+			path = Location;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -729,6 +743,7 @@
 				560C3073238877C3004BD536 /* Channels.storyboard in Resources */,
 				56FC6DC8238EC28D00BD75BE /* Localizable.strings in Resources */,
 				D75A3F22238EAEE10075FD94 /* AddJob.storyboard in Resources */,
+				D7DC738B2396A30F007A0532 /* Location.storyboard in Resources */,
 				D7C97E90237D97570010BAC0 /* AreaCollectionCell.xib in Resources */,
 				56247D42238C1C48008245D0 /* ChannelMemberTableViewCell.xib in Resources */,
 				C40A2E8423704BA700DB87BB /* Assets.xcassets in Resources */,
@@ -907,6 +922,7 @@
 				C42267462371AF28000A6DA3 /* (null) in Sources */,
 				C42267422371AE1B000A6DA3 /* (null) in Sources */,
 				5673812C2374A95900F1B6C5 /* JobDM.swift in Sources */,
+				D7DC738E2396A3C8007A0532 /* LocationViewController.swift in Sources */,
 				C4226736237057B1000A6DA3 /* ProfileViewController.swift in Sources */,
 				D765D3262373041B00F596CD /* RoundedViews.swift in Sources */,
 				5633E5BA237D8D6800E46EE3 /* LoginDM.swift in Sources */,

@@ -25,6 +25,16 @@
             </objects>
             <point key="canvasLocation" x="-367" y="382"/>
         </scene>
+        <!--Location-->
+        <scene sceneID="bXe-Is-F1r">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Location" id="1cG-Ip-wQf" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="hP2-Gd-wgE"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cCg-ix-WXw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="294" y="57"/>
+        </scene>
         <!--Adicionar oportunidade-->
         <scene sceneID="VI8-EI-GAe">
             <objects>
@@ -590,6 +600,7 @@
                         <outlet property="titleInput" destination="yh7-7j-K2o" id="6Eb-Rn-OXL"/>
                         <outlet property="training" destination="Nam-2C-VmA" id="LWO-UZ-219"/>
                         <segue destination="OES-MJ-RGX" kind="show" identifier="toCreatedJobDetails" id="C25-Vz-ndt"/>
+                        <segue destination="1cG-Ip-wQf" kind="show" identifier="toLocation" id="lUe-C8-vPZ"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AaI-q1-d4q" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
