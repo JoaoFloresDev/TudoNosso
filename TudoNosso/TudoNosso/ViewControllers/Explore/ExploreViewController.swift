@@ -54,11 +54,12 @@ class ExploreViewController: UIViewController {
         
         let tipoLogin = UserDefaults.standard.string(forKey: "USER_KIND") ?? "0"
         switch tipoLogin {
-        case "ong":
+        case LoginKinds.ONG.rawValue:
             labelButtonLogin.text = "Criar vaga"
-        case "voluntary":
+        case LoginKinds.volunteer.rawValue:
             buttonLogin.alpha = 0
             labelButtonLogin.alpha = 0
+            buttonAreaImage.alpha = 0
         default:
             labelButtonLogin.text = "Cadastrar ou fazer login"
         }
