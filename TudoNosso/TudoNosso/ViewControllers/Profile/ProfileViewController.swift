@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreLocation
+import FirebaseAuth
 
 class ProfileViewController: UIViewController {
     
@@ -279,5 +280,21 @@ class ProfileViewController: UIViewController {
     
     @IBAction func editProfilePressed(_ sender: Any) {
         print("edit profile pressed")
+    }
+    
+    @IBAction func logoutPressed(_ sender: Any) {
+        
+        do {
+            try Auth.auth().signOut()
+        } catch {
+            print("erro ao deslogar")
+        }
+
+        let defaults = UserDefaults.standard
+        defaults.removeObject(forKey: "USER_MAIL")
+        defaults.removeObject(forKey: "USER_KIND")
+        defaults.synchronize()
+        
+        ViewUtilities.navigateToStoryBoard(storyboardName: "Explore", storyboardID: "Explore", window: self.view.window)
     }
 }
