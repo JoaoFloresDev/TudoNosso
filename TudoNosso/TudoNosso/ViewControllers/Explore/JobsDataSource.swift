@@ -14,18 +14,18 @@ class JobsDataSource {
     var description: String = ""
     
     var categorysList =
-    ["Cultura e Arte" : CategoryEnum.cultureAndArt.rawValue,
-    "Educação" : CategoryEnum.education.rawValue,
-    "Idosos" : CategoryEnum.elderly.rawValue,
-    "Crianças" : CategoryEnum.kids.rawValue,
-    "Meio Ambiente" : CategoryEnum.environment.rawValue,
-    "Proteção Animal" : CategoryEnum.animalProtection.rawValue,
-    "Saúde" : CategoryEnum.health.rawValue,
-    "Esportes" : CategoryEnum.sport.rawValue,
-    "Refugiados" : CategoryEnum.refugees.rawValue,
-    "LGBTQ+" : CategoryEnum.lgbtq.rawValue,
-    "Combate à pobreza" : CategoryEnum.againstPoverty.rawValue,
-    "Treinamento profissional" : CategoryEnum.professionalTraining.rawValue]
+        ["Cultura e Arte" : CategoryEnum.cultureAndArt.rawValue,
+         "Educação" : CategoryEnum.education.rawValue,
+         "Idosos" : CategoryEnum.elderly.rawValue,
+         "Crianças" : CategoryEnum.kids.rawValue,
+         "Meio Ambiente" : CategoryEnum.environment.rawValue,
+         "Proteção Animal" : CategoryEnum.animalProtection.rawValue,
+         "Saúde" : CategoryEnum.health.rawValue,
+         "Esportes" : CategoryEnum.sport.rawValue,
+         "Refugiados" : CategoryEnum.refugees.rawValue,
+         "LGBTQ+" : CategoryEnum.lgbtq.rawValue,
+         "Combate à pobreza" : CategoryEnum.againstPoverty.rawValue,
+         "Treinamento profissional" : CategoryEnum.professionalTraining.rawValue]
     
     var ongoingJobs : [Job] = []
     var jobs : [Job] = [] {
@@ -41,7 +41,7 @@ class JobsDataSource {
             }
         }
     }
-   
+    
     func loadDataJobs(key : String, view : UITableView) {
         let jobDM = JobDM()
         

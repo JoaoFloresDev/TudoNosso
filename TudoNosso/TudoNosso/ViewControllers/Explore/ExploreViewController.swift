@@ -59,7 +59,7 @@ class ExploreViewController: UIViewController {
         setupTableView()
         setupSearchBar()
         setupJobsTableView()
-//        loadData()
+        //        loadData()
         
         let tipoLogin = UserDefaults.standard.string(forKey: "USER_KIND") ?? "0"
         switch tipoLogin {

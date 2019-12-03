@@ -78,9 +78,9 @@ class informationsRegisterViewController: UIViewController, UINavigationControll
                 }
             }
         } else {
-            let volunteer = Volunteer(name: nameTextBox.text ?? "", email: emailTextBox.text ?? "", description: descriptionTextBox.text)
+            let volunteer = Volunteer(name: nameTextBox.text ?? "", email: emailTextBox.text ?? "", description: descriptionTextBox.text ?? "")
             
-            loginDM.signUp(email: volunteer.email, pass: keyTextBox.text!, kind: .volunteer, newUserData: volunteer.representation as NSDictionary) { (login, error) in
+            loginDM.signUp(email: volunteer.email ?? "", pass: keyTextBox.text!, kind: .volunteer, newUserData: volunteer.representation as NSDictionary) { (login, error) in
                 if error != nil {
                     if (error?.localizedDescription ?? "" == "The email address is badly formatted.") {
                         self.showAlert(msg: "E-mail invalido", field: self.nameTextBox)
