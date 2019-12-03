@@ -57,7 +57,6 @@ class LoginViewController: UIViewController, UINavigationControllerDelegate, UII
         present(alertController,animated: true)
     }
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         

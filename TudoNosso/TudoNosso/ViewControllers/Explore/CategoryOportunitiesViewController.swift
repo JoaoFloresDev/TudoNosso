@@ -8,7 +8,6 @@
 
 import UIKit
 
-
 class CategoryOportunitiesViewController : UIViewController {
     
     @IBOutlet weak var jobsTableView: UITableView!
@@ -34,7 +33,6 @@ class CategoryOportunitiesViewController : UIViewController {
         setupJobsTableView()
         
         loadData()
-        
         headerItem.title = titleHeader
     }
     
