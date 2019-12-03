@@ -15,20 +15,26 @@ class LocationViewController: UIViewController {
     @IBOutlet weak var mapView: MKMapView!
     
     //MARK: - PROPERTIES
-    
+    let locationManager = CLLocationManager()
     //MARK: - LIFECYCLE
     override func viewDidLoad() {
         super.viewDidLoad()
 
         mapView.delegate = self
+        setLocationManager()
     }
     
     //MARK: - METHODS
-
+    func setLocationManager() {
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.requestLocation()
+    }
 }
 
 //MARK: - MAP VIEW DELEGATE
-extension LocationViewController: MKMapViewDelegate {
+extension LocationViewController: MKMapViewDelegate, CLLocationManagerDelegate {
     private func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
         if status == .authorizedWhenInUse {
             manager.requestLocation()
@@ -42,7 +48,7 @@ extension LocationViewController: MKMapViewDelegate {
         }
     }
     
-    private func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
-        print("error:: (error)")
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        print("error:: \(error.localizedDescription)")
     }
 }
