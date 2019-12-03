@@ -11,38 +11,37 @@ import MapKit
 
 class LocationViewController: UIViewController {
     
+    //MARK: - OUTLETS
+    @IBOutlet weak var mapView: MKMapView!
+    
     //MARK: - PROPERTIES
-    let locationManager = CLLocationManager()
+    
     //MARK: - LIFECYCLE
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        setLocationManager()
+        mapView.delegate = self
     }
     
     //MARK: - METHODS
-    func setLocationManager() {
-        locationManager.delegate = self
-        locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        locationManager.requestWhenInUseAuthorization()
-        locationManager.requestLocation()
-    }
+
 }
 
-//MARK: - LOCATION MANAGER DELEGATE
-extension LocationViewController: CLLocationManagerDelegate {
+//MARK: - MAP VIEW DELEGATE
+extension LocationViewController: MKMapViewDelegate {
     private func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
         if status == .authorizedWhenInUse {
-            locationManager.requestLocation()
+            manager.requestLocation()
         }
     }
-
+    
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let location = locations.first {
-            print("location:: \(location)")
+            let region = MKCoordinateRegion(center: location.coordinate, span: MKCoordinateSpan())
+            mapView.setRegion(region, animated: true)
         }
     }
-
+    
     private func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
         print("error:: (error)")
     }
