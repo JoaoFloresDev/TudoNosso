@@ -8,7 +8,6 @@
 
 import UIKit
 
-
 class CategoryOportunitiesViewController : UIViewController {
     
     @IBOutlet weak var jobsTableView: UITableView!
@@ -34,7 +33,6 @@ class CategoryOportunitiesViewController : UIViewController {
         setupJobsTableView()
         
         loadData()
-        
         headerItem.title = titleHeader
     }
     
@@ -72,7 +70,7 @@ class CategoryOportunitiesViewController : UIViewController {
     func loadData() {
         let jobDM = JobDM()
         
-        jobDM.find(inField: .category, withValueEqual: jobsData.nameKeyBD(key: titleHeader), completion: {
+        jobDM.find(inField: .categories, withValueEqual: jobsData.nameKeyBD(key: titleHeader), completion: {
             (result, error) in
             guard let result = result else { return }
             self.jobs = result
