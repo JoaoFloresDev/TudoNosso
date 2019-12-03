@@ -10,50 +10,54 @@ import UIKit
 
 class ProfileTableViewController : UITableViewController {
     
-    //MARK: - Outlets
+    //MARK: - OUTLETS
     @IBOutlet weak var phoneLabel: UILabel!
-    @IBOutlet weak var adressLabel: UILabel!
+    @IBOutlet weak var addressLabel: UILabel!
     @IBOutlet weak var mailLabel: UILabel!
     
     @IBOutlet weak var areasCollection: UICollectionView!
     
     @IBOutlet weak var aboutLabel: UILabel!
     
-    //MARK: - Properties
+    @IBOutlet weak var areasCell: UITableViewCell!
+    
+    //MARK: - PROPERTIES
     var receivedData: ProfileViewController.Data?
     
-    //MARK: - Lifecycle
+    //MARK: - LIFECYCLE
     override func viewDidLoad() {
         super.viewDidLoad()
-        prepareCollection()
+        
         setupInfoCell()
         setupAboutCell()
+        setupAreasCell()
     }
     
-    //MARK: - Methods
+    //MARK: - METHODS
     func setupInfoCell(){
         phoneLabel.text = receivedData?.phone ?? ""
         mailLabel.text = receivedData?.email ?? ""
         
+        addressLabel.numberOfLines = 0
+        addressLabel.sizeToFit()
+        addressLabel.superview?.sizeToFit()
+        
         if let coordinates = receivedData?.address {
             AddressUtil.recoveryAddress(fromLocation: coordinates) { (result, error) in
                 if error == nil {
-                    if let adress = result {
-                        self.adressLabel.text = adress
+                    if let address = result {
+                        self.addressLabel.text = address
+                        self.tableView.reloadData()
                     } else {
-                        self.adressLabel.text = ""
+                        self.addressLabel.text = ""
                     }
                 } else {
-                    print ("Error getting adress from coordinates.")
+                    print ("Error getting address from coordinates.")
                 }
             }
         } else {
-            adressLabel.text = ""
+            addressLabel.text = ""
         }
-        
-        adressLabel.numberOfLines = 0
-        adressLabel.sizeToFit()
-        adressLabel.superview?.sizeToFit()
     }
     
     func setupAboutCell(){
@@ -61,6 +65,13 @@ class ProfileTableViewController : UITableViewController {
         aboutLabel.numberOfLines = 0
         aboutLabel.sizeToFit()
         aboutLabel.superview?.sizeToFit()
+    }
+    
+    func setupAreasCell() {
+        areasCell.isHidden = receivedData?.typeOfProfile?.isAreasFieldHidden ?? true
+        if !areasCell.isHidden {
+            prepareCollection()
+        }
     }
     
     func prepareCollection(){
@@ -71,7 +82,7 @@ class ProfileTableViewController : UITableViewController {
     }
 }
 
-//MARK: - Collection View
+//MARK: - COLLECTION
 extension ProfileTableViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if let areas = receivedData?.areas {

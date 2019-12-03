@@ -20,6 +20,6 @@ class ChannelTableViewCell: UITableViewCell {
     }
     
     func configure(channel: Channel){
-        self.channelNameLabel.text = channel.name
+        self.channelNameLabel.text = "Chat: \(channel.name)"
     }
 }

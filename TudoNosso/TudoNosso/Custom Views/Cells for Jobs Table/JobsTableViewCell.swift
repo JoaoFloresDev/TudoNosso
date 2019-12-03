@@ -8,18 +8,22 @@
 
 import UIKit
 
+//MARK: - PROTOCOL
 protocol JobsTableViewCellDelegate {
     func deleteJob(indexPath: IndexPath)
     func finishJob(indexPath: IndexPath)
+    func editJob(indexPath: IndexPath)
 }
 
+//MARK: - CLASS JobsTableViewCell
 class JobsTableViewCell: UITableViewCell {
     
     let ongDM = OrganizationDM()
     
+    //MARK: - OUTLETS
     @IBOutlet weak var jobTitleLabel: UILabel!
     @IBOutlet weak var typeOfJobLabel: UILabel!
-    @IBOutlet weak var jobAdressLabel: UILabel!
+    @IBOutlet weak var jobAddressLabel: UILabel!
     @IBOutlet weak var jobImageView: UIImageView!
     @IBOutlet weak var categoriesLabel: UILabel!
     @IBOutlet weak var firstVolunteerImage: RoundedImageView!
@@ -27,7 +31,9 @@ class JobsTableViewCell: UITableViewCell {
     @IBOutlet weak var engagedLabel: UILabel!
     @IBOutlet weak var buttonsView: UIView!
     @IBOutlet weak var finishView: UIView!
+    @IBOutlet weak var editView: RoundedView!
     
+    //MARK: - PROPERTIES
     static let reuseIdentifer = "JobsTableViewCell"
     
     static var nib: UINib {
@@ -43,6 +49,7 @@ class JobsTableViewCell: UITableViewCell {
                 
                 if (status ?? false) == false { // if job is finished
                     self.finishView.isHidden = true //shouldn't show Finish button.
+                    self.editView.isHidden = true   //shouldn't show Edit button.
                 }
             }
         }
@@ -51,12 +58,38 @@ class JobsTableViewCell: UITableViewCell {
     var indexPath: IndexPath?
     var delegate: JobsTableViewCellDelegate?
     
+    //MARK: - METHODS
     func configure(job: Job){
         status = job.status
+        
         jobTitleLabel.text = job.title
+        jobTitleLabel.numberOfLines = 0
+        jobTitleLabel.lineBreakMode = .byWordWrapping
+        jobTitleLabel.sizeToFit()
+        jobTitleLabel.superview?.sizeToFit()
+        
         typeOfJobLabel.text = job.vacancyType
-        categoriesLabel.text = job.category.rawValue
-        engagedLabel.text = "00 engajados / " + String(format: "%02d", job.vacancyNumber) + " vagas"
+        categoriesLabel.text = job.firstCategoryAndCount
+        engagedLabel.text = job.engagedOnesSlashVacancyNumber
+        
+        if job.address == nil || job.address == "" {
+            AddressUtil.recoveryAddress(fromLocation: job.localization, completion: { (result, error) in
+                if error == nil {
+                    if result != nil {
+                        job.address = result
+                        self.jobAddressLabel.text = result
+                    }
+                }
+            })
+        } else {
+            jobAddressLabel.text = job.address
+        }
+        
+        jobAddressLabel.numberOfLines = 0
+        jobAddressLabel.lineBreakMode = .byWordWrapping
+        jobAddressLabel.sizeToFit()
+        jobAddressLabel.superview?.sizeToFit()
+        
         
 //        ongDM.find(ById: job.organizationID) { (ong, err) in
 //            guard let ong = ong else { return }
@@ -78,7 +111,7 @@ class JobsTableViewCell: UITableViewCell {
         self.buttonsAvailable = true
     }
     
-    
+    //MARK: - ACTIONS
     @IBAction func deletePressed(_ sender: Any) {
         if let indexPath = self.indexPath {
             delegate?.deleteJob(indexPath: indexPath)
@@ -88,6 +121,12 @@ class JobsTableViewCell: UITableViewCell {
     @IBAction func finishPressed(_ sender: Any) {
         if let indexPath = self.indexPath {
             delegate?.finishJob(indexPath: indexPath)
+        }
+    }
+    
+    @IBAction func editPressed(_ sender: Any) {
+        if let indexPath = self.indexPath {
+            delegate?.editJob(indexPath: indexPath)
         }
     }
 }

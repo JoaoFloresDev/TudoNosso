@@ -40,7 +40,7 @@ class LoginViewController: UIViewController, UINavigationControllerDelegate, UII
                         Local.userMail = volunteer.email
                         Local.userKind = LoginKinds.volunteer.rawValue
                     }
-                    ViewUtilities.navigateToStoryBoard(storyboardName: "Main", storyboardID: "Tab", window: self.view.window, completion: {})
+                    ViewUtilities.navigateToStoryBoard(storyboardName: "Main", storyboardID: "Tab", window: self.view.window)
                     
                 }
             }

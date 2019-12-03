@@ -12,11 +12,10 @@ import FirebaseFirestore.FIRGeoPoint
 
 
 class Job {
-    
     var id: String?
     var title: String
     var desc: String?
-    var category: CategoryEnum
+    var categories: [CategoryEnum] = []
     var vacancyType: String
     var vacancyNumber: Int
     var organizationID: String
@@ -24,6 +23,7 @@ class Job {
     var status:Bool
     var engagedOnes:[String]? = []
     var channelID: String
+    var address: String?
     
     var engagedOnesSlashVacancyNumber: String {
         let engagedCount = self.engagedOnes?.count ?? 0
@@ -31,11 +31,23 @@ class Job {
         return String(format: "%02d engajado(s) / %02d vaga(s)", engagedCount,vacancyNumber)
     }
     
+    var firstCategoryAndCount:String{
+        if categories.count > 0 {
+            let localizedCategory = NSLocalizedString(categories[0].rawValue, comment: "")
+            if categories.count > 1{
+                return String(format: "\(localizedCategory) e +%02d",(categories.count-1))
+            }
+            return localizedCategory
+        } else {
+            return ""
+        }
+    }
+    
     
     /// initialiazer with all not optional parameters of the class
-    init( title: String, category: CategoryEnum, vacancyType: String, vacancyNumber: Int, organizationID: String, localization: CLLocationCoordinate2D,status:Bool, channelID:String) {
+    init( title: String, category: [CategoryEnum], vacancyType: String, vacancyNumber: Int, organizationID: String, localization: CLLocationCoordinate2D,status:Bool, channelID:String) {
         self.title = title
-        self.category = category
+        self.categories = category
         self.vacancyType = vacancyType
         self.vacancyNumber = vacancyNumber
         self.organizationID = organizationID
@@ -45,11 +57,11 @@ class Job {
     }
     
     /// initialiazer with all parameters of the class
-    init(id: String, title: String, desc: String, category: CategoryEnum, vacancyType: String, vacancyNumber: Int, organizationID: String, localization: CLLocationCoordinate2D, status: Bool, engagedOnes:[String], channelID:String) {
+    init(id: String, title: String, desc: String, category: [CategoryEnum], vacancyType: String, vacancyNumber: Int, organizationID: String, localization: CLLocationCoordinate2D, status: Bool, engagedOnes:[String], channelID:String) {
         self.id = id
         self.title = title
         self.desc = desc
-        self.category = category
+        self.categories = category
         self.vacancyType = vacancyType
         self.vacancyNumber = vacancyNumber
         self.organizationID = organizationID
@@ -65,7 +77,7 @@ class Job {
         guard
             let id: String = Self.snapshotFieldReader(snapshot,.id),
             let title: String = Self.snapshotFieldReader(snapshot,.title),
-            let category: String = Self.snapshotFieldReader(snapshot,.category),
+            let category: [String] = Self.snapshotFieldReader(snapshot,.categories),
             let vacancyType: String = Self.snapshotFieldReader(snapshot,.vacancyType),
             let vacancyNumber: Int = Self.snapshotFieldReader(snapshot,.vacancyNumber),
             let organizationID: String = Self.snapshotFieldReader(snapshot,.organizationID),
@@ -75,10 +87,13 @@ class Job {
             else {
                 return nil
         }
-        guard let categoryEnum = CategoryEnum.init(rawValue: category) else {
+        let categoriesEnum = category.compactMap { (categoryString) -> CategoryEnum? in
+            if let element = CategoryEnum(rawValue: categoryString){
+                return element
+            }
             return nil
         }
-        self.category = categoryEnum
+        self.categories = categoriesEnum
         self.id = id
         self.title = title
         self.vacancyType = vacancyType
@@ -89,6 +104,7 @@ class Job {
         self.channelID = channelID
         self.desc = Self.snapshotFieldReader(snapshot,.description)
         self.engagedOnes = Self.snapshotFieldReader(snapshot,.engagedOnes)
+        self.address = Self.snapshotFieldReader(snapshot,.address)
         
     }
 }
@@ -97,16 +113,22 @@ extension Job: DatabaseRepresentation {
     
     
     var representation: [String : Any] {
+        let categoriesString = categories.compactMap { (enumValue) -> String? in
+            return enumValue.rawValue
+        }
+        
+        
         var rep: [JobFields : Any] = [
             .id: id!,
             .title: title,
-            .category: category.rawValue,
+            .categories: categoriesString,
             .vacancyType: vacancyType,
             .vacancyNumber: vacancyNumber,
             .organizationID: organizationID,
             .localization: localization.toGeoPoint(),
             .status: status,
-            .channelID: channelID
+            .channelID: channelID,
+            .address: address
         ]
         
         if let desc = self.desc{
@@ -140,7 +162,7 @@ enum JobFields: String, Hashable  {
     case id
     case title
     case description = "desc"
-    case category
+    case categories = "category"
     case vacancyType
     case vacancyNumber
     case organizationID
@@ -148,4 +170,5 @@ enum JobFields: String, Hashable  {
     case status
     case engagedOnes
     case channelID
+    case address
 }
