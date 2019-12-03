@@ -50,19 +50,16 @@ class ExploreViewController: UIViewController {
         setupTableView()
         setupSearchBar()
         setupJobsTableView()
-
-        if let kind = Local.userKind,
-           let tipoLogin = LoginKinds(rawValue:kind ){
-            switch tipoLogin {
-            case .ONG:
-                labelButtonLogin.text = "Criar vaga"
-            case .volunteer:
-                buttonLogin.alpha = 0
-                labelButtonLogin.alpha = 0
-                buttonAreaImage.alpha = 0
-            }
-        }
-        else{
+        //        loadData()
+        
+        let tipoLogin = UserDefaults.standard.string(forKey: "USER_KIND") ?? "0"
+        switch tipoLogin {
+        case "ong":
+            labelButtonLogin.text = "Criar vaga"
+        case "voluntary":
+            buttonLogin.alpha = 0
+            labelButtonLogin.alpha = 0
+        default:
             labelButtonLogin.text = "Cadastrar ou fazer login"
         }
         

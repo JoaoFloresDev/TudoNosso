@@ -9,13 +9,13 @@
 import UIKit
 
 class userRegisterViewController: UIViewController {
-
+    
     @IBOutlet weak var viewVoluntary: UIView!
     @IBOutlet weak var viewOng: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         setupViewDesign(view: viewVoluntary)
         setupViewDesign(view: viewOng)
     }
