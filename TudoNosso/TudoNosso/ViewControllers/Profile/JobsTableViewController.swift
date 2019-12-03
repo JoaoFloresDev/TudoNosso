@@ -10,7 +10,7 @@ import UIKit
 
 class JobsTableViewController: UITableViewController {
     
-    //MARK: - Properties
+    //MARK: - PROPERTIES
     struct Dependencies {
         var jobs: [Job]
         var isMyProfile: Bool
@@ -33,23 +33,25 @@ class JobsTableViewController: UITableViewController {
     var finishedJobs : [Job] = []
     
     var selectedJob: Job?
+    var jobForEdition: Job?
     
     private let jobsDetailSegueID = "toJobDetails"
+    private let editJobSegueID = "toEditJob"
     
-    //MARK: - Lifecycle
+    //MARK: - LIFECYCLE
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupJobsTableView()
     }
     
-    //MARK: - Setup from Segue
+    //MARK: - SETUP FROM SEGUE
     func setup(dependencies: Dependencies) {
         self.jobs = dependencies.jobs
         self.isMyProfile = dependencies.isMyProfile
     }
     
-    //MARK: - Methods
+    //MARK: - METHODS
     func setupJobsTableView(){
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 200
@@ -88,16 +90,24 @@ class JobsTableViewController: UITableViewController {
         jobDM.save(job: job)
     }
     
-    //MARK: - Segue
+    //MARK: - SEGUE
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == jobsDetailSegueID {
+        switch segue.identifier {
+        case jobsDetailSegueID:
             if let nextVC = segue.destination as? JobViewController {
                 nextVC.job = self.selectedJob
             }
+        case editJobSegueID:
+            if let nextVC = segue.destination as? AddJobTableViewController {
+                if let jobForEdition = jobForEdition {
+                    nextVC.job = jobForEdition
+                }
+            }
+        default:    break
         }
     }
     
-    // MARK: - Table view
+    // MARK: - TABLE VIEW
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 2
     }
@@ -223,5 +233,15 @@ extension JobsTableViewController : JobsTableViewCellDelegate {
             
         default:    break
         }
+    }
+    
+    func editJob(indexPath: IndexPath) {
+        switch indexPath.section {
+        case 0:
+            jobForEdition = ongoingJobs[indexPath.row]
+        default:    break
+        }
+        
+        performSegue(withIdentifier: editJobSegueID, sender: self)
     }
 }
