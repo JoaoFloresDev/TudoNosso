@@ -17,7 +17,6 @@ class JobDM: GenericsDM {
     func save(job: Job){
         //update an existing item
         if let jobID = job.id{
-            db.collection(TABLENAME).document(jobID).setData(job.representation,merge: true)
             db.collection(TABLENAME).document(jobID).setData(job.representation, merge: true) { (error) in
                 if error != nil {
                     print("Error updating a job: \(error?.localizedDescription)")
