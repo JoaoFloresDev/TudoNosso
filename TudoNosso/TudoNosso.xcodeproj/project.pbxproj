@@ -463,20 +463,24 @@
 			path = ViewControllers;
 			sourceTree = "<group>";
 		};
-		C46791F6238FF4F1004C108D /* Cadastro */ = {
+		C46791F6238FF4F1004C108D /* Register */ = {
 			isa = PBXGroup;
 			children = (
-				C46791F7238FF579004C108D /* userRegisterViewController.swift */,
-				C46791FF239034E5004C108D /* informationsRegisterViewController.swift */,
-				C467920323918828004C108D /* ConfirmRegisterViewController.swift */,
+				C4226735237057B1000A6DA3 /* ProfileViewController.swift */,
+				D7A707602382CF8500D164AC /* ProfileTableViewController.swift */,
+				D7A707622382EA9000D164AC /* JobsTableViewController.swift */,
 			);
-			path = Cadastro;
+			path = Register;
 			sourceTree = "<group>";
 		};
 		C46E72932375B06900D57BB9 /* Explore */ = {
 			isa = PBXGroup;
 			children = (
-				C46791F6238FF4F1004C108D /* Cadastro */,
+				C46791F7238FF579004C108D /* userRegisterViewController.swift */,
+				C46791FF239034E5004C108D /* informationsRegisterViewController.swift */,
+				C467920323918828004C108D /* ConfirmRegisterViewController.swift */,
+				C4914124239807DC00D7FEE7 /* EdirProfile */,
+				C46791F6238FF4F1004C108D /* Register */,
 				C46E72952375C03000D57BB9 /* Login */,
 				C46E72942375C01400D57BB9 /* Explore list */,
 			);
@@ -514,9 +518,6 @@
 		C46E72982375C06300D57BB9 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
-				C4226735237057B1000A6DA3 /* ProfileViewController.swift */,
-				D7A707602382CF8500D164AC /* ProfileTableViewController.swift */,
-				D7A707622382EA9000D164AC /* JobsTableViewController.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -531,6 +532,13 @@
 				D7C0139C237C4E68001CDD36 /* Base64Converter.swift */,
 			);
 			path = Utilities;
+			sourceTree = "<group>";
+		};
+		C4914124239807DC00D7FEE7 /* EdirProfile */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = EdirProfile;
 			sourceTree = "<group>";
 		};
 		D75A3F23238EAF230075FD94 /* Add Job */ = {

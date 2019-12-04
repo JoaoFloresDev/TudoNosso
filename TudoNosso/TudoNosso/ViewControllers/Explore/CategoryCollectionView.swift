@@ -17,10 +17,8 @@ class CategoryCollectionView : UITableViewCell {
     
     @IBOutlet weak var collectionView: UICollectionView!
     var categorysList = ["Combate à pobreza","Crianças","Cultura e Arte","Educação","Esportes","Idosos","LGBTQ+","Meio Ambiente","Proteção Animal","Refugiados","Saúde","Treinamento profissional"]
-    
     let ongDM = OrganizationDM()
     var organizationsList : [Organization] = []
-    
     var ongs : [Organization] = [] {
         didSet {
             self.sortOrganizations()

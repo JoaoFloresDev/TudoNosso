@@ -57,9 +57,4 @@ class JobsDataSource {
     func nameKeyBD (key : String) -> String{
         return categorysList[key] ?? ""
     }
-    
-    
-    
-    
-    
 }

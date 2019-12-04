@@ -20,8 +20,8 @@ class LoginViewController: UIViewController, UINavigationControllerDelegate, UII
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     
+    
     @IBAction func signIn(_ sender: Any) {
-        
         if emailTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" {
             showAlert(msg: "Campo e-mail precisa ser preenchido", field: emailTextField)
         } else if passwordTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" {
@@ -47,6 +47,10 @@ class LoginViewController: UIViewController, UINavigationControllerDelegate, UII
         }
     }
     
+    @IBAction func returnExplore(_ sender: Any) {
+        ViewUtilities.navigateToStoryBoard(storyboardName: "Explore", storyboardID: "Explore", window: self.view.window)
+    }
+    
     func showAlert(msg: String, field:UITextField) {
         let alertController = UIAlertController(title: "Campos necessários", message: msg, preferredStyle: .alert)
         let okAction = UIAlertAction(title: "OK", style: .default) { (act) in
@@ -59,7 +63,6 @@ class LoginViewController: UIViewController, UINavigationControllerDelegate, UII
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         
         KeyboardAvoiding.avoidingView = self.constrainTextBox
     }
@@ -79,8 +82,7 @@ class LoginViewController: UIViewController, UINavigationControllerDelegate, UII
     public func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if textField == self.emailTextField {
             self.passwordTextField.becomeFirstResponder()
-        }
-        else if textField == self.passwordTextField {
+        } else if textField == self.passwordTextField {
             textField.resignFirstResponder()
         }
         return true

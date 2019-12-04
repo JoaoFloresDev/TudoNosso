@@ -16,6 +16,7 @@ class ExploreViewController: UIViewController {
     @IBOutlet weak var buttonLogin: UIButton!
     @IBOutlet weak var labelButtonLogin: UILabel!
     @IBOutlet weak var buttonAreaImage: UIImageView!
+    
     //MARK: variable
     var selectedCause: String = ""
     var selectedOrganization: String = ""
@@ -74,7 +75,7 @@ class ExploreViewController: UIViewController {
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.layoutIfNeeded()
     }
-   
+    
     //MARK: setups
     func setupNavegationBar() {
         navigationController?.navigationBar.barTintColor = UIColor(rgb: 0xFF5900, a: 1)
@@ -170,7 +171,6 @@ class ExploreViewController: UIViewController {
 }
 
 extension ExploreViewController :UITableViewDelegate, UITableViewDataSource, UISearchResultsUpdating {
-    
     func updateSearchResults(for searchController: UISearchController) {
         filterJobs(for: searchController.searchBar.text ?? "")
         filterOrganizations(for: searchController.searchBar.text ?? "")
@@ -284,9 +284,7 @@ extension ExploreViewController: CategoryCollectionViewDelegate {
             }
             
             self.performSegue(withIdentifier: "showCauses", sender: self)
-        }
-            
-        else {
+        } else {
             if let title = OrganizationEmail {
                 self.selectedOrganization = title
             }

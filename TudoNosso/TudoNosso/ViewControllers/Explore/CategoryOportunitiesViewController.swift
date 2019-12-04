@@ -13,6 +13,9 @@ class CategoryOportunitiesViewController : UIViewController {
     @IBOutlet weak var jobsTableView: UITableView!
     @IBOutlet weak var headerItem: UINavigationItem!
     
+    var filteredOngoingJobs : [Job] = []
+    var searchController = UISearchController(searchResultsController: nil)
+    var titleHeader: String = ""
     var jobsData = JobsDataSource()
     var ongoingJobs : [Job] = []
     var jobs : [Job] = [] {
@@ -20,11 +23,6 @@ class CategoryOportunitiesViewController : UIViewController {
             self.sortJobs()
         }
     }
-    
-    var filteredOngoingJobs : [Job] = []
-    var searchController = UISearchController(searchResultsController: nil)
-    
-    var titleHeader: String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
