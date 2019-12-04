@@ -33,9 +33,6 @@ class EditProfileViewController: UIViewController, UINavigationControllerDelegat
     @IBOutlet weak var faceBookTextBox: UITextField!
     @IBOutlet weak var webSiteTextBox: UITextField!
     
-    @IBOutlet weak var keyTextBox: UITextField!
-    @IBOutlet weak var confirmationKeyTextBox: UITextField!
-    
     @IBAction func closeEdition(_ sender: Any) {
         self.dismiss(animated: true)
     }
@@ -45,10 +42,6 @@ class EditProfileViewController: UIViewController, UINavigationControllerDelegat
             showAlert(msg: "Campo Nome precisa ser preenchido", field: nameTextBox)
         } else if (endressTextBox.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "") {
             showAlert(msg: "Campo Endereço precisa ser preenchido", field: endressTextBox)
-        } else if (keyTextBox.text != confirmationKeyTextBox.text) {
-            showAlert(msg: "Senhas incompativeis", field: keyTextBox)
-        } else if (keyTextBox.text?.count ?? 0 < 6) {
-            showAlert(msg: "Sua senha deve possuir 6 digitos ou mais", field: keyTextBox)
         } else {
                 let refreshAlert = UIAlertController(title: "Deseja finalizar cadastro?", message: "", preferredStyle: UIAlertController.Style.alert)
                 
@@ -64,6 +57,19 @@ class EditProfileViewController: UIViewController, UINavigationControllerDelegat
         }
     }
     
+    func updateData() {
+//        if(UserDefaults.standard.string(forKey: "USER_KIND") ?? "0" == "ong") {
+//            let organizationDM = OrganizationDM()
+//            let organization = Organization()
+//
+//            organizationDM.save(ong: organization)
+//        } else {
+//            let volunteerDM = VolunteerDM()
+//            let volunteer = Volunteer()
+//
+//            volunteerDM.save(volunteer: volunteer)
+//        }
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         
