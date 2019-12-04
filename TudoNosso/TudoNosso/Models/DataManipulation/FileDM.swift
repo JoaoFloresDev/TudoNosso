@@ -14,14 +14,22 @@ class FileDM {
     func recoverProfileImage(profilePic:String, completion: @escaping (UIImage?,Error?) ->()) {
         
         
-        storage.reference().child("profilePic/\(profilePic)").downloadURL { (url, err) in
+        storage.reference().child("profilePic/\(profilePic)").downloadURL { (imageUrl, err) in
             if let err = err {
                 print(err.localizedDescription)
                 completion(nil,err)
             }else {
                 do {
-                    let image = try UIImage(data: Data(contentsOf: url!))
-                    completion(image,nil)
+                    
+                    let imageView = UIImageView()
+                    
+                    imageView.sd_setImage(with: imageUrl,
+                                          placeholderImage: UIImage(named: "Crianças"),
+                                          options: .highPriority,
+                                          context: nil,
+                                          progress: nil) { (image, error, cacheType, urlImage) in
+                                            completion(image,nil)
+                    }
                 } catch {
                     print("erro na imagem")
                 }
