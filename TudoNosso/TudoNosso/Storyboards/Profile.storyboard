@@ -267,7 +267,7 @@
                         <outlet property="profileImage" destination="75K-5L-OFi" id="QAG-nf-WYj"/>
                         <outlet property="profileNameLabel" destination="e6H-tT-8R2" id="EI1-X7-oDn"/>
                         <outlet property="segmentedControl" destination="Fbt-ez-Tyx" id="24D-TX-U3j"/>
-                        <segue destination="dJV-NN-sXn" kind="presentation" identifier="toEditProfile" id="WNw-Ds-vFv"/>
+                        <segue destination="dJV-NN-sXn" kind="presentation" identifier="toEditProfile" id="yvP-Rg-4HB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uwq-EZ-B5R" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -709,7 +709,7 @@
         <!--Cadastro Organização-->
         <scene sceneID="h05-TG-DNP">
             <objects>
-                <viewController storyboardIdentifier="DataOrganization" id="dJV-NN-sXn" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DataOrganization" id="dJV-NN-sXn" customClass="EditProfileViewController" customModule="TudoNosso" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="TGs-Hf-jmS">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="946"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -720,47 +720,47 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cAk-0D-Fxy">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="900"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2. Preencha o formulário" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jrm-Ng-b7F">
-                                                <rect key="frame" x="20" y="30" width="192" height="23.5"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Edição de perfil" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jrm-Ng-b7F">
+                                                <rect key="frame" x="20" y="30" width="121.5" height="24"/>
                                                 <fontDescription key="fontDescription" name="Nunito-Bold" family="Nunito" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nome da Organização" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Xl-tt-Ghm">
-                                                <rect key="frame" x="20" y="83.5" width="173.5" height="23.5"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nome" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Xl-tt-Ghm">
+                                                <rect key="frame" x="20" y="84" width="46.5" height="24"/>
                                                 <fontDescription key="fontDescription" name="Nunito-Bold" family="Nunito" pointSize="17"/>
                                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Endereço da Organização" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cds-EO-bQC">
-                                                <rect key="frame" x="20" y="171" width="200" height="23.5"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Endereço" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cds-EO-bQC">
+                                                <rect key="frame" x="20" y="172" width="73" height="24"/>
                                                 <fontDescription key="fontDescription" name="Nunito-Bold" family="Nunito" pointSize="17"/>
                                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Telefone" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WeN-Zv-MXp">
-                                                <rect key="frame" x="20" y="258.5" width="374" height="23.5"/>
+                                                <rect key="frame" x="20" y="260" width="374" height="23.5"/>
                                                 <fontDescription key="fontDescription" name="Nunito-Bold" family="Nunito" pointSize="17"/>
                                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Digite o nome da organização" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eZi-Ha-RpM">
-                                                <rect key="frame" x="20" y="117" width="374" height="34"/>
+                                                <rect key="frame" x="20" y="118" width="374" height="34"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Digite o endereço da organização" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hW2-KF-bik">
-                                                <rect key="frame" x="20" y="204.5" width="374" height="34"/>
+                                                <rect key="frame" x="20" y="206" width="374" height="34"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="(00) ____ - ____" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4mg-oZ-D26">
-                                                <rect key="frame" x="20" y="292" width="374" height="34"/>
+                                                <rect key="frame" x="20" y="293.5" width="374" height="34"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="noq-Mz-0IR">
-                                                <rect key="frame" x="0.0" y="336" width="414" height="320"/>
+                                                <rect key="frame" x="0.0" y="337.5" width="414" height="320"/>
                                                 <subviews>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="@ong" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="N2o-RA-tM6">
                                                         <rect key="frame" x="20" y="198.5" width="374" height="34"/>
@@ -856,19 +856,19 @@
                                                 </constraints>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="*" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UeD-WP-Gmm">
-                                                <rect key="frame" x="203.5" y="83.5" width="8" height="23.5"/>
+                                                <rect key="frame" x="76.5" y="84.5" width="8" height="23.5"/>
                                                 <fontDescription key="fontDescription" name="Nunito-Bold" family="Nunito" pointSize="17"/>
                                                 <color key="textColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="*" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tBR-DW-Dia">
-                                                <rect key="frame" x="230" y="171" width="8" height="23.5"/>
+                                                <rect key="frame" x="103" y="172.5" width="8" height="23.5"/>
                                                 <fontDescription key="fontDescription" name="Nunito-Bold" family="Nunito" pointSize="17"/>
                                                 <color key="textColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rVz-TQ-y1v">
-                                                <rect key="frame" x="0.0" y="666" width="414" height="240"/>
+                                                <rect key="frame" x="0.0" y="667.5" width="414" height="240"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Senha" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fXf-Hd-FFY">
                                                         <rect key="frame" x="20" y="10" width="48" height="21"/>
@@ -912,8 +912,8 @@
                                                         </constraints>
                                                         <state key="normal" title="Button" image="button confirm"/>
                                                     </button>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cadastrar" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DKO-qk-kOt">
-                                                        <rect key="frame" x="10" y="198.5" width="394" height="23.5"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Atualizar dados" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DKO-qk-kOt">
+                                                        <rect key="frame" x="10" y="198" width="394" height="24"/>
                                                         <fontDescription key="fontDescription" name="Nunito-Bold" family="Nunito" pointSize="17"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
@@ -943,9 +943,14 @@
                                                     <constraint firstItem="NiK-ee-pAg" firstAttribute="centerY" secondItem="fXf-Hd-FFY" secondAttribute="centerY" id="zfC-ZS-URa"/>
                                                 </constraints>
                                             </view>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dLv-ty-bNh">
-                                                <rect key="frame" x="346" y="20" width="48" height="30"/>
+                                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dLv-ty-bNh">
+                                                <rect key="frame" x="316" y="18" width="79" height="30"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <state key="normal" title="Fechar"/>
+                                                <connections>
+                                                    <action selector="closeEdit:" destination="YLc-Co-5Jx" eventType="touchUpInside" id="NL1-2m-orK"/>
+                                                    <action selector="closeEdition:" destination="dJV-NN-sXn" eventType="touchUpInside" id="bWu-T7-EjR"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -1006,10 +1011,24 @@
                     </view>
                     <navigationItem key="navigationItem" title="Cadastro Organização" id="fiy-Mj-TGL"/>
                     <size key="freeformSize" width="414" height="1000"/>
+                    <connections>
+                        <outlet property="confirmationKeyTextBox" destination="RTy-Na-cto" id="Qk5-OG-7V5"/>
+                        <outlet property="constrainTextBox" destination="cAk-0D-Fxy" id="l17-bx-6kI"/>
+                        <outlet property="descriptionTextBox" destination="fXO-wy-liE" id="qbB-Ww-udk"/>
+                        <outlet property="emailTextBox" destination="pF6-BW-p1b" id="QRI-Pp-bvu"/>
+                        <outlet property="endressTextBox" destination="hW2-KF-bik" id="wXp-7b-CLM"/>
+                        <outlet property="faceBookTextBox" destination="N2o-RA-tM6" id="IEJ-4q-rvH"/>
+                        <outlet property="keyTextBox" destination="2WF-fE-Rfy" id="vrB-iC-GZZ"/>
+                        <outlet property="nameTextBox" destination="eZi-Ha-RpM" id="mpE-Vv-tDC"/>
+                        <outlet property="phoneTextField" destination="4mg-oZ-D26" id="zsl-ha-3y0"/>
+                        <outlet property="scrollViewRegister" destination="CjH-Lp-YrQ" id="syl-hI-xyH"/>
+                        <outlet property="webSiteTextBox" destination="iSR-OZ-ZHk" id="YKp-et-v6y"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mDD-eP-pSk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="YLc-Co-5Jx" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1061" y="-599"/>
+            <point key="canvasLocation" x="1060.8695652173915" y="-599.33035714285711"/>
         </scene>
     </scenes>
     <resources>

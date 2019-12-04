@@ -51,7 +51,6 @@ class ExploreViewController: UIViewController {
         setupTableView()
         setupSearchBar()
         setupJobsTableView()
-        //        loadData()
         
         let tipoLogin = UserDefaults.standard.string(forKey: "USER_KIND") ?? "0"
         switch tipoLogin {
@@ -64,7 +63,6 @@ class ExploreViewController: UIViewController {
         default:
             labelButtonLogin.text = "Cadastrar ou fazer login"
         }
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -154,11 +152,6 @@ class ExploreViewController: UIViewController {
         if segue.destination is CategoryOportunitiesViewController {
             let vc = segue.destination as? CategoryOportunitiesViewController
             vc?.titleHeader = selectedCause
-        }
-            
-        else if segue.destination is ProfileViewController {
-            let vc = segue.destination as? ProfileViewController
-            vc?.email = selectedOrganization
         }
             
         else if segue.destination is JobViewController {

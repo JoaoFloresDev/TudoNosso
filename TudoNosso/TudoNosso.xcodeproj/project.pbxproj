@@ -75,6 +75,8 @@
 		C46E728623745C1300D57BB9 /* CellCasesOrganizations.swift in Sources */ = {isa = PBXBuildFile; fileRef = C46E728423745C1300D57BB9 /* CellCasesOrganizations.swift */; };
 		C46E729E2379985B00D57BB9 /* CategoryOportunitiesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C46E729D2379985B00D57BB9 /* CategoryOportunitiesViewController.swift */; };
 		C46E72A3237AE4A400D57BB9 /* ViewUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = C46E72A2237AE4A400D57BB9 /* ViewUtilities.swift */; };
+		C491412823981C0700D7FEE7 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C491412723981C0700D7FEE7 /* EditProfileViewController.swift */; };
+		C491412A23982B5900D7FEE7 /* DataUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = C491412923982B5900D7FEE7 /* DataUser.swift */; };
 		D7210584238FEC550094EE0D /* Checkbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7210583238FEC550094EE0D /* Checkbox.swift */; };
 		D75A3F22238EAEE10075FD94 /* AddJob.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D75A3F21238EAEE10075FD94 /* AddJob.storyboard */; };
 		D75A3F27238EB3940075FD94 /* AddJobTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D75A3F26238EB3940075FD94 /* AddJobTableViewController.swift */; };
@@ -193,6 +195,8 @@
 		C46E728423745C1300D57BB9 /* CellCasesOrganizations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellCasesOrganizations.swift; sourceTree = "<group>"; };
 		C46E729D2379985B00D57BB9 /* CategoryOportunitiesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryOportunitiesViewController.swift; sourceTree = "<group>"; };
 		C46E72A2237AE4A400D57BB9 /* ViewUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewUtilities.swift; sourceTree = "<group>"; };
+		C491412723981C0700D7FEE7 /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
+		C491412923982B5900D7FEE7 /* DataUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataUser.swift; sourceTree = "<group>"; };
 		D7210583238FEC550094EE0D /* Checkbox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Checkbox.swift; sourceTree = "<group>"; };
 		D75A3F21238EAEE10075FD94 /* AddJob.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddJob.storyboard; sourceTree = "<group>"; };
 		D75A3F26238EB3940075FD94 /* AddJobTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddJobTableViewController.swift; sourceTree = "<group>"; };
@@ -361,6 +365,7 @@
 				567284DA23833DB800DF4EA5 /* VolunteerDM.swift */,
 				560C3066238868F9004BD536 /* ChannelDM.swift */,
 				5669CB53238B28700093B898 /* MessageDM.swift */,
+				C491412923982B5900D7FEE7 /* DataUser.swift */,
 			);
 			path = DataManipulation;
 			sourceTree = "<group>";
@@ -479,7 +484,7 @@
 				C46791F7238FF579004C108D /* userRegisterViewController.swift */,
 				C46791FF239034E5004C108D /* informationsRegisterViewController.swift */,
 				C467920323918828004C108D /* ConfirmRegisterViewController.swift */,
-				C4914124239807DC00D7FEE7 /* EdirProfile */,
+				C4914124239807DC00D7FEE7 /* EditProfile */,
 				C46791F6238FF4F1004C108D /* Register */,
 				C46E72952375C03000D57BB9 /* Login */,
 				C46E72942375C01400D57BB9 /* Explore list */,
@@ -534,11 +539,12 @@
 			path = Utilities;
 			sourceTree = "<group>";
 		};
-		C4914124239807DC00D7FEE7 /* EdirProfile */ = {
+		C4914124239807DC00D7FEE7 /* EditProfile */ = {
 			isa = PBXGroup;
 			children = (
+				C491412723981C0700D7FEE7 /* EditProfileViewController.swift */,
 			);
-			path = EdirProfile;
+			path = EditProfile;
 			sourceTree = "<group>";
 		};
 		D75A3F23238EAF230075FD94 /* Add Job */ = {
@@ -884,6 +890,8 @@
 				C46E728623745C1300D57BB9 /* CellCasesOrganizations.swift in Sources */,
 				C467920423918828004C108D /* ConfirmRegisterViewController.swift in Sources */,
 				C42267482371AFBE000A6DA3 /* (null) in Sources */,
+				C491412823981C0700D7FEE7 /* EditProfileViewController.swift in Sources */,
+				C491412A23982B5900D7FEE7 /* DataUser.swift in Sources */,
 				56247D37238C048A008245D0 /* ChannelInfoViewController.swift in Sources */,
 				C40A2E7C23704BA500DB87BB /* ViewController.swift in Sources */,
 				D776C4CE23743C7E002C3F3E /* CustomSegmentedControl.swift in Sources */,
