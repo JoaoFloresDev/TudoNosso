@@ -16,7 +16,7 @@ protocol CategoryCollectionViewDelegate: NSObjectProtocol {
 class CategoryCollectionView : UITableViewCell {
     
     @IBOutlet weak var collectionView: UICollectionView!
-    var categorysList = ["Cultura e Arte","Educação","Idosos","Crianças","Meio Ambiente","Proteção Animal","Saúde","Esportes","Refugiados","LGBTQ+","Combate à pobreza","Treinamento profissional"]
+    var categorysList = ["Combate à pobreza","Crianças","Cultura e Arte","Educação","Esportes","Idosos","LGBTQ+","Meio Ambiente","Proteção Animal","Refugiados","Saúde","Treinamento profissional"]
     
     let ongDM = OrganizationDM()
     var organizationsList : [Organization] = []
@@ -68,7 +68,7 @@ extension CategoryCollectionView : UICollectionViewDataSource, UICollectionViewD
         
         if(collectionView.tag == 0) {
             cell.titleLabel.text = categorysList[indexPath.row]
-            cell.imageView.image = UIImage(named: "ong-img_job")!
+            cell.imageView.image = UIImage(named: categorysList[indexPath.row]) ?? UIImage(named: "ong-img_job")!
         }
             
         else {
@@ -92,10 +92,8 @@ extension CategoryCollectionView : UICollectionViewDataSource, UICollectionViewD
                     }
                 }
             }
-            
             self.backgroundQueue.addOperation(imageDownloadOperation)
         }
-        
         return cell
     }
     
