@@ -18,7 +18,6 @@ class ConfirmRegisterViewController: UIViewController {
     }
     
     @IBAction func showExploreAction(_ sender: Any) {
-        
         LoginDM().signIn(email: email, pass: key) { (dictionary, error) in
             if let error = error {
                 print(error.localizedDescription)
@@ -31,7 +30,6 @@ class ConfirmRegisterViewController: UIViewController {
                     Local.userKind = LoginKinds.volunteer.rawValue
                 }
                 ViewUtilities.navigateToStoryBoard(storyboardName: "Main", storyboardID: "Tab", window: self.view.window)
-                
             }
         }
     }

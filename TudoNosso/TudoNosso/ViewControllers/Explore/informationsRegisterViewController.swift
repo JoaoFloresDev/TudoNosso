@@ -18,6 +18,7 @@ import FirebaseAuth
 
 class informationsRegisterViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate, UITextFieldDelegate {
     
+    //MARK: - OUTLETS
     @IBOutlet weak var titleView: UINavigationItem!
     @IBOutlet weak var scrollViewRegister: UIScrollView!
     @IBOutlet weak var constrainTextBox: UIView!
@@ -35,6 +36,7 @@ class informationsRegisterViewController: UIViewController, UINavigationControll
     @IBOutlet weak var confirmationKeyTextBox: UITextField!
     @IBOutlet weak var constrainViewKey: UIView!
     
+     //MARK: - ACTIONS
     @IBAction func registerAction(_ sender: Any) {
         if nameTextBox.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" {
             showAlert(msg: "Campo Nome precisa ser preenchido", field: nameTextBox)
@@ -44,52 +46,18 @@ class informationsRegisterViewController: UIViewController, UINavigationControll
             showAlert(msg: "Senhas incompativeis", field: keyTextBox)
         } else if (keyTextBox.text?.count ?? 0 < 6) {
             showAlert(msg: "Sua senha deve possuir 6 digitos ou mais", field: keyTextBox)
-        }
-        else {
-            let refreshAlert = UIAlertController(title: "Deseja finalizar cadastro?", message: "", preferredStyle: UIAlertController.Style.alert)
-            
-            refreshAlert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action: UIAlertAction!) in
-                self.signUp()
-            }))
-            
-            refreshAlert.addAction(UIAlertAction(title: "Cancelar", style: .cancel, handler: { (action: UIAlertAction!) in
-                print("Cancel cadastro")
-            }))
-            
-            present(refreshAlert, animated: true, completion: nil)
-        }
-    }
-    
-    func signUp() {
-        let loginDM = LoginDM()
-        
-        if(titleView.title == "Cadastro Organização") {
-            let organization = Organization(name: nameTextBox.text ?? "", address: CLLocationCoordinate2D(latitude: -10, longitude: 0), desc: descriptionTextBox.text, email: emailTextBox.text ?? "", phone: phoneTextField.text, site: siteTextBox.text ?? "", facebook: facebookTextBox.text, areas: nil, avatar: nil)
-            
-            loginDM.signUp(email: organization.email, pass: keyTextBox.text!, kind: .ONG, newUserData: organization.representation as NSDictionary) { (login, error) in
-                if error != nil {
-                    if (error?.localizedDescription ?? "" == "The email address is badly formatted.") {
-                        self.showAlert(msg: "E-mail invalido", field: self.nameTextBox)
-                    } else {
-                        self.showAlert(msg: "Erro: \(error?.localizedDescription ?? "Não identificado")", field: self.emailTextBox)
-                    }
-                } else {
-                    self.performSegue(withIdentifier: "showConfirmRegister", sender: nil)
-                }
-            }
         } else {
-            let volunteer = Volunteer(name: nameTextBox.text ?? "", email: emailTextBox.text ?? "", description: descriptionTextBox.text ?? "")
-            
-            loginDM.signUp(email: volunteer.email ?? "", pass: keyTextBox.text!, kind: .volunteer, newUserData: volunteer.representation as NSDictionary) { (login, error) in
-                if error != nil {
-                    if (error?.localizedDescription ?? "" == "The email address is badly formatted.") {
-                        self.showAlert(msg: "E-mail invalido", field: self.nameTextBox)
-                    } else {
-                        self.showAlert(msg: "Erro: \(error?.localizedDescription ?? "Não identificado")", field: self.emailTextBox)
-                    }
-                } else {
-                    self.performSegue(withIdentifier: "showConfirmRegister", sender: nil)
-                }
+                let refreshAlert = UIAlertController(title: "Deseja finalizar cadastro?", message: "", preferredStyle: UIAlertController.Style.alert)
+                
+                refreshAlert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action: UIAlertAction!) in
+                    self.signUp()
+                }))
+                
+                refreshAlert.addAction(UIAlertAction(title: "Cancelar", style: .cancel, handler: { (action: UIAlertAction!) in
+                    print("Cancel cadastro")
+                }))
+                
+                present(refreshAlert, animated: true, completion: nil)
             }
         }
     }
@@ -113,19 +81,51 @@ class informationsRegisterViewController: UIViewController, UINavigationControll
         KeyboardAvoiding.avoidingView = self.constrainTextBox
     }
     
+    func signUp() {
+        let loginDM = LoginDM()
+        
+        if(titleView.title == "Cadastro Organização") {
+            let organization = Organization(name: nameTextBox.text ?? "", address: CLLocationCoordinate2D(latitude: -10, longitude: 0), desc: descriptionTextBox.text, email: emailTextBox.text ?? "", phone: phoneTextField.text, site: siteTextBox.text ?? "", facebook: facebookTextBox.text, areas: nil, avatar: nil)
+            
+            loginDM.signUp(email: organization.email, pass: keyTextBox.text!, kind: .ONG, newUserData: organization.representation as NSDictionary) { (login, error) in
+                if error != nil {
+                    if (error?.localizedDescription ?? "" == "The email address is badly formatted.") {
+                        self.showAlert(msg: "E-mail invalido", field: self.nameTextBox)
+                    } else {
+                        self.showAlert(msg: "Erro: \(error?.localizedDescription ?? "Não identificado")", field: self.emailTextBox)
+                    }
+                } else {
+                    self.performSegue(withIdentifier: "showConfirmRegister", sender: nil)
+                }
+            }
+        } else {
+            let volunteer = Volunteer(name: nameTextBox.text ?? "", email: emailTextBox.text ?? "", description: descriptionTextBox.text ?? "")
+            
+            loginDM.signUp(email: volunteer.email , pass: keyTextBox.text!, kind: .volunteer, newUserData: volunteer.representation as NSDictionary) { (login, error) in
+                if error != nil {
+                    if (error?.localizedDescription ?? "" == "The email address is badly formatted.") {
+                        self.showAlert(msg: "E-mail invalido", field: self.nameTextBox)
+                    } else {
+                        self.showAlert(msg: "Erro: \(error?.localizedDescription ?? "Não identificado")", field: self.emailTextBox)
+                    }
+                } else {
+                    self.performSegue(withIdentifier: "showConfirmRegister", sender: nil)
+                }
+            }
+        }
+    }
+    
     func showAlert(msg: String, field:UITextField) {
         let alertController = UIAlertController(title: "Preenchimento incorreto", message: msg, preferredStyle: .alert)
         let okAction = UIAlertAction(title: "OK", style: .default) { (act) in
             field.becomeFirstResponder()
         }
-        
         alertController.addAction(okAction)
         present(alertController,animated: true)
     }
     
     //    keyboard functions
     @objc func dismissKeyboard() {
-        //Causes the view (or one of its embedded text fields) to resign the first responder status.
         view.endEditing(true)
     }
     
@@ -138,7 +138,6 @@ class informationsRegisterViewController: UIViewController, UINavigationControll
     }
     
     public func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        
         switch textField {
             
         case nameTextBox:
