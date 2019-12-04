@@ -91,9 +91,6 @@ class EditProfileViewController: UIViewController, UINavigationControllerDelegat
         descriptionTextBox.delegate = self
         faceBookTextBox.delegate = self
         webSiteTextBox.delegate = self
-        keyTextBox.delegate = self
-        confirmationKeyTextBox.delegate = self
-
         KeyboardAvoiding.avoidingView = self.constrainTextBox
     }
 
@@ -141,19 +138,12 @@ class EditProfileViewController: UIViewController, UINavigationControllerDelegat
         case faceBookTextBox:
             self.webSiteTextBox.becomeFirstResponder()
 
-        case webSiteTextBox:
-            self.keyTextBox.becomeFirstResponder()
-
-        case keyTextBox:
-            self.confirmationKeyTextBox.becomeFirstResponder()
-
         default:
             var contentInset:UIEdgeInsets = self.scrollViewRegister.contentInset
             contentInset.bottom = -5
             scrollViewRegister.contentInset = contentInset
             textField.resignFirstResponder()
         }
-
         return true
     }
 
@@ -166,7 +156,6 @@ class EditProfileViewController: UIViewController, UINavigationControllerDelegat
         if segue.destination is ConfirmRegisterViewController {
             let vc = segue.destination as? ConfirmRegisterViewController
             vc?.email = emailTextBox.text ?? ""
-            vc?.key = keyTextBox.text ?? ""
         }
     }
 }
