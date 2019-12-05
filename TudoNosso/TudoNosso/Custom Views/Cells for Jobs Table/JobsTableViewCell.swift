@@ -59,6 +59,12 @@ class JobsTableViewCell: UITableViewCell {
     var delegate: JobsTableViewCellDelegate?
     
     //MARK: - METHODS
+    override func prepareForReuse() {
+        self.finishView.isHidden = false
+        self.editView.isHidden = false
+        self.buttonsView.isHidden = true
+    }
+    
     func configure(job: Job){
         status = job.status
         
