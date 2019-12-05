@@ -39,16 +39,11 @@ class CategoryOportunitiesViewController : UIViewController {
     
     //MARK: - SETUP
     func setupSearchBar() {
-        jobsTableView.tableHeaderView = searchController.searchBar
-        searchController.dimsBackgroundDuringPresentation = false
-        searchController.searchResultsUpdater = self
-        searchController.obscuresBackgroundDuringPresentation = false
-        searchController.searchBar.placeholder = "Buscar"
-        searchController.searchBar.tintColor = UIColor.black
-        searchController.searchBar.barTintColor = UIColor.white
-        searchController.searchBar.backgroundColor = UIColor.white
-        searchController.searchBar.alpha = 1
         definesPresentationContext = true
+        
+        jobsTableView.tableHeaderView = searchController.searchBar
+        searchController = SetupsLayout().setupSearchBarLayout(searchController: searchController)
+        searchController.searchResultsUpdater = self
     }
     
     func setupJobsTableView() {
