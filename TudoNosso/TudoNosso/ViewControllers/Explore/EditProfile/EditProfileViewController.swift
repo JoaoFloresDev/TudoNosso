@@ -69,17 +69,20 @@ class EditProfileViewController: UIViewController, UINavigationControllerDelegat
     }
     
     func updateData() {
-        //        if(UserDefaults.standard.string(forKey: "USER_KIND") ?? "0" == "ong") {
-        //            let organizationDM = OrganizationDM()
-        //            let organization = Organization()
-        //
-        //            organizationDM.save(ong: organization)
-        //        } else {
-        //            let volunteerDM = VolunteerDM()
-        //            let volunteer = Volunteer()
-        //
-        //            volunteerDM.save(volunteer: volunteer)
-        //        }
+        if let userType = Local.userKind {
+            
+            if (userType == LoginKinds.ONG.rawValue) {
+                let organizationDM = OrganizationDM()
+                let organization = Organization(name: name, address: CLLocationCoordinate2D(latitude: -10, longitude: 0), desc: descriptionTextBox.text, email: email, phone: phoneTextField.text, site: webSiteTextBox.text, facebook: faceBookTextBox.text, areas:[], avatar: nil)
+                
+                organizationDM.save(ong: organization)
+            } else {
+                let volunteerDM = VolunteerDM()
+                let volunteer = Volunteer(name: nameTextBox.text ?? "", email:email, description: descriptionTextBox.text)
+                
+                volunteerDM.save(volunteer: volunteer)
+            }
+        }
     }
     
     //MARK: - ALERT
@@ -115,9 +118,6 @@ class EditProfileViewController: UIViewController, UINavigationControllerDelegat
             self.phoneTextField.becomeFirstResponder()
             
         case phoneTextField:
-            self.emailTextBox.becomeFirstResponder()
-            
-        case emailTextBox:
             self.descriptionTextBox.becomeFirstResponder()
             
         case descriptionTextBox:
@@ -162,6 +162,7 @@ class EditProfileViewController: UIViewController, UINavigationControllerDelegat
             
             refreshAlert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action: UIAlertAction!) in
                 print("atualizar dados")
+                self.updateData()
             }))
             
             refreshAlert.addAction(UIAlertAction(title: "Cancelar", style: .cancel, handler: { (action: UIAlertAction!) in

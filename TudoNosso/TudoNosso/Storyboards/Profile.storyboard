@@ -810,7 +810,7 @@
                                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="seuemail@email.com" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pF6-BW-p1b">
+                                                    <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="seuemail@email.com" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pF6-BW-p1b">
                                                         <rect key="frame" x="20" y="43.5" width="374" height="34"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="34" id="HN7-wq-dth"/>
@@ -877,6 +877,9 @@
                                                             <constraint firstAttribute="width" secondItem="8rq-w1-FFe" secondAttribute="height" multiplier="343:43" id="aZG-Pe-6Ta"/>
                                                         </constraints>
                                                         <state key="normal" title="Button" image="button confirm"/>
+                                                        <connections>
+                                                            <action selector="registerAction:" destination="dJV-NN-sXn" eventType="touchUpInside" id="kLQ-y3-Dr7"/>
+                                                        </connections>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Atualizar dados" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DKO-qk-kOt">
                                                         <rect key="frame" x="10" y="18" width="394" height="24"/>
