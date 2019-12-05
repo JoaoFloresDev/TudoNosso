@@ -58,16 +58,19 @@ class ExploreViewController: UIViewController {
         setupNavegationBar()
         //        loadData()
         
-        let tipoLogin = UserDefaults.standard.string(forKey: "USER_KIND") ?? "0"
-        switch tipoLogin {
-        case LoginKinds.ONG.rawValue:
-            labelButtonLogin.text = "Criar vaga"
-        case LoginKinds.volunteer.rawValue:
-            buttonLogin.alpha = 0
-            labelButtonLogin.alpha = 0
-            buttonAreaImage.alpha = 0
-        default:
+        if let kind = Local.userKind,
+            let tipoLogin = LoginKinds(rawValue: kind) {
+            switch tipoLogin {
+            case .ONG:
+                labelButtonLogin.text = "Criar vaga"
+            case .volunteer:
+                buttonLogin.alpha = 0
+                labelButtonLogin.alpha = 0
+                buttonAreaImage.alpha = 0
+            }
+        }else {
             labelButtonLogin.text = "Cadastrar ou fazer login"
+            
         }
         
     }
