@@ -283,16 +283,6 @@ extension ExploreViewController :UITableViewDelegate, UITableViewDataSource, UIS
     }
     
     //MARK: - ACTIONS
-    @IBAction func actionButtonLogin(_ sender: Any) {
-        if let kind = Local.userKind{
-            if(kind == LoginKinds.ONG.rawValue) {
-                //            showCriarVaga
-                //            self.performSegue(withIdentifier: "showProfile", sender: self)
-            }
-        } else {
-            self.performSegue(withIdentifier: "showLogin", sender: self)
-        }
-    }
 }
 
 extension ExploreViewController: CategoryCollectionViewDelegate {
