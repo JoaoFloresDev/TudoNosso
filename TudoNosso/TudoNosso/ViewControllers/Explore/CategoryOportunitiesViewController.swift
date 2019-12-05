@@ -68,14 +68,14 @@ class CategoryOportunitiesViewController : UIViewController {
     }
     
     func loadData() {
+//        var cat:[String] = []
+//        cat.append()
         let jobDM = JobDM()
-        
-        jobDM.find(inField: .categories, withValueEqual: jobsData.nameKeyBD(key: titleHeader), completion: {
-            (result, error) in
+        jobDM.find(inField: .categories, comparison: .arrayContains, withValue: jobsData.nameKeyBD(key: titleHeader)) { (result, error) in
             guard let result = result else { return }
             self.jobs = result
             self.jobsTableView.reloadData()
-        })
+        }
     }
     
     private func filterJobs(for searchText: String) {

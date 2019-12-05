@@ -13,7 +13,7 @@
             <objects>
                 <tableViewController id="01K-Gy-JYW" customClass="ChannelsTableViewController" customModule="TudoNosso" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="I80-9V-VwE">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <connections>
@@ -21,7 +21,7 @@
                             <outlet property="delegate" destination="01K-Gy-JYW" id="Ube-3v-0r9"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Chats" image="message" catalog="system" id="cQ7-aZ-MR1"/>
+                    <tabBarItem key="tabBarItem" title="Chats" image="message.fill" catalog="system" id="cQ7-aZ-MR1"/>
                     <navigationItem key="navigationItem" title="Chats" id="GVy-8T-oqF"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
@@ -36,12 +36,17 @@
         <scene sceneID="yEF-rQ-gAv">
             <objects>
                 <navigationController storyboardIdentifier="ChannelsSBID" automaticallyAdjustsScrollViewInsets="NO" id="IWV-gm-cyY" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Chats" image="message" catalog="system" id="XDh-Ar-g7H"/>
+                    <tabBarItem key="tabBarItem" title="Chats" image="message.fill" catalog="system" id="XDh-Ar-g7H"/>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="8KO-uJ-YD9">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="8KO-uJ-YD9">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.92549019607843142" green="0.396078431372549" blue="0.16862745098039217" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="textShadowColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -89,6 +94,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="message" catalog="system" width="64" height="56"/>
+        <image name="message.fill" catalog="system" width="64" height="56"/>
     </resources>
 </document>

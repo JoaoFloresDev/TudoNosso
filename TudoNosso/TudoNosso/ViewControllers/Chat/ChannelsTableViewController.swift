@@ -9,25 +9,23 @@
 import UIKit
 
 class ChannelsTableViewController: UITableViewController {
-    //MARK: variable's
+    //MARK: - Properties
     var channels: [Channel] = []{
         didSet{
             tableView.reloadData()
         }
     }
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
     //MARK: IBOutlet's
     @IBOutlet var channelsTableView: UITableView!
+    // MARK: - View Lifecycles
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-        
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
-        
         tableView.register(ChannelTableViewCell.nib, forCellReuseIdentifier: ChannelTableViewCell.reuseIdentifer)
         
+        setupNavegationBar()
         loadChannels()
     }
     override func viewWillAppear(_ animated: Bool) {
@@ -35,17 +33,7 @@ class ChannelsTableViewController: UITableViewController {
         loadChannels()
     }
     
-    func loadChannels(){
-        if Local.userKind != nil {
-            ChannelDM().listAll { (channels, err) in
-                guard let channels = channels else {return}
-                self.channels = channels
-            }
-        }
-    }
-    
-    // MARK: - Table view data source
-    
+    // MARK: - TableViewDataSource
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -53,7 +41,6 @@ class ChannelsTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return channels.count
     }
-    
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: ChannelTableViewCell.reuseIdentifer, for: indexPath) as? ChannelTableViewCell else {
@@ -63,7 +50,7 @@ class ChannelsTableViewController: UITableViewController {
         
         return cell
     }
-    
+    // MARK: - TableViewDelegate
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         openChannel(self.channels[indexPath.row])
     }
@@ -74,11 +61,10 @@ class ChannelsTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-//            tableView.deleteRows(at: [indexPath], with: .fade)
+            //            tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {
         }
     }
-    
     
     fileprivate func openChannel(_ channel: Channel) {
         let userID = Base64Converter.encodeStringAsBase64(Local.userMail!)
@@ -94,22 +80,19 @@ class ChannelsTableViewController: UITableViewController {
             }
         }
     }
-   
     
-    /*
-     // Override to support rearranging the table view.
-     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-     
-     }
-     */
-    
-    /*
-     // Override to support conditional rearranging of the table view.
-     override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-     // Return false if you do not want the item to be re-orderable.
-     return true
-     }
-     */
-    
-    
+    func loadChannels(){
+        if Local.userKind != nil {
+            ChannelDM().listAll { (channels, err) in
+                guard let channels = channels else {return}
+                self.channels = channels
+            }
+        }
+    }
+    func setupNavegationBar() {
+        navigationController?.navigationBar.barTintColor = UIColor(rgb: 0xFF5900, a: 1)
+        navigationController?.navigationBar.backgroundColor = UIColor(rgb: 0xFF5900, a: 1)
+        navigationController?.navigationBar.tintColor = UIColor(rgb: 0xFFFFFF, a: 1)
+        navigationController?.navigationBar.barStyle = .black
+    }
 }

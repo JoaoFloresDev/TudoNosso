@@ -32,6 +32,9 @@ class ExploreViewController: UIViewController {
         queue.maxConcurrentOperationCount = 3
         return queue
     }
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
     //MARK: IBAction
     @IBAction func actionButtonLogin(_ sender: Any) {
         if let kind = Local.userKind{
@@ -48,8 +51,11 @@ class ExploreViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTableView()
-        setupSearchBar()
+        if #available(iOS 13, *){
+            setupSearchBar()
+        }
         setupJobsTableView()
+        setupNavegationBar()
         //        loadData()
         
         let tipoLogin = UserDefaults.standard.string(forKey: "USER_KIND") ?? "0"
@@ -70,16 +76,18 @@ class ExploreViewController: UIViewController {
         super.viewWillAppear(animated)
         loadData()
         
+        
         // remove border from nav bar
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.layoutIfNeeded()
     }
-   
+    
     //MARK: setups
     func setupNavegationBar() {
         navigationController?.navigationBar.barTintColor = UIColor(rgb: 0xFF5900, a: 1)
         navigationController?.navigationBar.backgroundColor = UIColor(rgb: 0xFF5900, a: 1)
         navigationController?.navigationBar.tintColor = UIColor(rgb: 0xFFFFFF, a: 1)
+        navigationController?.navigationBar.barStyle = .black
     }
     
     func setupSearchBar() {

@@ -71,10 +71,17 @@ final class ChatViewController: MessagesViewController {
         
         if #available(iOS 11.0, *) {
             navigationItem.largeTitleDisplayMode = .never
+            
+        }
+        if #available(iOS 13.0, *) {
+            messageInputBar.sendButton.setImage(UIImage(systemName: "paperplane.fill")?.resizeImage(targetSize: CGSize(width: 30, height: 30)), for: .normal)
+            messageInputBar.sendButton.tintColor = .black
+            messageInputBar.sendButton.setTitle("", for: .normal)
+        }else {
+            messageInputBar.sendButton.setTitle("Enviar", for: .normal)
         }
         
         maintainPositionOnKeyboardFrameChanged = true
-        messageInputBar.sendButton.setTitle("Enviar", for: .normal)
         messageInputBar.inputTextView.tintColor = .black
         messageInputBar.sendButton.setTitleColor(.black, for: .normal)
         
@@ -208,6 +215,11 @@ extension ChatViewController: MessagesLayoutDelegate {
         avatarView.set(avatar: Avatar(image: nil, initials: message.sender.initials))
         avatarView.isHidden = isNextMessageSameSender(at: indexPath)
         avatarView.layer.borderWidth = 2
+        if isFromCurrentSender(message: message){
+            avatarView.layer.borderColor = UIColor.primary.cgColor
+        }
+        
+        
     }
     
 }
@@ -279,6 +291,7 @@ extension ChatViewController: InputBarAccessoryViewDelegate {
         }
     }
 }
+
 
 
 

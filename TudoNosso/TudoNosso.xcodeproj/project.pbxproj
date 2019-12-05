@@ -29,6 +29,7 @@
 		56247D42238C1C48008245D0 /* ChannelMemberTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56247D40238C1C48008245D0 /* ChannelMemberTableViewCell.xib */; };
 		5633E5B8237D851300E46EE3 /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5633E5B7237D851300E46EE3 /* Login.swift */; };
 		5633E5BA237D8D6800E46EE3 /* LoginDM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5633E5B9237D8D6800E46EE3 /* LoginDM.swift */; };
+		564C81C52396FD4E00AB33AE /* UIImage+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564C81C42396FD4E00AB33AE /* UIImage+extensions.swift */; };
 		5669CB54238B28700093B898 /* MessageDM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5669CB53238B28700093B898 /* MessageDM.swift */; };
 		567284D523831C4500DF4EA5 /* GenericsDM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567284D423831C4500DF4EA5 /* GenericsDM.swift */; };
 		567284D7238330E000DF4EA5 /* DictionaryInterpreter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567284D6238330E000DF4EA5 /* DictionaryInterpreter.swift */; };
@@ -141,6 +142,7 @@
 		56247D40238C1C48008245D0 /* ChannelMemberTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChannelMemberTableViewCell.xib; sourceTree = "<group>"; };
 		5633E5B7237D851300E46EE3 /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
 		5633E5B9237D8D6800E46EE3 /* LoginDM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginDM.swift; sourceTree = "<group>"; };
+		564C81C42396FD4E00AB33AE /* UIImage+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+extensions.swift"; sourceTree = "<group>"; };
 		5669CB53238B28700093B898 /* MessageDM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageDM.swift; sourceTree = "<group>"; };
 		567284D423831C4500DF4EA5 /* GenericsDM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericsDM.swift; sourceTree = "<group>"; };
 		567284D6238330E000DF4EA5 /* DictionaryInterpreter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DictionaryInterpreter.swift; sourceTree = "<group>"; };
@@ -399,18 +401,18 @@
 		C40A2E7623704BA500DB87BB /* TudoNosso */ = {
 			isa = PBXGroup;
 			children = (
-				56FC6DC5238EC28D00BD75BE /* pt-BR.lproj */,
-				C46E72A1237AE48B00D57BB9 /* Utilities */,
 				D776C4CF23743E62002C3F3E /* Custom Views */,
-				1663B33523730D24005E3363 /* Fonts */,
 				D765D31E2373015500F596CD /* Extensions */,
+				1663B33523730D24005E3363 /* Fonts */,
 				567380F32373016F00F1B6C5 /* Models */,
-				C422672E237055BD000A6DA3 /* ViewControllers */,
+				56FC6DC5238EC28D00BD75BE /* pt-BR.lproj */,
 				C422672D237055A1000A6DA3 /* Storyboards */,
+				C46E72A1237AE48B00D57BB9 /* Utilities */,
+				C422672E237055BD000A6DA3 /* ViewControllers */,
 				C40A2E7723704BA500DB87BB /* AppDelegate.swift */,
 				C40A2E8323704BA700DB87BB /* Assets.xcassets */,
-				C40A2E8823704BA700DB87BB /* Info.plist */,
 				567D0C4E2370530A00420704 /* GoogleService-Info.plist */,
+				C40A2E8823704BA700DB87BB /* Info.plist */,
 				C40A2E8023704BA500DB87BB /* TudoNosso.xcdatamodeld */,
 			);
 			path = TudoNosso;
@@ -550,6 +552,7 @@
 				D765D323237303CF00F596CD /* UIView+Extensions.swift */,
 				560C30702388753A004BD536 /* UIScrollView+extensions.swift */,
 				5601523C2388A4D100D9D8E8 /* SenderType+extensions.swift */,
+				564C81C42396FD4E00AB33AE /* UIImage+extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -907,6 +910,7 @@
 				C42267462371AF28000A6DA3 /* (null) in Sources */,
 				C42267422371AE1B000A6DA3 /* (null) in Sources */,
 				5673812C2374A95900F1B6C5 /* JobDM.swift in Sources */,
+				564C81C52396FD4E00AB33AE /* UIImage+extensions.swift in Sources */,
 				C4226736237057B1000A6DA3 /* ProfileViewController.swift in Sources */,
 				D765D3262373041B00F596CD /* RoundedViews.swift in Sources */,
 				5633E5BA237D8D6800E46EE3 /* LoginDM.swift in Sources */,
@@ -1105,7 +1109,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = NZC6LC8NWM;
+				DEVELOPMENT_TEAM = GJUSD98938;
 				INFOPLIST_FILE = TudoNosso/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1125,7 +1129,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = NZC6LC8NWM;
+				DEVELOPMENT_TEAM = GJUSD98938;
 				INFOPLIST_FILE = TudoNosso/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (

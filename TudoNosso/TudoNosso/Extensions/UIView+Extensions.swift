@@ -29,4 +29,6 @@ import UIKit
          layer.shouldRasterize = true
          layer.rasterizationScale = true ? UIScreen.main.scale : 1
      }
+    
+    
  }
