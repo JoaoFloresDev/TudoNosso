@@ -88,7 +88,6 @@ class VolunteerDM: GenericsDM {
             db.collection(TABLENAME).whereField(field.rawValue, in: array ).getDocuments { (snapshot, error) in
                 self.handleDocuments(snapshot, error, completion: completion)
             }
-            
         }
     }
 }

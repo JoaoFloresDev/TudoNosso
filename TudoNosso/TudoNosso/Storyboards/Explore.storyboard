@@ -108,11 +108,14 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eQ5-JP-M2C">
-                                <rect key="frame" x="259" y="510" width="145" height="20"/>
+                                <rect key="frame" x="250" y="510" width="154" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="hSF-fl-0t9"/>
                                 </constraints>
-                                <state key="normal" title="Esqueci minha senha"/>
+                                <state key="normal" title="Explorar sem cadastro"/>
+                                <connections>
+                                    <action selector="returnExplore:" destination="LlD-Ol-P6E" eventType="touchUpInside" id="i7C-Kp-fnV"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PW4-20-CTJ">
                                 <rect key="frame" x="147.5" y="655" width="119" height="20"/>
@@ -189,7 +192,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VZ1-Cl-tp5" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3203" y="-458"/>
+            <point key="canvasLocation" x="3202.898550724638" y="-458.03571428571428"/>
         </scene>
         <!--Tipo de conta-->
         <scene sceneID="J8a-7T-lGj">
@@ -312,7 +315,7 @@
         <!--Cadastro Organização-->
         <scene sceneID="o60-4x-fb4">
             <objects>
-                <viewController id="EvJ-Zh-U4b" customClass="informationsRegisterViewController" customModule="TudoNosso" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DataOrganization" id="EvJ-Zh-U4b" customClass="informationsRegisterViewController" customModule="TudoNosso" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ZXW-P1-5SE">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="912"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1076,7 +1079,7 @@
         <!--Cadastro Voluntário-->
         <scene sceneID="WKx-OZ-PJP">
             <objects>
-                <viewController id="ypJ-EX-X5j" customClass="informationsRegisterViewController" customModule="TudoNosso" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DataVoluntary" id="ypJ-EX-X5j" customClass="informationsRegisterViewController" customModule="TudoNosso" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="aIB-B0-RFh">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="912"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1406,6 +1409,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="hNG-PQ-MgU"/>
-        <segue reference="7dw-te-yJj"/>
+        <segue reference="Qh5-JU-jD9"/>
     </inferredMetricsTieBreakers>
 </document>

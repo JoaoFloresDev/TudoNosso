@@ -28,6 +28,7 @@ class ProfileViewController: UIViewController {
     private let jobsSegueID = "toJobsTable"
     private let profileSegueID = "toProfileTable"
     private let addJobSegueID = "toAddJob"
+    private let EditProfileSegueID = "toEditProfile"
     
     var email: String?
     
@@ -213,8 +214,6 @@ class ProfileViewController: UIViewController {
                             self.profileNameLabel.text = volunteer.name
                         }
                     }
-                    
-                    //TODO
                 }
             }
         }
@@ -240,6 +239,18 @@ class ProfileViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.destination is EditProfileViewController {
+            let vc = segue.destination as? EditProfileViewController
+            
+            vc?.name = profileData?.name ?? ""
+            vc?.phone = profileData?.phone ?? ""
+            vc?.email = profileData?.email ?? ""
+            vc?.descriptionText = profileData?.description ?? ""
+            vc?.facebook = profileData?.facebook ?? ""
+            vc?.webSite = profileData?.site ?? ""
+        }
+        
         switch segue.identifier {
         case profileSegueID:
             if let nextVC = segue.destination as? ProfileTableViewController {
@@ -280,6 +291,11 @@ class ProfileViewController: UIViewController {
     
     @IBAction func editProfilePressed(_ sender: Any) {
         print("edit profile pressed")
+        if(UserDefaults.standard.string(forKey: "USER_KIND") ?? "0" == "ong") {
+            self.performSegue(withIdentifier: self.EditProfileSegueID, sender: self)
+        } else {
+            self.performSegue(withIdentifier: self.EditProfileSegueID, sender: self)
+        }
     }
     
     @IBAction func logoutPressed(_ sender: Any) {
