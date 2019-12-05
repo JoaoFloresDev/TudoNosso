@@ -11,12 +11,14 @@ import CoreLocation
 import SDWebImage
 
 class ExploreViewController: UIViewController {
-    //MARK: IBOutlet
+    
+    //MARK: OUTLETS
     @IBOutlet weak var jobsTableView: UITableView!
     @IBOutlet weak var buttonLogin: UIButton!
     @IBOutlet weak var labelButtonLogin: UILabel!
     @IBOutlet weak var buttonAreaImage: UIImageView!
-    //MARK: variable
+    
+    //MARK: - PROPERTIES
     var selectedCause: String = ""
     var selectedOrganization: String = ""
     var selectedJob: Int = 0
@@ -47,7 +49,7 @@ class ExploreViewController: UIViewController {
         }
     }
     
-    //MARK: lifecycles
+    //MARK: - LIFECYCLE
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTableView()
@@ -72,7 +74,6 @@ class ExploreViewController: UIViewController {
             labelButtonLogin.text = "Cadastrar ou fazer login"
             
         }
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -133,7 +134,7 @@ class ExploreViewController: UIViewController {
         jobsTableView.dataSource = self
     }
     
-    //MARK: filters
+    //MARK: - FILTER
     private func filterJobs(for searchText: String) {
         filteredOngoingJobs = jobs.filter { player in
             return player.title.lowercased().contains(searchText.lowercased())
@@ -148,7 +149,7 @@ class ExploreViewController: UIViewController {
         jobsTableView.reloadData()
     }
     
-    //MARK: loaders
+    //MARK: LOADER
     func loadData() {
         let jobDM = JobDM()
         jobDM.find(inField: .status, withValueEqual: true, completion: { (result, error) in
@@ -159,29 +160,25 @@ class ExploreViewController: UIViewController {
         
     }
     
-    //MARK: Segue
+    //MARK: - SEGUES
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.destination is CategoryOportunitiesViewController {
             let vc = segue.destination as? CategoryOportunitiesViewController
             vc?.titleHeader = selectedCause
-        }
-            
-        else if segue.destination is ProfileViewController {
-            let vc = segue.destination as? ProfileViewController
-            vc?.email = selectedOrganization
-        }
-            
-        else if segue.destination is JobViewController {
+        } else if segue.destination is JobViewController {
             if let vc = segue.destination as? JobViewController,
                 let selectedJob = sender as? Job {
                 vc.job = selectedJob
+            }
+        } else if segue.destination is ProfileViewController {
+            if let vc = segue.destination as? ProfileViewController{
+                vc.email = selectedOrganization
             }
         }
     }
 }
 
 extension ExploreViewController :UITableViewDelegate, UITableViewDataSource, UISearchResultsUpdating {
-    
     func updateSearchResults(for searchController: UISearchController) {
         filterJobs(for: searchController.searchBar.text ?? "")
         filterOrganizations(for: searchController.searchBar.text ?? "")
@@ -284,6 +281,18 @@ extension ExploreViewController :UITableViewDelegate, UITableViewDataSource, UIS
             return UITableViewCell()
         }
     }
+    
+    //MARK: - ACTIONS
+    @IBAction func actionButtonLogin(_ sender: Any) {
+        if let kind = Local.userKind{
+            if(kind == LoginKinds.ONG.rawValue) {
+                //            showCriarVaga
+                //            self.performSegue(withIdentifier: "showProfile", sender: self)
+            }
+        } else {
+            self.performSegue(withIdentifier: "showLogin", sender: self)
+        }
+    }
 }
 
 extension ExploreViewController: CategoryCollectionViewDelegate {
@@ -295,9 +304,7 @@ extension ExploreViewController: CategoryCollectionViewDelegate {
             }
             
             self.performSegue(withIdentifier: "showCauses", sender: self)
-        }
-            
-        else {
+        } else {
             if let title = OrganizationEmail {
                 self.selectedOrganization = title
             }

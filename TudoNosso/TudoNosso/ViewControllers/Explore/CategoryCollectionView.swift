@@ -15,18 +15,20 @@ protocol CategoryCollectionViewDelegate: NSObjectProtocol {
 
 class CategoryCollectionView : UITableViewCell {
     
+    //MARK: - OUTLETS
     @IBOutlet weak var collectionView: UICollectionView!
-    var categorysList = ["Combate à pobreza","Crianças","Cultura e Arte","Educação","Esportes","Idosos","LGBTQ+","Meio Ambiente","Proteção Animal","Refugiados","Saúde","Treinamento profissional"]
     
+    //MARK: - PROPERTIES
+    var categorysList = ["Combate à pobreza","Crianças","Cultura e Arte","Educação","Esportes","Idosos","LGBTQ+","Meio Ambiente","Proteção Animal","Refugiados","Saúde","Treinamento profissional"]
     let ongDM = OrganizationDM()
     var organizationsList : [Organization] = []
-    
     var ongs : [Organization] = [] {
         didSet {
             self.sortOrganizations()
         }
     }
     
+    //MARK: - METHODS
     func sortOrganizations(){
         organizationsList = ongs
     }
@@ -40,6 +42,7 @@ class CategoryCollectionView : UITableViewCell {
     }
 }
 
+//MARK: - EXTENSION
 extension CategoryCollectionView : UICollectionViewDataSource, UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -69,9 +72,7 @@ extension CategoryCollectionView : UICollectionViewDataSource, UICollectionViewD
         if(collectionView.tag == 0) {
             cell.titleLabel.text = categorysList[indexPath.row]
             cell.imageView.image = UIImage(named: categorysList[indexPath.row]) ?? UIImage(named: "ong-img_job")!
-        }
-            
-        else {
+        } else {
             cell.titleLabel.text = organizationsList[indexPath.row].name
             cell.email = organizationsList[indexPath.row].email
             
