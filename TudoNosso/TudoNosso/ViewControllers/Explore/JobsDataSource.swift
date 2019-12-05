@@ -11,8 +11,7 @@ import UIKit
 
 class JobsDataSource {
     
-    var description: String = ""
-    
+    //MARK: - PROPERTIES
     var categorysList =
         ["Cultura e Arte" : CategoryEnum.cultureAndArt.rawValue,
          "Educação" : CategoryEnum.education.rawValue,
@@ -34,6 +33,7 @@ class JobsDataSource {
         }
     }
     
+    //MARK: - METHODS
     func sortJobs(){
         for job in jobs {
             if job.status {

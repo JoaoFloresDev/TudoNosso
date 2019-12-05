@@ -36,12 +36,20 @@ class informationsRegisterViewController: UIViewController, UINavigationControll
     @IBOutlet weak var confirmationKeyTextBox: UITextField!
     @IBOutlet weak var constrainViewKey: UIView!
     
+    //MARK: - LIFECYCLE
     override func viewDidLoad() {
         super.viewDidLoad()
         
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
         view.addGestureRecognizer(tap)
         
+    delegateDefine()
+        
+        KeyboardAvoiding.avoidingView = self.constrainTextBox
+    }
+    
+    //MARK: - METHODS
+    fileprivate func delegateDefine() {
         nameTextBox.delegate = self
         endressTextBox.delegate = self
         phoneTextField.delegate = self
@@ -51,8 +59,6 @@ class informationsRegisterViewController: UIViewController, UINavigationControll
         facebookTextBox.delegate = self
         keyTextBox.delegate = self
         confirmationKeyTextBox.delegate = self
-        
-        KeyboardAvoiding.avoidingView = self.constrainTextBox
     }
     
     func signUp() {
@@ -98,7 +104,7 @@ class informationsRegisterViewController: UIViewController, UINavigationControll
         present(alertController,animated: true)
     }
     
-    //    keyboard functions
+//MARK: - KEYBOARD
     @objc func dismissKeyboard() {
         view.endEditing(true)
     }
@@ -153,7 +159,7 @@ class informationsRegisterViewController: UIViewController, UINavigationControll
         super.didReceiveMemoryWarning()
     }
     
-    //    Pass information next view
+//MARK: - SEGUES
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.destination is ConfirmRegisterViewController {
             let vc = segue.destination as? ConfirmRegisterViewController
@@ -174,16 +180,16 @@ class informationsRegisterViewController: UIViewController, UINavigationControll
             showAlert(msg: "Sua senha deve possuir 6 digitos ou mais", field: keyTextBox)
         } else {
             let refreshAlert = UIAlertController(title: "Deseja finalizar cadastro?", message: "", preferredStyle: UIAlertController.Style.alert)
-                
-                refreshAlert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action: UIAlertAction!) in
-                    self.signUp()
-                }))
-                
-                refreshAlert.addAction(UIAlertAction(title: "Cancelar", style: .cancel, handler: { (action: UIAlertAction!) in
-                    print("Cancel cadastro")
-                }))
-                
-                present(refreshAlert, animated: true, completion: nil)
+            
+            refreshAlert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action: UIAlertAction!) in
+                self.signUp()
+            }))
+            
+            refreshAlert.addAction(UIAlertAction(title: "Cancelar", style: .cancel, handler: { (action: UIAlertAction!) in
+                print("Cancel cadastro")
+            }))
+            
+            present(refreshAlert, animated: true, completion: nil)
         }
     }
 }

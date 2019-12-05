@@ -10,9 +10,11 @@ import UIKit
 
 class CategoryOportunitiesViewController : UIViewController {
     
+    //MARK: - OUTLETS
     @IBOutlet weak var jobsTableView: UITableView!
     @IBOutlet weak var headerItem: UINavigationItem!
     
+    //MARK: - PROPERTIES
     var filteredOngoingJobs : [Job] = []
     var searchController = UISearchController(searchResultsController: nil)
     var titleHeader: String = ""
@@ -24,6 +26,7 @@ class CategoryOportunitiesViewController : UIViewController {
         }
     }
     
+    //MARK: - LIFECYCLE
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTableView()
@@ -34,6 +37,7 @@ class CategoryOportunitiesViewController : UIViewController {
         headerItem.title = titleHeader
     }
     
+    //MARK: - SETUP
     func setupSearchBar() {
         jobsTableView.tableHeaderView = searchController.searchBar
         searchController.dimsBackgroundDuringPresentation = false
@@ -44,7 +48,6 @@ class CategoryOportunitiesViewController : UIViewController {
         searchController.searchBar.barTintColor = UIColor.white
         searchController.searchBar.backgroundColor = UIColor.white
         searchController.searchBar.alpha = 1
-        
         definesPresentationContext = true
     }
     
@@ -65,6 +68,7 @@ class CategoryOportunitiesViewController : UIViewController {
         jobsTableView.dataSource = self
     }
     
+//MARK: LOADER
     func loadData() {
         let jobDM = JobDM()
         
@@ -76,6 +80,7 @@ class CategoryOportunitiesViewController : UIViewController {
         })
     }
     
+    //MARK: - FILTER
     private func filterJobs(for searchText: String) {
         filteredOngoingJobs = ongoingJobs.filter { player in
             return player.title.lowercased().contains(searchText.lowercased())
@@ -91,6 +96,7 @@ class CategoryOportunitiesViewController : UIViewController {
         }
     }
     
+    //MARK: - SEGUES
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if segue.destination is JobViewController {
@@ -102,6 +108,7 @@ class CategoryOportunitiesViewController : UIViewController {
     }
 }
 
+//MARK: - EXTENSION
 extension CategoryOportunitiesViewController : UITableViewDelegate { }
 
 extension CategoryOportunitiesViewController : UITableViewDataSource, UISearchResultsUpdating {
@@ -113,9 +120,7 @@ extension CategoryOportunitiesViewController : UITableViewDataSource, UISearchRe
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if searchController.isActive && searchController.searchBar.text != "" {
             return filteredOngoingJobs.count
-        }
-            
-        else {
+        } else {
             return ongoingJobs.count
         }
     }

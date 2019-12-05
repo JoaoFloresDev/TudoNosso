@@ -22,16 +22,14 @@ class userRegisterViewController: UIViewController {
         setupViewDesign(view: viewOng)
     }
     
-    //MARK: - METHODS
+    //MARK: - SETUP
     func setupViewDesign(view: UIView) {
         view.layer.borderWidth = 1.0
         view.layer.masksToBounds = false
         view.layer.borderColor = UIColor.white.cgColor
-        
         view.layer.borderWidth = 1.0
         view.layer.masksToBounds = false
         view.layer.borderColor = UIColor.white.cgColor
-        
         view.layer.cornerRadius = viewVoluntary.frame.size.height/8
         view.clipsToBounds = true
     }

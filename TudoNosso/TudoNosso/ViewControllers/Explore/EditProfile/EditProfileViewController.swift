@@ -35,21 +35,20 @@ class EditProfileViewController: UIViewController, UINavigationControllerDelegat
     var facebook = ""
     var webSite = ""
     
-        //MARK: - LIFECYCLE
+    //MARK: - LIFECYCLE
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        nameTextBox.text = name
-        endressTextBox.text = endress
-        phoneTextField.text = phone
-        emailTextBox.text = email
-        descriptionTextBox.text = descriptionText
-        faceBookTextBox.text = facebook
-        webSiteTextBox.text = webSite
+        loadDataText()
         
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
         view.addGestureRecognizer(tap)
-
+        
+        delegateDefine()
+        KeyboardAvoiding.avoidingView = self.constrainTextBox
+    }
+    
+    //MARK: - METHODS
+    fileprivate func delegateDefine() {
         nameTextBox.delegate = self
         endressTextBox.delegate = self
         phoneTextField.delegate = self
@@ -57,24 +56,33 @@ class EditProfileViewController: UIViewController, UINavigationControllerDelegat
         descriptionTextBox.delegate = self
         faceBookTextBox.delegate = self
         webSiteTextBox.delegate = self
-        KeyboardAvoiding.avoidingView = self.constrainTextBox
     }
-
-    //MARK: - METHODS
-        func updateData() {
-    //        if(UserDefaults.standard.string(forKey: "USER_KIND") ?? "0" == "ong") {
-    //            let organizationDM = OrganizationDM()
-    //            let organization = Organization()
-    //
-    //            organizationDM.save(ong: organization)
-    //        } else {
-    //            let volunteerDM = VolunteerDM()
-    //            let volunteer = Volunteer()
-    //
-    //            volunteerDM.save(volunteer: volunteer)
-    //        }
-        }
     
+    fileprivate func loadDataText() {
+        nameTextBox.text = name
+        endressTextBox.text = endress
+        phoneTextField.text = phone
+        emailTextBox.text = email
+        descriptionTextBox.text = descriptionText
+        faceBookTextBox.text = facebook
+        webSiteTextBox.text = webSite
+    }
+    
+    func updateData() {
+        //        if(UserDefaults.standard.string(forKey: "USER_KIND") ?? "0" == "ong") {
+        //            let organizationDM = OrganizationDM()
+        //            let organization = Organization()
+        //
+        //            organizationDM.save(ong: organization)
+        //        } else {
+        //            let volunteerDM = VolunteerDM()
+        //            let volunteer = Volunteer()
+        //
+        //            volunteerDM.save(volunteer: volunteer)
+        //        }
+    }
+    
+    //MARK: - ALERT
     func showAlert(msg: String, field:UITextField) {
         let alertController = UIAlertController(title: "Preenchimento incorreto", message: msg, preferredStyle: .alert)
         let okAction = UIAlertAction(title: "OK", style: .default) { (act) in
@@ -83,41 +91,41 @@ class EditProfileViewController: UIViewController, UINavigationControllerDelegat
         alertController.addAction(okAction)
         present(alertController,animated: true)
     }
-
+    
     //MARK: - KEYBOARD
     @objc func dismissKeyboard() {
         view.endEditing(true)
     }
-
+    
     public func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
         var contentInset:UIEdgeInsets = self.scrollViewRegister.contentInset
         contentInset.bottom = 600
         scrollViewRegister.contentInset = contentInset
-
+        
         return true
     }
-
+    
     public func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         switch textField {
-
+            
         case nameTextBox:
             self.endressTextBox.becomeFirstResponder()
-
+            
         case endressTextBox:
             self.phoneTextField.becomeFirstResponder()
-
+            
         case phoneTextField:
             self.emailTextBox.becomeFirstResponder()
-
+            
         case emailTextBox:
             self.descriptionTextBox.becomeFirstResponder()
-
+            
         case descriptionTextBox:
             self.faceBookTextBox.becomeFirstResponder()
-
+            
         case faceBookTextBox:
             self.webSiteTextBox.becomeFirstResponder()
-
+            
         default:
             var contentInset:UIEdgeInsets = self.scrollViewRegister.contentInset
             contentInset.bottom = -5
@@ -126,11 +134,11 @@ class EditProfileViewController: UIViewController, UINavigationControllerDelegat
         }
         return true
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-
+    
     //MARK: - SEGUES
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.destination is ConfirmRegisterViewController {
@@ -138,7 +146,7 @@ class EditProfileViewController: UIViewController, UINavigationControllerDelegat
             vc?.email = emailTextBox.text ?? ""
         }
     }
-
+    
     //MARK: - ACTIONS
     @IBAction func closeEdition(_ sender: Any) {
         self.dismiss(animated: true)
@@ -150,17 +158,17 @@ class EditProfileViewController: UIViewController, UINavigationControllerDelegat
         } else if (endressTextBox.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "") {
             showAlert(msg: "Campo Endereço precisa ser preenchido", field: endressTextBox)
         } else {
-                let refreshAlert = UIAlertController(title: "Deseja finalizar cadastro?", message: "", preferredStyle: UIAlertController.Style.alert)
-                
-                refreshAlert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action: UIAlertAction!) in
-                    print("atualizar dados")
-                }))
-                
-                refreshAlert.addAction(UIAlertAction(title: "Cancelar", style: .cancel, handler: { (action: UIAlertAction!) in
-                    print("Cancel cadastro")
-                }))
-                
-                present(refreshAlert, animated: true, completion: nil)
+            let refreshAlert = UIAlertController(title: "Deseja finalizar cadastro?", message: "", preferredStyle: UIAlertController.Style.alert)
+            
+            refreshAlert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action: UIAlertAction!) in
+                print("atualizar dados")
+            }))
+            
+            refreshAlert.addAction(UIAlertAction(title: "Cancelar", style: .cancel, handler: { (action: UIAlertAction!) in
+                print("Cancel cadastro")
+            }))
+            
+            present(refreshAlert, animated: true, completion: nil)
         }
     }
 }
