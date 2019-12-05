@@ -23,7 +23,7 @@ class JobViewController: UIViewController {
     @IBOutlet weak var jobLocalizationLabel: UILabel!
     @IBOutlet weak var jobOrganizationImage: UIImageView!
     
-    @IBAction func applyForButtonPressed(_ sender: Any) {
+    fileprivate func applyFor() {
         let userID = Base64Converter.encodeStringAsBase64(Local.userMail!)
         let userKind = LoginKinds(rawValue: Local.userKind!)!
         
@@ -31,7 +31,7 @@ class JobViewController: UIViewController {
         
         ChannelDM().find(ById: self.job!.channelID) { (channel, err) in
             guard var channel = channel
-            else{return}
+                else{return}
             let isAlreadyChatMember = channel.between.contains(userID)
             
             if isAlreadyChatMember{
@@ -57,6 +57,24 @@ class JobViewController: UIViewController {
             }
         }
     }
+    
+    @IBAction func applyForButtonPressed(_ sender: Any) {
+        guard let kind = Local.userKind,
+            let _ = LoginKinds(rawValue: kind) else {
+                let controller = UIAlertController(title: "Cadastre-se ou faça o login", message: "Para usufruir de todas as funcionalidades do app, é necessário ter uma conta.", preferredStyle: .alert)
+                
+                controller.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (act) in
+                    ViewUtilities.navigateToStoryBoard(storyboardName: "Explore", storyboardID: "LoginSBID", window: self.view.window)
+                }))
+                controller.addAction(UIAlertAction(title: "Cancelar", style: .cancel, handler: nil))
+                present(controller, animated: true)
+                return
+        }
+        
+        applyFor()
+    }
+    
+    
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)

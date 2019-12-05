@@ -34,24 +34,45 @@ class ExploreViewController: UIViewController {
         queue.maxConcurrentOperationCount = 3
         return queue
     }
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+    //MARK: IBAction
+    @IBAction func actionButtonLogin(_ sender: Any) {
+        if let kind = Local.userKind{
+            if(kind == LoginKinds.ONG.rawValue) {
+                //            showCriarVaga
+                //            self.performSegue(withIdentifier: "showProfile", sender: self)
+            }
+        }else{
+            self.performSegue(withIdentifier: "showLogin", sender: self)
+        }
+    }
     
     //MARK: - LIFECYCLE
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTableView()
-        setupSearchBar()
+        if #available(iOS 13, *){
+            setupSearchBar()
+        }
         setupJobsTableView()
+        setupNavegationBar()
+        //        loadData()
         
-        let tipoLogin = UserDefaults.standard.string(forKey: "USER_KIND") ?? "0"
-        switch tipoLogin {
-        case LoginKinds.ONG.rawValue:
-            labelButtonLogin.text = "Criar vaga"
-        case LoginKinds.volunteer.rawValue:
-            buttonLogin.alpha = 0
-            labelButtonLogin.alpha = 0
-            buttonAreaImage.alpha = 0
-        default:
+        if let kind = Local.userKind,
+            let tipoLogin = LoginKinds(rawValue: kind) {
+            switch tipoLogin {
+            case .ONG:
+                labelButtonLogin.text = "Criar vaga"
+            case .volunteer:
+                buttonLogin.alpha = 0
+                labelButtonLogin.alpha = 0
+                buttonAreaImage.alpha = 0
+            }
+        }else {
             labelButtonLogin.text = "Cadastrar ou fazer login"
+            
         }
     }
     
@@ -59,16 +80,18 @@ class ExploreViewController: UIViewController {
         super.viewWillAppear(animated)
         loadData()
         
+        
         // remove border from nav bar
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.layoutIfNeeded()
     }
     
-    //MARK: - SETUP
+    //MARK: setups
     func setupNavegationBar() {
         navigationController?.navigationBar.barTintColor = UIColor(rgb: 0xFF5900, a: 1)
         navigationController?.navigationBar.backgroundColor = UIColor(rgb: 0xFF5900, a: 1)
         navigationController?.navigationBar.tintColor = UIColor(rgb: 0xFFFFFF, a: 1)
+        navigationController?.navigationBar.barStyle = .black
     }
     
     func setupSearchBar() {
