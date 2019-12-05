@@ -146,6 +146,10 @@ class ExploreViewController: UIViewController {
                 let selectedJob = sender as? Job {
                 vc.job = selectedJob
             }
+        } else if segue.destination is ProfileViewController {
+            if let vc = segue.destination as? ProfileViewController{
+                vc.email = selectedOrganization
+            }
         }
     }
 }
