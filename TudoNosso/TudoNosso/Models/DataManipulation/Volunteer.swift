@@ -15,7 +15,7 @@ class Volunteer{
     var avatar: String?
     
     
-    init (name: String, email:String, description: String) {
+    init (name: String, email:String, description: String?) {
         self.name = name
         self.email = email
         self.description = description
@@ -36,8 +36,6 @@ class Volunteer{
         self.description = Self.snapshotFieldReader(snapshot,.description)
         self.avatar = Self.snapshotFieldReader(snapshot,.avatar)
     }
-    
-    
 }
 
 extension Volunteer: DatabaseRepresentation{
