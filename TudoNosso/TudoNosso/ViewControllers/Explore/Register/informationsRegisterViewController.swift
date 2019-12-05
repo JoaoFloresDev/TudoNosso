@@ -18,8 +18,7 @@ import FirebaseAuth
 
 class informationsRegisterViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate, UITextFieldDelegate {
     
-    var edit = false
-    
+    //MARK: - OUTLETS
     @IBOutlet weak var titleView: UINavigationItem!
     @IBOutlet weak var scrollViewRegister: UIScrollView!
     @IBOutlet weak var constrainTextBox: UIView!
@@ -36,44 +35,6 @@ class informationsRegisterViewController: UIViewController, UINavigationControll
     @IBOutlet weak var keyTextBox: UITextField!
     @IBOutlet weak var confirmationKeyTextBox: UITextField!
     @IBOutlet weak var constrainViewKey: UIView!
-    
-    @IBAction func registerAction(_ sender: Any) {
-        if nameTextBox.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" {
-            showAlert(msg: "Campo Nome precisa ser preenchido", field: nameTextBox)
-        } else if (endressTextBox.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "") {
-            showAlert(msg: "Campo Endereço precisa ser preenchido", field: endressTextBox)
-        } else if (keyTextBox.text != confirmationKeyTextBox.text) {
-            showAlert(msg: "Senhas incompativeis", field: keyTextBox)
-        } else if (keyTextBox.text?.count ?? 0 < 6) {
-            showAlert(msg: "Sua senha deve possuir 6 digitos ou mais", field: keyTextBox)
-        } else {
-            if (edit) {
-                let refreshAlert = UIAlertController(title: "Deseja finalizar edição?", message: "", preferredStyle: UIAlertController.Style.alert)
-                
-                refreshAlert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action: UIAlertAction!) in
-                    self.signUp()
-                }))
-                
-                refreshAlert.addAction(UIAlertAction(title: "Cancelar", style: .cancel, handler: { (action: UIAlertAction!) in
-                    print("Cancel cadastro")
-                }))
-                
-                present(refreshAlert, animated: true, completion: nil)
-            } else {
-                let refreshAlert = UIAlertController(title: "Deseja finalizar cadastro?", message: "", preferredStyle: UIAlertController.Style.alert)
-                
-                refreshAlert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action: UIAlertAction!) in
-                    self.signUp()
-                }))
-                
-                refreshAlert.addAction(UIAlertAction(title: "Cancelar", style: .cancel, handler: { (action: UIAlertAction!) in
-                    print("Cancel cadastro")
-                }))
-                
-                present(refreshAlert, animated: true, completion: nil)
-            }
-        }
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -198,6 +159,31 @@ class informationsRegisterViewController: UIViewController, UINavigationControll
             let vc = segue.destination as? ConfirmRegisterViewController
             vc?.email = emailTextBox.text ?? ""
             vc?.key = keyTextBox.text ?? ""
+        }
+    }
+    
+    //MARK: - ACTIONS
+    @IBAction func registerAction(_ sender: Any) {
+        if nameTextBox.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" {
+            showAlert(msg: "Campo Nome precisa ser preenchido", field: nameTextBox)
+        } else if (endressTextBox.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "") {
+            showAlert(msg: "Campo Endereço precisa ser preenchido", field: endressTextBox)
+        } else if (keyTextBox.text != confirmationKeyTextBox.text) {
+            showAlert(msg: "Senhas incompativeis", field: keyTextBox)
+        } else if (keyTextBox.text?.count ?? 0 < 6) {
+            showAlert(msg: "Sua senha deve possuir 6 digitos ou mais", field: keyTextBox)
+        } else {
+            let refreshAlert = UIAlertController(title: "Deseja finalizar cadastro?", message: "", preferredStyle: UIAlertController.Style.alert)
+                
+                refreshAlert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action: UIAlertAction!) in
+                    self.signUp()
+                }))
+                
+                refreshAlert.addAction(UIAlertAction(title: "Cancelar", style: .cancel, handler: { (action: UIAlertAction!) in
+                    print("Cancel cadastro")
+                }))
+                
+                present(refreshAlert, animated: true, completion: nil)
         }
     }
 }

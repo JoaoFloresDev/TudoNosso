@@ -14,15 +14,8 @@ import Photos
 import FirebaseAuth
 
 class EditProfileViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate, UITextFieldDelegate {
-
-    var name = ""
-    var endress = ""
-    var phone = ""
-    var email = ""
-    var descriptionText = ""
-    var facebook = ""
-    var webSite = ""
     
+    //MARK: - OUTLETS
     @IBOutlet weak var nameTextBox: UITextField!
     @IBOutlet weak var scrollViewRegister: UIScrollView!
     @IBOutlet weak var constrainTextBox: UIView!
@@ -33,43 +26,16 @@ class EditProfileViewController: UIViewController, UINavigationControllerDelegat
     @IBOutlet weak var faceBookTextBox: UITextField!
     @IBOutlet weak var webSiteTextBox: UITextField!
     
-    @IBAction func closeEdition(_ sender: Any) {
-        self.dismiss(animated: true)
-    }
+    //MARK: - PROPERTIES
+    var name = ""
+    var endress = ""
+    var phone = ""
+    var email = ""
+    var descriptionText = ""
+    var facebook = ""
+    var webSite = ""
     
-    @IBAction func registerAction(_ sender: Any) {
-        if nameTextBox.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" {
-            showAlert(msg: "Campo Nome precisa ser preenchido", field: nameTextBox)
-        } else if (endressTextBox.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "") {
-            showAlert(msg: "Campo Endereço precisa ser preenchido", field: endressTextBox)
-        } else {
-                let refreshAlert = UIAlertController(title: "Deseja finalizar cadastro?", message: "", preferredStyle: UIAlertController.Style.alert)
-                
-                refreshAlert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action: UIAlertAction!) in
-                    print("atualizar dados")
-                }))
-                
-                refreshAlert.addAction(UIAlertAction(title: "Cancelar", style: .cancel, handler: { (action: UIAlertAction!) in
-                    print("Cancel cadastro")
-                }))
-                
-                present(refreshAlert, animated: true, completion: nil)
-        }
-    }
-    
-    func updateData() {
-//        if(UserDefaults.standard.string(forKey: "USER_KIND") ?? "0" == "ong") {
-//            let organizationDM = OrganizationDM()
-//            let organization = Organization()
-//
-//            organizationDM.save(ong: organization)
-//        } else {
-//            let volunteerDM = VolunteerDM()
-//            let volunteer = Volunteer()
-//
-//            volunteerDM.save(volunteer: volunteer)
-//        }
-    }
+        //MARK: - LIFECYCLE
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -94,6 +60,20 @@ class EditProfileViewController: UIViewController, UINavigationControllerDelegat
         KeyboardAvoiding.avoidingView = self.constrainTextBox
     }
 
+    //MARK: - METHODS
+        func updateData() {
+    //        if(UserDefaults.standard.string(forKey: "USER_KIND") ?? "0" == "ong") {
+    //            let organizationDM = OrganizationDM()
+    //            let organization = Organization()
+    //
+    //            organizationDM.save(ong: organization)
+    //        } else {
+    //            let volunteerDM = VolunteerDM()
+    //            let volunteer = Volunteer()
+    //
+    //            volunteerDM.save(volunteer: volunteer)
+    //        }
+        }
     
     func showAlert(msg: String, field:UITextField) {
         let alertController = UIAlertController(title: "Preenchimento incorreto", message: msg, preferredStyle: .alert)
@@ -104,7 +84,7 @@ class EditProfileViewController: UIViewController, UINavigationControllerDelegat
         present(alertController,animated: true)
     }
 
-    //    keyboard functions
+    //MARK: - KEYBOARD
     @objc func dismissKeyboard() {
         view.endEditing(true)
     }
@@ -151,11 +131,36 @@ class EditProfileViewController: UIViewController, UINavigationControllerDelegat
         super.didReceiveMemoryWarning()
     }
 
-    //    Pass information next view
+    //MARK: - SEGUES
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.destination is ConfirmRegisterViewController {
             let vc = segue.destination as? ConfirmRegisterViewController
             vc?.email = emailTextBox.text ?? ""
+        }
+    }
+
+    //MARK: - ACTIONS
+    @IBAction func closeEdition(_ sender: Any) {
+        self.dismiss(animated: true)
+    }
+    
+    @IBAction func registerAction(_ sender: Any) {
+        if nameTextBox.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" {
+            showAlert(msg: "Campo Nome precisa ser preenchido", field: nameTextBox)
+        } else if (endressTextBox.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "") {
+            showAlert(msg: "Campo Endereço precisa ser preenchido", field: endressTextBox)
+        } else {
+                let refreshAlert = UIAlertController(title: "Deseja finalizar cadastro?", message: "", preferredStyle: UIAlertController.Style.alert)
+                
+                refreshAlert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action: UIAlertAction!) in
+                    print("atualizar dados")
+                }))
+                
+                refreshAlert.addAction(UIAlertAction(title: "Cancelar", style: .cancel, handler: { (action: UIAlertAction!) in
+                    print("Cancel cadastro")
+                }))
+                
+                present(refreshAlert, animated: true, completion: nil)
         }
     }
 }
