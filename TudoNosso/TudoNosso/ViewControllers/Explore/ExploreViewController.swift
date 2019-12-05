@@ -11,6 +11,7 @@ import CoreLocation
 import SDWebImage
 
 class ExploreViewController: UIViewController {
+    
     //MARK: OUTLETS
     @IBOutlet weak var jobsTableView: UITableView!
     @IBOutlet weak var buttonLogin: UIButton!
