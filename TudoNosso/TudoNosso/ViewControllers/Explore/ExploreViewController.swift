@@ -8,7 +8,7 @@
 
 import UIKit
 import CoreLocation
-
+import SDWebImage
 
 class ExploreViewController: UIViewController {
     //MARK: IBOutlet
