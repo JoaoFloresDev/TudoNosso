@@ -9,6 +9,10 @@
 import UIKit
 import MapKit
 
+protocol HandleMapSearch {
+    func dropPinZoomIn(placemark: MKPlacemark, address: String)
+}
+
 class LocationViewController: UIViewController {
     
     //MARK: - OUTLETS
@@ -16,12 +20,18 @@ class LocationViewController: UIViewController {
     
     //MARK: - PROPERTIES
     let locationManager = CLLocationManager()
+    var resultSearchController: UISearchController?
+    var selectedPin: MKPlacemark?
+    var selectedAddress: String?
+    var selectedCoordinates: CLLocationCoordinate2D?
+    
     //MARK: - LIFECYCLE
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         mapView.delegate = self
         setLocationManager()
+        setLocationSearchTable()
     }
     
     //MARK: - METHODS
@@ -30,6 +40,29 @@ class LocationViewController: UIViewController {
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.requestWhenInUseAuthorization()
         locationManager.requestLocation()
+    }
+    
+    func setLocationSearchTable() {
+        let locationSearchTable = storyboard!.instantiateViewController(withIdentifier: "LocationSearchTable") as! LocationSearchTableViewController
+        resultSearchController = UISearchController(searchResultsController: locationSearchTable)
+        resultSearchController?.searchResultsUpdater = locationSearchTable
+        
+        locationSearchTable.mapView = mapView
+        locationSearchTable.handleMapSearchDelegate = self
+        
+        setSearchBar()
+    }
+    
+    func setSearchBar() {
+        if let searchBar = resultSearchController?.searchBar {
+            searchBar.sizeToFit()
+            searchBar.placeholder = "Procure um endereço"
+            navigationItem.titleView = resultSearchController?.searchBar
+            
+            resultSearchController?.hidesNavigationBarDuringPresentation = false
+            resultSearchController?.dimsBackgroundDuringPresentation = true
+            definesPresentationContext = true
+        }
     }
 }
 
@@ -50,5 +83,33 @@ extension LocationViewController: MKMapViewDelegate, CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         print("error:: \(error.localizedDescription)")
+    }
+}
+
+//MARK: - HANDLE MAP SEARCH
+extension LocationViewController: HandleMapSearch {
+    func dropPinZoomIn(placemark: MKPlacemark, address: String){
+        // cache the pin
+        selectedPin = placemark
+        // clear existing pins
+        mapView.removeAnnotations(mapView.annotations)
+        let annotation = MKPointAnnotation()
+        annotation.coordinate = placemark.coordinate
+        annotation.title = placemark.name
+        if let city = placemark.locality,
+        let state = placemark.administrativeArea {
+            annotation.subtitle = "\(city) \(state)"
+        }
+        mapView.addAnnotation(annotation)
+        let span = MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)
+        let region = MKCoordinateRegion(center: placemark.coordinate, span: span)
+        mapView.setRegion(region, animated: true)
+        
+        if let searchBar = resultSearchController?.searchBar {
+            searchBar.text = address
+        }
+        
+        selectedAddress = address
+        selectedCoordinates = placemark.coordinate
     }
 }
