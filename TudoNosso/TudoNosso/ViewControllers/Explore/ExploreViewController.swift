@@ -41,8 +41,7 @@ class ExploreViewController: UIViewController {
     @IBAction func actionButtonLogin(_ sender: Any) {
         if let kind = Local.userKind{
             if(kind == LoginKinds.ONG.rawValue) {
-                //            showCriarVaga
-                //            self.performSegue(withIdentifier: "showProfile", sender: self)
+                self.performSegue(withIdentifier: "ShowAddJob", sender: self)
             }
         }else{
             self.performSegue(withIdentifier: "showLogin", sender: self)
