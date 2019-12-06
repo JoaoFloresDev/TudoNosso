@@ -12,7 +12,6 @@ import Foundation
 import Firebase
 import Photos
 import FirebaseAuth
-//import FIRStorage
 
 class LoginViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate, UITextFieldDelegate {
     
@@ -20,12 +19,20 @@ class LoginViewController: UIViewController, UINavigationControllerDelegate, UII
     @IBOutlet weak var constrainTextBox: UIView!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var textButtonLogin: UILabel!
+    @IBOutlet weak var textButtonRegister: UILabel!
+    @IBOutlet weak var textButtonExplore: UIButton!
     
     //MARK: - LIFECYCLE
     override func viewDidLoad() {
         super.viewDidLoad()
         
         KeyboardAvoiding.avoidingView = self.constrainTextBox
+        let colText = UITextField.appearance()
+        colText.font = UIFont(name:"Nunito-Bold", size: 14.0)
+        textButtonLogin?.font = UIFont(name:"Nunito-Bold", size: 18.0)
+        textButtonRegister?.font = UIFont(name:"Nunito-Bold", size: 18.0)
+        textButtonExplore.titleLabel?.font = UIFont(name:"Nunito-Bold", size: 18.0)
     }
     
     //MARK: - ALERT
