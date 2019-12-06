@@ -33,7 +33,7 @@
                                 <color key="backgroundColor" red="0.97645872831344604" green="0.97646445035934448" blue="0.97647935152053833" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bwc-gG-pIO">
-                                <rect key="frame" x="0.0" y="325" width="414" height="190"/>
+                                <rect key="frame" x="0.0" y="305" width="414" height="190"/>
                                 <subviews>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="login" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TQW-8t-q9Z">
                                         <rect key="frame" x="10" y="30" width="394" height="40"/>
@@ -85,14 +85,14 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uxl-VN-qKj">
-                                <rect key="frame" x="10" y="20" width="394" height="285"/>
+                                <rect key="frame" x="10" y="20" width="394" height="265"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="pJX-Tc-vXJ">
-                                        <rect key="frame" x="0.0" y="0.0" width="394" height="285"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="394" height="265"/>
                                         <color key="backgroundColor" red="0.97645872831344604" green="0.97646445035934448" blue="0.97647935152053833" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     </imageView>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-monogram" translatesAutoresizingMaskIntoConstraints="NO" id="6fh-pt-a3Z">
-                                        <rect key="frame" x="79" y="28.5" width="236" height="228"/>
+                                        <rect key="frame" x="79" y="26.5" width="236" height="212"/>
                                     </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -169,7 +169,7 @@
                             <constraint firstItem="PW4-20-CTJ" firstAttribute="centerX" secondItem="7Qk-nb-inm" secondAttribute="centerX" id="GpU-68-mXN"/>
                             <constraint firstItem="bwc-gG-pIO" firstAttribute="leading" secondItem="MhN-bv-gp7" secondAttribute="leading" id="OrX-6R-XRk"/>
                             <constraint firstItem="E7Q-gL-96t" firstAttribute="centerX" secondItem="PW4-20-CTJ" secondAttribute="centerX" id="PTW-bZ-eIZ"/>
-                            <constraint firstItem="KhH-IB-95f" firstAttribute="top" secondItem="bwc-gG-pIO" secondAttribute="bottom" id="Q9T-u1-y4d"/>
+                            <constraint firstItem="KhH-IB-95f" firstAttribute="top" secondItem="bwc-gG-pIO" secondAttribute="bottom" constant="20" id="Q9T-u1-y4d"/>
                             <constraint firstItem="bFw-3w-3Xb" firstAttribute="centerY" secondItem="KhH-IB-95f" secondAttribute="centerY" id="Qdd-db-obQ"/>
                             <constraint firstItem="E7Q-gL-96t" firstAttribute="height" secondItem="PW4-20-CTJ" secondAttribute="height" id="Tf9-7n-4Vx"/>
                             <constraint firstItem="bFw-3w-3Xb" firstAttribute="centerX" secondItem="KhH-IB-95f" secondAttribute="centerX" id="VMX-tZ-Svv"/>
