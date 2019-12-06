@@ -55,14 +55,24 @@ class LocationViewController: UIViewController {
     
     func setSearchBar() {
         if let searchBar = resultSearchController?.searchBar {
-            searchBar.sizeToFit()
             searchBar.placeholder = "Procure um endereço"
-            navigationItem.titleView = resultSearchController?.searchBar
-            
-            resultSearchController?.hidesNavigationBarDuringPresentation = false
-            resultSearchController?.dimsBackgroundDuringPresentation = true
-            definesPresentationContext = true
+            searchBar.searchTextField.backgroundColor = .white
+            searchBar.tintColor = UIColor.black
+            searchBar.barTintColor = UIColor(rgb: 0xFF5900, a: 1)
+            searchBar.backgroundColor = UIColor(rgb: 0xFF5900, a: 1)
+            searchBar.alpha = 1
+            searchBar.setBackgroundImage(UIImage(named: "background Search"), for: UIBarPosition.top, barMetrics: UIBarMetrics.default)
+            searchBar.tintColor = .white
+            searchBar.isTranslucent = false
+            searchBar.backgroundColor = UIColor(rgb: 0xFF5900, a: 1)
+            searchBar.sizeToFit()
         }
+        
+        navigationItem.titleView = resultSearchController?.searchBar
+        
+        resultSearchController?.hidesNavigationBarDuringPresentation = false
+        resultSearchController?.dimsBackgroundDuringPresentation = true
+        definesPresentationContext = true
     }
 }
 
@@ -97,7 +107,7 @@ extension LocationViewController: HandleMapSearch {
         annotation.coordinate = placemark.coordinate
         annotation.title = placemark.name
         if let city = placemark.locality,
-        let state = placemark.administrativeArea {
+            let state = placemark.administrativeArea {
             annotation.subtitle = "\(city) \(state)"
         }
         mapView.addAnnotation(annotation)
