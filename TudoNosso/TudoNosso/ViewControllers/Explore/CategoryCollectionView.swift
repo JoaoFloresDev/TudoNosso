@@ -48,7 +48,6 @@ extension CategoryCollectionView : UICollectionViewDataSource, UICollectionViewD
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
         var numElem = 12
-        
         // tag 0 is Cause collection
         // tag 1 is Organization collection
         if(collectionView.tag == 1) {
@@ -95,6 +94,7 @@ extension CategoryCollectionView : UICollectionViewDataSource, UICollectionViewD
             }
             self.backgroundQueue.addOperation(imageDownloadOperation)
         }
+        cell.titleLabel.font = UIFont(name:"Nunito-Bold", size: 14.0)
         return cell
     }
     

@@ -178,9 +178,36 @@ class ExploreViewController: UIViewController {
 }
 
 extension ExploreViewController :UITableViewDelegate, UITableViewDataSource, UISearchResultsUpdating {
+    
     func updateSearchResults(for searchController: UISearchController) {
         filterJobs(for: searchController.searchBar.text ?? "")
         filterOrganizations(for: searchController.searchBar.text ?? "")
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+
+        let myLabel = UILabel()
+        
+        print("section: \(section)")
+        if (section == 0) {
+            myLabel.frame = CGRect(x: 10, y: 20, width: 320, height: 40)
+            myLabel.font = UIFont(name:"Nunito-Bold", size: 18.0)
+            myLabel.text = self.tableView(tableView, titleForHeaderInSection: section)
+            
+        } else if (section == 1) {
+            myLabel.frame = CGRect(x: 10, y: 0, width: 320, height: 40)
+            myLabel.font = UIFont(name:"Nunito-Bold", size: 18.0)
+            myLabel.text = self.tableView(tableView, titleForHeaderInSection: section)
+        } else {
+            myLabel.frame = CGRect(x: 10, y: -5, width: 320, height: 40)
+            myLabel.font = UIFont(name:"Nunito-Bold", size: 18.0)
+            myLabel.text = self.tableView(tableView, titleForHeaderInSection: section)
+        }
+
+        let headerView = UIView()
+        headerView.addSubview(myLabel)
+
+        return headerView
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
