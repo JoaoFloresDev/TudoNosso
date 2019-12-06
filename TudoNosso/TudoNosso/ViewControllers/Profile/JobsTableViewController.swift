@@ -245,3 +245,10 @@ extension JobsTableViewController : JobsTableViewCellDelegate {
         performSegue(withIdentifier: editJobSegueID, sender: self)
     }
 }
+
+extension JobsTableViewController: ProfileViewControllerDelegate {
+    func reloadJobs(jobs: [Job]) {
+        self.jobs = jobs
+        tableView.reloadData()
+    }
+}

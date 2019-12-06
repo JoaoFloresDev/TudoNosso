@@ -10,6 +10,10 @@ import UIKit
 import CoreLocation
 import FirebaseAuth
 
+protocol ProfileViewControllerDelegate {
+    func reloadJobs(jobs: [Job])
+}
+
 class ProfileViewController: UIViewController {
     
     //MARK: - OUTLETS
@@ -30,6 +34,8 @@ class ProfileViewController: UIViewController {
     private let addJobSegueID = "toAddJob"
     private let EditProfileSegueID = "toEditProfile"
     
+    var delegate: ProfileViewControllerDelegate?
+    
     var email: String?
     
     struct Data {
@@ -47,16 +53,22 @@ class ProfileViewController: UIViewController {
     
     var profileData: Data? {
         didSet {
-            if self.shouldPerformSegue(withIdentifier: self.profileSegueID, sender: self) {
-                self.performSegue(withIdentifier: self.profileSegueID, sender: self)
+            if delegate == nil {
+                if self.shouldPerformSegue(withIdentifier: self.profileSegueID, sender: self) {
+                    self.performSegue(withIdentifier: self.profileSegueID, sender: self)
+                }
             }
         }
     }
     
     var jobs : [Job]? {
         didSet {
-            if self.shouldPerformSegue(withIdentifier: self.jobsSegueID, sender: self) {
-                self.performSegue(withIdentifier: self.jobsSegueID, sender: self)
+            if let jobs = self.jobs, let delegate = delegate {
+                delegate.reloadJobs(jobs: jobs)
+            } else {
+                if self.shouldPerformSegue(withIdentifier: self.jobsSegueID, sender: self) {
+                    self.performSegue(withIdentifier: self.jobsSegueID, sender: self)
+                }
             }
         }
     }
@@ -128,12 +140,11 @@ class ProfileViewController: UIViewController {
         // remove border from nav bar
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.layoutIfNeeded()
-        
-        loadData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        loadData()
     }
     
     //MARK: - METHODS
@@ -260,6 +271,7 @@ class ProfileViewController: UIViewController {
             if let nextVC = segue.destination as? JobsTableViewController {
                 let dependencies = JobsTableViewController.Dependencies(jobs: self.jobs ?? [], isMyProfile: self.isMyProfile)
                 nextVC.setup(dependencies: dependencies)
+                self.delegate = nextVC
             }
         default:    break
         }

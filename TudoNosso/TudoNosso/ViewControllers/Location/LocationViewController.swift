@@ -9,8 +9,8 @@
 import UIKit
 import MapKit
 
-protocol HandleMapSearch {
-    func dropPinZoomIn(placemark: MKPlacemark, address: String)
+protocol LocationViewControllerDelegate  {
+    func sendDataBackToForm(address: String, coordinates: CLLocationCoordinate2D)
 }
 
 class LocationViewController: UIViewController {
@@ -25,6 +25,8 @@ class LocationViewController: UIViewController {
     var selectedAddress: String?
     var selectedCoordinates: CLLocationCoordinate2D?
     
+    var delegate: LocationViewControllerDelegate?
+    
     //MARK: - LIFECYCLE
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,6 +34,7 @@ class LocationViewController: UIViewController {
         mapView.delegate = self
         setLocationManager()
         setLocationSearchTable()
+        setNavigation()
     }
     
     //MARK: - METHODS
@@ -48,7 +51,7 @@ class LocationViewController: UIViewController {
         resultSearchController?.searchResultsUpdater = locationSearchTable
         
         locationSearchTable.mapView = mapView
-        locationSearchTable.handleMapSearchDelegate = self
+        locationSearchTable.delegate = self
         
         setSearchBar()
     }
@@ -74,6 +77,18 @@ class LocationViewController: UIViewController {
         resultSearchController?.dimsBackgroundDuringPresentation = true
         definesPresentationContext = true
     }
+    
+    func setNavigation() {
+        let backButton = UIBarButtonItem(title: "Voltar", style: .done, target: self, action: #selector(backPressed))
+        navigationItem.leftBarButtonItem = backButton
+    }
+    
+    @objc func backPressed() {
+        if let address = selectedAddress, let coordinates = selectedCoordinates {
+            delegate?.sendDataBackToForm(address: address, coordinates: coordinates)
+            navigationController?.popViewController(animated: true)
+        }
+    }
 }
 
 //MARK: - MAP VIEW DELEGATE
@@ -97,7 +112,7 @@ extension LocationViewController: MKMapViewDelegate, CLLocationManagerDelegate {
 }
 
 //MARK: - HANDLE MAP SEARCH
-extension LocationViewController: HandleMapSearch {
+extension LocationViewController: LocationSearchTableDelegate {
     func dropPinZoomIn(placemark: MKPlacemark, address: String){
         // cache the pin
         selectedPin = placemark

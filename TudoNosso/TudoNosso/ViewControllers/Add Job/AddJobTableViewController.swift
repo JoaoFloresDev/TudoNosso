@@ -46,6 +46,8 @@ class AddJobTableViewController: UITableViewController {
     
     var categoriesDict : [CategoryEnum:Checkbox] = [:]
     
+    var selectedCoordinates: CLLocationCoordinate2D?
+    
     enum Alerts {
         case title
         case typeOfJob
@@ -213,10 +215,9 @@ class AddJobTableViewController: UITableViewController {
             return
         }
         job?.address = address
-        AddressUtil.getCoordinatesFromAddress(address: address) { (location) in
-            guard let location = location else { return }
-            self.job?.localization = location
-        }
+        
+        guard let coordinates = selectedCoordinates else { return }
+        job?.localization = coordinates
     }
     
     func showFillAlert(type: Alerts){
@@ -244,12 +245,16 @@ class AddJobTableViewController: UITableViewController {
             if let nextVC = segue.destination as? JobViewController {
                 nextVC.job = job
             }
+        case locationSegueID:
+            if let nextVC = segue.destination as? LocationViewController {
+                nextVC.delegate = self
+            }
         default:        break
         }
     }
 }
 
-//MARK: UITextFieldDelegate
+//MARK: TEXT FIELD DELEGATE
 extension AddJobTableViewController: UITextFieldDelegate {
     
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
@@ -265,5 +270,13 @@ extension AddJobTableViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
+    }
+}
+
+//MARK: - LOCATION VIEW CONTROLLER DELEGATE
+extension AddJobTableViewController: LocationViewControllerDelegate {
+    func sendDataBackToForm(address: String, coordinates: CLLocationCoordinate2D) {
+        addressInput.text = address
+        selectedCoordinates = coordinates
     }
 }
