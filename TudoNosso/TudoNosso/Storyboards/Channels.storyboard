@@ -21,7 +21,7 @@
                             <outlet property="delegate" destination="01K-Gy-JYW" id="Ube-3v-0r9"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Chats" image="message.fill" catalog="system" id="cQ7-aZ-MR1"/>
+                    <tabBarItem key="tabBarItem" title="Chats" image="chatIcon" id="cQ7-aZ-MR1"/>
                     <navigationItem key="navigationItem" title="Chats" id="GVy-8T-oqF"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
@@ -36,7 +36,9 @@
         <scene sceneID="yEF-rQ-gAv">
             <objects>
                 <navigationController storyboardIdentifier="ChannelsSBID" automaticallyAdjustsScrollViewInsets="NO" id="IWV-gm-cyY" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Chats" image="message.fill" catalog="system" id="XDh-Ar-g7H"/>
+                    <tabBarItem key="tabBarItem" title="Chats" image="chatIcon" id="XDh-Ar-g7H">
+                        <color key="badgeColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBarItem>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="8KO-uJ-YD9">
@@ -94,6 +96,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="message.fill" catalog="system" width="64" height="56"/>
+        <image name="chatIcon" width="28" height="22.5"/>
     </resources>
 </document>
