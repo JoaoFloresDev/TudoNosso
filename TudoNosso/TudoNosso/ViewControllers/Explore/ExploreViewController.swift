@@ -97,7 +97,6 @@ class ExploreViewController: UIViewController {
     func setupSearchBar() {
         jobsTableView.tableHeaderView = searchController.searchBar
         
-        //        let searchBar = UISearchBar.appearance()
         let colText = UITextField.appearance()
         colText.textColor = .gray
         
@@ -111,7 +110,7 @@ class ExploreViewController: UIViewController {
         searchController.searchBar.backgroundColor = UIColor(rgb: 0xFF5900, a: 1)
         searchController.searchBar.alpha = 1
         searchController.searchBar.setBackgroundImage(UIImage(named: "background Search"), for: UIBarPosition.top, barMetrics: UIBarMetrics.default)
-        searchController.searchBar.tintColor = .white //UIColor(rgb: 0xFF5900, a: 1)
+        searchController.searchBar.tintColor = .white
         searchController.searchBar.isTranslucent = false
         searchController.searchBar.backgroundColor = UIColor(rgb: 0xFF5900, a: 1)
         definesPresentationContext = true
@@ -179,9 +178,36 @@ class ExploreViewController: UIViewController {
 }
 
 extension ExploreViewController :UITableViewDelegate, UITableViewDataSource, UISearchResultsUpdating {
+    
     func updateSearchResults(for searchController: UISearchController) {
         filterJobs(for: searchController.searchBar.text ?? "")
         filterOrganizations(for: searchController.searchBar.text ?? "")
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+
+        let myLabel = UILabel()
+        
+        print("section: \(section)")
+        if (section == 0) {
+            myLabel.frame = CGRect(x: 10, y: 20, width: 320, height: 40)
+            myLabel.font = UIFont(name:"Nunito-Bold", size: 18.0)
+            myLabel.text = self.tableView(tableView, titleForHeaderInSection: section)
+            
+        } else if (section == 1) {
+            myLabel.frame = CGRect(x: 10, y: 0, width: 320, height: 40)
+            myLabel.font = UIFont(name:"Nunito-Bold", size: 18.0)
+            myLabel.text = self.tableView(tableView, titleForHeaderInSection: section)
+        } else {
+            myLabel.frame = CGRect(x: 10, y: -5, width: 320, height: 40)
+            myLabel.font = UIFont(name:"Nunito-Bold", size: 18.0)
+            myLabel.text = self.tableView(tableView, titleForHeaderInSection: section)
+        }
+
+        let headerView = UIView()
+        headerView.addSubview(myLabel)
+
+        return headerView
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

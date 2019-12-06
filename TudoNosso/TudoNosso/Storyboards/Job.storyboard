@@ -28,7 +28,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R4b-Qm-swt" userLabel="Content View">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="459.66666666666669"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="459.33333333333331"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ong-img_job" translatesAutoresizingMaskIntoConstraints="NO" id="N43-F7-T1B">
                                                 <rect key="frame" x="20" y="52" width="128" height="128"/>
@@ -43,15 +43,15 @@
                                                 </userDefinedRuntimeAttributes>
                                             </imageView>
                                             <stackView opaque="NO" contentMode="top" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="ydT-KE-MNh" userLabel="Job Info Stack View">
-                                                <rect key="frame" x="164" y="52" width="234" height="96"/>
+                                                <rect key="frame" x="164" y="52.000000000000007" width="234" height="95.666666666666686"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2K0-W6-cwg">
-                                                        <rect key="frame" x="0.0" y="0.0" width="234" height="19.333333333333332"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="234" height="19"/>
                                                         <attributedString key="attributedText">
                                                             <fragment content="Title">
                                                                 <attributes>
                                                                     <color key="NSColor" red="0.12941176469999999" green="0.12941176469999999" blue="0.12941176469999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                    <font key="NSFont" metaFont="system" size="18"/>
+                                                                    <font key="NSFont" size="18" name="Nunito-Black"/>
                                                                     <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineHeightMultiple="0.90000000000000002" tighteningFactorForTruncation="0.0"/>
                                                                 </attributes>
                                                             </fragment>
@@ -59,13 +59,13 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Type opportunity" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="92i-Vy-NIx">
-                                                        <rect key="frame" x="0.0" y="19.333333333333329" width="234" height="16.666666666666671"/>
+                                                        <rect key="frame" x="0.0" y="19" width="234" height="16.666666666666671"/>
                                                         <fontDescription key="fontDescription" name="Nunito-Regular" family="Nunito" pointSize="12"/>
                                                         <color key="textColor" red="0.31764705879999999" green="0.31764705879999999" blue="0.31764705879999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <button opaque="NO" contentMode="TopLeft" contentHorizontalAlignment="left" contentVerticalAlignment="fill" lineBreakMode="characterWrap" translatesAutoresizingMaskIntoConstraints="NO" id="sQO-2p-1NI">
-                                                        <rect key="frame" x="0.0" y="36" width="234" height="30"/>
+                                                        <rect key="frame" x="0.0" y="35.666666666666671" width="234" height="30"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="30" id="c02-Hx-NtS"/>
@@ -76,7 +76,7 @@
                                                         </state>
                                                     </button>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cY5-jE-5Gy">
-                                                        <rect key="frame" x="0.0" y="66" width="234" height="30"/>
+                                                        <rect key="frame" x="0.0" y="65.666666666666671" width="234" height="30"/>
                                                         <subviews>
                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="user_placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="7W5-bC-IFm">
                                                                 <rect key="frame" x="0.0" y="0.0" width="25" height="25"/>
@@ -114,10 +114,10 @@
                                                 </constraints>
                                             </stackView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IN2-bL-edA" userLabel="Buttons View">
-                                                <rect key="frame" x="20" y="164" width="374" height="129"/>
+                                                <rect key="frame" x="20" y="163.66666666666666" width="374" height="128.99999999999997"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gZ8-7n-4gQ" userLabel="ApplyView">
-                                                        <rect key="frame" x="16" y="16" width="88" height="97"/>
+                                                        <rect key="frame" x="143" y="16" width="88" height="97"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="514-kU-FXe">
                                                                 <rect key="frame" x="0.0" y="0.0" width="88" height="97"/>
@@ -129,7 +129,7 @@
                                                                         </constraints>
                                                                     </imageView>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Candidatar-se à vaga" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1m0-pI-bdb">
-                                                                        <rect key="frame" x="4.3333333333333357" y="64" width="79.333333333333314" height="33"/>
+                                                                        <rect key="frame" x="4.3333333333333428" y="64" width="79.333333333333329" height="33"/>
                                                                         <fontDescription key="fontDescription" name="Nunito-Regular" family="Nunito" pointSize="12"/>
                                                                         <color key="textColor" red="0.31764705879999999" green="0.31764705879999999" blue="0.31764705879999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                         <nil key="highlightedColor"/>
@@ -160,101 +160,13 @@
                                                             <constraint firstItem="0wb-Mu-CWy" firstAttribute="leading" secondItem="gZ8-7n-4gQ" secondAttribute="leading" id="zAK-ha-rFV"/>
                                                         </constraints>
                                                     </view>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7bz-lV-nbJ" userLabel="ShareView">
-                                                        <rect key="frame" x="143" y="16" width="88" height="97"/>
-                                                        <subviews>
-                                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="oNv-DX-u6z">
-                                                                <rect key="frame" x="0.0" y="0.0" width="88" height="97"/>
-                                                                <subviews>
-                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" image="share-connection" translatesAutoresizingMaskIntoConstraints="NO" id="NPC-q8-wVw" userLabel="share">
-                                                                        <rect key="frame" x="16" y="0.0" width="56" height="56"/>
-                                                                        <constraints>
-                                                                            <constraint firstAttribute="width" constant="56" id="cxh-CN-Jhu"/>
-                                                                        </constraints>
-                                                                    </imageView>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Convidar conexões" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JOA-tp-4oX">
-                                                                        <rect key="frame" x="18.000000000000004" y="64" width="52.333333333333343" height="33"/>
-                                                                        <fontDescription key="fontDescription" name="Nunito-Regular" family="Nunito" pointSize="12"/>
-                                                                        <color key="textColor" red="0.31764705879999999" green="0.31764705879999999" blue="0.31764705879999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                        <nil key="highlightedColor"/>
-                                                                    </label>
-                                                                </subviews>
-                                                                <constraints>
-                                                                    <constraint firstItem="NPC-q8-wVw" firstAttribute="centerX" secondItem="oNv-DX-u6z" secondAttribute="centerX" id="0e4-JQ-Zxi"/>
-                                                                    <constraint firstItem="JOA-tp-4oX" firstAttribute="top" secondItem="NPC-q8-wVw" secondAttribute="bottom" constant="8" id="D4j-t5-vGp"/>
-                                                                </constraints>
-                                                            </stackView>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="igU-aN-ep6">
-                                                                <rect key="frame" x="0.0" y="0.0" width="88" height="97"/>
-                                                            </button>
-                                                        </subviews>
-                                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="bottom" secondItem="oNv-DX-u6z" secondAttribute="bottom" id="9TF-8X-fKU"/>
-                                                            <constraint firstAttribute="bottom" secondItem="igU-aN-ep6" secondAttribute="bottom" id="Ar4-XT-dY2"/>
-                                                            <constraint firstItem="oNv-DX-u6z" firstAttribute="top" secondItem="7bz-lV-nbJ" secondAttribute="top" id="Ji3-65-vQw"/>
-                                                            <constraint firstAttribute="width" constant="88" id="LUo-2X-tzp"/>
-                                                            <constraint firstItem="oNv-DX-u6z" firstAttribute="leading" secondItem="7bz-lV-nbJ" secondAttribute="leading" id="Qs1-Mz-7cA"/>
-                                                            <constraint firstAttribute="trailing" secondItem="igU-aN-ep6" secondAttribute="trailing" id="aMI-Lf-aH8"/>
-                                                            <constraint firstItem="igU-aN-ep6" firstAttribute="top" secondItem="7bz-lV-nbJ" secondAttribute="top" id="ard-S6-wm2"/>
-                                                            <constraint firstItem="igU-aN-ep6" firstAttribute="leading" secondItem="7bz-lV-nbJ" secondAttribute="leading" id="hAJ-nV-HIT"/>
-                                                            <constraint firstAttribute="trailing" secondItem="oNv-DX-u6z" secondAttribute="trailing" id="zlV-fY-zpg"/>
-                                                        </constraints>
-                                                    </view>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jRd-70-HrJ" userLabel="CertificateView">
-                                                        <rect key="frame" x="270" y="16" width="88" height="97"/>
-                                                        <subviews>
-                                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="geo-cR-F6t">
-                                                                <rect key="frame" x="0.0" y="0.0" width="88" height="97"/>
-                                                                <subviews>
-                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" image="certificate-export" translatesAutoresizingMaskIntoConstraints="NO" id="9XW-Ve-ONe" userLabel="certificate">
-                                                                        <rect key="frame" x="16" y="0.0" width="56" height="56"/>
-                                                                        <constraints>
-                                                                            <constraint firstAttribute="width" constant="56" id="mls-ID-CqU"/>
-                                                                        </constraints>
-                                                                    </imageView>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Candidatar-se à vaga" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bhb-BK-eO8">
-                                                                        <rect key="frame" x="4.3333333333333144" y="64" width="79.333333333333329" height="33"/>
-                                                                        <fontDescription key="fontDescription" name="Nunito-Regular" family="Nunito" pointSize="12"/>
-                                                                        <color key="textColor" red="0.31764705879999999" green="0.31764705879999999" blue="0.31764705879999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                        <nil key="highlightedColor"/>
-                                                                    </label>
-                                                                </subviews>
-                                                                <constraints>
-                                                                    <constraint firstItem="bhb-BK-eO8" firstAttribute="top" secondItem="9XW-Ve-ONe" secondAttribute="bottom" constant="8" id="Btj-mK-6u0"/>
-                                                                    <constraint firstItem="9XW-Ve-ONe" firstAttribute="centerX" secondItem="geo-cR-F6t" secondAttribute="centerX" id="PW6-Aa-eMh"/>
-                                                                </constraints>
-                                                            </stackView>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LsU-yC-M4d">
-                                                                <rect key="frame" x="0.0" y="0.0" width="88" height="97"/>
-                                                            </button>
-                                                        </subviews>
-                                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                                        <constraints>
-                                                            <constraint firstItem="LsU-yC-M4d" firstAttribute="leading" secondItem="jRd-70-HrJ" secondAttribute="leading" id="AcA-3e-WnK"/>
-                                                            <constraint firstItem="geo-cR-F6t" firstAttribute="top" secondItem="jRd-70-HrJ" secondAttribute="top" id="Lc9-V7-C0F"/>
-                                                            <constraint firstAttribute="trailing" secondItem="geo-cR-F6t" secondAttribute="trailing" id="LpQ-2e-vdt"/>
-                                                            <constraint firstAttribute="trailing" secondItem="LsU-yC-M4d" secondAttribute="trailing" id="Nzh-0m-ve9"/>
-                                                            <constraint firstItem="geo-cR-F6t" firstAttribute="leading" secondItem="jRd-70-HrJ" secondAttribute="leading" id="gFn-Et-zmT"/>
-                                                            <constraint firstAttribute="bottom" secondItem="LsU-yC-M4d" secondAttribute="bottom" id="kk2-tl-Jdl"/>
-                                                            <constraint firstItem="LsU-yC-M4d" firstAttribute="top" secondItem="jRd-70-HrJ" secondAttribute="top" id="mMo-Uv-P1R"/>
-                                                            <constraint firstAttribute="width" constant="88" id="wIb-oF-9oz"/>
-                                                            <constraint firstAttribute="bottom" secondItem="geo-cR-F6t" secondAttribute="bottom" id="x5g-bN-hKP"/>
-                                                        </constraints>
-                                                    </view>
                                                 </subviews>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                 <constraints>
-                                                    <constraint firstItem="7bz-lV-nbJ" firstAttribute="centerX" secondItem="IN2-bL-edA" secondAttribute="centerX" id="3Ki-gt-TVi"/>
                                                     <constraint firstAttribute="bottom" secondItem="gZ8-7n-4gQ" secondAttribute="bottom" constant="16" id="6Nc-TM-4JV"/>
-                                                    <constraint firstItem="7bz-lV-nbJ" firstAttribute="top" secondItem="IN2-bL-edA" secondAttribute="top" constant="16" id="Mq1-hJ-nK4"/>
-                                                    <constraint firstItem="gZ8-7n-4gQ" firstAttribute="leading" secondItem="IN2-bL-edA" secondAttribute="leading" constant="16" id="NZn-4K-RSF"/>
-                                                    <constraint firstAttribute="trailing" secondItem="jRd-70-HrJ" secondAttribute="trailing" constant="16" id="PSL-lf-JPd"/>
                                                     <constraint firstAttribute="height" secondItem="gZ8-7n-4gQ" secondAttribute="height" multiplier="1.3299" id="eKW-9I-5wD"/>
-                                                    <constraint firstItem="jRd-70-HrJ" firstAttribute="top" secondItem="IN2-bL-edA" secondAttribute="top" constant="16" id="fFB-MM-bZx"/>
-                                                    <constraint firstAttribute="bottom" secondItem="7bz-lV-nbJ" secondAttribute="bottom" constant="16" id="lsf-UT-WkA"/>
                                                     <constraint firstItem="gZ8-7n-4gQ" firstAttribute="top" secondItem="IN2-bL-edA" secondAttribute="top" constant="16" id="mrp-hr-igs"/>
-                                                    <constraint firstAttribute="bottom" secondItem="jRd-70-HrJ" secondAttribute="bottom" constant="16" id="rIx-SP-Rh7"/>
+                                                    <constraint firstItem="gZ8-7n-4gQ" firstAttribute="centerX" secondItem="IN2-bL-edA" secondAttribute="centerX" id="xpu-oH-lH0"/>
                                                 </constraints>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -263,7 +175,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nRL-Jz-RnE" userLabel="Description View">
-                                                <rect key="frame" x="20" y="309" width="374" height="59.333333333333314"/>
+                                                <rect key="frame" x="20" y="308.66666666666669" width="374" height="59.333333333333314"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="78X-fJ-Kxe">
                                                         <rect key="frame" x="16" y="15.999999999999998" width="342" height="27.333333333333329"/>
@@ -306,7 +218,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Kx-kp-mmx">
-                                                <rect key="frame" x="20" y="384.33333333333331" width="374" height="59.333333333333314"/>
+                                                <rect key="frame" x="20" y="384" width="374" height="59.333333333333314"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="DLB-qy-fzH">
                                                         <rect key="frame" x="16" y="15.999999999999998" width="342" height="27.333333333333329"/>
@@ -318,7 +230,7 @@
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tX6-h3-jHz">
-                                                                <rect key="frame" x="0.0" y="27.333333333333371" width="342" height="0.0"/>
+                                                                <rect key="frame" x="0.0" y="27.333333333333314" width="342" height="0.0"/>
                                                                 <fontDescription key="fontDescription" name="Nunito-Regular" family="Nunito" pointSize="14"/>
                                                                 <color key="textColor" red="0.31764705879999999" green="0.31764705879999999" blue="0.31764705879999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                 <nil key="highlightedColor"/>
@@ -408,9 +320,7 @@
     </scenes>
     <resources>
         <image name="candidatar" width="56" height="56"/>
-        <image name="certificate-export" width="56" height="56"/>
-        <image name="ong-img_job" width="128" height="128"/>
-        <image name="share-connection" width="56" height="56"/>
+        <image name="ong-img_job" width="256" height="256"/>
         <image name="user_placeholder" width="25" height="25"/>
     </resources>
 </document>

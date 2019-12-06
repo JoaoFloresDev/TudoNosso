@@ -40,14 +40,23 @@ class CategoryOportunitiesViewController : UIViewController {
     //MARK: - SETUP
     func setupSearchBar() {
         jobsTableView.tableHeaderView = searchController.searchBar
+        
+        let colText = UITextField.appearance()
+        colText.textColor = .gray
+        
         searchController.dimsBackgroundDuringPresentation = false
         searchController.searchResultsUpdater = self
         searchController.obscuresBackgroundDuringPresentation = false
         searchController.searchBar.placeholder = "Buscar"
+        searchController.searchBar.searchTextField.backgroundColor = .white
         searchController.searchBar.tintColor = UIColor.black
-        searchController.searchBar.barTintColor = UIColor.white
-        searchController.searchBar.backgroundColor = UIColor.white
+        searchController.searchBar.barTintColor = UIColor(rgb: 0xFF5900, a: 1)
+        searchController.searchBar.backgroundColor = UIColor(rgb: 0xFF5900, a: 1)
         searchController.searchBar.alpha = 1
+        searchController.searchBar.setBackgroundImage(UIImage(named: "background Search"), for: UIBarPosition.top, barMetrics: UIBarMetrics.default)
+        searchController.searchBar.tintColor = .white
+        searchController.searchBar.isTranslucent = false
+        searchController.searchBar.backgroundColor = UIColor(rgb: 0xFF5900, a: 1)
         definesPresentationContext = true
     }
     
