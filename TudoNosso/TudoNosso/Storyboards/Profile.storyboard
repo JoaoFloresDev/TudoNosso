@@ -245,18 +245,7 @@
                         <viewLayoutGuide key="safeArea" id="n0i-jl-CD4"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Perfil" image="profile_icon" id="A6U-EV-Cgd"/>
-                    <navigationItem key="navigationItem" id="d4a-Eu-1Tj">
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="WcK-oB-rgf">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="JyP-hq-6gG">
-                                <rect key="frame" x="346" y="7" width="48" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Logout"/>
-                                <connections>
-                                    <action selector="logoutPressed:" destination="nET-7L-Osk" eventType="touchUpInside" id="Clv-rF-r4S"/>
-                                </connections>
-                            </button>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="d4a-Eu-1Tj"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="addJobLabelView" destination="act-Ja-oPs" id="VTH-Jn-Me2"/>
@@ -664,7 +653,8 @@
                         </connections>
                     </tableView>
                     <connections>
-                        <outlet property="aboutLabel" destination="4XQ-hN-Odw" id="Igy-47-fMr"/>
+                        <outlet property="aboutLabel" destination="4XQ-hN-Odw" id="jeH-UB-aEQ"/>
+                        <outlet property="aboutTitleLabel" destination="yY5-qD-dgU" id="Ant-P2-jy1"/>
                         <outlet property="addressLabel" destination="xUQ-hs-fui" id="4uC-Rw-3Bx"/>
                         <outlet property="areasCell" destination="6Z5-VR-t4B" id="QmO-FQ-AEF"/>
                         <outlet property="areasCollection" destination="qwx-Zd-h7C" id="xDm-Al-CkM"/>

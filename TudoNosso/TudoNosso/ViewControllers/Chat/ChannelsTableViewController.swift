@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ChannelsTableViewController: UITableViewController {
+class ChannelsTableViewController:  UITableViewController {
     //MARK: - Properties
     var channels: [Channel] = []{
         didSet{

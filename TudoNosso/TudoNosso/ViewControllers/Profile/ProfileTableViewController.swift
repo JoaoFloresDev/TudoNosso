@@ -14,10 +14,11 @@ class ProfileTableViewController : UITableViewController {
     @IBOutlet weak var phoneLabel: UILabel!
     @IBOutlet weak var addressLabel: UILabel!
     @IBOutlet weak var mailLabel: UILabel!
+    @IBOutlet weak var aboutLabel: UILabel!
     
     @IBOutlet weak var areasCollection: UICollectionView!
     
-    @IBOutlet weak var aboutLabel: UILabel!
+    @IBOutlet weak var aboutTitleLabel: UILabel!
     
     @IBOutlet weak var areasCell: UITableViewCell!
     
@@ -61,6 +62,7 @@ class ProfileTableViewController : UITableViewController {
     }
     
     func setupAboutCell(){
+        aboutTitleLabel.text = receivedData?.typeOfProfile?.aboutTitle
         aboutLabel.text = receivedData?.description
         aboutLabel.numberOfLines = 0
         aboutLabel.sizeToFit()
