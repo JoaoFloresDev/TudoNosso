@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CategoryOportunitiesViewController : UIViewController {
+class CategoryOportunitiesViewController : UIViewController,UISearchBarDelegate {
     
     //MARK: - OUTLETS
     @IBOutlet weak var jobsTableView: UITableView!
@@ -30,7 +30,7 @@ class CategoryOportunitiesViewController : UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTableView()
-        setupSearchBar()
+        setupSearchBar(searchBarDelegate: self, searchResultsUpdating: self, jobsTableView, searchController)
         setupJobsTableView()
         
         loadData()
@@ -38,27 +38,6 @@ class CategoryOportunitiesViewController : UIViewController {
     }
     
     //MARK: - SETUP
-    func setupSearchBar() {
-        jobsTableView.tableHeaderView = searchController.searchBar
-        
-        let colText = UITextField.appearance()
-        colText.textColor = .gray
-        
-        searchController.dimsBackgroundDuringPresentation = false
-        searchController.searchResultsUpdater = self
-        searchController.obscuresBackgroundDuringPresentation = false
-        searchController.searchBar.placeholder = "Buscar"
-        searchController.searchBar.searchTextField.backgroundColor = .white
-        searchController.searchBar.tintColor = UIColor.black
-        searchController.searchBar.barTintColor = UIColor(rgb: 0xFF5900, a: 1)
-        searchController.searchBar.backgroundColor = UIColor(rgb: 0xFF5900, a: 1)
-        searchController.searchBar.alpha = 1
-        searchController.searchBar.setBackgroundImage(UIImage(named: "background Search"), for: UIBarPosition.top, barMetrics: UIBarMetrics.default)
-        searchController.searchBar.tintColor = .white
-        searchController.searchBar.isTranslucent = false
-        searchController.searchBar.backgroundColor = UIColor(rgb: 0xFF5900, a: 1)
-        definesPresentationContext = true
-    }
     
     func setupJobsTableView() {
         jobsTableView.isHidden = false
@@ -117,14 +96,16 @@ class CategoryOportunitiesViewController : UIViewController {
     }
 }
 
-//MARK: - EXTENSION
-extension CategoryOportunitiesViewController : UITableViewDelegate { }
-
-extension CategoryOportunitiesViewController : UITableViewDataSource, UISearchResultsUpdating {
-    
-    func updateSearchResults(for searchController: UISearchController) {
-        filterJobs(for: searchController.searchBar.text ?? "")
+//MARK: - UITableViewDelegate
+extension CategoryOportunitiesViewController : UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let selectedJob = ongoingJobs[indexPath.row]
+        self.performSegue(withIdentifier: "showDetailJobSegue", sender: selectedJob)
     }
+    
+}
+// MARK: - UITableViewDataSource
+extension CategoryOportunitiesViewController : UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if searchController.isActive && searchController.searchBar.text != "" {
@@ -133,12 +114,6 @@ extension CategoryOportunitiesViewController : UITableViewDataSource, UISearchRe
             return ongoingJobs.count
         }
     }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let selectedJob = ongoingJobs[indexPath.row]
-        self.performSegue(withIdentifier: "showDetailJobSegue", sender: selectedJob)
-    }
-    
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -162,6 +137,13 @@ extension CategoryOportunitiesViewController : UITableViewDataSource, UISearchRe
         cell.selectionStyle = .none
         
         return cell
+    }
+}
+
+// MARK: - UISearchResultsUpdating
+extension CategoryOportunitiesViewController: UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        filterJobs(for: searchController.searchBar.text ?? "")
     }
 }
 

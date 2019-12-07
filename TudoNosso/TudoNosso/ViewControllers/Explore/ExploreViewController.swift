@@ -10,7 +10,7 @@ import UIKit
 import CoreLocation
 import SDWebImage
 
-class ExploreViewController: UIViewController {
+class ExploreViewController: BaseViewController {
     
     //MARK: OUTLETS
     @IBOutlet weak var jobsTableView: UITableView!
@@ -34,9 +34,7 @@ class ExploreViewController: UIViewController {
         queue.maxConcurrentOperationCount = 3
         return queue
     }
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .lightContent
-    }
+    
     //MARK: IBAction
     @IBAction func actionButtonLogin(_ sender: Any) {
         if let kind = Local.userKind{
@@ -52,9 +50,7 @@ class ExploreViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTableView()
-        if #available(iOS 13, *){
-            setupSearchBar()
-        }
+        setupSearchBar(searchBarDelegate: self, searchResultsUpdating: self, jobsTableView, searchController)
         setupJobsTableView()
         setupNavegationBar()
         //        loadData()
@@ -91,28 +87,6 @@ class ExploreViewController: UIViewController {
         navigationController?.navigationBar.backgroundColor = UIColor(rgb: 0xFF5900, a: 1)
         navigationController?.navigationBar.tintColor = UIColor(rgb: 0xFFFFFF, a: 1)
         navigationController?.navigationBar.barStyle = .black
-    }
-    
-    func setupSearchBar() {
-        jobsTableView.tableHeaderView = searchController.searchBar
-        
-        let colText = UITextField.appearance()
-        colText.textColor = .gray
-        
-        searchController.dimsBackgroundDuringPresentation = false
-        searchController.searchResultsUpdater = self
-        searchController.obscuresBackgroundDuringPresentation = false
-        searchController.searchBar.placeholder = "Buscar"
-        searchController.searchBar.searchTextField.backgroundColor = .white
-        searchController.searchBar.tintColor = UIColor.black
-        searchController.searchBar.barTintColor = UIColor(rgb: 0xFF5900, a: 1)
-        searchController.searchBar.backgroundColor = UIColor(rgb: 0xFF5900, a: 1)
-        searchController.searchBar.alpha = 1
-        searchController.searchBar.setBackgroundImage(UIImage(named: "background Search"), for: UIBarPosition.top, barMetrics: UIBarMetrics.default)
-        searchController.searchBar.tintColor = .white
-        searchController.searchBar.isTranslucent = false
-        searchController.searchBar.backgroundColor = UIColor(rgb: 0xFF5900, a: 1)
-        definesPresentationContext = true
     }
     
     func setupJobsTableView() {
@@ -176,13 +150,37 @@ class ExploreViewController: UIViewController {
     }
 }
 
-extension ExploreViewController :UITableViewDelegate, UITableViewDataSource, UISearchResultsUpdating {
+// MARK: - UISearchResultsUpdating
+extension ExploreViewController: UISearchResultsUpdating {
     
     func updateSearchResults(for searchController: UISearchController) {
         filterJobs(for: searchController.searchBar.text ?? "")
         filterOrganizations(for: searchController.searchBar.text ?? "")
     }
     
+    func isSearchControllerActiveAndNotEmpty() -> Bool {
+        return (searchController.isActive && searchController.searchBar.text != "")
+    }
+}
+
+// MARK: - UISearchBarDelegate
+extension ExploreViewController: UISearchBarDelegate {
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        //focus in
+        isDarkStatusBar = true
+    }
+}
+
+// MARK: - UITableViewDelegate
+extension ExploreViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView,  didSelectRowAt indexPath: IndexPath) {
+        let selectedJob = jobs[indexPath.row]
+        self.performSegue(withIdentifier: "showDetailSegue", sender: selectedJob)
+    }
+}
+
+// MARK: - UITableViewDataSource
+extension ExploreViewController: UITableViewDataSource  {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
 
         let myLabel = UILabel()
@@ -210,10 +208,9 @@ extension ExploreViewController :UITableViewDelegate, UITableViewDataSource, UIS
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if searchController.isActive && searchController.searchBar.text != "" {
+        if isSearchControllerActiveAndNotEmpty() {
             return filteredOngoingJobs.count
         }
-        
         if section < 2 {
             return 1
         } else {
@@ -221,31 +218,24 @@ extension ExploreViewController :UITableViewDelegate, UITableViewDataSource, UIS
         }
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let selectedJob = jobs[indexPath.row]
-        self.performSegue(withIdentifier: "showDetailSegue", sender: selectedJob)
-    }
-    
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        if searchController.isActive && searchController.searchBar.text != "" {
+        if isSearchControllerActiveAndNotEmpty() {
             return categories[2]
         }
-        
         return categories[section]
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        if searchController.isActive && searchController.searchBar.text != "" {
+        if isSearchControllerActiveAndNotEmpty() {
             return 1
         }
-        
         return categories.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         var typeCell = indexPath.section
         
-        if searchController.isActive && searchController.searchBar.text != "" {
+        if isSearchControllerActiveAndNotEmpty() {
             typeCell = 2
         }
         
@@ -269,26 +259,23 @@ extension ExploreViewController :UITableViewDelegate, UITableViewDataSource, UIS
                 fatalError("The dequeued cell is not an instance of JobsTableViewCell.")
             }
             
-            let jobList: Job
+            let job: Job
             
-            if searchController.isActive && searchController.searchBar.text != "" {
-                jobList = filteredOngoingJobs[indexPath.row]
+            if isSearchControllerActiveAndNotEmpty() {
+                job = filteredOngoingJobs[indexPath.row]
             } else {
-                jobList = jobs[indexPath.row]
+                job = jobs[indexPath.row]
             }
             
-            let ongDM = OrganizationDM()
-            
             let imageDownloadOperation = BlockOperation {
-                ongDM.find(ById: jobList.organizationID) { (ong, err) in
-                    guard let ong = ong else { return }
-                    
-                    if let avatar = ong.avatar {
-                        FileDM().recoverProfileImage(profilePic: avatar) { (image, error) in
-                            guard let image = image else {return}
-                            OperationQueue.main.addOperation {
-                                cell.jobImageView.image = image
-                            }
+                OrganizationDM().find(ById: job.organizationID) { (ong, err) in
+                    guard let ong = ong,
+                        let avatar = ong.avatar
+                        else { return }
+                    FileDM().recoverProfileImage(profilePic: avatar) { (image, error) in
+                        guard let image = image else {return}
+                        OperationQueue.main.addOperation {
+                            cell.jobImageView.image = image
                         }
                     }
                 }
@@ -296,7 +283,7 @@ extension ExploreViewController :UITableViewDelegate, UITableViewDataSource, UIS
             
             self.backgroundQueue.addOperation(imageDownloadOperation)
             
-            cell.configure(job: jobList)
+            cell.configure(job: job)
             cell.backgroundColor = .clear
             cell.selectionStyle = .none
             
@@ -306,10 +293,9 @@ extension ExploreViewController :UITableViewDelegate, UITableViewDataSource, UIS
             return UITableViewCell()
         }
     }
-    
-    //MARK: - ACTIONS
 }
 
+// MARK: - CategoryCollectionViewDelegate
 extension ExploreViewController: CategoryCollectionViewDelegate {
     func causeSelected(_ view: CategoryCollectionView, causeTitle: String?, OrganizationEmail: String?,tagCollection: Int) {
         
@@ -317,13 +303,11 @@ extension ExploreViewController: CategoryCollectionViewDelegate {
             if let title = causeTitle {
                 self.selectedCause = title
             }
-            
             self.performSegue(withIdentifier: "showCauses", sender: self)
         } else {
             if let title = OrganizationEmail {
                 self.selectedOrganization = title
             }
-            
             self.performSegue(withIdentifier: "showProfile", sender: self)
         }
     }

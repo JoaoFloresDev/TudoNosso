@@ -21,6 +21,7 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var editLabelView: UIView!
     @IBOutlet weak var buttonView: UIView!
     
+    @IBOutlet weak var loggoutButton: UIBarButtonItem!
     @IBOutlet weak var profileContainerView: UIView!
     @IBOutlet weak var jobsContainerView: UIView!
     
@@ -106,7 +107,7 @@ class ProfileViewController: UIViewController {
             //TODO changes according to type of profile
             self.addJobLabelView.isHidden = typeOfProfile?.isAddJobButtonHidden ?? true
             self.buttonView.isHidden = typeOfProfile?.isAddJobButtonHidden ?? true
-            
+        
             self.segmentedControl.setTitle(typeOfProfile?.segmentedControlTitle ?? "", forSegmentAt: 0)
             self.segmentedControl.isHidden = typeOfProfile?.isSegmentedControlHidden ?? false
             if typeOfProfile?.isSegmentedControlHidden ?? false {
@@ -115,11 +116,19 @@ class ProfileViewController: UIViewController {
                 
                 self.addJobLabelView.isHidden = true
                 self.editLabelView.isHidden = !isMyProfile
+               
             }
             
         }
     }
-    var isMyProfile = false
+    var isMyProfile = false{
+        didSet{
+            if isMyProfile{
+                let loggout = UIBarButtonItem(title: "Sair", style: .plain, target: self, action: Selector(("logout")))
+                self.navigationItem.rightBarButtonItem = loggout
+            }
+        }
+    }
     
     //MARK: - LIFECYCLE
     override func viewDidLoad() {
@@ -134,6 +143,7 @@ class ProfileViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
     }
     
     //MARK: - METHODS
@@ -298,14 +308,13 @@ class ProfileViewController: UIViewController {
         }
     }
     
-    @IBAction func logoutPressed(_ sender: Any) {
-        
+    @objc func logout(){
         do {
             try Auth.auth().signOut()
         } catch {
             print("erro ao deslogar")
         }
-
+        
         let defaults = UserDefaults.standard
         defaults.removeObject(forKey: "USER_MAIL")
         defaults.removeObject(forKey: "USER_KIND")
