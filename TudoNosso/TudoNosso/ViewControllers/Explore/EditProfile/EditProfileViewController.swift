@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Photos
 import Foundation
 import Firebase
 import Photos
