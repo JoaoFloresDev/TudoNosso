@@ -34,12 +34,13 @@ class EditProfileViewController: UIViewController, UINavigationControllerDelegat
     var descriptionText = ""
     var facebook = ""
     var webSite = ""
+    var inEditing = true
     
     //MARK: - LIFECYCLE
     override func viewDidLoad() {
         super.viewDidLoad()
         loadDataText()
-        
+        setupPlaceHolders()
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
         view.addGestureRecognizer(tap)
         
@@ -48,6 +49,17 @@ class EditProfileViewController: UIViewController, UINavigationControllerDelegat
     }
     
     //MARK: - METHODS
+    
+    func setupPlaceHolders() {
+        if let userType = Local.userKind {
+            if (userType == LoginKinds.ONG.rawValue) {
+                nameTextBox.placeholder = "Digite o nome da organização"
+            } else {
+                nameTextBox.placeholder = "Digite seu nome"
+            }
+        }
+    }
+
     fileprivate func delegateDefine() {
         nameTextBox.delegate = self
         endressTextBox.delegate = self
@@ -86,10 +98,13 @@ class EditProfileViewController: UIViewController, UINavigationControllerDelegat
     }
     
     //MARK: - ALERT
-    func showAlert(msg: String, field:UITextField) {
-        let alertController = UIAlertController(title: "Preenchimento incorreto", message: msg, preferredStyle: .alert)
+    func showAlert(title: String, msg: String, field:UITextField) {
+        let alertController = UIAlertController(title: title, message: msg, preferredStyle: .alert)
         let okAction = UIAlertAction(title: "OK", style: .default) { (act) in
             field.becomeFirstResponder()
+            if(!self.inEditing) {
+                self.dismiss(animated: true)
+            }
         }
         alertController.addAction(okAction)
         present(alertController,animated: true)
@@ -154,19 +169,20 @@ class EditProfileViewController: UIViewController, UINavigationControllerDelegat
     
     @IBAction func registerAction(_ sender: Any) {
         if nameTextBox.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" {
-            showAlert(msg: "Campo Nome precisa ser preenchido", field: nameTextBox)
+            showAlert(title: "Preenchimento incorreto", msg: "Campo Nome precisa ser preenchido", field: nameTextBox)
         } else if (endressTextBox.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "") {
-            showAlert(msg: "Campo Endereço precisa ser preenchido", field: endressTextBox)
+            showAlert(title: "Preenchimento incorreto", msg: "Campo Endereço precisa ser preenchido", field: endressTextBox)
         } else {
             let refreshAlert = UIAlertController(title: "Deseja finalizar cadastro?", message: "", preferredStyle: UIAlertController.Style.alert)
             
             refreshAlert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action: UIAlertAction!) in
-                print("atualizar dados")
                 self.updateData()
+                self.inEditing = false
+                self.showAlert(title: "Dados atualizados", msg: "", field: self.endressTextBox)
             }))
             
             refreshAlert.addAction(UIAlertAction(title: "Cancelar", style: .cancel, handler: { (action: UIAlertAction!) in
-                print("Cancel cadastro")
+                print("Cancelar cadastro")
             }))
             
             present(refreshAlert, animated: true, completion: nil)

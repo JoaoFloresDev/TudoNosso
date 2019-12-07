@@ -41,7 +41,7 @@ class ExploreViewController: BaseViewController {
             if(kind == LoginKinds.ONG.rawValue) {
                 self.performSegue(withIdentifier: "ShowAddJob", sender: self)
             }
-        }else{
+        } else {
             self.performSegue(withIdentifier: "showLogin", sender: self)
         }
     }
@@ -185,7 +185,6 @@ extension ExploreViewController: UITableViewDataSource  {
 
         let myLabel = UILabel()
         
-        print("section: \(section)")
         if (section == 0) {
             myLabel.frame = CGRect(x: 10, y: 20, width: 320, height: 40)
             myLabel.font = UIFont(name:"Nunito-Bold", size: 18.0)
