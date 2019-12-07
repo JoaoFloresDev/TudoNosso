@@ -41,10 +41,14 @@ class EditProfileViewController: UIViewController, UINavigationControllerDelegat
         super.viewDidLoad()
         loadDataText()
         setupPlaceHolders()
+        
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
         view.addGestureRecognizer(tap)
         
+        phoneTextField.keyboardType = UIKeyboardType.numberPad
+        
         delegateDefine()
+        
         KeyboardAvoiding.avoidingView = self.constrainTextBox
     }
     
@@ -59,7 +63,7 @@ class EditProfileViewController: UIViewController, UINavigationControllerDelegat
             }
         }
     }
-
+    
     fileprivate func delegateDefine() {
         nameTextBox.delegate = self
         endressTextBox.delegate = self

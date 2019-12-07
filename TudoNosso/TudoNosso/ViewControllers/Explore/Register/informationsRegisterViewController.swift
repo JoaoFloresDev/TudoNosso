@@ -43,8 +43,9 @@ class informationsRegisterViewController: UIViewController, UINavigationControll
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
         view.addGestureRecognizer(tap)
         
-    delegateDefine()
+        delegateDefine()
         
+        phoneTextField.keyboardType = UIKeyboardType.numberPad
         KeyboardAvoiding.avoidingView = self.constrainTextBox
     }
     
@@ -104,7 +105,7 @@ class informationsRegisterViewController: UIViewController, UINavigationControll
         present(alertController,animated: true)
     }
     
-//MARK: - KEYBOARD
+    //MARK: - KEYBOARD
     @objc func dismissKeyboard() {
         view.endEditing(true)
     }
@@ -159,7 +160,7 @@ class informationsRegisterViewController: UIViewController, UINavigationControll
         super.didReceiveMemoryWarning()
     }
     
-//MARK: - SEGUES
+    //MARK: - SEGUES
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.destination is ConfirmRegisterViewController {
             let vc = segue.destination as? ConfirmRegisterViewController

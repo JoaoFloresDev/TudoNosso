@@ -62,7 +62,6 @@
 		C40A2EB323704EB200DB87BB /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C40A2EB223704EB200DB87BB /* Profile.storyboard */; };
 		C40A2EB523704EC700DB87BB /* Job.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C40A2EB423704EC700DB87BB /* Job.storyboard */; };
 		C40E1FE523843EF800F3E5F7 /* FileDM.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40E1FE423843EF800F3E5F7 /* FileDM.swift */; };
-		C422673223705786000A6DA3 /* NotificationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C422673123705786000A6DA3 /* NotificationsViewController.swift */; };
 		C4226734237057A3000A6DA3 /* ExploreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4226733237057A3000A6DA3 /* ExploreViewController.swift */; };
 		C4226736237057B1000A6DA3 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4226735237057B1000A6DA3 /* ProfileViewController.swift */; };
 		C4226738237057C1000A6DA3 /* JobViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4226737237057C1000A6DA3 /* JobViewController.swift */; };
@@ -188,7 +187,6 @@
 		C40A2EB223704EB200DB87BB /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		C40A2EB423704EC700DB87BB /* Job.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Job.storyboard; sourceTree = "<group>"; };
 		C40E1FE423843EF800F3E5F7 /* FileDM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileDM.swift; sourceTree = "<group>"; };
-		C422673123705786000A6DA3 /* NotificationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsViewController.swift; sourceTree = "<group>"; };
 		C4226733237057A3000A6DA3 /* ExploreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreViewController.swift; sourceTree = "<group>"; };
 		C4226735237057B1000A6DA3 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		C4226737237057C1000A6DA3 /* JobViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobViewController.swift; sourceTree = "<group>"; };
@@ -475,7 +473,6 @@
 				560C306D23887365004BD536 /* Chat */,
 				560C305923875C58004BD536 /* Job */,
 				C46E72982375C06300D57BB9 /* Profile */,
-				C46E72972375C04E00D57BB9 /* Notifications */,
 				C46E72932375B06900D57BB9 /* Explore */,
 				C40A2E7B23704BA500DB87BB /* ViewController.swift */,
 			);
@@ -522,14 +519,6 @@
 				5673810723742F1B00F1B6C5 /* LoginViewController.swift */,
 			);
 			path = Login;
-			sourceTree = "<group>";
-		};
-		C46E72972375C04E00D57BB9 /* Notifications */ = {
-			isa = PBXGroup;
-			children = (
-				C422673123705786000A6DA3 /* NotificationsViewController.swift */,
-			);
-			path = Notifications;
 			sourceTree = "<group>";
 		};
 		C46E72982375C06300D57BB9 /* Profile */ = {
@@ -916,7 +905,6 @@
 				C4226734237057A3000A6DA3 /* ExploreViewController.swift in Sources */,
 				567284D7238330E000DF4EA5 /* DictionaryInterpreter.swift in Sources */,
 				D7C013A2237C4E87001CDD36 /* KeyboardAvoiding.swift in Sources */,
-				C422673223705786000A6DA3 /* NotificationsViewController.swift in Sources */,
 				D75A3F27238EB3940075FD94 /* AddJobTableViewController.swift in Sources */,
 				C430DBB12386D70B007B800A /* JobsDataSource.swift in Sources */,
 				D7B8229A2386A2B80017F306 /* Local.swift in Sources */,
