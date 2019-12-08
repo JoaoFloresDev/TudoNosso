@@ -22,10 +22,14 @@ class LoginViewController: UIViewController, UINavigationControllerDelegate, UII
     @IBOutlet weak var textButtonLogin: UILabel!
     @IBOutlet weak var textButtonRegister: UILabel!
     @IBOutlet weak var textButtonExplore: UIButton!
+    @IBOutlet weak var loadIcon: UIActivityIndicatorView!
+    @IBOutlet weak var loginButton: UIButton!
     
     //MARK: - LIFECYCLE
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        loadIcon.alpha = 0
         
         KeyboardAvoiding.avoidingView = self.constrainTextBox
         let colText = UITextField.appearance()
@@ -77,11 +81,17 @@ class LoginViewController: UIViewController, UINavigationControllerDelegate, UII
         } else if passwordTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" {
             showAlert(msg: "Campo senha precisa ser preenchido", field: passwordTextField)
         } else {
+            loadIcon.alpha = 1
+            loginButton.alpha = 0.5
             guard let email = emailTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines),
                 let password = passwordTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines)  else {return}
             LoginDM().signIn(email: email, pass: password) { (dictionary, error) in
                 if let error = error {
                     print(error.localizedDescription)
+                    
+                    self.showAlert(msg: "senha ou e-mail incorreta", field: self.passwordTextField)
+                    self.loadIcon.alpha = 0
+                    self.loginButton.alpha = 1
                 } else if let dictionary = dictionary as NSDictionary?  {
                     if let ong = Organization(snapshot: dictionary){
                         Local.userMail = ong.email
