@@ -23,9 +23,18 @@ class JobDM: GenericsDM {
                 }
             }
         }else {//save new
-            let doc = db.collection(TABLENAME).document()
-            job.id = doc.documentID
-            doc.setData(job.representation)
+            let channel = Channel(name: job.title, between: [job.organizationID], betweenKinds: ["ong"])
+            let channelDM = ChannelDM()
+            
+            channelDM.save(channel: channel) { (channel) in
+                let doc = self.db.collection(self.TABLENAME).document()
+                job.id = doc.documentID
+                
+                guard let channelID = channel.id else { return }
+                job.channelID = channelID
+                
+                doc.setData(job.representation)
+            }
         }
     }
     
