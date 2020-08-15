@@ -8,7 +8,13 @@
 
 import Foundation
 
-/// The class that use this protocol will need to inform a how it is described in the database
+/// The class that use this protocol will need to inform a how it is described in the database 
 protocol DatabaseRepresentation {
-  var representation: [String: Any] { get }
+    
+    
+    var representation: [String: Any] { get }
+
+    
 }
+
+
